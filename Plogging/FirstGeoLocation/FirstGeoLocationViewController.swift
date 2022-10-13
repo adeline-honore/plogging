@@ -41,6 +41,7 @@ class FirstGeoLocationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didTapYesButton() {
+        firstGeoLocationView.searchTextField.text = firstGeoLocationView.suggestionLabel.text
         saveUserEntryLocation()
     }
     

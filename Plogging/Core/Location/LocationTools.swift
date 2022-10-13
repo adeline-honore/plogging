@@ -55,7 +55,7 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     }
     
     func showSuggestion(_ placeSuggested: String) -> String {
-        return placeSuggested
+        placeSuggested
     }
 }
 
