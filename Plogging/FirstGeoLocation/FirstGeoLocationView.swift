@@ -8,12 +8,10 @@
 import UIKit
 
 class FirstGeoLocationView: UIView {
-
-    @IBOutlet weak var searchTextField: UITextField!
     
     @IBOutlet weak var geoLocationButton: UIButton!
     
-    @IBOutlet weak var saveLocationButton: UIButton!
-
-    @IBOutlet weak var suggestionLabel: UILabel!
+    @IBOutlet weak var saveLocationButton: UIButton!    
+    
+    @IBOutlet weak var locationSearchBar: UISearchBar!
 }

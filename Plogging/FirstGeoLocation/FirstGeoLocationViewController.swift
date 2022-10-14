@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import MapKit
 
-class FirstGeoLocationViewController: UIViewController, UITextFieldDelegate {
+class FirstGeoLocationViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -15,7 +16,8 @@ class FirstGeoLocationViewController: UIViewController, UITextFieldDelegate {
     
     private var locationTools = LocationTools.shared
     
-    
+    @IBOutlet weak var searchResultsTableView: UITableView!
+    var searchCompleter = MKLocalSearchCompleter()
     private let segueToMap = "segueToMap"
     
     // MARK: - Life cycle
@@ -24,35 +26,12 @@ class FirstGeoLocationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         firstGeoLocationView = view as? FirstGeoLocationView
         configureView()
-        firstGeoLocationView.searchTextField.delegate = self
+        searchCompleter.delegate = self
+        searchResultsTableView.isHidden = true
     }
     
     private func configureView() {
         firstGeoLocationView.saveLocationButton = firstGeoLocationView.saveLocationButton.configureOkButton(title: "Save", frame: CGRect(x: 0, y: 0, width: firstGeoLocationView.frame.width - 100, height: (firstGeoLocationView.frame.width - 100) * 0.2), target: self)
-    }
-    
-    
-    // MARK: - Location from textField
-
-    @IBAction func didEditingChangedTextField(_ sender: UITextField) {
-        locationTools.textFieldDidChange(textField: sender)
-        
-        firstGeoLocationView.suggestionLabel.text = locationTools.suggestion
-    }
-    
-    @IBAction func didTapYesButton() {
-        firstGeoLocationView.searchTextField.text = firstGeoLocationView.suggestionLabel.text
-        saveUserEntryLocation()
-    }
-    
-    private func saveUserEntryLocation() {
-        // TODO : mettre dans userDefaults et sauvegarder ailleurs
-        
-        userAlert(element: .locationSaved)
-    }
-    
-    private func showSuggestion(_ suggestion: String) {
-        firstGeoLocationView.suggestionLabel.text = suggestion
     }
     
     
@@ -71,5 +50,66 @@ class FirstGeoLocationViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == segueToMap {
             let vc = segue.destination as! UITabBarController
         }
+    }
+}
+
+
+
+extension FirstGeoLocationViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchResultsTableView.isHidden = false
+        searchCompleter.queryFragment = searchText
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchResultsTableView.isHidden = true
+    }
+}
+
+
+extension FirstGeoLocationViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return locationTools.searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let searchResult = LocationTools.shared.searchResults[indexPath.row]
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        cell.textLabel?.text = searchResult.title
+        cell.detailTextLabel?.text = searchResult.subtitle
+        return cell
+    }
+}
+
+extension FirstGeoLocationViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let completion = locationTools.searchResults[indexPath.row]
+        
+        locationTools.getCoordinateFromLocalSearchCompletion(completion: completion)
+        
+        firstGeoLocationView.locationSearchBar.text = completion.title
+        searchResultsTableView.isHidden = true
+    }
+}
+
+extension FirstGeoLocationViewController: MKLocalSearchCompleterDelegate {
+
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        locationTools.searchResults = completer.results
+        searchResultsTableView.reloadData()
+
+    }
+
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        // handle error
     }
 }

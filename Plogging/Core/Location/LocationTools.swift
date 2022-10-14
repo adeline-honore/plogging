@@ -11,111 +11,26 @@ import CoreLocation
 
 class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     
+    // MARK: - Properties
+    
     static var shared = LocationTools()
     
     let locationManager = CLLocationManager()
     
     var currentPlace: CLPlacemark?
     
-    let autoCompletion = MKLocalSearchCompleter()
+    var searchResults: [MKLocalSearchCompletion] = []
     
-    var suggestion: String?
-    
-    override init() {
-        super .init()
-        autoCompletion.delegate = self
-        locationManager.delegate = self
-    }
-    
-    
-    func textFieldDidChange(textField: UITextField) {
+    var placeCoordinate: CLLocationCoordinate2D?
         
-        guard let query = textField.text else {
-            
-            if autoCompletion.isSearching {
-                autoCompletion.cancel()
-            }
-            return
-        }
-        autoCompletion.queryFragment = query
-    }
     
-    func attemptLocationAccess() {
-        guard CLLocationManager.locationServicesEnabled() else {
-          return
-        }
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-          locationManager.requestWhenInUseAuthorization()
-        } else {
-          locationManager.requestLocation()
-        }
-
-    }
+    // MARK: - Methods
     
-    func showSuggestion(_ placeSuggested: String) -> String {
-        placeSuggested
-    }
-}
-
-
-// MARK: - MKLocalSearchCompleterDelegate
-
-extension LocationTools: MKLocalSearchCompleterDelegate {
-    
-    
-    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        guard let firstResult = completer.results.first else {
-            return
-        }
-        
-        suggestion = showSuggestion(firstResult.title)
-    }
-    
-    func completer(
-        _ completer: MKLocalSearchCompleter,
-        didFailWithError error: Error
-    ) {
-        print("Error suggesting a location: \(error.localizedDescription)")
-    }
-}
-
-
-// MARK: - CLLocationManagerDelegate
-
-extension LocationTools {
-    func locationManager(
-        _ manager: CLLocationManager,
-        didChangeAuthorization status: CLAuthorizationStatus
-    ) {
-        // 1
-        guard status == .authorizedWhenInUse else {
-            return
-        }
-        manager.requestLocation()
-    }
-    
-    func locationManager(
-        _ manager: CLLocationManager,
-        didUpdateLocations locations: [CLLocation]
-    ) {
-        guard let firstLocation = locations.first else {
-            return
-        }
-        
-        // TODO: Configure MKLocalSearchCompleter here...
-        
-        
-        CLGeocoder().reverseGeocodeLocation(firstLocation) { places, _ in
-            
-            guard
-                let firstPlace = places?.first
-            else {
-                return
-            }
-            
-            self.currentPlace = firstPlace
+    func getCoordinateFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
+            let searchRequest = MKLocalSearch.Request(completion: completion)
+            let search = MKLocalSearch(request: searchRequest)
+            search.start { (response, error) in
+                self.placeCoordinate = response?.mapItems[0].placemark.coordinate
         }
     }
 }
