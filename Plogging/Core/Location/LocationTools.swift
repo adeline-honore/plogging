@@ -80,7 +80,19 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
         didUpdateLocations locations: [CLLocation]
     ) {
         
-        placeCoordinate = locations.first?.coordinate
+        guard let firstLocation = locations.first else { return }
+        
+        placeCoordinate = firstLocation.coordinate
+        
+        CLGeocoder().reverseGeocodeLocation(firstLocation) { places, _ in
+            
+            guard
+              let firstPlace = places?.first
+              else {
+                return
+            }
+            self.placemark = firstPlace
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
