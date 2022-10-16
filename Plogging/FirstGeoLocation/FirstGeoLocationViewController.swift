@@ -98,7 +98,7 @@ extension FirstGeoLocationViewController: UITableViewDelegate {
         
         let completion = locationTools.searchResults[indexPath.row]
         
-        locationTools.getCoordinateFromLocalSearchCompletion(completion: completion)
+        locationTools.getLocationFromLocalSearchCompletion(completion: completion)
         
         firstGeoLocationView.locationSearchBar.text = completion.title
         searchResultsTableView.isHidden = true

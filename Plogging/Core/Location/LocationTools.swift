@@ -17,7 +17,7 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     
-    var currentPlace: CLPlacemark?
+    var placemark: CLPlacemark?
     
     var searchResults: [MKLocalSearchCompletion] = []
     
@@ -32,13 +32,15 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     }
     
     
-    // MARK: - Coordinates from Local search completion
+    // MARK: - Location from Local search completion
     
-    func getCoordinateFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
+    func getLocationFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
         let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
             self.placeCoordinate = response?.mapItems[0].placemark.coordinate
+            
+            self.placemark = response?.mapItems[0].placemark
         }
     }
     
