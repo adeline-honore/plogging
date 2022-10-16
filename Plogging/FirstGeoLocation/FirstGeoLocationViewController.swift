@@ -37,6 +37,10 @@ class FirstGeoLocationViewController: UIViewController {
     
     // MARK: - Lcation from GeoLocation
     
+    @IBAction func didTapGeoLocationButton() {
+        locationTools.getUserGeoLocation()
+    }
+    
     
     // MARK: - Save location
     

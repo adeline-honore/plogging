@@ -105,6 +105,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Geo location me ?"/>
+                                <connections>
+                                    <action selector="didTapGeoLocationButton" destination="aYQ-Co-7Ed" eventType="touchUpInside" id="5h1-Ig-vMw"/>
+                                </connections>
                             </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mKl-5p-nZ3">
                                 <rect key="frame" x="20" y="134" width="374" height="44"/>
