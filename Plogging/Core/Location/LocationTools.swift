@@ -22,22 +22,23 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     var searchResults: [MKLocalSearchCompletion] = []
     
     var placeCoordinate: CLLocationCoordinate2D?
-        
     
-    // MARK: -
+    
+    // MARK: - Init
     
     override init() {
         super .init()
         locationManager.delegate = self
     }
     
+    
     // MARK: - Coordinates from Local search completion
     
     func getCoordinateFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
-            let searchRequest = MKLocalSearch.Request(completion: completion)
-            let search = MKLocalSearch(request: searchRequest)
-            search.start { (response, error) in
-                self.placeCoordinate = response?.mapItems[0].placemark.coordinate
+        let searchRequest = MKLocalSearch.Request(completion: completion)
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            self.placeCoordinate = response?.mapItems[0].placemark.coordinate
         }
     }
     
@@ -63,18 +64,20 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     
     func locationManager(
         _ manager: CLLocationManager,
-        didChangeAuthorization status: CLAuthorizationStatus) {
+        didChangeAuthorization status: CLAuthorizationStatus
+    ) {
         
         guard status == .authorizedWhenInUse else {
             return
         }
         manager.requestLocation()
     }
-
+    
     func locationManager(
-      _ manager: CLLocationManager,
-      didUpdateLocations locations: [CLLocation]) {
-                
+        _ manager: CLLocationManager,
+        didUpdateLocations locations: [CLLocation]
+    ) {
+        
         placeCoordinate = locations.first?.coordinate
     }
     
