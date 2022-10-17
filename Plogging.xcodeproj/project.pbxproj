@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E3821AE28FD54C100F39184 /* Extension+MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */; };
+		6E3821B028FD566B00F39184 /* PloggingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AF28FD566A00F39184 /* PloggingModel.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
 		6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B128E8D8B000450FE4 /* AppDelegate.swift */; };
 		6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MKMapView.swift"; sourceTree = "<group>"; };
+		6E3821AF28FD566A00F39184 /* PloggingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingModel.swift; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED589B128E8D8B000450FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		6ED589E928E8DD1B00450FE4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E3821AF28FD566A00F39184 /* PloggingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				6EECBFC028F2F4C900FAE3FE /* Extension+UIViewController.swift in Sources */,
 				6ED589FC28E9015F00450FE4 /* Extension+UIButton.swift in Sources */,
 				6ED589F228E8ECFF00450FE4 /* PresentationView.swift in Sources */,
+				6E3821B028FD566B00F39184 /* PloggingModel.swift in Sources */,
 				6EECBFBE28F2F3AE00FAE3FE /* AlertType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
