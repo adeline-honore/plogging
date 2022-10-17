@@ -23,6 +23,11 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     
     var placeCoordinate: CLLocationCoordinate2D?
     
+    let initialLocation = CLLocation(latitude: 47.6162601, longitude: -2.6565199)
+
+    //var region: MKCoordinateRegion?
+    let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
+    
     
     // MARK: - Init
     

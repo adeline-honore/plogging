@@ -175,13 +175,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UuT-mh-KO3">
-                                <rect key="frame" x="104" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UuT-mh-KO3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dRB-fb-SEf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UuT-mh-KO3" firstAttribute="trailing" secondItem="dRB-fb-SEf" secondAttribute="trailing" id="RMv-8c-JSt"/>
+                            <constraint firstItem="UuT-mh-KO3" firstAttribute="leading" secondItem="dRB-fb-SEf" secondAttribute="leading" id="SJ0-w7-G1K"/>
+                            <constraint firstItem="UuT-mh-KO3" firstAttribute="bottom" secondItem="dRB-fb-SEf" secondAttribute="bottom" id="XJg-Sd-03C"/>
+                            <constraint firstItem="UuT-mh-KO3" firstAttribute="top" secondItem="dRB-fb-SEf" secondAttribute="top" id="ejY-cT-HVt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cfg-A1-9lB"/>
                     <connections>
@@ -192,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSk-IY-h4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3755" y="-954"/>
+            <point key="canvasLocation" x="3753.6231884057975" y="-954.24107142857133"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="v6d-Um-zcG">

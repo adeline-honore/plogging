@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E3821AE28FD54C100F39184 /* Extension+MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
 		6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B128E8D8B000450FE4 /* AppDelegate.swift */; };
 		6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MKMapView.swift"; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED589B128E8D8B000450FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E3821AC28FD545F00F39184 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */,
+				6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		6ED589A528E8D8B000450FE4 = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +148,7 @@
 				6EECBFB928F2EEBE00FAE3FE /* Location */,
 				6ED589E928E8DD1B00450FE4 /* Model */,
 				6EECBFBC28F2F36500FAE3FE /* UserAlert */,
-				6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */,
+				6E3821AC28FD545F00F39184 /* Extension */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -370,6 +381,7 @@
 				6ED589F428E8EE3200450FE4 /* FirstGeoLocationViewController.swift in Sources */,
 				6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */,
 				6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */,
+				6E3821AE28FD54C100F39184 /* Extension+MKMapView.swift in Sources */,
 				6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */,
 				6ED589F628E8EE7100450FE4 /* FirstGeoLocationView.swift in Sources */,
 				6EECBFC028F2F4C900FAE3FE /* Extension+UIViewController.swift in Sources */,
