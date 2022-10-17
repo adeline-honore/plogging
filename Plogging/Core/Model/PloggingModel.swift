@@ -14,7 +14,7 @@ struct PloggingModel {
     let admin: String
     
     let date: Date
-    let hour: Double
+    let hour: Date
     
     let place: MKMapItem
     let coordinate: CLLocationCoordinate2D
