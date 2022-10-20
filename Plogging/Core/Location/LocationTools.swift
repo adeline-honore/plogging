@@ -27,6 +27,7 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     //var region: MKCoordinateRegion?
     let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
     
+    var ploggingModels: [PloggingModel] = []
     var ploggingAnnotations: [PloggingAnnotation] = []
     
     
@@ -120,9 +121,9 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
         do {
             let ploggingResult = try transformToPloggingsModel(data: ploggingData)
             
-            let ploggingModel = ploggingResult.datas.map { $0.self}
+            ploggingModels = ploggingResult.datas.map { $0.self}
             
-            ploggingAnnotations = createAnnotationFromPloggingModels(model: ploggingModel)
+            ploggingAnnotations = createAnnotationFromPloggingModels(model: ploggingModels)
             
             return
         } catch {
@@ -147,7 +148,7 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     // MARK: - Create annotation from PloggingModel item
     
     func createAnnotationFromPloggingModel(model: PloggingModel) -> PloggingAnnotation {
-        let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: "admin: \(model.admin)", type: "type")
+        let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: model.id)
         
         if CLLocationCoordinate2DIsValid(annotation.coordinate) {
             return annotation
@@ -165,7 +166,7 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     func createAnnotationFromPloggingModels(model: [PloggingModel]) -> [PloggingAnnotation] {
         
         model.forEach{ model in
-            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: "admin: \(model.admin)", type: "type")
+            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: model.id)
             
             if CLLocationCoordinate2DIsValid(annotation.coordinate) {
                 ploggingAnnotations.append(annotation)

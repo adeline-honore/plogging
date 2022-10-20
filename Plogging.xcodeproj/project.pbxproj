@@ -12,6 +12,7 @@
 		6E3821B228FD57C800F39184 /* PloggingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */; };
 		6E3821D428FD789900F39184 /* OkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821D328FD789900F39184 /* OkButton.swift */; };
 		6E48FC582901DE8300757AA9 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */; };
+		6E48FC5B2901E3F700757AA9 /* PloggingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48FC5A2901E3F700757AA9 /* PloggingDetailsViewController.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
 		6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* SomeDataz.json */; };
 		6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B128E8D8B000450FE4 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingAnnotation.swift; sourceTree = "<group>"; };
 		6E3821D328FD789900F39184 /* OkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkButton.swift; sourceTree = "<group>"; };
 		6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		6E48FC5A2901E3F700757AA9 /* PloggingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailsViewController.swift; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6EBFB9D72901251C00E1741A /* SomeDataz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SomeDataz.json; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		6E48FC592901E3BF00757AA9 /* PloggingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6E48FC5A2901E3F700757AA9 /* PloggingDetailsViewController.swift */,
+			);
+			path = PloggingDetails;
+			sourceTree = "<group>";
+		};
 		6ED589A528E8D8B000450FE4 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 				6ED589E428E8D92F00450FE4 /* Core */,
 				6ED589EE28E8E8D700450FE4 /* FirstGeoLocation */,
 				6ED589E728E8D97000450FE4 /* Map */,
+				6E48FC592901E3BF00757AA9 /* PloggingDetails */,
 				6ED589ED28E8E87900450FE4 /* Presentation */,
 				6ED589EB28E8E06600450FE4 /* Races */,
 				6ED589E828E8D9EC00450FE4 /* View */,
@@ -388,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E48FC5B2901E3F700757AA9 /* PloggingDetailsViewController.swift in Sources */,
 				6ED589F028E8ECB400450FE4 /* PresentationViewController.swift in Sources */,
 				6ED589BC28E8D8B000450FE4 /* Plogging.xcdatamodeld in Sources */,
 				6EECBFBB28F2EEEA00FAE3FE /* LocationTools.swift in Sources */,

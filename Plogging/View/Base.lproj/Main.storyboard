@@ -188,7 +188,7 @@
                     <navigationItem key="navigationItem" id="cfg-A1-9lB"/>
                     <connections>
                         <outlet property="mapView" destination="UuT-mh-KO3" id="Rcb-ua-3TB"/>
-                        <segue destination="cjp-X3-h0i" kind="show" id="xPl-ih-Rc6"/>
+                        <segue destination="cjp-X3-h0i" kind="show" identifier="fromMapToPlogging" id="xPl-ih-Rc6"/>
                         <segue destination="mHZ-Vc-rgi" kind="show" identifier="fromMapToCreatePlogging" id="CDe-xZ-W2L"/>
                     </connections>
                 </viewController>
@@ -281,10 +281,10 @@
             </objects>
             <point key="canvasLocation" x="4016" y="1019"/>
         </scene>
-        <!--View Controller-->
+        <!--Plogging Details View Controller-->
         <scene sceneID="Z9l-X1-Ugm">
             <objects>
-                <viewController id="cjp-X3-h0i" sceneMemberID="viewController">
+                <viewController id="cjp-X3-h0i" customClass="PloggingDetailsViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ax2-qd-Vfy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
