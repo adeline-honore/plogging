@@ -27,6 +27,8 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     //var region: MKCoordinateRegion?
     let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
     
+    var ploggings: [PloggingAnnotation] = []
+    
     
     // MARK: - Init
     
@@ -101,5 +103,45 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
+    }
+    
+    // MARK: - Load PloggingModel datas
+    
+    func loadPloggingModelData() {
+        
+        guard
+            let fileName = Bundle.main.url(forResource: "SomeDataz", withExtension: "json"),
+            let ploggingData = try? Data(contentsOf: fileName)
+        else {
+            print("***** Failed to decode SomeDataz file from bundle.")
+            return
+        }
+        
+        do {
+            let onePlo: PloggingModel = try JSONDecoder().decode(PloggingModel.self, from: ploggingData)
+            
+            ploggings.append(createAnnotationFromPloggingModel(model: onePlo))
+            
+            return
+        } catch {
+            print("***** Could not decode SomeDataz in the project")
+            return
+        }
+    }
+    
+    
+    // MARK: - Create annotation from PloggingModel item
+    
+    func createAnnotationFromPloggingModel(model: PloggingModel) -> PloggingAnnotation {
+        let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: "admin: \(model.admin)", type: "type")
+        
+        if CLLocationCoordinate2DIsValid(annotation.coordinate) {
+            return annotation
+        } else {
+            print("*****  CLLocationCoordinate2D is not valid ")
+            
+        }
+        
+        return annotation
     }
 }

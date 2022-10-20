@@ -22,6 +22,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
+        
         // Set initial location in etang Kernicole
         locationTools.region = MKCoordinateRegion(
             center: locationTools.initialLocation.coordinate,
@@ -35,7 +37,33 @@ class MapViewController: UIViewController {
         
         mapView.setCameraZoomRange(locationTools.zoomRange, animated: true)
         
+        // display PloggingAnnotation items
+        locationTools.loadPloggingModelData()
+        mapView.addAnnotations(locationTools.ploggings)
+        
     }
+}
 
-    
+
+extension MapViewController: MKMapViewDelegate {
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        var annotationView = MKMarkerAnnotationView()
+        
+        guard let annotation = annotation as? PloggingAnnotation else {return nil}
+        let identifier = ""
+        
+        
+        if let dequedView = mapView.dequeueReusableAnnotationView(
+            withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            annotationView = dequedView
+        } else{
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        
+        annotationView.markerTintColor = UIColor.black
+        return annotationView
+    }
 }

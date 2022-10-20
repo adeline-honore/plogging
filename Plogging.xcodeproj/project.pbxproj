@@ -12,6 +12,7 @@
 		6E3821B228FD57C800F39184 /* PloggingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */; };
 		6E3821D428FD789900F39184 /* OkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821D328FD789900F39184 /* OkButton.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
+		6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* SomeDataz.json */; };
 		6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B128E8D8B000450FE4 /* AppDelegate.swift */; };
 		6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */; };
 		6ED589B928E8D8B000450FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED589B728E8D8B000450FE4 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingAnnotation.swift; sourceTree = "<group>"; };
 		6E3821D328FD789900F39184 /* OkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkButton.swift; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6EBFB9D72901251C00E1741A /* SomeDataz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SomeDataz.json; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED589B128E8D8B000450FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				6E94F04328EC244400D94CA5 /* MapViewController.swift */,
+				6EBFB9D72901251C00E1741A /* SomeDataz.json */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ED589C128E8D8BD00450FE4 /* LaunchScreen.storyboard in Resources */,
+				6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */,
 				6ED589BE28E8D8BD00450FE4 /* Assets.xcassets in Resources */,
 				6ED589B928E8D8B000450FE4 /* Main.storyboard in Resources */,
 			);

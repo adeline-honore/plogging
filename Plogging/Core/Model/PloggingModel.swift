@@ -8,21 +8,19 @@
 import Foundation
 import MapKit
 
-struct PloggingModel {
-    let id: UUID
+struct PloggingModel: Decodable {
+    let id: String
     
     let admin: String
     
-    let date: Date
-    let hour: Date
+    let beginning: String
     
-    let place: MKMapItem
-    let coordinate: CLLocationCoordinate2D
+    let place: String
     
-    let annotation: MKAnnotation
-    let annotations: [MKAnnotation]
+    let latitude: Double
+    let longitude: Double
     
-    let plogger: [String]
+    let ploggers: [String]
     
     var isTakingPart: Bool
     
