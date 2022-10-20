@@ -6,9 +6,13 @@
 //
 
 import Foundation
-import MapKit
 
-struct PloggingModel: Decodable {
+struct PloggingDatas: Codable {
+    let datas: [PloggingModel]
+}
+
+
+struct PloggingModel: Codable {
     let id: String
     
     let admin: String

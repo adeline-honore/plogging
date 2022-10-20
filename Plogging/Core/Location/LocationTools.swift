@@ -27,7 +27,7 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
     //var region: MKCoordinateRegion?
     let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
     
-    var ploggings: [PloggingAnnotation] = []
+    var ploggingAnnotations: [PloggingAnnotation] = []
     
     
     // MARK: - Init
@@ -105,9 +105,9 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
         print(error)
     }
     
-    // MARK: - Load PloggingModel datas
+    // MARK: - Load Plogging datas
     
-    func loadPloggingModelData() {
+    func loadPloggingDatas() {
         
         guard
             let fileName = Bundle.main.url(forResource: "SomeDataz", withExtension: "json"),
@@ -118,14 +118,28 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
         }
         
         do {
-            let onePlo: PloggingModel = try JSONDecoder().decode(PloggingModel.self, from: ploggingData)
+            let ploggingResult = try transformToPloggingsModel(data: ploggingData)
             
-            ploggings.append(createAnnotationFromPloggingModel(model: onePlo))
+            let ploggingModel = ploggingResult.datas.map { $0.self}
+            
+            ploggingAnnotations = createAnnotationFromPloggingModels(model: ploggingModel)
             
             return
         } catch {
             print("***** Could not decode SomeDataz in the project")
             return
+        }
+    }
+    
+    
+    // MARK: - Load Plogging datas
+    
+    private func transformToPloggingsModel(data: Data) throws -> PloggingDatas {
+        
+        do {
+            return try JSONDecoder().decode(PloggingDatas.self, from: data)
+        } catch {
+            throw error
         }
     }
     
@@ -143,5 +157,23 @@ class LocationTools: MKLocalSearchCompleter, CLLocationManagerDelegate {
         }
         
         return annotation
+    }
+    
+    
+    // MARK: - Create annotations from PloggingModel items
+    
+    func createAnnotationFromPloggingModels(model: [PloggingModel]) -> [PloggingAnnotation] {
+        
+        model.forEach{ model in
+            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: "admin: \(model.admin)", type: "type")
+            
+            if CLLocationCoordinate2DIsValid(annotation.coordinate) {
+                ploggingAnnotations.append(annotation)
+            } else {
+                print("*****  CLLocationCoordinate2D is not valid ")
+                
+            }
+        }
+        return ploggingAnnotations
     }
 }

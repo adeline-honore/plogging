@@ -38,8 +38,8 @@ class MapViewController: UIViewController {
         mapView.setCameraZoomRange(locationTools.zoomRange, animated: true)
         
         // display PloggingAnnotation items
-        locationTools.loadPloggingModelData()
-        mapView.addAnnotations(locationTools.ploggings)
+        locationTools.loadPloggingDatas()
+        mapView.addAnnotations(locationTools.ploggingAnnotations)
         
     }
 }
