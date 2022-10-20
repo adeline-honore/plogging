@@ -18,7 +18,7 @@ class FirstGeoLocationViewController: UIViewController {
     
     @IBOutlet weak var searchResultsTableView: UITableView!
     var searchCompleter = MKLocalSearchCompleter()
-    private let segueToMap = "segueToMap"
+    //private let segueToMap = "segueToMap"
     
     // MARK: - Life cycle
     
@@ -46,12 +46,12 @@ class FirstGeoLocationViewController: UIViewController {
     
     
     @IBAction func didTapSaveLocation() {
-        performSegue(withIdentifier: segueToMap, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.fromFirstToMap.identifier, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == segueToMap {
+        if segue.identifier == SegueIdentifier.fromFirstToMap.identifier {
             let vc = segue.destination as! UITabBarController
         }
     }

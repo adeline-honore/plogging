@@ -140,7 +140,7 @@
                     <navigationItem key="navigationItem" id="d2w-4e-a9k"/>
                     <connections>
                         <outlet property="searchResultsTableView" destination="AWH-uo-8XE" id="hcn-8e-CMj"/>
-                        <segue destination="hUe-CK-IaC" kind="show" identifier="segueToMap" id="hZC-hE-dT6"/>
+                        <segue destination="hUe-CK-IaC" kind="show" identifier="fromFirstToMap" id="hZC-hE-dT6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Cd-JM-9kd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -189,7 +189,7 @@
                     <connections>
                         <outlet property="mapView" destination="UuT-mh-KO3" id="Rcb-ua-3TB"/>
                         <segue destination="cjp-X3-h0i" kind="show" id="xPl-ih-Rc6"/>
-                        <segue destination="mHZ-Vc-rgi" kind="show" id="CDe-xZ-W2L"/>
+                        <segue destination="mHZ-Vc-rgi" kind="show" identifier="fromMapToCreatePlogging" id="CDe-xZ-W2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSk-IY-h4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

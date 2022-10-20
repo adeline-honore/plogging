@@ -12,7 +12,6 @@ class PresentationViewController: UIViewController {
     // MARK: - Properties
 
     private var presentationView: PresentationView!
-    private let segueToFirstGeoLocationVC = "segueToFirstGeoLocationVC"
     
     private let titleText = "Welcome"
     private let explanationText = "explanation"

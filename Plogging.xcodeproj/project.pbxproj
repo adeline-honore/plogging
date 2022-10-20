@@ -11,6 +11,7 @@
 		6E3821B028FD566B00F39184 /* PloggingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AF28FD566A00F39184 /* PloggingModel.swift */; };
 		6E3821B228FD57C800F39184 /* PloggingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */; };
 		6E3821D428FD789900F39184 /* OkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821D328FD789900F39184 /* OkButton.swift */; };
+		6E48FC582901DE8300757AA9 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
 		6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* SomeDataz.json */; };
 		6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B128E8D8B000450FE4 /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		6E3821AF28FD566A00F39184 /* PloggingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingModel.swift; sourceTree = "<group>"; };
 		6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingAnnotation.swift; sourceTree = "<group>"; };
 		6E3821D328FD789900F39184 /* OkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkButton.swift; sourceTree = "<group>"; };
+		6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6EBFB9D72901251C00E1741A /* SomeDataz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SomeDataz.json; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 				6ED589E928E8DD1B00450FE4 /* Model */,
 				6EECBFBC28F2F36500FAE3FE /* UserAlert */,
 				6E3821AC28FD545F00F39184 /* Extension */,
+				6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				6ED589F628E8EE7100450FE4 /* FirstGeoLocationView.swift in Sources */,
 				6EECBFC028F2F4C900FAE3FE /* Extension+UIViewController.swift in Sources */,
 				6ED589F228E8ECFF00450FE4 /* PresentationView.swift in Sources */,
+				6E48FC582901DE8300757AA9 /* SegueIdentifier.swift in Sources */,
 				6E3821B028FD566B00F39184 /* PloggingModel.swift in Sources */,
 				6EECBFBE28F2F3AE00FAE3FE /* AlertType.swift in Sources */,
 				6E3821D428FD789900F39184 /* OkButton.swift in Sources */,
