@@ -31,7 +31,7 @@ class FirstGeoLocationViewController: UIViewController {
     }
     
     private func configureView() {
-        firstGeoLocationView.saveLocationButton = firstGeoLocationView.saveLocationButton.configureOkButton(title: "Save", frame: CGRect(x: 0, y: 0, width: firstGeoLocationView.frame.width - 100, height: (firstGeoLocationView.frame.width - 100) * 0.2), target: self)
+        firstGeoLocationView.saveLocationButton.titleLabel?.text = "Save"
     }
     
     

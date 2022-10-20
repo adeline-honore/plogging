@@ -41,22 +41,7 @@ class PresentationViewController: UIViewController {
                                                          height: presentationView.frame.height / 2)
         
         
-        presentationView.okButton = presentationView.okButton.configureOkButton(title: buttonText, frame: CGRect(x: 0, y: 0, width: presentationView.frame.width - 100, height: (presentationView.frame.width - 100) * 0.2), target: self)
-        
+        presentationView.okButton.titleLabel?.text = buttonText
     }
-    
-    
-    @IBAction func didTapOkButton() {        
-        performSegue(withIdentifier: segueToFirstGeoLocationVC, sender: self)
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == segueToFirstGeoLocationVC {
-            let vc = segue.destination as! FirstGeoLocationViewController
-        }
-    }
-    
     
 }

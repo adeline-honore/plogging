@@ -23,12 +23,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sr4-gR-lnf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sr4-gR-lnf" customClass="OkButton" customModule="Plogging" customModuleProvider="target">
                                 <rect key="frame" x="90" y="781" width="234" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up.circle" catalog="system" title="Button"/>
                                 <connections>
-                                    <action selector="didTapOkButton" destination="JK4-nf-oDH" eventType="touchUpInside" id="SCT-H7-geS"/>
+                                    <segue destination="aYQ-Co-7Ed" kind="show" id="6WN-vA-98M"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBo-dT-sRp">
@@ -60,9 +60,6 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="CVl-XK-sZo"/>
-                    <connections>
-                        <segue destination="aYQ-Co-7Ed" kind="show" identifier="segueToFirstGeoLocationVC" id="Pva-2c-h0C"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oul-gE-jnX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,7 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKi-7W-xVE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKi-7W-xVE" customClass="OkButton" customModule="Plogging" customModuleProvider="target">
                                 <rect key="frame" x="90" y="781" width="234" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>

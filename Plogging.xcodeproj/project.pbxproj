@@ -10,6 +10,7 @@
 		6E3821AE28FD54C100F39184 /* Extension+MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */; };
 		6E3821B028FD566B00F39184 /* PloggingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AF28FD566A00F39184 /* PloggingModel.swift */; };
 		6E3821B228FD57C800F39184 /* PloggingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */; };
+		6E3821D428FD789900F39184 /* OkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821D328FD789900F39184 /* OkButton.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
 		6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B128E8D8B000450FE4 /* AppDelegate.swift */; };
 		6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */; };
@@ -21,7 +22,6 @@
 		6ED589F228E8ECFF00450FE4 /* PresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589F128E8ECFF00450FE4 /* PresentationView.swift */; };
 		6ED589F428E8EE3200450FE4 /* FirstGeoLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589F328E8EE3200450FE4 /* FirstGeoLocationViewController.swift */; };
 		6ED589F628E8EE7100450FE4 /* FirstGeoLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589F528E8EE7100450FE4 /* FirstGeoLocationView.swift */; };
-		6ED589FC28E9015F00450FE4 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589FB28E9015F00450FE4 /* Extension+UIButton.swift */; };
 		6EECBFBB28F2EEEA00FAE3FE /* LocationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBA28F2EEEA00FAE3FE /* LocationTools.swift */; };
 		6EECBFBE28F2F3AE00FAE3FE /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBD28F2F3AE00FAE3FE /* AlertType.swift */; };
 		6EECBFC028F2F4C900FAE3FE /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */; };
@@ -48,6 +48,7 @@
 		6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MKMapView.swift"; sourceTree = "<group>"; };
 		6E3821AF28FD566A00F39184 /* PloggingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingModel.swift; sourceTree = "<group>"; };
 		6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingAnnotation.swift; sourceTree = "<group>"; };
+		6E3821D328FD789900F39184 /* OkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkButton.swift; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED589B128E8D8B000450FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		6ED589F128E8ECFF00450FE4 /* PresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationView.swift; sourceTree = "<group>"; };
 		6ED589F328E8EE3200450FE4 /* FirstGeoLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstGeoLocationViewController.swift; sourceTree = "<group>"; };
 		6ED589F528E8EE7100450FE4 /* FirstGeoLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstGeoLocationView.swift; sourceTree = "<group>"; };
-		6ED589FB28E9015F00450FE4 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		6EECBFBA28F2EEEA00FAE3FE /* LocationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTools.swift; sourceTree = "<group>"; };
 		6EECBFBD28F2F3AE00FAE3FE /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			children = (
 				6ED589BF28E8D8BD00450FE4 /* LaunchScreen.storyboard */,
 				6ED589B728E8D8B000450FE4 /* Main.storyboard */,
-				6ED589FB28E9015F00450FE4 /* Extension+UIButton.swift */,
+				6E3821D328FD789900F39184 /* OkButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,10 +392,10 @@
 				6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */,
 				6ED589F628E8EE7100450FE4 /* FirstGeoLocationView.swift in Sources */,
 				6EECBFC028F2F4C900FAE3FE /* Extension+UIViewController.swift in Sources */,
-				6ED589FC28E9015F00450FE4 /* Extension+UIButton.swift in Sources */,
 				6ED589F228E8ECFF00450FE4 /* PresentationView.swift in Sources */,
 				6E3821B028FD566B00F39184 /* PloggingModel.swift in Sources */,
 				6EECBFBE28F2F3AE00FAE3FE /* AlertType.swift in Sources */,
+				6E3821D428FD789900F39184 /* OkButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
