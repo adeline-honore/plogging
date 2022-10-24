@@ -14,7 +14,7 @@ class FirstGeoLocationViewController: UIViewController {
     
     private var firstGeoLocationView: FirstGeoLocationView!
     
-    private var locationTools = LocationTools.shared
+    private var locationManager = LocationManager.shared
     
     @IBOutlet weak var searchResultsTableView: UITableView!
     var searchCompleter = MKLocalSearchCompleter()
@@ -38,7 +38,7 @@ class FirstGeoLocationViewController: UIViewController {
     // MARK: - Lcation from GeoLocation
     
     @IBAction func didTapGeoLocationButton() {
-        locationTools.getUserGeoLocation()
+        locationManager.getUserGeoLocation()
     }
     
     
@@ -79,11 +79,11 @@ extension FirstGeoLocationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locationTools.searchResults.count
+        return locationManager.searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let searchResult = LocationTools.shared.searchResults[indexPath.row]
+        let searchResult = LocationManager.shared.searchResults[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.text = searchResult.title
         cell.detailTextLabel?.text = searchResult.subtitle
@@ -96,9 +96,9 @@ extension FirstGeoLocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let completion = locationTools.searchResults[indexPath.row]
+        let completion = locationManager.searchResults[indexPath.row]
         
-        locationTools.getLocationFromLocalSearchCompletion(completion: completion)
+        locationManager.getLocationFromLocalSearchCompletion(completion: completion)
         
         firstGeoLocationView.locationSearchBar.text = completion.title
         searchResultsTableView.isHidden = true
@@ -108,7 +108,7 @@ extension FirstGeoLocationViewController: UITableViewDelegate {
 extension FirstGeoLocationViewController: MKLocalSearchCompleterDelegate {
 
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        locationTools.searchResults = completer.results
+        locationManager.searchResults = completer.results
         searchResultsTableView.reloadData()
 
     }

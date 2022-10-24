@@ -1,5 +1,5 @@
 //
-//  PloggingModel.swift
+//  Plogging.swift
 //  Plogging
 //
 //  Created by HONORE Adeline on 17/10/2022.
@@ -8,11 +8,11 @@
 import Foundation
 
 struct PloggingDatas: Codable {
-    let datas: [PloggingModel]
+    let datas: [Plogging]
 }
 
 
-struct PloggingModel: Codable {
+struct Plogging: Codable {
     let id: String
     
     let admin: String

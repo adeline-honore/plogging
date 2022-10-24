@@ -11,7 +11,7 @@ class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Properties
     
-    var plogging: PloggingModel?
+    var plogging: Plogging?
     
     
     // MARK: - Life cycle

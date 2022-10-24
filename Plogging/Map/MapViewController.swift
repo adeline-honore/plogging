@@ -12,8 +12,11 @@ class MapViewController: UIViewController {
 
     // MARK: - Properties
     
-    private var locationTools = LocationTools.shared
-    var plogging: PloggingModel?
+    private var locationManager = LocationManager.shared
+    private var ploggingService = PloggingService()
+    
+    private var ploggings: [Plogging] = []
+    var plogging: Plogging?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -26,21 +29,29 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         
         // Set initial location in etang Kernicole
-        locationTools.region = MKCoordinateRegion(
-            center: locationTools.initialLocation.coordinate,
+        locationManager.region = MKCoordinateRegion(
+            center: locationManager.initialLocation.coordinate,
             latitudinalMeters: 50000,
             longitudinalMeters: 60000)
-        mapView.centerToLocation(locationTools.initialLocation)
+        mapView.centerToLocation(locationManager.initialLocation)
         
         mapView.setCameraBoundary(
-            MKMapView.CameraBoundary(coordinateRegion: locationTools.region),
+            MKMapView.CameraBoundary(coordinateRegion: locationManager.region),
           animated: true)
         
-        mapView.setCameraZoomRange(locationTools.zoomRange, animated: true)
+        mapView.setCameraZoomRange(locationManager.zoomRange, animated: true)
         
         // display PloggingAnnotation items
-        locationTools.loadPloggingDatas()
-        mapView.addAnnotations(locationTools.ploggingAnnotations)
+        ploggingService.load { result in
+            switch result {
+            case .success(let ploggingsResult):
+                ploggings = ploggingsResult
+                mapView.addAnnotations(PloggingLoader.init(ploggingService: ploggingService).createAnnotationFromPloggingModels(model: ploggingsResult))
+            case .failure:
+                userAlert(element: .locationSaved)
+            }
+        }
+        
         
     }
     
@@ -83,7 +94,7 @@ extension MapViewController: MKMapViewDelegate {
         
         guard let id = view.annotation?.subtitle else { return }
         
-        guard let selected = locationTools.ploggingModels.first(where: { $0.id == id }) else {
+        guard let selected = ploggings.first(where: { $0.id == id }) else {
             print("***** oups! Could not load plogging informations")
             return
         }
