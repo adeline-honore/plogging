@@ -9,15 +9,15 @@ import Foundation
 
 enum SegueIdentifier {
     
-    case fromFirstToMap
+    case appOverviewPage
     
     case fromMapToPlogging
     case fromMapToCreatePlogging
     
     var identifier: String {
         switch self {
-        case .fromFirstToMap:
-            return "fromFirstToMap"
+        case .appOverviewPage:
+            return "appOverviewPage"
         case .fromMapToPlogging:
             return "fromMapToPlogging"
         case .fromMapToCreatePlogging:

@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol PresentationViewControllerDelegate: AnyObject {
+    func didPressDismissButton()
+}
+
+
 class PresentationViewController: UIViewController {
 
     // MARK: - Properties
@@ -16,6 +21,8 @@ class PresentationViewController: UIViewController {
     private let titleText = "Welcome"
     private let explanationText = "explanation"
     private let buttonText = " OK !"
+    
+    weak var delegate: PresentationViewControllerDelegate?
     
     
     // MARK: - Life cycle
@@ -41,6 +48,12 @@ class PresentationViewController: UIViewController {
         
         
         presentationView.okButton.titleLabel?.text = buttonText
+    }
+    
+    
+    @IBAction func didTapOkButton() {
+        dismiss(animated: true, completion: nil)
+        delegate?.didPressDismissButton()
     }
     
 }

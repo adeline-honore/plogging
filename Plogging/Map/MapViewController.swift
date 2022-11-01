@@ -28,20 +28,56 @@ class MapViewController: UIViewController {
         
         mapView.delegate = self
         
-        // Set initial location in etang Kernicole
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // on bording page
+        
+//        if !UserDefaults.standard.bool(forKey: "ExecuteOn") {
+            displayAppOverviewPage()
+//            UserDefaults.standard.set(true, forKey: "ExecuteOn")
+//
+//        } else {
+//            // get user geo location
+//            locationManager.getUserGeoLocation()
+//
+//            // Set initial location in etang Kernicole
+//            SetInitialLocationInEtangKernicole()
+//
+//            // display PloggingAnnotation items
+//            displayPloggingAnnotationItems()
+//        }
+    }
+    
+    
+    // MARK: - App overview page
+    
+    private func displayAppOverviewPage() {
+        
+        guard let overviewPageVC = storyboard?.instantiateViewController(withIdentifier: "Presentation") else {
+            return
+        }
+        
+        overviewPageVC.modalTransitionStyle = .crossDissolve
+            present(overviewPageVC, animated: true, completion: nil)
+        
+    }
+    
+    private func setInitialLocationInEtangKernicole() {
         locationManager.region = MKCoordinateRegion(
             center: locationManager.initialLocation.coordinate,
             latitudinalMeters: 50000,
             longitudinalMeters: 60000)
         mapView.centerToLocation(locationManager.initialLocation)
-        
+
         mapView.setCameraBoundary(
             MKMapView.CameraBoundary(coordinateRegion: locationManager.region),
           animated: true)
-        
+
         mapView.setCameraZoomRange(locationManager.zoomRange, animated: true)
-        
-        // display PloggingAnnotation items
+    }
+    
+    private func displayPloggingAnnotationItems() {
         ploggingService.load { result in
             switch result {
             case .success(let ploggingsResult):
@@ -51,8 +87,6 @@ class MapViewController: UIViewController {
                 userAlert(element: .locationSaved)
             }
         }
-        
-        
     }
     
     
@@ -102,5 +136,20 @@ extension MapViewController: MKMapViewDelegate {
         plogging = selected
         
         performSegue(withIdentifier: SegueIdentifier.fromMapToPlogging.identifier, sender: self)
+    }
+}
+
+
+extension MapViewController: PresentationViewControllerDelegate {
+    func didPressDismissButton() {
+        
+        // get user geo location
+        locationManager.getUserGeoLocation()
+        
+        // Set initial location in etang Kernicole
+        setInitialLocationInEtangKernicole()
+        
+        // display PloggingAnnotation items
+        displayPloggingAnnotationItems()
     }
 }
