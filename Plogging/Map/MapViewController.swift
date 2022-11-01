@@ -18,6 +18,10 @@ class MapViewController: UIViewController {
     private var ploggings: [Plogging] = []
     var plogging: Plogging?
     
+    let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
+    
+    var region: MKCoordinateRegion?
+    
     @IBOutlet weak var mapView: MKMapView!
     
     
@@ -42,7 +46,7 @@ class MapViewController: UIViewController {
 //            locationManager.getUserGeoLocation()
 //
 //            // Set initial location in etang Kernicole
-//            SetInitialLocationInEtangKernicole()
+//            setInitialLocationInEtangKernicole()
 //
 //            // display PloggingAnnotation items
 //            displayPloggingAnnotationItems()
@@ -64,17 +68,21 @@ class MapViewController: UIViewController {
     }
     
     private func setInitialLocationInEtangKernicole() {
-        locationManager.region = MKCoordinateRegion(
+        region = MKCoordinateRegion(
             center: locationManager.initialLocation.coordinate,
             latitudinalMeters: 50000,
             longitudinalMeters: 60000)
         mapView.centerToLocation(locationManager.initialLocation)
 
+        guard let region = region else {
+            return
+        }
+
         mapView.setCameraBoundary(
-            MKMapView.CameraBoundary(coordinateRegion: locationManager.region),
+            MKMapView.CameraBoundary(coordinateRegion: region),
           animated: true)
 
-        mapView.setCameraZoomRange(locationManager.zoomRange, animated: true)
+        mapView.setCameraZoomRange(zoomRange, animated: true)
     }
     
     private func displayPloggingAnnotationItems() {
