@@ -10,9 +10,7 @@ import UIKit
 class PresentationView: UIView {
 
     @IBOutlet weak var titleLabel: UILabel!
-    
-    @IBOutlet weak var explanationLabel: UILabel!
-    
+        
     @IBOutlet weak var okButton: UIButton!
 
 }

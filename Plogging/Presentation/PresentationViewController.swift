@@ -34,19 +34,12 @@ class PresentationViewController: UIViewController {
         
         configureView()
         
+        _ = self.view
     }
     
     
     private func configureView() {
         presentationView.titleLabel.text = titleText
-        presentationView.explanationLabel.text = explanationText
-        
-        presentationView.explanationLabel.frame = CGRect(x: 0,
-                                                         y: 0,
-                                                         width: presentationView.frame.width - 150,
-                                                         height: presentationView.frame.height / 2)
-        
-        
         presentationView.okButton.titleLabel?.text = buttonText
     }
     
@@ -56,4 +49,18 @@ class PresentationViewController: UIViewController {
         delegate?.didPressDismissButton()
     }
     
+}
+
+
+extension PresentationViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionTableViewCell", for: indexPath)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
 }
