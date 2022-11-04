@@ -7,9 +7,16 @@
 
 import UIKit
 
+struct CollectionTableViewCellViewModel {
+    let viewModels: [TileCollectionViewCellViewModel]
+}
+
+
 class CollectionTableViewCell: UITableViewCell {
     
     static let identifier = "CollectionTableViewCell"
+    private var viewModels: [TileCollectionViewCellViewModel] = []
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -18,19 +25,29 @@ class CollectionTableViewCell: UITableViewCell {
         
         collectionView.delegate = self
         collectionView.dataSource =  self
+        
+    }
+    
+    func configure(with viewModel: CollectionTableViewCellViewModel) {
+        self.viewModels = viewModel.viewModels
+        collectionView.reloadData()
     }
 }
 
 
 extension CollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return viewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let collec = collectionView.dequeueReusableCell(withReuseIdentifier: "colle", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TileCollectionViewCell.identifier, for: indexPath) as? TileCollectionViewCell else {
+            fatalError()
+        }
         
-        return collec
+        cell.configure(with: viewModels[indexPath.row])
+        
+        return cell
     }
 }
