@@ -18,18 +18,17 @@ class PresentationViewController: UIViewController {
     
     private var presentationView: PresentationView!
     
-    private let titleText = "Welcome"
-    private let explanationText = "explanation"
-    private let buttonText = " OK !"
+    private let titleText = Texts.onBoardingTitle.value
+    private let buttonText = Texts.onBoardingButton.value
     
     weak var presentationViewControllerDelegate: PresentationViewControllerDelegate?
     
     private let viewModels: [CollectionTableViewCellViewModel] = [
         CollectionTableViewCellViewModel(
             viewModels: [
-                TileCollectionViewCellViewModel(name: "Onglet 1", backgroundColor: .systemBlue),
-                TileCollectionViewCellViewModel(name: "Onglet 2", backgroundColor: .systemRed),
-                TileCollectionViewCellViewModel(name: "Onglet 3", backgroundColor: .systemGray)
+                TileCollectionViewCellViewModel(name: Texts.onBoardingTabOne.value, backgroundColor: .systemBlue),
+                TileCollectionViewCellViewModel(name: Texts.onBoardingTabTwo.value, backgroundColor: .systemRed),
+                TileCollectionViewCellViewModel(name: Texts.onBoardingTabThree.value, backgroundColor: .systemGray)
             ]
         )
     ]
