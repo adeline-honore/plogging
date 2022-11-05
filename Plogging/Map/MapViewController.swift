@@ -35,11 +35,11 @@ class MapViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // on bording page
+        // on boarding page
         
-//        if !UserDefaults.standard.bool(forKey: "ExecuteOn") {
+//        if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
             displayAppOverviewPage()
-//            UserDefaults.standard.set(true, forKey: "ExecuteOn")
+//            UserDefaults.standard.set(true, forKey: "ExecuteOnce")
 //
 //        } else {
 //            // get user geo location
@@ -57,14 +57,7 @@ class MapViewController: UIViewController {
     // MARK: - App overview page
     
     private func displayAppOverviewPage() {
-        
-        guard let overviewPageVC = storyboard?.instantiateViewController(withIdentifier: "Presentation") else {
-            return
-        }
-        
-        overviewPageVC.modalTransitionStyle = .crossDissolve
-            present(overviewPageVC, animated: true, completion: nil)
-        
+        performSegue(withIdentifier: SegueIdentifier.appOverviewPage.identifier, sender: nil)
     }
     
     private func setInitialLocationInEtangKernicole() {
@@ -102,7 +95,10 @@ class MapViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == SegueIdentifier.fromMapToPlogging.identifier {
+        if segue.identifier == SegueIdentifier.appOverviewPage.identifier {
+            let overVC = segue.destination as? PresentationViewController
+            overVC?.presentationViewControllerDelegate = self
+        } else if segue.identifier == SegueIdentifier.fromMapToPlogging.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.plogging = plogging
         }

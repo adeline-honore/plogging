@@ -22,7 +22,7 @@ class PresentationViewController: UIViewController {
     private let explanationText = "explanation"
     private let buttonText = " OK !"
     
-    weak var delegate: PresentationViewControllerDelegate?
+    weak var presentationViewControllerDelegate: PresentationViewControllerDelegate?
     
     private let viewModels: [CollectionTableViewCellViewModel] = [
         CollectionTableViewCellViewModel(
@@ -56,7 +56,7 @@ class PresentationViewController: UIViewController {
     
     @IBAction func didTapOkButton() {
         dismiss(animated: true, completion: nil)
-        delegate?.didPressDismissButton()
+        presentationViewControllerDelegate?.didPressDismissButton()
     }
     
 }
