@@ -11,13 +11,14 @@ class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Properties
     
-    var plogging: Plogging?
+    var ploggingUI: PloggingUI?
+    var ploggingsUI: [PloggingUI]?
     
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(plogging?.admin)
+        print(ploggingUI?.admin)
     }
 }

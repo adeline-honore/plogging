@@ -24,7 +24,29 @@ struct PloggingUI: Codable {
     
     var isTakingPart: Bool
     
-    var messages: [Message]
+//    var messages: [Message]
+    
+    
+    init(plogging: Plogging) {
+        
+        id = plogging.id
+        admin = plogging.admin
+        
+        beginning = plogging.beginning
+        
+        place = plogging.place
+        
+        latitude = plogging.latitude
+        longitude = plogging.longitude
+        
+        ploggers = plogging.ploggers
+        
+        isTakingPart = plogging.isTakingPart
+        
+//        self.messages = messages
+        
+    }
+    
 }
 
 

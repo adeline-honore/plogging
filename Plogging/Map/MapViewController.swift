@@ -16,7 +16,10 @@ class MapViewController: UIViewController {
     private var ploggingService = PloggingService()
     
     private var ploggings: [Plogging] = []
-    var plogging: Plogging?
+    private var plogging: Plogging?
+    
+    private var ploggingsUI: [PloggingUI] = []
+    private var ploggingUI: PloggingUI?
     
     let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
     
@@ -84,14 +87,26 @@ class MapViewController: UIViewController {
             case .success(let ploggingsResult):
                 ploggings = ploggingsResult
                 mapView.addAnnotations(PloggingLoader.init(ploggingService: ploggingService).createAnnotationFromPloggingModels(model: ploggingsResult))
+                self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: ploggings)
             case .failure:
                 userAlert(element: .locationSaved)
             }
         }
     }
     
+    private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
+        
+        let array = ploggings.map { PloggingUI(plogging: $0) }
+            
+            return array
+    }
+    
     
     // MARK: - Send datas thanks segue
+    
+    func sendPloggingsUI() {
+        performSegue(withIdentifier: SegueIdentifier.fromMapToPlogging.identifier, sender: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -100,7 +115,8 @@ class MapViewController: UIViewController {
             overVC?.presentationViewControllerDelegate = self
         } else if segue.identifier == SegueIdentifier.fromMapToPlogging.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
-            viewController?.plogging = plogging
+            viewController?.ploggingsUI = ploggingsUI
+            viewController?.ploggingUI = ploggingUI
         }
     }
 }
@@ -132,12 +148,12 @@ extension MapViewController: MKMapViewDelegate {
         
         guard let id = view.annotation?.subtitle else { return }
         
-        guard let selected = ploggings.first(where: { $0.id == id }) else {
+        guard let selected = ploggingsUI.first(where: { $0.id == id }) else {
             print("***** oups! Could not load plogging informations")
             return
         }
         
-        plogging = selected
+        ploggingUI = selected
         
         performSegue(withIdentifier: SegueIdentifier.fromMapToPlogging.identifier, sender: self)
     }
