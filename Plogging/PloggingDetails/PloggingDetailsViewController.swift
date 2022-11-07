@@ -11,6 +11,8 @@ class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Properties
     
+    private var ploggingDetailsView: PloggingDetailsView!
+    
     var ploggingUI: PloggingUI?
     var ploggingsUI: [PloggingUI]?
     
@@ -19,6 +21,6 @@ class PloggingDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(ploggingUI?.admin)
+        ploggingDetailsView = view as? PloggingDetailsView
     }
 }
