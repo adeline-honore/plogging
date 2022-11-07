@@ -14,6 +14,7 @@
 		6E3821B028FD566B00F39184 /* Plogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AF28FD566A00F39184 /* Plogging.swift */; };
 		6E3821B228FD57C800F39184 /* PloggingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */; };
 		6E3821D428FD789900F39184 /* OkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821D328FD789900F39184 /* OkButton.swift */; };
+		6E3C607129199DAE00DFDD58 /* PloggingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C607029199DAE00DFDD58 /* PloggingUI.swift */; };
 		6E48FC582901DE8300757AA9 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */; };
 		6E48FC5B2901E3F700757AA9 /* PloggingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48FC5A2901E3F700757AA9 /* PloggingDetailsViewController.swift */; };
 		6E686E12290DAA150022CE50 /* LocalSearchCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E686E11290DAA150022CE50 /* LocalSearchCompletion.swift */; };
@@ -59,6 +60,7 @@
 		6E3821AF28FD566A00F39184 /* Plogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plogging.swift; sourceTree = "<group>"; };
 		6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingAnnotation.swift; sourceTree = "<group>"; };
 		6E3821D328FD789900F39184 /* OkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkButton.swift; sourceTree = "<group>"; };
+		6E3C607029199DAE00DFDD58 /* PloggingUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUI.swift; sourceTree = "<group>"; };
 		6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		6E48FC5A2901E3F700757AA9 /* PloggingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailsViewController.swift; sourceTree = "<group>"; };
 		6E686E11290DAA150022CE50 /* LocalSearchCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchCompletion.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				6E3821AF28FD566A00F39184 /* Plogging.swift */,
 				6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */,
+				6E3C607029199DAE00DFDD58 /* PloggingUI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				6E3438FD29150E510041EC46 /* TileCollectionViewCell.swift in Sources */,
 				6EECBFBE28F2F3AE00FAE3FE /* AlertType.swift in Sources */,
 				6E21E6222914319C0066957E /* CollectionTableViewCell.swift in Sources */,
+				6E3C607129199DAE00DFDD58 /* PloggingUI.swift in Sources */,
 				6E3821D428FD789900F39184 /* OkButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,4 +50,9 @@ extension CollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.width)
+    }
 }
