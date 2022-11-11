@@ -11,76 +11,132 @@ protocol PresentationViewControllerDelegate: AnyObject {
     func didPressDismissButton()
 }
 
+class PresentationViewController: UIPageViewController {
 
-class PresentationViewController: UIViewController {
-    
     // MARK: - Properties
     
-    private var presentationView: PresentationView!
+    var pages = [UIViewController]()
     
-    private let titleText = Texts.onBoardingTitle.value
-    private let buttonText = Texts.onBoardingButton.value
+    let pageControl = UIPageControl()
+    let initialPage = 0
     
     weak var presentationViewControllerDelegate: PresentationViewControllerDelegate?
-    
-    private let viewModels: [CollectionTableViewCellViewModel] = [
-        CollectionTableViewCellViewModel(
-            viewModels: [
-                TileCollectionViewCellViewModel(name: Texts.onBoardingTabOne.value, backgroundColor: .systemBlue),
-                TileCollectionViewCellViewModel(name: Texts.onBoardingTabTwo.value, backgroundColor: .systemRed),
-                TileCollectionViewCellViewModel(name: Texts.onBoardingTabThree.value, backgroundColor: .systemGray)
-            ]
-        )
-    ]
+
+    var pageControlBottomAnchor: NSLayoutConstraint?
     
     
-    // MARK: - Life cycle
+    // MARK: - Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presentationView = view as? PresentationView
-        
-        configureView()
-        
-        _ = self.view
+        setup()
+        style()
+        layout()
     }
     
     
-    private func configureView() {
-        presentationView.titleLabel.text = titleText
-        presentationView.okButton.titleLabel?.text = buttonText
-    }
+    // MARK: - Dismiss View Controller
     
-    
-    @IBAction func didTapOkButton() {
-        dismiss(animated: true, completion: nil)
+    func passPresentation() {
+        self.dismiss(animated: true, completion: nil)
         presentationViewControllerDelegate?.didPressDismissButton()
     }
-    
 }
 
+extension PresentationViewController {
+    
+    func setup() {
+        dataSource = self
+        delegate = self
+        
+//        pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
 
-extension PresentationViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
+        let page1 = OnboardingViewController(textLabelText: Texts.onBoardingTitle.value)
+        let page2 = OnboardingViewController(textLabelText: Texts.onBoardingTabOne.value)
+        let page3 = OnboardingViewController(textLabelText: Texts.onBoardingTabTwo.value)
+        let page4 = EndPresentationViewController()
+        
+        pages.append(page1)
+        pages.append(page2)
+        pages.append(page3)
+        pages.append(page4)
+        
+        setViewControllers([pages[initialPage]], direction: .forward, animated: true, completion: nil)
     }
     
+    func style() {
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.pageIndicatorTintColor = .systemGray2
+        pageControl.numberOfPages = pages.count
+        pageControl.currentPage = initialPage
+    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func layout() {
+        view.addSubview(pageControl)
         
-        let viewModel = viewModels[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as? CollectionTableViewCell else {
-            fatalError()
+        NSLayoutConstraint.activate([
+            pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: 20),
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
+        pageControlBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 2)
+
+        pageControlBottomAnchor?.isActive = true
+    }
+}
+
+// MARK: - DataSource
+
+extension PresentationViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+
+        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
+        
+        if currentIndex == 0 {
+            return pages.last
+        } else {
+            return pages[currentIndex - 1]
         }
-        
-        cell.configure(with: viewModel)
-        
-        return cell
     }
+        
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
+
+        if currentIndex < pages.count - 1 {
+            return pages[currentIndex + 1]
+        } else {
+            return pages.first
+        }
+    }
+}
+
+// MARK: - Delegates
+
+extension PresentationViewController: UIPageViewControllerDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.width
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        guard let viewControllers = pageViewController.viewControllers else { return }
+        guard let currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
+        
+        pageControl.currentPage = currentIndex
+        showControls()
+    }
+
+    private func showControls() {
+        pageControlBottomAnchor?.constant = 16
+    }
+}
+
+// MARK: - Actions
+
+extension PresentationViewController {
+
+    @objc func pageControlTapped(_ sender: UIPageControl) {
+        setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
     }
 }

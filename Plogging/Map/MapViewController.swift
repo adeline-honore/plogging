@@ -112,7 +112,10 @@ class MapViewController: UIViewController {
         
         if segue.identifier == SegueIdentifier.appOverviewPage.identifier {
             let overVC = segue.destination as? PresentationViewController
-            overVC?.presentationViewControllerDelegate = self
+            //overVC?.presentationViewControllerDelegate = self
+            
+            EndPresentationViewController().presentationViewControllerDelegate = self
+            
         } else if segue.identifier == SegueIdentifier.fromMapToPlogging.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingsUI = ploggingsUI
