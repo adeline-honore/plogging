@@ -67,7 +67,7 @@ extension PresentationViewController {
         pageControl.currentPage = initialPage
         
         skipButton.translatesAutoresizingMaskIntoConstraints = false
-        skipButton.setTitleColor(.systemBlue, for: .normal)
+        skipButton.setTitleColor(Color().appColor, for: .normal)
         skipButton.setTitle("Skip Intro", for: .normal)
         skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
     }

@@ -40,7 +40,7 @@ extension OnboardingViewController {
         textLabel.textAlignment = .center
         
         textLabel.numberOfLines = 0
-        textLabel.textColor = .green
+        textLabel.textColor = Color().appColor
         
         view.backgroundColor = .white
     }
