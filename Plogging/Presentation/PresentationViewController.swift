@@ -15,6 +15,8 @@ class PresentationViewController: UIPageViewController {
 
     // MARK: - Properties
     
+    private let skipButton = UIButton()
+    
     var pages = [UIViewController]()
     
     let pageControl = UIPageControl()
@@ -24,6 +26,7 @@ class PresentationViewController: UIPageViewController {
 
     var pageControlBottomAnchor: NSLayoutConstraint?
     
+    private var skipButtonTopAnchor: NSLayoutConstraint?
     
     // MARK: - Init
     
@@ -32,14 +35,6 @@ class PresentationViewController: UIPageViewController {
         setup()
         style()
         layout()
-    }
-    
-    
-    // MARK: - Dismiss View Controller
-    
-    func passPresentation() {
-        self.dismiss(animated: true, completion: nil)
-        presentationViewControllerDelegate?.didPressDismissButton()
     }
 }
 
@@ -54,7 +49,7 @@ extension PresentationViewController {
         let page1 = OnboardingViewController(textLabelText: Texts.onBoardingTitle.value)
         let page2 = OnboardingViewController(textLabelText: Texts.onBoardingTabOne.value)
         let page3 = OnboardingViewController(textLabelText: Texts.onBoardingTabTwo.value)
-        let page4 = EndPresentationViewController()
+        let page4 = OnboardingViewController(textLabelText: Texts.onBoardingTabThree.value)
         
         pages.append(page1)
         pages.append(page2)
@@ -70,12 +65,22 @@ extension PresentationViewController {
         pageControl.pageIndicatorTintColor = .systemGray2
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = initialPage
+        
+        skipButton.translatesAutoresizingMaskIntoConstraints = false
+        skipButton.setTitleColor(.systemBlue, for: .normal)
+        skipButton.setTitle("Skip Intro", for: .normal)
+        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
     }
     
     func layout() {
         view.addSubview(pageControl)
         
+        view.addSubview(skipButton)
+        
         NSLayoutConstraint.activate([
+            
+            skipButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            
             pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -84,6 +89,10 @@ extension PresentationViewController {
         pageControlBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 2)
 
         pageControlBottomAnchor?.isActive = true
+        
+        skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
+        
+        skipButtonTopAnchor?.isActive = true
     }
 }
 
@@ -138,5 +147,10 @@ extension PresentationViewController {
 
     @objc func pageControlTapped(_ sender: UIPageControl) {
         setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
+    }
+    
+    @objc func skipTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+        presentationViewControllerDelegate?.didPressDismissButton()
     }
 }
