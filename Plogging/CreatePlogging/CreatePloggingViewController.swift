@@ -42,20 +42,14 @@ class CreatePloggingViewController: UIViewController {
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
         distanceArray = returnDistance()
-        //when = String(Date())
+        when = returnStringFromDate(date: Date())
     }
 
     
     // MARK: - Date Picker View
     
     @IBAction func getDateFromPickerView() {
-        let date = createPloggingView.whenDatePicker.date
-        
-        let dateFormatter = DateFormatter()
-
-        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
-
-        when = dateFormatter.string(from: date)
+        when = returnStringFromDate(date: createPloggingView.whenDatePicker.date)
     }
     
     

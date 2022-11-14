@@ -17,4 +17,10 @@ extension UIViewController {
     func userAlert(element: AlertType) {
         displayAlert(message: element.message)
     }
+    
+    func returnStringFromDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+        return dateFormatter.string(from: date)
+    }
 }
