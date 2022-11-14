@@ -25,6 +25,8 @@ class CreatePloggingViewController: UIViewController {
     
     var when: String?
     
+    var distanceArray: [String] = []
+    
     
     // MARK: - Init
     
@@ -35,6 +37,7 @@ class CreatePloggingViewController: UIViewController {
         
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
+        distanceArray = returnDistance()
     }
 
     
@@ -53,6 +56,13 @@ class CreatePloggingViewController: UIViewController {
     
     // MARK: - Distance Picker View
     
+    private func returnDistance() -> [String] {
+        
+        for i in stride(from: 2, through: 20, by: 2) {
+            distanceArray.append(String(i))
+        }
+        return distanceArray
+    }
     
     // MARK: - Save as PloggingCD
 
@@ -120,3 +130,18 @@ extension CreatePloggingViewController: UISearchBarDelegate {
          // handle error
      }
  }
+
+extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return distanceArray.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return distanceArray[row]
+    }
+}
