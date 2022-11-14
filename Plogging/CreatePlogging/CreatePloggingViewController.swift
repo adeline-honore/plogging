@@ -23,6 +23,8 @@ class CreatePloggingViewController: UIViewController {
     
     var searchCompleter = MKLocalSearchCompleter()
     
+    var when: String?
+    
     
     // MARK: - Init
     
@@ -35,9 +37,20 @@ class CreatePloggingViewController: UIViewController {
         searchResultsTableView.isHidden = true
     }
 
+    
     // MARK: - Date Picker View
     
+    @IBAction func getDateFromPickerView() {
+        let date = createPloggingView.whenDatePicker.date
+        
+        let dateFormatter = DateFormatter()
 
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+
+        when = dateFormatter.string(from: date)
+    }
+    
+    
     // MARK: - Distance Picker View
     
     

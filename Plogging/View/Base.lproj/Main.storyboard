@@ -413,6 +413,9 @@
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-0c-R8A">
                                         <rect key="frame" x="0.0" y="172.5" width="374" height="216"/>
+                                        <connections>
+                                            <action selector="getDateFromPickerView" destination="mHZ-Vc-rgi" eventType="valueChanged" id="YF6-Uo-r3k"/>
+                                        </connections>
                                     </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drf-Ts-kVy">
                                         <rect key="frame" x="0.0" y="408.5" width="374" height="20.5"/>
