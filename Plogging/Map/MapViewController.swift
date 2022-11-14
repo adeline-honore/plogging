@@ -119,6 +119,17 @@ class MapViewController: UIViewController {
             viewController?.ploggingsUI = ploggingsUI
             viewController?.ploggingUI = ploggingUI
         }
+        else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
+            _ = segue.destination as? CreatePloggingViewController
+            
+        }
+    }
+    
+    
+    //MARK: - Go to create a plogging
+    
+    @IBAction func didTapCreatePlogging(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: SegueIdentifier.fromMapToCreatePlogging.identifier, sender: self)
     }
 }
 

@@ -11,7 +11,7 @@ class LocalSearchCompletion: MKLocalSearchCompleter {
     
     // MARK: - Properties
     
-    static var shared = LocalSearchCompletion()
+//    static var shared = LocalSearchCompletion()
     
     var placemark: CLPlacemark?
     
@@ -19,15 +19,27 @@ class LocalSearchCompletion: MKLocalSearchCompleter {
     
     var searchResults: [MKLocalSearchCompletion] = []
     
+    let autoCompletion = MKLocalSearchCompleter()
+    
+    var suggestion: String?
+    
     // MARK: - Location from Local search completion
     
-    func getLocationFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
+//    func getLocationFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
+//        let searchRequest = MKLocalSearch.Request(completion: completion)
+//        let search = MKLocalSearch(request: searchRequest)
+//        search.start { (response, error) in
+//            self.placeCoordinate = response?.mapItems[0].placemark.coordinate
+//
+//            self.placemark = response?.mapItems[0].placemark
+//        }
+//    }
+    
+    func getCoordinateFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
         let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
             self.placeCoordinate = response?.mapItems[0].placemark.coordinate
-            
-            self.placemark = response?.mapItems[0].placemark
         }
     }
 }

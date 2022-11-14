@@ -10,8 +10,8 @@ import UIKit
 class CreatePloggingView: UIView {
     
     // MARK: - IBOutlets
-    
-    @IBOutlet weak var placeTextField: UITextField!
+        
+    @IBOutlet weak var locationSearchBar: UISearchBar!
     
     @IBOutlet weak var whenDatePicker: UIDatePicker!
     
