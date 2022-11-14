@@ -367,21 +367,68 @@
             </objects>
             <point key="canvasLocation" x="4843.4782608695659" y="-393.08035714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Plogging View Controller-->
         <scene sceneID="3ng-2I-Xyb">
             <objects>
-                <viewController id="mHZ-Vc-rgi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="w7S-Hk-XSh">
+                <viewController id="mHZ-Vc-rgi" customClass="CreatePloggingViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w7S-Hk-XSh" customClass="CreatePloggingView" customModule="Plogging" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7hn-q5-NKe">
+                                <rect key="frame" x="20" y="118" width="374" height="665"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure adress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNN-RY-uqZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="where ?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMU-YG-Bc4">
+                                        <rect key="frame" x="0.0" y="20.5" width="374" height="171.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="When:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h75-eg-gPq">
+                                        <rect key="frame" x="0.0" y="192" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-0c-R8A">
+                                        <rect key="frame" x="0.0" y="212.5" width="374" height="216"/>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drf-Ts-kVy">
+                                        <rect key="frame" x="0.0" y="428.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-CO-okM">
+                                        <rect key="frame" x="0.0" y="449" width="374" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="1QU-OF-d83"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1QU-OF-d83" firstAttribute="bottom" secondItem="7hn-q5-NKe" secondAttribute="bottom" constant="30" id="Ety-gV-tmk"/>
+                            <constraint firstItem="7hn-q5-NKe" firstAttribute="top" secondItem="1QU-OF-d83" secondAttribute="top" constant="30" id="RXN-5u-MbO"/>
+                            <constraint firstItem="7hn-q5-NKe" firstAttribute="leading" secondItem="1QU-OF-d83" secondAttribute="leading" constant="20" id="aUt-ZI-076"/>
+                            <constraint firstItem="1QU-OF-d83" firstAttribute="trailing" secondItem="7hn-q5-NKe" secondAttribute="trailing" constant="20" id="xOc-l4-cSv"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="distancePickerView" destination="dfv-CO-okM" id="WU4-Hh-3dz"/>
+                            <outlet property="placeTextField" destination="fMU-YG-Bc4" id="Qta-G1-xP0"/>
+                            <outlet property="whenDatePicker" destination="kbg-0c-R8A" id="NUM-KU-JsY"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="o7S-09-nqU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uT1-IH-MTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6691" y="64"/>
+            <point key="canvasLocation" x="6689.8550724637689" y="63.616071428571423"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Otb-Z8-5kD">
