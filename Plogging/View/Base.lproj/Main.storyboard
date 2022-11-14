@@ -391,7 +391,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DfB-gb-86o">
-                                        <rect key="frame" x="0.0" y="41" width="374" height="51"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="374" height="51"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="mHZ-Vc-rgi" id="Ufs-Vd-Qwt"/>
@@ -412,7 +412,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-0c-R8A">
-                                        <rect key="frame" x="0.0" y="173" width="374" height="216"/>
+                                        <rect key="frame" x="0.0" y="172.5" width="374" height="216"/>
                                         <connections>
                                             <action selector="getDateFromPickerView" destination="mHZ-Vc-rgi" eventType="valueChanged" id="YF6-Uo-r3k"/>
                                         </connections>
@@ -448,7 +448,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="o7S-09-nqU">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="u1n-3F-xfO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="u1n-3F-xfO">
+                            <connections>
+                                <action selector="didTapSavePlogging:" destination="mHZ-Vc-rgi" id="efb-LE-OXc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchResultsTableView" destination="aIV-ci-sob" id="GsW-if-ehX"/>

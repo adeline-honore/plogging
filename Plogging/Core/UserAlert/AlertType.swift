@@ -10,6 +10,7 @@ import Foundation
 enum AlertType{
     
     case locationSaved
+    case ploggingSaved
     
     
     
@@ -17,6 +18,8 @@ enum AlertType{
         switch self {
         case .locationSaved:
             return "This location is saved ."
+        case .ploggingSaved:
+            return "Your plogging race is saved ."
         }
     }
     

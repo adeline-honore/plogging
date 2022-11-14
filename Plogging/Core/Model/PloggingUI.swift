@@ -9,20 +9,20 @@ import Foundation
 
 
 struct PloggingUI: Codable {
-    let id: String
+    var id: String
     
-    let admin: String
+    var admin: String
     
     var beginning: String
     
     var place: String
     
-    var latitude: Double
-    var longitude: Double
+    var latitude: Double?
+    var longitude: Double?
     
-    var ploggers: [String]
+    var ploggers: [String]?
     
-    var isTakingPart: Bool
+    var isTakingPart: Bool?
     
 //    var messages: [Message]
     
@@ -47,6 +47,14 @@ struct PloggingUI: Codable {
         
     }
     
+    // init for create an instance of PloggingUI
+    init(id: String, admin: String, beginning: String, place: String, isTakingPart: Bool) {
+        self.id = id
+        self.admin = admin
+        self.beginning = beginning
+        self.place = place
+        self.isTakingPart = isTakingPart
+    }
 }
 
 

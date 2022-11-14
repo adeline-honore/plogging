@@ -4,7 +4,7 @@
         <attribute name="admin" optional="YES" attributeType="String"/>
         <attribute name="beginning" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="isTackingPart" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isTakingPart" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="messages" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
@@ -12,6 +12,6 @@
         <attribute name="ploggers" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
     </entity>
     <elements>
-        <element name="PloggingCD" positionX="-54" positionY="-9" width="128" height="14"/>
+        <element name="PloggingCD" positionX="-54" positionY="-9" width="128" height="164"/>
     </elements>
 </model>

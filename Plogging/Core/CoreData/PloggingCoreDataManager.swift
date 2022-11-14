@@ -21,4 +21,18 @@ final class PloggingCoreDataManager {
         self.coreDataStack = coreDataStack
         self.managedObjectContext = managedObjectContext
     }
+    
+    func createEntity(ploggingUI: PloggingUI) throws {
+        
+        let entity = NSEntityDescription.entity(forEntityName: "PloggingCD",
+                                                in: coreDataStack.viewContext)!
+        
+        let ploggingCD = NSManagedObject(entity: entity, insertInto: coreDataStack.viewContext)
+        
+        ploggingCD.setValue(ploggingUI.id, forKey: "id")
+        ploggingCD.setValue(ploggingUI.admin, forKey: "admin")
+        ploggingCD.setValue(ploggingUI.beginning, forKey: "beginning")
+        ploggingCD.setValue(ploggingUI.place, forKey: "place")
+        ploggingCD.setValue(ploggingUI.isTakingPart, forKey: "isTakingPart")
+    }
 }

@@ -21,6 +21,10 @@ class CreatePloggingViewController: UIViewController {
     
     private var localSearchCompletion = LocalSearchCompletion()
     
+    private let repository = PloggingCoreDataManager(
+        coreDataStack: CoreDataStack(),
+        managedObjectContext: CoreDataStack().viewContext)
+    
     var searchCompleter = MKLocalSearchCompleter()
     
     var when: String?
@@ -38,6 +42,7 @@ class CreatePloggingViewController: UIViewController {
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
         distanceArray = returnDistance()
+        //when = String(Date())
     }
 
     
@@ -64,9 +69,32 @@ class CreatePloggingViewController: UIViewController {
         return distanceArray
     }
     
+    
     // MARK: - Save as PloggingCD
 
-
+    @IBAction func didTapSavePlogging(_ sender: UIBarButtonItem) {
+        do {
+            try repository.createEntity(ploggingUI: createPloggingUI())
+        } catch {
+            fatalError()
+        }
+    }
+    
+    private func createPloggingUI() -> PloggingUI {
+        
+        //let id = UUID().uuidString
+        let id = "plogging2"
+        let admin = "admin1"
+        
+        guard let when = when,
+              let place = createPloggingView.locationSearchBar.text
+        else { fatalError() }
+        
+        
+        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, isTakingPart: true)
+        
+        return newPloggingUI
+    }
 }
 
 
