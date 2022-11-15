@@ -79,13 +79,14 @@ class CreatePloggingViewController: UIViewController {
         //let id = UUID().uuidString
         let id = "plogging2"
         let admin = "admin1"
+        let distance = 10.0
         
         guard let when = when,
               let place = createPloggingView.locationSearchBar.text
         else { fatalError() }
         
         
-        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, isTakingPart: true)
+        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, isTakingPart: true, distance: distance)
         
         return newPloggingUI
     }

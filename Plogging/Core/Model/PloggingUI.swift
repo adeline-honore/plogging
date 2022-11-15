@@ -24,6 +24,8 @@ struct PloggingUI: Codable {
     
     var isTakingPart: Bool?
     
+    var distance: Double?
+    
 //    var messages: [Message]
     
     
@@ -43,27 +45,31 @@ struct PloggingUI: Codable {
         
         isTakingPart = plogging.isTakingPart
         
+        distance = plogging.distance
+        
 //        self.messages = messages
         
     }
     
     // init for create an instance of PloggingUI
-    init(id: String, admin: String, beginning: String, place: String, isTakingPart: Bool) {
+    init(id: String, admin: String, beginning: String, place: String, isTakingPart: Bool, distance: Double) {
         self.id = id
         self.admin = admin
         self.beginning = beginning
         self.place = place
         self.isTakingPart = isTakingPart
+        self.distance = distance
     }
     
     // init from PlogginCD
-    init(ploggingCD: PloggingCD, id: String, admin: String, beginning: String, place: String, ploggers: [String], isTakingPart: Bool) {
+    init(ploggingCD: PloggingCD) {
         self.id = ploggingCD.id ?? ""
         self.admin = ploggingCD.admin ?? ""
         self.beginning = ploggingCD.beginning ?? ""
         self.place = ploggingCD.place ?? ""
         self.ploggers = ploggingCD.ploggers ?? [""]
         self.isTakingPart = ploggingCD.isTakingPart
+        self.distance = ploggingCD.distance ?? 0.0
     }
 }
 

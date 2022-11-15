@@ -3,6 +3,7 @@
     <entity name="PloggingCD" representedClassName=".PloggingCD" syncable="YES" codeGenerationType="class">
         <attribute name="admin" optional="YES" attributeType="String"/>
         <attribute name="beginning" optional="YES" attributeType="String"/>
+        <attribute name="distance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="isTakingPart" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -12,6 +13,6 @@
         <attribute name="ploggers" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
     </entity>
     <elements>
-        <element name="PloggingCD" positionX="-54" positionY="-9" width="128" height="164"/>
+        <element name="PloggingCD" positionX="-54" positionY="-9" width="128" height="179"/>
     </elements>
 </model>

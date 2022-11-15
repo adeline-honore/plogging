@@ -28,4 +28,5 @@ struct Plogging: Codable {
     
     var isTakingPart: Bool
     
+    var distance: Double
 }

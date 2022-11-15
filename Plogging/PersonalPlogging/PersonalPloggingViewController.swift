@@ -62,7 +62,7 @@ class PersonalPloggingViewController: UIViewController {
         var ploggings = [PloggingUI]()
         
         ploggings = entities.map {
-            PloggingUI(ploggingCD: $0, id: $0.id ?? "", admin: $0.admin ?? "", beginning: $0.beginning ?? "", place: $0.place ?? "", ploggers: $0.ploggers ?? [""], isTakingPart: $0.isTakingPart)
+            PloggingUI(ploggingCD: $0)
         }
         
         return ploggings
