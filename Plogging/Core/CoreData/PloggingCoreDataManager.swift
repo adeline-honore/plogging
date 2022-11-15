@@ -34,6 +34,7 @@ final class PloggingCoreDataManager {
         ploggingCD.setValue(ploggingUI.beginning, forKey: "beginning")
         ploggingCD.setValue(ploggingUI.place, forKey: "place")
         ploggingCD.setValue(ploggingUI.isTakingPart, forKey: "isTakingPart")
+        ploggingCD.setValue(ploggingUI.distance, forKey: "distance")
         
         try coreDataStack.viewContext.save()
     }

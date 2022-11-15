@@ -30,7 +30,7 @@ class CreatePloggingViewController: UIViewController {
     var when: String?
     
     var distanceArray: [String] = []
-    
+    var distanceSelected: Double = 0.0
     
     // MARK: - Init
     
@@ -79,14 +79,13 @@ class CreatePloggingViewController: UIViewController {
         //let id = UUID().uuidString
         let id = "plogging2"
         let admin = "admin1"
-        let distance = 10.0
         
         guard let when = when,
               let place = createPloggingView.locationSearchBar.text
         else { fatalError() }
         
         
-        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, isTakingPart: true, distance: distance)
+        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, isTakingPart: true, distance: distanceSelected)
         
         return newPloggingUI
     }
@@ -166,5 +165,9 @@ extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSo
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return distanceArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        distanceSelected = Double(distanceArray[row]) ?? 0.0
     }
 }
