@@ -23,4 +23,14 @@ extension UIViewController {
         dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
         return dateFormatter.string(from: date)
     }
+    
+    func setDateStringToInteger(dateString: String) -> Int{
+        let result = dateString.filter("0123456789".contains)
+        
+        guard let integer = Int(result) else {
+            return 0
+        }
+        
+        return integer
+    }
 }

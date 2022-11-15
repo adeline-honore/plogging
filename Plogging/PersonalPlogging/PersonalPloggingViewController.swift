@@ -22,6 +22,9 @@ class PersonalPloggingViewController: UIViewController {
     
     var ploggingsCD: [PloggingCD] = []
     var ploggingsUI: [PloggingUI] = []
+    var data: [[PloggingUI]] = [[], []]
+    
+    var dateNowInteger: Int = 0
     
     
     // MARK: - Init
@@ -33,6 +36,10 @@ class PersonalPloggingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         displayPersonalPloggings()
+        
+        dateNowInteger = setDateStringToInteger(dateString: returnStringFromDate(date: Date()))
+        
+        createDataSection()
     }
     
     
@@ -76,17 +83,38 @@ class PersonalPloggingViewController: UIViewController {
         tableView.register(cellNib, forCellReuseIdentifier: PloggingTableViewCell.identifier)
         //recipesTableView.rowHeight = UITableView.automaticDimension
     }
+    
+    // MARK: - Configure data with sections
+    
+    private func createDataSection() {
+        
+        ploggingsUI.forEach { race in
+            let depart = setDateStringToInteger(dateString: race.beginning)
+
+            if depart < dateNowInteger {
+                // upcoming races
+                data[0].append(race)
+            } else {
+                // past races
+                data[1].append(race)
+            }
+        }
+    }
 }
 
 
-extension PersonalPloggingViewController: UITextFieldDelegate, UITableViewDataSource {
+extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20.0
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        data.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ploggingsUI.count
+        return data[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
