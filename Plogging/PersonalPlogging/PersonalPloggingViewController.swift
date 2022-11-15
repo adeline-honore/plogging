@@ -28,6 +28,7 @@ class PersonalPloggingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +67,15 @@ class PersonalPloggingViewController: UIViewController {
         
         return ploggings
     }
+    
+    
+    // MARK: - Configure Table View
+    
+    private func configureTableView() {
+        let cellNib = UINib(nibName: "PloggingTableViewCell", bundle: .main)
+        tableView.register(cellNib, forCellReuseIdentifier: PloggingTableViewCell.identifier)
+        //recipesTableView.rowHeight = UITableView.automaticDimension
+    }
 }
 
 
@@ -80,8 +90,10 @@ extension PersonalPloggingViewController: UITextFieldDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "identifier")
-        cell?.textLabel?.text = ploggingsUI[indexPath.row].place
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: PloggingTableViewCell.identifier) as? PloggingTableViewCell ?? PloggingTableViewCell()
+        
+        cell.configure(plogging: ploggingsUI[indexPath.row])
+        
+        return cell
     }
 }
