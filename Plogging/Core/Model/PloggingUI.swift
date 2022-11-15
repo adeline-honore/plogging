@@ -55,6 +55,16 @@ struct PloggingUI: Codable {
         self.place = place
         self.isTakingPart = isTakingPart
     }
+    
+    // init from PlogginCD
+    init(ploggingCD: PloggingCD, id: String, admin: String, beginning: String, place: String, ploggers: [String], isTakingPart: Bool) {
+        self.id = ploggingCD.id ?? ""
+        self.admin = ploggingCD.admin ?? ""
+        self.beginning = ploggingCD.beginning ?? ""
+        self.place = ploggingCD.place ?? ""
+        self.ploggers = ploggingCD.ploggers ?? [""]
+        self.isTakingPart = ploggingCD.isTakingPart
+    }
 }
 
 

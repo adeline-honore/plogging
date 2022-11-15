@@ -5,7 +5,7 @@
 //  Created by HONORE Adeline on 11/11/2022.
 //
 
-import Foundation
+//import Foundation
 import CoreData
 
 final class PloggingCoreDataManager {
@@ -34,5 +34,18 @@ final class PloggingCoreDataManager {
         ploggingCD.setValue(ploggingUI.beginning, forKey: "beginning")
         ploggingCD.setValue(ploggingUI.place, forKey: "place")
         ploggingCD.setValue(ploggingUI.isTakingPart, forKey: "isTakingPart")
+        
+        try coreDataStack.viewContext.save()
+    }
+    
+    func getEntities() throws -> [PloggingCD] {
+        let request: NSFetchRequest<PloggingCD> = PloggingCD.fetchRequest()
+        do {
+            let count  = try coreDataStack.viewContext.count(for: request)
+            
+            return try coreDataStack.viewContext.fetch(request)            
+        } catch {
+            throw error
+        }
     }
 }

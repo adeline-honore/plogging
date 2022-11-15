@@ -11,6 +11,7 @@
 		6E1412EF29227100009E1BDB /* Plogging.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E1412ED29227100009E1BDB /* Plogging.xcdatamodeld */; };
 		6E1412F2292274C2009E1BDB /* CreatePloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1412F1292274C2009E1BDB /* CreatePloggingViewController.swift */; };
 		6E1412F42922750F009E1BDB /* CreatePloggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1412F32922750F009E1BDB /* CreatePloggingView.swift */; };
+		6E1412F92922FD69009E1BDB /* PersonalPloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1412F82922FD69009E1BDB /* PersonalPloggingViewController.swift */; };
 		6E290481291ED6CD00FB7D9A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E290480291ED6CD00FB7D9A /* Color.swift */; };
 		6E290483291EDBC500FB7D9A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E290482291EDBC500FB7D9A /* CoreDataStack.swift */; };
 		6E290485291EDC0C00FB7D9A /* PloggingCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E290484291EDC0C00FB7D9A /* PloggingCoreDataManager.swift */; };
@@ -61,6 +62,7 @@
 		6E1412EE29227100009E1BDB /* Plogging.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Plogging.xcdatamodel; sourceTree = "<group>"; };
 		6E1412F1292274C2009E1BDB /* CreatePloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePloggingViewController.swift; sourceTree = "<group>"; };
 		6E1412F32922750F009E1BDB /* CreatePloggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePloggingView.swift; sourceTree = "<group>"; };
+		6E1412F82922FD69009E1BDB /* PersonalPloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPloggingViewController.swift; sourceTree = "<group>"; };
 		6E290480291ED6CD00FB7D9A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6E290482291EDBC500FB7D9A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		6E290484291EDC0C00FB7D9A /* PloggingCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingCoreDataManager.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 			path = CreatePlogging;
 			sourceTree = "<group>";
 		};
+		6E1412F72922FD25009E1BDB /* PersonalPlogging */ = {
+			isa = PBXGroup;
+			children = (
+				6E1412F82922FD69009E1BDB /* PersonalPloggingViewController.swift */,
+			);
+			path = PersonalPlogging;
+			sourceTree = "<group>";
+		};
 		6E3821AC28FD545F00F39184 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,10 +176,11 @@
 		6ED589B028E8D8B000450FE4 /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
-				6E1412F029227492009E1BDB /* CreatePlogging */,
 				6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */,
 				6ED589E428E8D92F00450FE4 /* Core */,
+				6E1412F029227492009E1BDB /* CreatePlogging */,
 				6ED589E728E8D97000450FE4 /* Map */,
+				6E1412F72922FD25009E1BDB /* PersonalPlogging */,
 				6E48FC592901E3BF00757AA9 /* PloggingDetails */,
 				6ED589ED28E8E87900450FE4 /* Presentation */,
 				6ED589E828E8D9EC00450FE4 /* View */,
@@ -426,6 +437,7 @@
 				6E290481291ED6CD00FB7D9A /* Color.swift in Sources */,
 				6E48FC582901DE8300757AA9 /* SegueIdentifier.swift in Sources */,
 				6EF0AA1D2902BBD40004F374 /* PloggingService.swift in Sources */,
+				6E1412F92922FD69009E1BDB /* PersonalPloggingViewController.swift in Sources */,
 				6E1412F2292274C2009E1BDB /* CreatePloggingViewController.swift in Sources */,
 				6EF0AA1F2902BC4E0004F374 /* PloggingLoader.swift in Sources */,
 				6E088F942916830900F401A6 /* Texts.swift in Sources */,
