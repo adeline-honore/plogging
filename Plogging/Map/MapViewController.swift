@@ -89,7 +89,7 @@ class MapViewController: UIViewController {
                 mapView.addAnnotations(PloggingLoader.init(ploggingService: ploggingService).createAnnotationFromPloggingModels(model: ploggingsResult))
                 self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: ploggings)
             case .failure:
-                userAlert(element: .locationSaved)
+                userAlert(element: .network)
             }
         }
     }

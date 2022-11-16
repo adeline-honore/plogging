@@ -51,7 +51,7 @@ class PersonalPloggingViewController: UIViewController {
         tableView.reloadData()
         
         if ploggingsUI.isEmpty {
-            print("no personal races")
+            userAlert(element: AlertType.noPersonalPlogging)
         }
     }
     

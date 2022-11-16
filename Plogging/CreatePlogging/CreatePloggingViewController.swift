@@ -69,7 +69,9 @@ class CreatePloggingViewController: UIViewController {
     @IBAction func didTapSavePlogging(_ sender: UIBarButtonItem) {
         do {
             try repository.createEntity(ploggingUI: createPloggingUI())
+            userAlert(element: AlertType.ploggingSaved)
         } catch {
+            userAlert(element: AlertType.ploggingNotSaved)
             fatalError()
         }
     }
