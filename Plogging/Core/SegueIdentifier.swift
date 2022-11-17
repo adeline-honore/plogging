@@ -14,6 +14,8 @@ enum SegueIdentifier {
     case fromMapToPlogging
     case fromMapToCreatePlogging
     
+    case fromPersonalToDetails
+    
     var identifier: String {
         switch self {
         case .appOverviewPage:
@@ -22,6 +24,9 @@ enum SegueIdentifier {
             return "fromMapToPlogging"
         case .fromMapToCreatePlogging:
             return "fromMapToCreatePlogging"
+            
+        case .fromPersonalToDetails:
+            return "fromPersonalToDetails"
         }
     }
 }

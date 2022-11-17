@@ -131,6 +131,7 @@
                     <navigationItem key="navigationItem" id="VCg-vZ-fQV"/>
                     <connections>
                         <outlet property="tableView" destination="nfy-Cr-6M6" id="15x-y1-Isj"/>
+                        <segue destination="cjp-X3-h0i" kind="show" identifier="fromPersonalToDetails" id="ILF-OV-iDw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qz-91-LmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -426,6 +427,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="CDe-xZ-W2L"/>
+        <segue reference="ILF-OV-iDw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="map" catalog="system" width="128" height="110"/>

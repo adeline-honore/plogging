@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PloggingDetailsViewControllerDelegate: AnyObject {
+    func didChangeIsTakingPartState(id: String, ploggingChanged: PloggingUI)
+}
+
 class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Properties
@@ -17,8 +21,11 @@ class PloggingDetailsViewController: UIViewController {
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
     
+    weak var detailsDelegate: PloggingDetailsViewControllerDelegate?
+    
     var ploggingUI: PloggingUI?
     var ploggingsUI: [PloggingUI]?
+    var ploggingsUIIndex: Int = 0
     
     
     // MARK: - Life cycle
@@ -29,10 +36,14 @@ class PloggingDetailsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        if ploggingUI == nil {
+            ploggingUI = ploggingsUI?[ploggingsUIIndex]
+        }
         guard let ploggingUI = ploggingUI else {
             return
         }
-
+        
         ploggingDetailsView.configure(plogging: ploggingUI)
     }
     
@@ -64,6 +75,7 @@ class PloggingDetailsViewController: UIViewController {
                 fatalError()
             }
         }
+        detailsDelegate?.didChangeIsTakingPartState(id: plogging.id, ploggingChanged: plogging)
         
             ploggingDetailsView.manageIsTakingPartButton(button: ploggingDetailsView.isTakingPartButton, isTakingPart: plogging.isTakingPart)
         

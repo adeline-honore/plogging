@@ -23,6 +23,7 @@ class PersonalPloggingViewController: UIViewController {
     var ploggingsCD: [PloggingCD] = []
     var ploggingsUI: [PloggingUI] = []
     var data: [[PloggingUI]] = [[], []]
+    var ploggingsUIIndex: Int = 0
     
     var dateNowInteger: Int = 0
     
@@ -99,6 +100,21 @@ class PersonalPloggingViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - View details of plogging
+    
+    func sendPloggingsUI() {
+        performSegue(withIdentifier: SegueIdentifier.fromPersonalToDetails.identifier, sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.fromPersonalToDetails.identifier {
+            let viewController = segue.destination as? PloggingDetailsViewController
+            viewController?.detailsDelegate = self
+            viewController?.ploggingsUI = ploggingsUI
+            viewController?.ploggingsUIIndex = ploggingsUIIndex
+        }
+    }
 }
 
 
@@ -122,5 +138,20 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
         cell.configure(plogging: ploggingsUI[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        ploggingsUIIndex = indexPath.row
+        sendPloggingsUI()
+    }
+}
+
+extension PersonalPloggingViewController: PloggingDetailsViewControllerDelegate {
+    func didChangeIsTakingPartState(id: String, ploggingChanged: PloggingUI) {
+        
+        if let row = self.ploggingsUI.firstIndex(where: {$0.id == id}) {
+            ploggingsUI[row] = ploggingChanged
+        }
     }
 }
