@@ -20,4 +20,15 @@ extension UIView {
             button.tintColor = .gray
         }
     }
+    
+    func displayDate(dateString:String) -> String {
+        var toDisplay: String = dateString
+        toDisplay = toDisplay.replacingOccurrences(of: " ",
+                                                    with: " at ")
+        
+        toDisplay = toDisplay.replacingOccurrences(of: ":",
+                                                   with: "h")
+        
+        return toDisplay
+    }
 }

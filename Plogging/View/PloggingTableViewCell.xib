@@ -26,13 +26,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f22-xf-9dC">
-                                <rect key="frame" x="30" y="121" width="157" height="21"/>
+                                <rect key="frame" x="30" y="121" width="234" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Om-MJ-fRU">
-                                <rect key="frame" x="227" y="121" width="157" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Om-MJ-fRU">
+                                <rect key="frame" x="294" y="121" width="90" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="aIe-l2-xXE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,13 +45,12 @@
                         <constraints>
                             <constraint firstItem="sIg-Tt-HaF" firstAttribute="leading" secondItem="Dg4-8e-LdF" secondAttribute="leading" constant="20" id="DX5-oV-5R7"/>
                             <constraint firstItem="sIg-Tt-HaF" firstAttribute="top" secondItem="Dg4-8e-LdF" secondAttribute="top" constant="10" id="Kxp-nS-cdX"/>
-                            <constraint firstItem="8Om-MJ-fRU" firstAttribute="width" secondItem="f22-xf-9dC" secondAttribute="width" id="LJd-1b-unP"/>
+                            <constraint firstItem="8Om-MJ-fRU" firstAttribute="leading" secondItem="f22-xf-9dC" secondAttribute="trailing" constant="30" id="SCV-9B-clg"/>
                             <constraint firstItem="8Om-MJ-fRU" firstAttribute="top" secondItem="sIg-Tt-HaF" secondAttribute="bottom" constant="10" id="VMw-Rn-gPn"/>
                             <constraint firstItem="f22-xf-9dC" firstAttribute="leading" secondItem="Dg4-8e-LdF" secondAttribute="leading" constant="30" id="aHn-TE-WEv"/>
                             <constraint firstAttribute="bottom" secondItem="f22-xf-9dC" secondAttribute="bottom" constant="10" id="dwr-yc-MCp"/>
                             <constraint firstItem="f22-xf-9dC" firstAttribute="top" secondItem="sIg-Tt-HaF" secondAttribute="bottom" constant="10" id="gmc-GR-0bn"/>
                             <constraint firstAttribute="trailing" secondItem="sIg-Tt-HaF" secondAttribute="trailing" constant="20" id="h9H-9v-I3m"/>
-                            <constraint firstItem="8Om-MJ-fRU" firstAttribute="leading" secondItem="f22-xf-9dC" secondAttribute="trailing" constant="40" id="vbb-Rt-JNz"/>
                             <constraint firstAttribute="bottom" secondItem="8Om-MJ-fRU" secondAttribute="bottom" constant="10" id="yqa-qm-XCJ"/>
                             <constraint firstAttribute="trailing" secondItem="8Om-MJ-fRU" secondAttribute="trailing" constant="30" id="zQI-J6-r01"/>
                         </constraints>
