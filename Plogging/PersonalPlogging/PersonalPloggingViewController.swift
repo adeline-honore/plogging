@@ -145,6 +145,10 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
         ploggingsUIIndex = indexPath.row
         sendPloggingsUI()
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return (section == 0) ? "upcoming ploggings" : "past ploggings"
+    }
 }
 
 extension PersonalPloggingViewController: PloggingDetailsViewControllerDelegate {

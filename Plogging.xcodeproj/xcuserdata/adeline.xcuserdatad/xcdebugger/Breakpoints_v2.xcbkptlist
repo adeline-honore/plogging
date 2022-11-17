@@ -110,8 +110,8 @@
             filePath = "Plogging/PersonalPlogging/PersonalPloggingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "didChangeIsTakingPartState(id:ploggingChanged:)"
             landmarkType = "7">
          </BreakpointContent>
