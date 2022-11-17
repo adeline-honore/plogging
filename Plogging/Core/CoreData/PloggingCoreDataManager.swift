@@ -47,4 +47,24 @@ final class PloggingCoreDataManager {
             throw error
         }
     }
+    
+    func removeEntity(id: String) throws {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PloggingCD")
+        request.predicate = NSPredicate(format:"url = %@", id)
+        
+        if let results = try coreDataStack.viewContext.fetch(request) as? [NSManagedObject] {
+            // delete first object:
+            if results.count > 0 {
+                coreDataStack.viewContext.delete(results[0])
+                do {
+                try coreDataStack.viewContext.save()
+                } catch {
+                    throw error
+                }
+            }
+        } else {
+            print("oups")
+        }
+    }
 }

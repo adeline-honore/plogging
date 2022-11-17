@@ -22,9 +22,9 @@ struct PloggingUI: Codable {
     
     var ploggers: [String]?
     
-    var isTakingPart: Bool?
+    var isTakingPart: Bool
     
-    var distance: Double?
+    var distance: Double
     
 //    var messages: [Message]
     

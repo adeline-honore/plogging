@@ -32,6 +32,6 @@ class PloggingTableViewCell: UITableViewCell {
     func configure(plogging: PloggingUI) {
         placeLabel.text = plogging.place
         dateLabel.text = plogging.beginning
-        distanceLabel.text = plogging.distance?.fixedFraction(digits: 0)
+        distanceLabel.text = plogging.distance.fixedFraction(digits: 0)
     }
 }

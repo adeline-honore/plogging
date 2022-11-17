@@ -19,6 +19,8 @@ enum AlertType{
     
     case noPersonalPlogging
     
+    case isTakingPart
+    case isNotTakingPart
     
     var message: String {
         switch self {
@@ -36,6 +38,11 @@ enum AlertType{
             
         case .noPersonalPlogging:
             return "No personal plogging ."
+            
+        case .isTakingPart:
+            return "Yeah ! You will participate at this plogging ."
+        case .isNotTakingPart:
+            return "Ok ! You will not take part at this plogging ."
         }
     }
     

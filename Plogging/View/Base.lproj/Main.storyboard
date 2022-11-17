@@ -223,6 +223,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup.fill" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="didTapIsTakingPartButton" destination="cjp-X3-h0i" eventType="touchUpInside" id="X5G-dJ-dlK"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6oE-ww-Uz0">
                                 <rect key="frame" x="57" y="332" width="93.5" height="41"/>
@@ -388,7 +391,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ATV-Qu-ke5"/>
+        <segue reference="CDe-xZ-W2L"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
