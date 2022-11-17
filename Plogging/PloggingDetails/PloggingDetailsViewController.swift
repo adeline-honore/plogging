@@ -28,6 +28,14 @@ class PloggingDetailsViewController: UIViewController {
         ploggingDetailsView = view as? PloggingDetailsView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        guard let ploggingUI = ploggingUI else {
+            return
+        }
+
+        ploggingDetailsView.configure(plogging: ploggingUI)
+    }
+    
     
     @IBAction func didTapIsTakingPartButton() {
         toggleTakePart()
@@ -57,7 +65,7 @@ class PloggingDetailsViewController: UIViewController {
             }
         }
         
-        ploggingDetailsView.manageIsTakingPartButtonColor(button: ploggingDetailsView.isTakingPartButton, isTakingPart: plogging.isTakingPart)
+            ploggingDetailsView.manageIsTakingPartButton(button: ploggingDetailsView.isTakingPartButton, isTakingPart: plogging.isTakingPart)
         
         ploggingUI = plogging
     }

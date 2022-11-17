@@ -25,3 +25,18 @@ class PloggingDetailsView: UIView {
     
 
 }
+
+
+extension PloggingDetailsView {
+    func configure(plogging: PloggingUI) {
+        mainImage = nil
+        
+        dateAndHourLabel.text = plogging.beginning
+        placeLabel.text = plogging.place
+        adminNameLabel.text = plogging.admin
+        
+        photosButton.tintColor = Color().appColor
+        messageButton.tintColor = Color().appColor
+        manageIsTakingPartButton(button: isTakingPartButton, isTakingPart: plogging.isTakingPart)
+    }
+}
