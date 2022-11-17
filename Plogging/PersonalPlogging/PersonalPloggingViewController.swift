@@ -22,7 +22,7 @@ class PersonalPloggingViewController: UIViewController {
     
     var ploggingsCD: [PloggingCD] = []
     var ploggingsUI: [PloggingUI] = []
-    var data: [[PloggingUI]] = [[], []]
+    var ploggingsSection: [[PloggingUI]] = [[], []]
     var ploggingsUIIndex: Int = 0
     
     var dateNowInteger: Int = 0
@@ -87,16 +87,17 @@ class PersonalPloggingViewController: UIViewController {
     // MARK: - Configure data with sections
     
     private func createDataSection() {
+        ploggingsSection = [[], []]
         
         ploggingsUI.forEach { race in
             let depart = setDateStringToInteger(dateString: race.beginning)
 
             if depart < dateNowInteger {
                 // upcoming races
-                data[0].append(race)
+                ploggingsSection[0].append(race)
             } else {
                 // past races
-                data[1].append(race)
+                ploggingsSection[1].append(race)
             }
         }
     }
@@ -125,11 +126,11 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        data.count
+        ploggingsSection.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
+        return ploggingsSection[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
