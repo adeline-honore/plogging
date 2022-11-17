@@ -69,7 +69,7 @@ struct PloggingUI: Codable {
         self.place = ploggingCD.place ?? ""
         self.ploggers = ploggingCD.ploggers ?? [""]
         self.isTakingPart = ploggingCD.isTakingPart
-        self.distance = ploggingCD.distance ?? 0.0
+        self.distance = ploggingCD.distance
     }
 }
 

@@ -81,7 +81,6 @@ class PersonalPloggingViewController: UIViewController {
     private func configureTableView() {
         let cellNib = UINib(nibName: "PloggingTableViewCell", bundle: .main)
         tableView.register(cellNib, forCellReuseIdentifier: PloggingTableViewCell.identifier)
-        //recipesTableView.rowHeight = UITableView.automaticDimension
     }
     
     // MARK: - Configure data with sections

@@ -41,9 +41,7 @@ final class PloggingCoreDataManager {
     
     func getEntities() throws -> [PloggingCD] {
         let request: NSFetchRequest<PloggingCD> = PloggingCD.fetchRequest()
-        do {
-            let count  = try coreDataStack.viewContext.count(for: request)
-            
+        do {            
             return try coreDataStack.viewContext.fetch(request)            
         } catch {
             throw error

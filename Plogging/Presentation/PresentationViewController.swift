@@ -44,8 +44,6 @@ extension PresentationViewController {
         dataSource = self
         delegate = self
         
-//        pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
-
         let page1 = OnboardingViewController(textLabelText: Texts.onBoardingTitle.value)
         let page2 = OnboardingViewController(textLabelText: Texts.onBoardingTabOne.value)
         let page3 = OnboardingViewController(textLabelText: Texts.onBoardingTabTwo.value)

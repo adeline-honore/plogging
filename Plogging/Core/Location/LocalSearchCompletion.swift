@@ -10,9 +10,7 @@ import MapKit
 class LocalSearchCompletion: MKLocalSearchCompleter {
     
     // MARK: - Properties
-    
-//    static var shared = LocalSearchCompletion()
-    
+        
     var placemark: CLPlacemark?
     
     var placeCoordinate: CLLocationCoordinate2D?

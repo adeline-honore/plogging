@@ -67,8 +67,18 @@ class CreatePloggingViewController: UIViewController {
     // MARK: - Save as PloggingCD
 
     @IBAction func didTapSavePlogging(_ sender: UIBarButtonItem) {
+        savePlogging()
+    }
+    
+    private func savePlogging() {
+        // create ploggingUI
+        let ploggingToSave = createPloggingUI()
+        
+        // TO DO send ploggingUI in cloud
+        
+        // save into CoreData
         do {
-            try repository.createEntity(ploggingUI: createPloggingUI())
+            try repository.createEntity(ploggingUI: ploggingToSave)
             userAlert(element: AlertType.ploggingSaved)
         } catch {
             userAlert(element: AlertType.ploggingNotSaved)
