@@ -41,6 +41,7 @@ class PersonalPloggingViewController: UIViewController {
         dateNowInteger = dateToDoubleTimestamp(date: Date())
         
         createDataSection()
+        tableView.reloadData()
     }
     
     
@@ -48,9 +49,7 @@ class PersonalPloggingViewController: UIViewController {
     
     private func displayPersonalPloggings() {
         getPersonalPloggings()
-        
-        tableView.reloadData()
-        
+                
         if ploggingsUI.isEmpty {
             userAlert(element: AlertType.noPersonalPlogging)
         }
@@ -135,7 +134,9 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PloggingTableViewCell.identifier) as? PloggingTableViewCell ?? PloggingTableViewCell()
         
-        cell.configure(plogging: ploggingsUI[indexPath.row])
+        if !ploggingsUI.isEmpty {
+            cell.configure(plogging: ploggingsUI[indexPath.row])
+        }
         
         return cell
     }
@@ -154,8 +155,6 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
 extension PersonalPloggingViewController: PloggingDetailsViewControllerDelegate {
     func didChangeIsTakingPartState(id: String, ploggingChanged: PloggingUI) {
         
-        if let row = self.ploggingsUI.firstIndex(where: {$0.id == id}) {
-            ploggingsUI[row] = ploggingChanged
-        }
+            ploggingsUI = ploggingsUI.filter { $0.id != id }
     }
 }
