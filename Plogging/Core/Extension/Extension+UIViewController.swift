@@ -18,19 +18,7 @@ extension UIViewController {
         displayAlert(message: element.message)
     }
     
-    func returnStringFromDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
-        return dateFormatter.string(from: date)
-    }
-    
-    func setDateStringToInteger(dateString: String) -> Int{
-        let result = dateString.filter("0123456789".contains)
-        
-        guard let integer = Int(result) else {
-            return 0
-        }
-        
-        return integer
+    func dateToDoubleTimestamp(date: Date) -> Double {
+        Double(date.timeIntervalSince1970)
     }
 }

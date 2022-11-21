@@ -25,7 +25,7 @@ class PersonalPloggingViewController: UIViewController {
     var ploggingsSection: [[PloggingUI]] = [[], []]
     var ploggingsUIIndex: Int = 0
     
-    var dateNowInteger: Int = 0
+    var dateNowInteger: Double = 0
     
     
     // MARK: - Init
@@ -38,7 +38,7 @@ class PersonalPloggingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         displayPersonalPloggings()
         
-        dateNowInteger = setDateStringToInteger(dateString: returnStringFromDate(date: Date()))
+        dateNowInteger = dateToDoubleTimestamp(date: Date())
         
         createDataSection()
     }
@@ -90,9 +90,8 @@ class PersonalPloggingViewController: UIViewController {
         ploggingsSection = [[], []]
         
         ploggingsUI.forEach { race in
-            let depart = setDateStringToInteger(dateString: race.beginning)
 
-            if depart < dateNowInteger {
+            if race.beginning < dateNowInteger {
                 // upcoming races
                 ploggingsSection[0].append(race)
             } else {

@@ -27,7 +27,7 @@ class CreatePloggingViewController: UIViewController {
     
     var searchCompleter = MKLocalSearchCompleter()
     
-    var when: String?
+    var when: Double?
     
     var distanceArray: [String] = []
     var distanceSelected: Double = 0.0
@@ -42,14 +42,14 @@ class CreatePloggingViewController: UIViewController {
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
         distanceArray = returnDistance()
-        when = returnStringFromDate(date: Date())
+        when = dateToDoubleTimestamp(date: Date())
     }
 
     
     // MARK: - Date Picker View
     
     @IBAction func getDateFromPickerView() {
-        when = returnStringFromDate(date: createPloggingView.whenDatePicker.date)
+        when = dateToDoubleTimestamp(date: createPloggingView.whenDatePicker.date)
     }
     
     

@@ -21,14 +21,17 @@ extension UIView {
         }
     }
     
-    func displayDate(dateString:String) -> String {
-        var toDisplay: String = dateString
-        toDisplay = toDisplay.replacingOccurrences(of: " ",
-                                                    with: " at ")
+    func timestampToString(timestamp: Double) -> String {
         
-        toDisplay = toDisplay.replacingOccurrences(of: ":",
-                                                   with: "h")
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
         
-        return toDisplay
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .short
+        
+        // Set Locale
+        formatter.locale = Locale(identifier: "fr")
+        
+        return formatter.string(from: date)
     }
 }

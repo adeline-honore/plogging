@@ -17,7 +17,7 @@ struct Plogging: Codable {
     
     let admin: String
     
-    let beginning: String
+    let beginning: Double
     
     let place: String
     
