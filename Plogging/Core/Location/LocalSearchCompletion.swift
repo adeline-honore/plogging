@@ -40,4 +40,23 @@ class LocalSearchCompletion: MKLocalSearchCompleter {
             self.placeCoordinate = response?.mapItems[0].placemark.coordinate
         }
     }
+    
+    func getCLLocationFromStringAddress(place: String) -> CLLocation? {
+        
+        let geoCoder = CLGeocoder()
+        var location: CLLocation = CLLocation.init(latitude: 0, longitude: 0)
+        
+        geoCoder.geocodeAddressString(place) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let locationPlace = placemarks.first?.location
+            else {
+                // handle no location found
+                return
+            }
+            location = locationPlace
+        }
+        
+        return location
+    }
 }
