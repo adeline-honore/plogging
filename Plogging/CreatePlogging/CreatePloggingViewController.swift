@@ -30,7 +30,7 @@ class CreatePloggingViewController: UIViewController {
     var when: Double?
     
     var distanceArray: [String] = []
-    var distanceSelected: Double = 0.0
+    var distanceSelected: String = ""
     
     // MARK: - Init
     
@@ -43,6 +43,7 @@ class CreatePloggingViewController: UIViewController {
         searchResultsTableView.isHidden = true
         distanceArray = returnDistance()
         when = dateToDoubleTimestamp(date: Date())
+        distanceSelected = distanceArray[0]
     }
 
     
@@ -93,11 +94,12 @@ class CreatePloggingViewController: UIViewController {
         let admin = "admin1"
         
         guard let when = when,
-              let place = createPloggingView.locationSearchBar.text
+              let place = createPloggingView.locationSearchBar.text,
+              let distance = Double(distanceSelected)
         else { fatalError() }
         
         
-        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, isTakingPart: true, distance: distanceSelected)
+        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, isTakingPart: true, distance: distance)
         
         return newPloggingUI
     }
@@ -180,6 +182,6 @@ extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        distanceSelected = Double(distanceArray[row]) ?? 0.0
+        distanceSelected = distanceArray[row]
     }
 }
