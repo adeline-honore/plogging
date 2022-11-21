@@ -77,13 +77,17 @@ class CreatePloggingViewController: UIViewController {
         
         // TO DO send ploggingUI in cloud
         
-        // save into CoreData
-        do {
-            try repository.createEntity(ploggingUI: ploggingToSave)
-            userAlert(element: AlertType.ploggingSaved)
-        } catch {
-            userAlert(element: AlertType.ploggingNotSaved)
-            fatalError()
+        if ploggingToSave.place.isEmpty {
+            userAlert(element: AlertType.ploggingWithoutPlace)
+        } else {
+            // save into CoreData
+            do {
+                try repository.createEntity(ploggingUI: ploggingToSave)
+                userAlert(element: AlertType.ploggingSaved)
+            } catch {
+                userAlert(element: AlertType.ploggingNotSaved)
+                fatalError()
+            }
         }
     }
     
