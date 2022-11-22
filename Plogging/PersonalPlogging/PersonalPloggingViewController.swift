@@ -90,7 +90,7 @@ class PersonalPloggingViewController: UIViewController {
         
         ploggingsUI.forEach { race in
 
-            if race.beginning < dateNowInteger {
+            if race.beginning > dateNowInteger {
                 // upcoming races
                 ploggingsSection[0].append(race)
             } else {

@@ -19,6 +19,6 @@ extension UIViewController {
     }
     
     func dateToDoubleTimestamp(date: Date) -> Double {
-        Double(date.timeIntervalSince1970)
+        Double(date.timeIntervalSince1970).rounded(.towardZero)
     }
 }
