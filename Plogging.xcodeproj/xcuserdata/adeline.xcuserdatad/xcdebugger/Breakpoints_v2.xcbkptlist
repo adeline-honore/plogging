@@ -87,22 +87,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "736771AA-597E-4CFE-B6FF-D4D9B1638F53"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/Location/LocalSearchCompletion.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "LocalSearchCompletion"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C7552B5F-DF34-49CE-9E4C-5A2C0B651BFA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -126,8 +110,8 @@
             filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "createPloggingUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -135,48 +119,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A8088FEC-C9B4-46C8-A7D9-6BF22DF48AD6"
+            uuid = "F03A025C-49A4-4117-83F7-7E00B81F0B09"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "savePlogging()"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "searchBarCancelButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4C837BD5-ED1D-46E1-8EDB-F83C7882AF8C"
+            uuid = "58A308C6-ED6A-4553-9DF7-E2F5E445A717"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/Location/LocalSearchCompletion.swift"
+            filePath = "Plogging/Core/CoreData/PloggingCoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "getCLLocationFromStringAddress(place:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "createEntity(ploggingUI:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E3BE5D5-1AE2-47DD-8F62-80D06EDA5E24"
+            uuid = "5A1FDFD3-89A7-4EA3-8C7F-98BE5A31E311"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/Location/LocalSearchCompletion.swift"
+            filePath = "Plogging/PloggingDetails/PloggingDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "getCLLocationFromStringAddress(place:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

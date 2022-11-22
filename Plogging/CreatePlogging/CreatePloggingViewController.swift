@@ -99,11 +99,13 @@ class CreatePloggingViewController: UIViewController {
         
         guard let when = when,
               let place = createPloggingView.locationSearchBar.text,
-              let distance = Double(distanceSelected)
+              let distance = Double(distanceSelected),
+              let latitude = localSearchCompletion.placeCoordinate?.latitude,
+              let longitude = localSearchCompletion.placeCoordinate?.longitude
         else { fatalError() }
         
         
-        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, isTakingPart: true, distance: distance)
+        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, latitude: latitude, longitude: longitude, isTakingPart: true, distance: distance)
         
         return newPloggingUI
     }

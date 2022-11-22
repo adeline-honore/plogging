@@ -33,6 +33,8 @@ final class PloggingCoreDataManager {
         ploggingCD.setValue(ploggingUI.admin, forKey: "admin")
         ploggingCD.setValue(ploggingUI.beginning, forKey: "time")
         ploggingCD.setValue(ploggingUI.place, forKey: "place")
+        ploggingCD.setValue(ploggingUI.latitude, forKey: "latitude")
+        ploggingCD.setValue(ploggingUI.longitude, forKey: "longitude")
         ploggingCD.setValue(ploggingUI.isTakingPart, forKey: "isTakingPart")
         ploggingCD.setValue(ploggingUI.distance, forKey: "distance")
         
