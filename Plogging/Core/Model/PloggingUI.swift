@@ -52,15 +52,16 @@ struct PloggingUI: Codable {
     }
     
     // init for create an instance of PloggingUI
-    init(id: String, admin: String, beginning: Double, place: String, latitude: Double, longitude: Double, isTakingPart: Bool, distance: Double) {
-        self.id = id
-        self.admin = admin
-        self.beginning = beginning
-        self.place = place
+    init(id: String?, admin: String?, beginning: Double?, place: String?, latitude: Double?, longitude: Double?, isTakingPart: Bool = false, distance: Double?, ploggers: [String]?) {
+        self.id = id ?? ""
+        self.admin = admin ?? ""
+        self.beginning = beginning ?? 0
+        self.place = place ?? ""
         self.latitude = latitude
         self.longitude = longitude
         self.isTakingPart = isTakingPart
-        self.distance = distance
+        self.distance = distance ?? 0
+        self.ploggers = ploggers
     }
     
     // init from PlogginCD

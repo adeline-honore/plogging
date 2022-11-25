@@ -85,6 +85,7 @@
             <objects>
                 <navigationController id="iyy-jB-c0h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Races" selectedImage="tablecells" catalog="system" id="rZh-Bh-qek"/>
+                    <navigationItem key="navigationItem" id="5Qh-b9-r2t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P5U-uB-WiG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -398,6 +399,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchResultsTableView" destination="aIV-ci-sob" id="GsW-if-ehX"/>
+                        <segue destination="Ciz-NZ-kBh" kind="show" identifier="fromCreateToPersonnal" id="Tyh-uL-0oh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uT1-IH-MTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -428,6 +430,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="CDe-xZ-W2L"/>
         <segue reference="ILF-OV-iDw"/>
+        <segue reference="Tyh-uL-0oh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="map" catalog="system" width="128" height="110"/>

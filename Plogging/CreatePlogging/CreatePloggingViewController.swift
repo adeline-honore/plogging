@@ -26,6 +26,7 @@ class CreatePloggingViewController: UIViewController {
     
     private var searchCompleter = MKLocalSearchCompleter()
     
+    private var newPloggingUI: PloggingUI = PloggingUI(id: "", admin: "", beginning: 0, place: "", latitude: 0, longitude: 0, isTakingPart: false, distance: 0, ploggers: [""])
     private var when: Double?
     
     private var distanceArray: [String] = []
@@ -69,42 +70,60 @@ class CreatePloggingViewController: UIViewController {
     }
     
     private func savePlogging() {
-        // create ploggingUI
-        let ploggingToSave = createPloggingUI()
+        setPloggingElement()
         
-        // TO DO send ploggingUI in cloud
-        
-        if ploggingToSave.place.isEmpty {
-            userAlert(element: AlertType.ploggingWithoutPlace)
-        } else {
+        if newPloggingUI.place.isEmpty {
+            userAlert(element: .ploggingWithoutPlace)
+        }
+        else if newPloggingUI.id.isEmpty ||
+            newPloggingUI.admin.isEmpty ||
+            newPloggingUI.latitude == nil ||
+            newPloggingUI.longitude == nil ||
+            newPloggingUI.isTakingPart == false ||
+            newPloggingUI.distance == 0 {
+            userAlert(element: .ploggingNotSaved)
+        }
+        else {
             // save into CoreData
             do {
-                try repository.createEntity(ploggingUI: ploggingToSave)
-                userAlert(element: AlertType.ploggingSaved)
+                try repository.createEntity(ploggingUI: newPloggingUI)
+                // TO DO send ploggingUI in cloud
+                displayPersonalPloggingsRaces()
             } catch {
                 userAlert(element: AlertType.ploggingNotSaved)
                 fatalError()
             }
         }
     }
-    
-    private func createPloggingUI() -> PloggingUI {
+        
+    private func setPloggingElement() {
         
         //let id = UUID().uuidString
         let id = "plogging2"
         let admin = "admin1"
+        let ploggers = [admin]
         
         guard let when = when,
               let place = createPloggingView.locationSearchBar.text,
               let distance = Double(distanceSelected),
               let latitude = localSearchCompletion.placeCoordinate?.latitude,
               let longitude = localSearchCompletion.placeCoordinate?.longitude
-        else { fatalError() }
+        else { return }
         
+        newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, latitude: latitude, longitude: longitude, isTakingPart: true, distance: distance, ploggers: ploggers)
+    }
+    
+    // MARK: - Segue
+    
+    private func displayPersonalPloggingsRaces() {
+        performSegue(withIdentifier: SegueIdentifier.fromCreateToPersonnal.identifier, sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, latitude: latitude, longitude: longitude, isTakingPart: true, distance: distance)
-        
-        return newPloggingUI
+        if segue.identifier == SegueIdentifier.fromCreateToPersonnal.identifier {
+            _ = segue.destination as? PersonalPloggingViewController
+        }
     }
 }
 
