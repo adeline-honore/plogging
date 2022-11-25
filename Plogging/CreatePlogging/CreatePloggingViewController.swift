@@ -14,7 +14,6 @@ class CreatePloggingViewController: UIViewController {
     
     @IBOutlet weak var searchResultsTableView: UITableView!
     
-    
     // MARK: - Properties
     
     private var createPloggingView: CreatePloggingView!
@@ -25,12 +24,12 @@ class CreatePloggingViewController: UIViewController {
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
     
-    var searchCompleter = MKLocalSearchCompleter()
+    private var searchCompleter = MKLocalSearchCompleter()
     
-    var when: Double?
+    private var when: Double?
     
-    var distanceArray: [String] = []
-    var distanceSelected: String = ""
+    private var distanceArray: [String] = []
+    private var distanceSelected: String = ""
     
     // MARK: - Init
     
@@ -46,13 +45,11 @@ class CreatePloggingViewController: UIViewController {
         distanceSelected = distanceArray[0]
     }
 
-    
     // MARK: - Date Picker View
     
     @IBAction func getDateFromPickerView() {
         when = dateToDoubleTimestamp(date: createPloggingView.whenDatePicker.date)
     }
-    
     
     // MARK: - Distance Picker View
     
@@ -111,7 +108,6 @@ class CreatePloggingViewController: UIViewController {
     }
 }
 
-
 // MARK: - Place auto completion
 
 extension CreatePloggingViewController: UISearchBarDelegate {
@@ -125,7 +121,6 @@ extension CreatePloggingViewController: UISearchBarDelegate {
          searchResultsTableView.isHidden = true
      }
  }
-
 
  extension CreatePloggingViewController: UITableViewDataSource {
 
@@ -172,6 +167,8 @@ extension CreatePloggingViewController: UISearchBarDelegate {
          // handle error
      }
  }
+
+// MARK: - PickerView
 
 extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 

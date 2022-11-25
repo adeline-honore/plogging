@@ -24,9 +24,6 @@ class PloggingDetailsViewController: UIViewController {
     weak var detailsDelegate: PloggingDetailsViewControllerDelegate?
     
     var ploggingUI: PloggingUI?
-    var ploggingsUI: [PloggingUI]?
-    var ploggingsUIIndex: Int = 0
-    
     
     // MARK: - Life cycle
     
@@ -36,14 +33,11 @@ class PloggingDetailsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
-        if ploggingUI == nil {
-            ploggingUI = ploggingsUI?[ploggingsUIIndex]
-        }
         guard let ploggingUI = ploggingUI else {
             return
         }
-        
         ploggingDetailsView.configure(plogging: ploggingUI)
     }
     

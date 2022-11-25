@@ -20,12 +20,11 @@ class PersonalPloggingViewController: UIViewController {
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
     
-    var ploggingsCD: [PloggingCD] = []
-    var ploggingsUI: [PloggingUI] = []
-    var ploggingsSection: [[PloggingUI]] = [[], []]
-    var ploggingsUIIndex: Int = 0
+    private var ploggingsUI: [PloggingUI] = []
+    private var ploggingsSection: [[PloggingUI]] = [[], []]
+    var ploggingUI: PloggingUI?
     
-    var dateNowInteger: Double = 0
+    private var dateNowInteger: Double = 0
     
     
     // MARK: - Init
@@ -36,6 +35,7 @@ class PersonalPloggingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         displayPersonalPloggings()
         
         dateNowInteger = dateToDoubleTimestamp(date: Date())
@@ -57,24 +57,12 @@ class PersonalPloggingViewController: UIViewController {
     
     private func getPersonalPloggings() {
         do {
-            ploggingsCD = try repository.getEntities()
-                ploggingsUI = getPloggingsUIFromEntities(entities: ploggingsCD)
+            let ploggingsCD = try repository.getEntities()
+                ploggingsUI = ploggingsCD.map { PloggingUI(ploggingCD: $0) }
         } catch {
             fatalError()
         }
     }
-    
-    private func getPloggingsUIFromEntities(entities: [PloggingCD]) -> [PloggingUI] {
-        
-        var ploggings = [PloggingUI]()
-        
-        ploggings = entities.map {
-            PloggingUI(ploggingCD: $0)
-        }
-        
-        return ploggings
-    }
-    
     
     // MARK: - Configure Table View
     
@@ -110,8 +98,7 @@ class PersonalPloggingViewController: UIViewController {
         if segue.identifier == SegueIdentifier.fromPersonalToDetails.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.detailsDelegate = self
-            viewController?.ploggingsUI = ploggingsUI
-            viewController?.ploggingsUIIndex = ploggingsUIIndex
+            viewController?.ploggingUI = ploggingUI
         }
     }
 }
@@ -143,7 +130,7 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        ploggingsUIIndex = indexPath.row
+        ploggingUI = ploggingsUI[indexPath.row]
         sendPloggingsUI()
     }
     

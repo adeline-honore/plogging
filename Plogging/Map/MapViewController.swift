@@ -32,12 +32,11 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         // on boarding page
         
 //        if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
@@ -56,12 +55,13 @@ class MapViewController: UIViewController {
 //        }
     }
     
-    
     // MARK: - App overview page
     
     private func displayAppOverviewPage() {
         performSegue(withIdentifier: SegueIdentifier.appOverviewPage.identifier, sender: nil)
     }
+    
+    // MARK: - Initial Location on Map
     
     private func setInitialLocationInEtangKernicole() {
         region = MKCoordinateRegion(
@@ -101,7 +101,6 @@ class MapViewController: UIViewController {
             return array
     }
     
-    
     // MARK: - Send datas thanks segue
     
     func sendPloggingsUI() {
@@ -116,7 +115,6 @@ class MapViewController: UIViewController {
             
         } else if segue.identifier == SegueIdentifier.fromMapToPlogging.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
-            viewController?.ploggingsUI = ploggingsUI
             viewController?.ploggingUI = ploggingUI
         }
         else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
@@ -124,7 +122,6 @@ class MapViewController: UIViewController {
             
         }
     }
-    
     
     //MARK: - Go to create a plogging
     
