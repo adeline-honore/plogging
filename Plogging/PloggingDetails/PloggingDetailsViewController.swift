@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol PloggingDetailsViewControllerDelegate: AnyObject {
-    func didChangeIsTakingPartState(id: String, ploggingChanged: PloggingUI)
-}
-
 class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Properties
@@ -20,9 +16,7 @@ class PloggingDetailsViewController: UIViewController {
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
-    
-    weak var detailsDelegate: PloggingDetailsViewControllerDelegate?
-    
+        
     var ploggingUI: PloggingUI?
     
     // MARK: - Life cycle
@@ -68,9 +62,7 @@ class PloggingDetailsViewController: UIViewController {
             } catch {
                 fatalError()
             }
-        }
-        detailsDelegate?.didChangeIsTakingPartState(id: plogging.id, ploggingChanged: plogging)
-        
+        }        
             ploggingDetailsView.manageIsTakingPartButton(button: ploggingDetailsView.isTakingPartButton, isTakingPart: plogging.isTakingPart)
         
         ploggingUI = plogging

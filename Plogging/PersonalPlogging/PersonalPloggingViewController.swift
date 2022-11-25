@@ -97,7 +97,6 @@ class PersonalPloggingViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.fromPersonalToDetails.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
-            viewController?.detailsDelegate = self
             viewController?.ploggingUI = ploggingUI
         }
     }
@@ -136,12 +135,5 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return (section == 0) ? "upcoming ploggings" : "past ploggings"
-    }
-}
-
-extension PersonalPloggingViewController: PloggingDetailsViewControllerDelegate {
-    func didChangeIsTakingPartState(id: String, ploggingChanged: PloggingUI) {
-        
-            ploggingsUI = ploggingsUI.filter { $0.id != id }
     }
 }
