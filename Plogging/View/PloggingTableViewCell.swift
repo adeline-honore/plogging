@@ -15,7 +15,7 @@ class PloggingTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    static let identifier = "ploggingCellIdentifier"
+    static let identifier = "PloggingTableViewCell"
     
     
     // MARK: - Init

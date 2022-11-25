@@ -67,7 +67,7 @@ class PersonalPloggingViewController: UIViewController {
     // MARK: - Configure Table View
     
     private func configureTableView() {
-        let cellNib = UINib(nibName: "PloggingTableViewCell", bundle: .main)
+        let cellNib = UINib(nibName: PloggingTableViewCell.identifier, bundle: .main)
         tableView.register(cellNib, forCellReuseIdentifier: PloggingTableViewCell.identifier)
     }
     
