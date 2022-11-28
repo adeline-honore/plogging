@@ -183,32 +183,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3571B839-3764-4E17-BBB3-E271A598300B"
+            uuid = "06C09049-71FA-4374-833F-CB4282DA59CF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/Map/MapViewController.swift"
+            filePath = "Plogging/Core/Plogging/PloggingService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "displayPloggingAnnotationItems()"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "transformToPloggingsModel(data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "86ACB054-24F2-43B3-880B-7C4DD44B4FC8"
+            uuid = "013A4B52-BA48-4D63-ADCF-DC2D1F02F043"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/Extension/Extension+MKMapView.swift"
+            filePath = "Plogging/Core/Plogging/PloggingService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "centerToLocation(_:regionRadius:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "transformToPloggingsModel(data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
