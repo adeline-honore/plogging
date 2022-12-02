@@ -31,6 +31,7 @@ class CreatePloggingViewController: UIViewController {
     
     private var distanceArray: [String] = []
     private var distanceSelected: String = ""
+    private var defaultHeight: CGFloat = 0
     
     // MARK: - Init
     
@@ -41,6 +42,10 @@ class CreatePloggingViewController: UIViewController {
         
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
+        
+        defaultHeight = createPloggingView.bounds.height - createPloggingView.mainStack.bounds.height
+        createPloggingView.mainStackBottomConstraint?.constant = defaultHeight
+        
         distanceArray = returnDistance()
         when = dateToDoubleTimestamp(date: Date())
         distanceSelected = distanceArray[0]
@@ -134,6 +139,11 @@ extension CreatePloggingViewController: UISearchBarDelegate {
      func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
          searchResultsTableView.isHidden = false
          searchCompleter.queryFragment = searchText
+         createPloggingView.mainStackBottomConstraint?.constant = 30
+         
+         if searchBar.text == "" {
+             createPloggingView.mainStackBottomConstraint?.constant = defaultHeight
+         }
      }
 
      func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -170,6 +180,7 @@ extension CreatePloggingViewController: UISearchBarDelegate {
          localSearchCompletion.getCoordinateFromLocalSearchCompletion(completion: completion)
 
          createPloggingView.locationSearchBar.text = completion.title
+        createPloggingView.mainStackBottomConstraint?.constant = defaultHeight
          searchResultsTableView.isHidden = true
      }
  }

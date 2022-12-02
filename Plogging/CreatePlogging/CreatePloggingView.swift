@@ -17,4 +17,7 @@ class CreatePloggingView: UIView {
     
     @IBOutlet weak var distancePickerView: UIPickerView!
     
+    @IBOutlet weak var mainStackBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var mainStack: UIStackView!
 }
