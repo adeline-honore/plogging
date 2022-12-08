@@ -44,10 +44,10 @@ extension PresentationViewController {
         dataSource = self
         delegate = self
         
-        let page1 = OnboardingViewController(textLabelText: Texts.onBoardingTitle.value)
-        let page2 = OnboardingViewController(textLabelText: Texts.onBoardingTabOne.value)
-        let page3 = OnboardingViewController(textLabelText: Texts.onBoardingTabTwo.value)
-        let page4 = OnboardingViewController(textLabelText: Texts.onBoardingTabThree.value)
+        let page1 = OnboardingViewController(imageName: "icon", textLabelText: Texts.onBoardingTitle.value)
+        let page2 = OnboardingViewController(imageName: "presentation2", textLabelText: Texts.onBoardingTabOne.value)
+        let page3 = OnboardingViewController(imageName: "presentation3", textLabelText: Texts.onBoardingTabTwo.value)
+        let page4 = OnboardingViewController(imageName: "presentation4", textLabelText: Texts.onBoardingTabThree.value)
         
         pages.append(page1)
         pages.append(page2)

@@ -22,13 +22,13 @@ enum Texts {
     var value: String {
         switch self {
         case .onBoardingTitle:
-            return "Welcome"
+            return "Welcome \nto the new app \nPlogging"
         case .onBoardingTabOne:
-            return "Ploging means running and collect trash."
+            return "Ploging means \nrunning and \ncollect trash"
         case .onBoardingTabTwo:
-            return "You can go participate at Plogging races and create others"
+            return "You can \nparticipate in Plogging races \nand create new ones"
         case .onBoardingTabThree:
-            return "Let's go and clean Earth !!"
+            return "Let's go \nand \nclean Earth !!"
         case .onBoardingButton:
             return "OK !"
         }
