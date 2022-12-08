@@ -120,9 +120,11 @@ extension MapViewController: MKMapViewDelegate {
         
         var annotationView = MKMarkerAnnotationView()
         
-        guard let annotation = annotation as? PloggingAnnotation else {return nil}
-        let identifier = ""
+        guard let annotation = annotation as? PloggingAnnotation,
+              let glyphImage = UIImage(systemName: "trash.circle.fill") else
+              { return nil }
         
+        let identifier = ""
         
         if let dequedView = mapView.dequeueReusableAnnotationView(
             withIdentifier: identifier)
@@ -131,8 +133,11 @@ extension MapViewController: MKMapViewDelegate {
         } else{
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         }
+                
+        annotationView.markerTintColor = .white
+        annotationView.glyphImage = glyphImage
+        annotationView.glyphTintColor = Color().appColor
         
-        annotationView.markerTintColor = UIColor.black
         return annotationView
     }
     

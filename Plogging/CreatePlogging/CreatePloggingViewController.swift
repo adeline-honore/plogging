@@ -37,8 +37,6 @@ class CreatePloggingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        createPloggingView = view as? CreatePloggingView
         
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
