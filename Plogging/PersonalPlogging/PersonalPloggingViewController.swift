@@ -121,8 +121,8 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PloggingTableViewCell.identifier) as? PloggingTableViewCell ?? PloggingTableViewCell()
         
-        if !ploggingsUI.isEmpty {
-            cell.configure(plogging: ploggingsUI[indexPath.row])
+        if !ploggingsSection.isEmpty {
+            cell.configure(plogging: ploggingsSection[indexPath.section][indexPath.row])
         }
         
         return cell
@@ -130,7 +130,7 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        ploggingUI = ploggingsUI[indexPath.row]
+        ploggingUI = ploggingsSection[indexPath.section][indexPath.row]
         sendPloggingsUI()
     }
     
