@@ -110,8 +110,8 @@
             filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "setPloggingElement()"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,48 +119,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "38946CE3-D630-4EDA-9B37-E5AE56ECC55B"
+            uuid = "AD420BDA-F36E-441A-AED2-F2CC0A3C90F0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            filePath = "Plogging/Core/CoreData/PloggingCoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "displayPersonalPloggingsRaces()"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "createEntity(ploggingUI:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0EAED4E4-FC91-4518-9BDE-5D4CA41ECB07"
+            uuid = "918A56F5-39BF-47FC-B10A-BC9FA8378091"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            filePath = "Plogging/Core/CoreData/PloggingCoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "createEntity(ploggingUI:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "041AF254-C0AB-4682-A68E-2E8BA22F1DBB"
+            uuid = "CACD6A15-6E85-49F3-8B15-B2BDC18EFC1A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "setPloggingElement()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

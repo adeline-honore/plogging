@@ -31,7 +31,7 @@ class PloggingTableViewCell: UITableViewCell {
     
     func configure(plogging: PloggingUI) {
         placeLabel.text = plogging.place
-        dateLabel.text = timestampToString(timestamp: plogging.beginning)
+        dateLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)
         distanceLabel.text = plogging.distance.fixedFraction(digits: 0) + " km"
     }
 }

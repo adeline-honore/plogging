@@ -79,7 +79,7 @@ class MapViewController: UIViewController {
     
     private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
         
-        let array = ploggings.map { PloggingUI(plogging: $0) }
+        let array = ploggings.map { PloggingUI(plogging: $0, schedule: $0.stringDateToDateObject(dateString: $0.beginning)) }
             
             return array
     }

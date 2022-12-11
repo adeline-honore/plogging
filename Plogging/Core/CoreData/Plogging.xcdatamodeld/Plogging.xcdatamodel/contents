@@ -11,9 +11,10 @@
         <attribute name="messages" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="place" optional="YES" attributeType="String"/>
         <attribute name="ploggers" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="schedule" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="PloggingCD" positionX="-54" positionY="-9" width="128" height="208"/>
+        <element name="PloggingCD" positionX="-54" positionY="-9" width="128" height="209"/>
     </elements>
 </model>

@@ -17,8 +17,4 @@ extension UIViewController {
     func userAlert(element: AlertType) {
         displayAlert(message: element.message)
     }
-    
-    func dateToDoubleTimestamp(date: Date) -> Double {
-        Double(date.timeIntervalSince1970).rounded(.towardZero)
-    }
 }

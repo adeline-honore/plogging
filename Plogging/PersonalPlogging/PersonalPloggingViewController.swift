@@ -22,9 +22,9 @@ class PersonalPloggingViewController: UIViewController {
     
     private var ploggingsUI: [PloggingUI] = []
     private var ploggingsSection: [[PloggingUI]] = [[], []]
-    var ploggingUI: PloggingUI?
+    private var ploggingUI: PloggingUI?
     
-    private var dateNowInteger: Double = 0
+    private var dateNowInteger: Date = Date()
     
     
     // MARK: - Init
@@ -38,7 +38,7 @@ class PersonalPloggingViewController: UIViewController {
         super.viewWillAppear(true)
         displayPersonalPloggings()
         
-        dateNowInteger = dateToDoubleTimestamp(date: Date())
+//        dateNowInteger = Date()
         
         createDataSection()
         tableView.reloadData()
@@ -58,7 +58,7 @@ class PersonalPloggingViewController: UIViewController {
     private func getPersonalPloggings() {
         do {
             let ploggingsCD = try repository.getEntities()
-                ploggingsUI = ploggingsCD.map { PloggingUI(ploggingCD: $0) }
+            ploggingsUI = ploggingsCD.map { PloggingUI(ploggingCD: $0, beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? "")) }
         } catch {
             fatalError()
         }
@@ -77,8 +77,9 @@ class PersonalPloggingViewController: UIViewController {
         ploggingsSection = [[], []]
         
         ploggingsUI.forEach { race in
-
-            if race.beginning > dateNowInteger {
+            let date =  race.beginning
+            
+            if date > dateNowInteger {
                 // upcoming races
                 ploggingsSection[0].append(race)
             } else {

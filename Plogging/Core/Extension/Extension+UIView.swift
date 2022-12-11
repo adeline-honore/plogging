@@ -20,18 +20,4 @@ extension UIView {
             button.tintColor = .gray
         }
     }
-    
-    func timestampToString(timestamp: Double) -> String {
-        
-        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .short
-        
-        // Set Locale
-        formatter.locale = Locale(identifier: "fr")
-        
-        return formatter.string(from: date)
-    }
 }

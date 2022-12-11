@@ -31,7 +31,7 @@ final class PloggingCoreDataManager {
         
         ploggingCD.setValue(ploggingUI.id, forKey: "id")
         ploggingCD.setValue(ploggingUI.admin, forKey: "admin")
-        ploggingCD.setValue(ploggingUI.beginning, forKey: "time")
+        ploggingCD.setValue(dateToDisplayedString(date :ploggingUI.beginning), forKey: "beginning")
         ploggingCD.setValue(ploggingUI.place, forKey: "place")
         ploggingCD.setValue(ploggingUI.latitude, forKey: "latitude")
         ploggingCD.setValue(ploggingUI.longitude, forKey: "longitude")
@@ -70,5 +70,21 @@ final class PloggingCoreDataManager {
         } else {
             print("oups")
         }
+    }
+    
+    func stringDateToDateObject(dateString: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+        
+        guard let date = dateFormatter.date(from: dateString) else { return Date() }
+        
+        return date
+    }
+    
+    func dateToDisplayedString(date :Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd HH:mm"
+        formatter.locale = Locale.init(identifier: "en_GB")
+        return formatter.string(from: date)
     }
 }

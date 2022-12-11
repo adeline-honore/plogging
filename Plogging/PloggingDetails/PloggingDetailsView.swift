@@ -31,7 +31,7 @@ extension PloggingDetailsView {
     func configure(plogging: PloggingUI) {
         mainImage = nil
         
-        dateAndHourLabel.text =   timestampToString(timestamp: plogging.beginning)
+        dateAndHourLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)
         placeLabel.text = plogging.place
         adminNameLabel.text = plogging.admin
         

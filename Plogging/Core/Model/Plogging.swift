@@ -17,7 +17,7 @@ struct Plogging: Codable {
     
     let admin: String
     
-    let beginning: Double
+    let beginning: String
     
     let place: String
     
@@ -29,4 +29,14 @@ struct Plogging: Codable {
     var isTakingPart: Bool
     
     var distance: Double
+    
+    
+    func stringDateToDateObject(dateString: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+        
+        guard let date = dateFormatter.date(from: dateString) else { return Date() }
+        
+        return date
+    }
 }

@@ -26,8 +26,8 @@ class CreatePloggingViewController: UIViewController {
     
     private var searchCompleter = MKLocalSearchCompleter()
     
-    private var newPloggingUI: PloggingUI = PloggingUI(id: "", admin: "", beginning: 0, place: "", latitude: 0, longitude: 0, isTakingPart: false, distance: 0, ploggers: [""])
-    private var when: Double?
+    private var newPloggingUI: PloggingUI = PloggingUI(id: "", admin: "", beginning: Date(), place: "", latitude: 0, longitude: 0, isTakingPart: false, distance: 0, ploggers: [""])
+    private var when: Date = Date()
     
     private var distanceArray: [String] = []
     private var distanceSelected: String = ""
@@ -37,6 +37,7 @@ class CreatePloggingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createPloggingView = view as? CreatePloggingView
         
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
@@ -45,14 +46,13 @@ class CreatePloggingViewController: UIViewController {
         createPloggingView.mainStackBottomConstraint?.constant = defaultHeight
         
         distanceArray = returnDistance()
-        when = dateToDoubleTimestamp(date: Date())
         distanceSelected = distanceArray[0]
     }
 
     // MARK: - Date Picker View
     
     @IBAction func getDateFromPickerView() {
-        when = dateToDoubleTimestamp(date: createPloggingView.whenDatePicker.date)
+        when = createPloggingView.whenDatePicker.date
     }
     
     // MARK: - Distance Picker View
@@ -106,8 +106,7 @@ class CreatePloggingViewController: UIViewController {
         let admin = "admin1"
         let ploggers = [admin]
         
-        guard let when = when,
-              let place = createPloggingView.locationSearchBar.text,
+        guard let place = createPloggingView.locationSearchBar.text,
               let distance = Double(distanceSelected),
               let latitude = localSearchCompletion.placeCoordinate?.latitude,
               let longitude = localSearchCompletion.placeCoordinate?.longitude

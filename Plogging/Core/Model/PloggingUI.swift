@@ -13,7 +13,7 @@ struct PloggingUI: Codable {
     
     var admin: String
     
-    var beginning: Double
+    var beginning: Date
     
     var place: String
     
@@ -29,12 +29,12 @@ struct PloggingUI: Codable {
 //    var messages: [Message]
     
     
-    init(plogging: Plogging) {
+    init(plogging: Plogging, schedule: Date) {
         
         id = plogging.id
         admin = plogging.admin
         
-        beginning = plogging.beginning
+        beginning = schedule
         
         place = plogging.place
         
@@ -52,10 +52,10 @@ struct PloggingUI: Codable {
     }
     
     // init for create an instance of PloggingUI
-    init(id: String?, admin: String?, beginning: Double?, place: String?, latitude: Double?, longitude: Double?, isTakingPart: Bool = false, distance: Double?, ploggers: [String]?) {
+    init(id: String?, admin: String?, beginning: Date?, place: String?, latitude: Double?, longitude: Double?, isTakingPart: Bool = false, distance: Double?, ploggers: [String]?) {
         self.id = id ?? ""
         self.admin = admin ?? ""
-        self.beginning = beginning ?? 0
+        self.beginning = beginning ?? Date()
         self.place = place ?? ""
         self.latitude = latitude
         self.longitude = longitude
@@ -65,16 +65,22 @@ struct PloggingUI: Codable {
     }
     
     // init from PlogginCD
-    init(ploggingCD: PloggingCD) {
+    init(ploggingCD: PloggingCD, beginning: Date) {
         self.id = ploggingCD.id ?? ""
         self.admin = ploggingCD.admin ?? ""
-        self.beginning = ploggingCD.time
+        self.beginning = beginning
         self.place = ploggingCD.place ?? ""
         self.latitude = ploggingCD.latitude
         self.longitude = ploggingCD.longitude
         self.ploggers = ploggingCD.ploggers ?? [""]
         self.isTakingPart = ploggingCD.isTakingPart
         self.distance = ploggingCD.distance
+    }
+    
+    func dateToDisplayedString(date :Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd HH:mm"
+        return formatter.string(from: date)
     }
 }
 
