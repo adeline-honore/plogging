@@ -16,13 +16,19 @@ class PloggingDetailsView: UIView {
     @IBOutlet weak var dateAndHourLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var adminNameLabel: UILabel!
-    
+    @IBOutlet weak var editMainImageButton: UIButton!
 }
 
 
 extension PloggingDetailsView {
     func configure(plogging: PloggingUI) {
-        mainImage.image = UIImage(named: "icon")
+        
+        if mainImage.image == nil {
+            mainImage.image = UIImage(named: "icon")
+        } else {
+            guard let setImage = plogging.mainImage else { return }
+            mainImage.image = UIImage(named: setImage)
+        }
         
         dateAndHourLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)
         placeLabel.text = plogging.place

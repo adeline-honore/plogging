@@ -26,6 +26,8 @@ struct PloggingUI: Codable {
     
     var distance: Double
     
+    var mainImage: String?
+    
 //    var messages: [Message]
     
     

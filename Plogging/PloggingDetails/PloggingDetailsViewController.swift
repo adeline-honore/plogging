@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ChooseImageDelegate: AnyObject {
+    func chooseImage(source: UIImagePickerController.SourceType)
+}
+
 class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Properties
@@ -24,6 +28,8 @@ class PloggingDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ploggingDetailsView = view as? PloggingDetailsView
+        
+        // TODO : check if user is admin of race to display or not editMainImageButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +41,7 @@ class PloggingDetailsViewController: UIViewController {
         ploggingDetailsView.configure(plogging: ploggingUI)
     }
     
+    // MARK: - Toogle to take part at race
     
     @IBAction func didTapIsTakingPartButton() {
         toggleTakePart()
@@ -66,5 +73,38 @@ class PloggingDetailsViewController: UIViewController {
             ploggingDetailsView.manageIsTakingPartButton(button: ploggingDetailsView.isTakingPartButton, isTakingPart: plogging.isTakingPart)
         
         ploggingUI = plogging
+    }
+    
+    // MARK: - Set main image
+    
+    @IBAction func didTapEditMainImage() {
+        chooseImage(source: .photoLibrary)
+        // TODO : save image
+    }
+}
+
+
+extension PloggingDetailsViewController: ChooseImageDelegate {
+    func chooseImage(source: UIImagePickerController.SourceType) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = source
+        imagePickerController.delegate = self
+
+        present(imagePickerController, animated: true, completion: nil)
+    }
+}
+
+extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
+        guard let choosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return
+        }
+                
+        ploggingDetailsView.mainImage.image = choosenImage
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }

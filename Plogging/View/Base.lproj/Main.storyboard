@@ -288,21 +288,37 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM5-6F-W9q">
+                                <rect key="frame" x="344" y="188" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GM5-6F-W9q" secondAttribute="height" multiplier="1:1" id="LGS-3g-E9B"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="x3K-FE-fcT"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapEditMainImage" destination="cjp-X3-h0i" eventType="touchUpInside" id="rOh-c0-D36"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NbW-1Z-Pxq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="NbW-1Z-Pxq" firstAttribute="trailing" secondItem="GM5-6F-W9q" secondAttribute="trailing" constant="20" id="0Ug-8f-gJD"/>
                             <constraint firstItem="NbW-1Z-Pxq" firstAttribute="trailing" secondItem="sFG-r3-KZ4" secondAttribute="trailing" constant="20" id="3xA-gF-tSb"/>
+                            <constraint firstItem="GM5-6F-W9q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NbW-1Z-Pxq" secondAttribute="leading" symbolic="YES" id="5OO-0P-9D8"/>
                             <constraint firstItem="nCV-Xt-ASj" firstAttribute="leading" secondItem="NbW-1Z-Pxq" secondAttribute="leading" constant="50" id="EH4-MN-mHq"/>
                             <constraint firstItem="sFG-r3-KZ4" firstAttribute="top" secondItem="nCV-Xt-ASj" secondAttribute="bottom" constant="50" id="HIk-HX-THc"/>
                             <constraint firstItem="NbW-1Z-Pxq" firstAttribute="trailing" secondItem="nCV-Xt-ASj" secondAttribute="trailing" constant="50" id="JAa-2r-b11"/>
                             <constraint firstItem="sFG-r3-KZ4" firstAttribute="leading" secondItem="NbW-1Z-Pxq" secondAttribute="leading" constant="20" id="LL6-39-9cL"/>
                             <constraint firstItem="NbW-1Z-Pxq" firstAttribute="bottom" secondItem="sFG-r3-KZ4" secondAttribute="bottom" constant="30" id="S9R-Tj-501"/>
+                            <constraint firstItem="GM5-6F-W9q" firstAttribute="top" secondItem="NbW-1Z-Pxq" secondAttribute="top" constant="100" id="pi9-GK-WpS"/>
                             <constraint firstItem="nCV-Xt-ASj" firstAttribute="top" secondItem="NbW-1Z-Pxq" secondAttribute="top" constant="30" id="ucV-cN-ZAf"/>
                         </constraints>
                         <connections>
                             <outlet property="adminNameLabel" destination="tjE-gs-qPZ" id="PbO-FW-mf2"/>
                             <outlet property="dateAndHourLabel" destination="5Ov-xk-1hU" id="LyY-g4-29J"/>
+                            <outlet property="editMainImageButton" destination="GM5-6F-W9q" id="VW3-ns-OmC"/>
                             <outlet property="isTakingPartButton" destination="dO5-U7-XHK" id="pa4-vh-sJh"/>
                             <outlet property="mainImage" destination="nCV-Xt-ASj" id="6eY-g0-L6m"/>
                             <outlet property="messageButton" destination="jVg-Fb-8S0" id="F07-Jt-GsZ"/>
@@ -447,6 +463,7 @@
     <resources>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.fill.xmark" catalog="system" width="128" height="88"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
