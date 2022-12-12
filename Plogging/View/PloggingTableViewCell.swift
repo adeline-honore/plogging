@@ -14,6 +14,7 @@ class PloggingTableViewCell: UITableViewCell {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var arrowImage: UIImageView!
     
     static let identifier = "PloggingTableViewCell"
     
@@ -30,8 +31,9 @@ class PloggingTableViewCell: UITableViewCell {
     }
     
     func configure(plogging: PloggingUI) {
-        placeLabel.text = plogging.place
-        dateLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)
-        distanceLabel.text = plogging.distance.fixedFraction(digits: 0) + " km"
+        placeLabel.text = "Place : " + plogging.place
+        dateLabel.text = "Departure : " + plogging.dateToDisplayedString(date: plogging.beginning)
+        distanceLabel.text = "Distance : " + plogging.distance.fixedFraction(digits: 0) + " km"
+        arrowImage.tintColor = Color().appColor
     }
 }
