@@ -5,10 +5,9 @@
 //  Created by HONORE Adeline on 07/11/2022.
 //
 
-import Foundation
+import UIKit
 
-
-struct PloggingUI: Codable {
+struct PloggingUI {
     var id: String
     
     var admin: String
@@ -25,8 +24,10 @@ struct PloggingUI: Codable {
     var isTakingPart: Bool
     
     var distance: Double
+        
+    var mainImageBinary: Data?
     
-    var mainImage: String?
+    var mainImage: UIImage?
     
 //    var messages: [Message]
     

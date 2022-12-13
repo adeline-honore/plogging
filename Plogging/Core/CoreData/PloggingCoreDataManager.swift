@@ -37,6 +37,7 @@ final class PloggingCoreDataManager {
         ploggingCD.setValue(ploggingUI.longitude, forKey: "longitude")
         ploggingCD.setValue(ploggingUI.isTakingPart, forKey: "isTakingPart")
         ploggingCD.setValue(ploggingUI.distance, forKey: "distance")
+        ploggingCD.setValue(ploggingUI.mainImageBinary, forKey: "imageBinary")
         
         try coreDataStack.viewContext.save()
     }
@@ -61,6 +62,31 @@ final class PloggingCoreDataManager {
             // delete first object:
             if results.count > 0 {
                 coreDataStack.viewContext.delete(results[0])
+                do {
+                try coreDataStack.viewContext.save()
+                } catch {
+                    throw error
+                }
+            }
+        } else {
+            print("oups")
+        }
+    }
+    
+    func setEntity(place: String, ploggingUI: PloggingUI) throws {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PloggingCD")
+        request.predicate = NSPredicate(format:"place = %@", place)
+        
+        if let results = try coreDataStack.viewContext.fetch(request) as? [NSManagedObject] {
+            if results.count > 0 {
+                results[0].setValue(dateToDisplayedString(date :ploggingUI.beginning), forKey: "beginning")
+                results[0].setValue(ploggingUI.place, forKey: "place")
+                results[0].setValue(ploggingUI.latitude, forKey: "latitude")
+                results[0].setValue(ploggingUI.longitude, forKey: "longitude")
+                results[0].setValue(ploggingUI.distance, forKey: "distance")
+                results[0].setValue(ploggingUI.mainImageBinary, forKey: "imageBinary")
+                
                 do {
                 try coreDataStack.viewContext.save()
                 } catch {

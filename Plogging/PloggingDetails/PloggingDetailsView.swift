@@ -26,8 +26,7 @@ extension PloggingDetailsView {
         if mainImage.image == nil {
             mainImage.image = UIImage(named: "icon")
         } else {
-            guard let setImage = plogging.mainImage else { return }
-            mainImage.image = UIImage(named: setImage)
+            mainImage.image = plogging.mainImage
         }
         
         dateAndHourLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)

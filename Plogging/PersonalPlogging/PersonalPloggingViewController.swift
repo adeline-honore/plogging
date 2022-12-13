@@ -37,9 +37,6 @@ class PersonalPloggingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         displayPersonalPloggings()
-        
-//        dateNowInteger = Date()
-        
         createDataSection()
         tableView.reloadData()
     }
@@ -99,6 +96,7 @@ class PersonalPloggingViewController: UIViewController {
         if segue.identifier == SegueIdentifier.fromPersonalToDetails.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
+            viewController?.delegate = self
         }
     }
 }
@@ -136,5 +134,15 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return (section == 0) ? "upcoming ploggings" : "past ploggings"
+    }
+}
+
+
+extension PersonalPloggingViewController: PloggingDetailsViewControllerDelegate {
+    func didSetMainImage(id: String, modifiedPlogging: PloggingUI) {
+        
+        if let row = self.ploggingsUI.firstIndex(where: {$0.id == id}) {
+            ploggingsUI[row] = modifiedPlogging
+        }
     }
 }

@@ -11,6 +11,10 @@ protocol ChooseImageDelegate: AnyObject {
     func chooseImage(source: UIImagePickerController.SourceType)
 }
 
+protocol PloggingDetailsViewControllerDelegate: AnyObject {
+    func didSetMainImage(id: String, modifiedPlogging: PloggingUI)
+}
+
 class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Properties
@@ -22,6 +26,8 @@ class PloggingDetailsViewController: UIViewController {
         managedObjectContext: CoreDataStack().viewContext)
         
     var ploggingUI: PloggingUI?
+    
+    weak var delegate: PloggingDetailsViewControllerDelegate?
     
     // MARK: - Life cycle
     
@@ -79,7 +85,6 @@ class PloggingDetailsViewController: UIViewController {
     
     @IBAction func didTapEditMainImage() {
         chooseImage(source: .photoLibrary)
-        // TODO : save image
     }
 }
 
@@ -106,5 +111,19 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
         ploggingDetailsView.mainImage.image = choosenImage
         
         picker.dismiss(animated: true, completion: nil)
+              
+        ploggingUI?.mainImage = choosenImage
+        ploggingUI?.mainImageBinary = choosenImage.jpegData(compressionQuality: 1.0)
+        
+        guard let ploggingUI = ploggingUI else { return }
+        
+        delegate?.didSetMainImage(id: ploggingUI.id, modifiedPlogging: ploggingUI)
+        
+        do {
+            try repository.setEntity(place: ploggingUI.place, ploggingUI: ploggingUI)
+        } catch {
+            print(error)
+        }
+        
     }
 }
