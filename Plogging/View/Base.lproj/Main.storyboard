@@ -197,6 +197,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6C-Xg-Oa5">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="31"/>
+                                                <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="photo.artframe" catalog="system" title=""/>
                                             </button>
@@ -504,6 +505,7 @@
         <segue reference="ILF-OV-iDw"/>
         <segue reference="Tyh-uL-0oh"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="121"/>
         <image name="map" catalog="system" width="128" height="110"/>
