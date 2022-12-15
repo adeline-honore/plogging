@@ -29,6 +29,7 @@ class LocalSearchCompletionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationSearchBar.delegate = self
+        locationSearchBar.becomeFirstResponder()
         
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
