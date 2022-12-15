@@ -101,7 +101,8 @@ class MapViewController: UIViewController {
             viewController?.ploggingUI = ploggingUI
         }
         else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
-            _ = segue.destination as? CreatePloggingViewController
+            let viewController = segue.destination as? CreatePloggingViewController
+            viewController?.delegate = self
             
         }
     }
@@ -168,5 +169,13 @@ extension MapViewController: PresentationViewControllerDelegate {
         
         // display PloggingAnnotation items
         displayPloggingAnnotationItems()
+    }
+}
+
+extension MapViewController: CreatePloggingViewControllerDelegate {
+    func ploggingIsCreated(ploggingUICreated: PloggingUI) {
+        let alertVC = UIAlertController(title: nil, message: "Awesome ! \nyou create a new plogging race. \nIt will beginning \(ploggingUICreated.dateToDisplayedString(date:ploggingUICreated.beginning)) \nat \(ploggingUICreated.place) \nfor \(ploggingUICreated.distance) km.", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
 }

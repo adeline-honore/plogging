@@ -8,9 +8,15 @@
 import UIKit
 import MapKit
 
+protocol CreatePloggingViewControllerDelegate: AnyObject {
+    func ploggingIsCreated(ploggingUICreated: PloggingUI)
+}
+
 class CreatePloggingViewController: UIViewController {
     
     // MARK: - Properties
+    
+    weak var delegate: CreatePloggingViewControllerDelegate?
     
     private var createPloggingView: CreatePloggingView!
         
@@ -78,10 +84,11 @@ class CreatePloggingViewController: UIViewController {
             do {
                 try repository.createEntity(ploggingUI: newPloggingUI)
                 // TO DO send ploggingUI in cloud
-                displayPersonalPloggingsRaces()
+                self.navigationController?.popViewController(animated: true)
+                delegate?.ploggingIsCreated(ploggingUICreated: newPloggingUI)
+                
             } catch {
                 userAlert(element: AlertType.ploggingNotSaved)
-                fatalError()
             }
         }
     }
@@ -102,16 +109,7 @@ class CreatePloggingViewController: UIViewController {
     
     // MARK: - Segue
     
-    private func displayPersonalPloggingsRaces() {
-        performSegue(withIdentifier: SegueIdentifier.fromCreateToPersonnal.identifier, sender: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == SegueIdentifier.fromCreateToPersonnal.identifier {
-            _ = segue.destination as? PersonalPloggingViewController
-        }
-        
         if segue.identifier == SegueIdentifier.fromCreateToLocalSearch.identifier {
             let overVC = segue.destination as? LocalSearchCompletionViewController
             overVC?.localSearchCompletionViewControllerDelegate = self
