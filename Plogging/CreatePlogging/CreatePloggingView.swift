@@ -10,14 +10,9 @@ import UIKit
 class CreatePloggingView: UIView {
     
     // MARK: - IBOutlets
-        
-    @IBOutlet weak var locationSearchBar: UISearchBar!
     
+    @IBOutlet weak var searchLocationButton: UIButton!
+    @IBOutlet weak var resultLocationLabel: UILabel!
     @IBOutlet weak var whenDatePicker: UIDatePicker!
-    
     @IBOutlet weak var distancePickerView: UIPickerView!
-    
-    @IBOutlet weak var mainStackBottomConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var mainStack: UIStackView!
 }

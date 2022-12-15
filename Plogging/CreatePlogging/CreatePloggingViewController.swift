@@ -9,41 +9,28 @@ import UIKit
 import MapKit
 
 class CreatePloggingViewController: UIViewController {
-
-    // MARK: - IBOutlet
-    
-    @IBOutlet weak var searchResultsTableView: UITableView!
     
     // MARK: - Properties
     
     private var createPloggingView: CreatePloggingView!
-    
-    private var localSearchCompletion = LocalSearchCompletion()
-    
+        
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
-    
-    private var searchCompleter = MKLocalSearchCompleter()
-    
+        
     private var newPloggingUI: PloggingUI = PloggingUI(id: "", admin: "", beginning: Date(), place: "", latitude: 0, longitude: 0, isTakingPart: false, distance: 0, ploggers: [""])
     private var when: Date = Date()
     
     private var distanceArray: [String] = []
     private var distanceSelected: String = ""
-    private var defaultHeight: CGFloat = 0
+    
+    private var placeCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     // MARK: - Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createPloggingView = view as? CreatePloggingView
-        
-        searchCompleter.delegate = self
-        searchResultsTableView.isHidden = true
-        
-        defaultHeight = createPloggingView.bounds.height - createPloggingView.mainStack.bounds.height
-        createPloggingView.mainStackBottomConstraint?.constant = defaultHeight
         
         distanceArray = returnDistance()
         distanceSelected = distanceArray[0]
@@ -106,13 +93,11 @@ class CreatePloggingViewController: UIViewController {
         let admin = "admin1"
         let ploggers = [admin]
         
-        guard let place = createPloggingView.locationSearchBar.text,
-              let distance = Double(distanceSelected),
-              let latitude = localSearchCompletion.placeCoordinate?.latitude,
-              let longitude = localSearchCompletion.placeCoordinate?.longitude
+        guard let place = createPloggingView.resultLocationLabel.text,
+              let distance = Double(distanceSelected)
         else { return }
         
-        newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, latitude: latitude, longitude: longitude, isTakingPart: true, distance: distance, ploggers: ploggers)
+        newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, latitude: placeCoordinate.latitude, longitude: placeCoordinate.longitude, isTakingPart: true, distance: distance, ploggers: ploggers)
     }
     
     // MARK: - Segue
@@ -126,74 +111,13 @@ class CreatePloggingViewController: UIViewController {
         if segue.identifier == SegueIdentifier.fromCreateToPersonnal.identifier {
             _ = segue.destination as? PersonalPloggingViewController
         }
+        
+        if segue.identifier == SegueIdentifier.fromCreateToLocalSearch.identifier {
+            let overVC = segue.destination as? LocalSearchCompletionViewController
+            overVC?.localSearchCompletionViewControllerDelegate = self
+        }
     }
 }
-
-// MARK: - Place auto completion
-
-extension CreatePloggingViewController: UISearchBarDelegate {
-
-     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-         searchResultsTableView.isHidden = false
-         searchCompleter.queryFragment = searchText
-         createPloggingView.mainStackBottomConstraint?.constant = 30
-         
-         if searchBar.text == "" {
-             createPloggingView.mainStackBottomConstraint?.constant = defaultHeight
-         }
-     }
-
-     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-         searchResultsTableView.isHidden = true
-     }
- }
-
- extension CreatePloggingViewController: UITableViewDataSource {
-
-     func numberOfSections(in tableView: UITableView) -> Int {
-         return 1
-     }
-
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return localSearchCompletion.searchResults.count
-     }
-
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let searchResult = localSearchCompletion.searchResults[indexPath.row]
-         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-         cell.textLabel?.text = searchResult.title
-         cell.detailTextLabel?.text = searchResult.subtitle
-         return cell
-     }
- }
-
- extension CreatePloggingViewController: UITableViewDelegate {
-
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         tableView.deselectRow(at: indexPath, animated: true)
-
-         let completion = localSearchCompletion.searchResults[indexPath.row]
-
-         localSearchCompletion.getCoordinateFromLocalSearchCompletion(completion: completion)
-
-         createPloggingView.locationSearchBar.text = completion.title
-        createPloggingView.mainStackBottomConstraint?.constant = defaultHeight
-         searchResultsTableView.isHidden = true
-     }
- }
-
- extension CreatePloggingViewController: MKLocalSearchCompleterDelegate {
-
-     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-         localSearchCompletion.searchResults = completer.results
-         searchResultsTableView.reloadData()
-
-     }
-
-     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-         // handle error
-     }
- }
 
 // MARK: - PickerView
 
@@ -213,5 +137,14 @@ extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         distanceSelected = distanceArray[row]
+    }
+}
+
+// MARK: - LocalSearchCompletionViewControllerDelegate
+
+extension CreatePloggingViewController: LocalSearchCompletionViewControllerDelegate {
+    func departurePlaceChoosen(result: MKLocalSearchCompletion, coordinate: CLLocationCoordinate2D) {
+        createPloggingView.resultLocationLabel.text = result.title
+        placeCoordinate = coordinate
     }
 }

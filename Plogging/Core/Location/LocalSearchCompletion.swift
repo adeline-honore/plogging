@@ -21,6 +21,8 @@ class LocalSearchCompletion: MKLocalSearchCompleter {
     
     var suggestion: String?
     
+    var completion: MKLocalSearchCompletion = MKLocalSearchCompletion()
+    
     // MARK: - Location from Local search completion
     
     func getCoordinateFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
