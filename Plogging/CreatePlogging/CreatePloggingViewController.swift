@@ -43,6 +43,11 @@ class CreatePloggingViewController: UIViewController {
         
         setupDatePicker()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        newPloggingUI.place = ""
+    }
 
     // MARK: - Date Picker View
     
