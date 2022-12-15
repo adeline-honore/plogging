@@ -40,12 +40,19 @@ class CreatePloggingViewController: UIViewController {
         
         distanceArray = returnDistance()
         distanceSelected = distanceArray[0]
+        
+        setupDatePicker()
     }
 
     // MARK: - Date Picker View
     
     @IBAction func getDateFromPickerView() {
         when = createPloggingView.whenDatePicker.date
+    }
+    
+    func setupDatePicker(){
+
+        createPloggingView.whenDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: when)!
     }
     
     // MARK: - Distance Picker View
