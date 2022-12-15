@@ -36,6 +36,12 @@ class LocalSearchCompletionViewController: UIViewController {
         
         searchCompleter.delegate = self
     }
+    
+    // MARK: - Cancel button
+    
+    @IBAction func didTapCancelButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - Place auto completion

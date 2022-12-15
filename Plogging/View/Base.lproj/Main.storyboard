@@ -447,6 +447,15 @@
                                 <rect key="frame" x="20" y="141" width="374" height="567"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mR-fA-cg3">
+                                <rect key="frame" x="339" y="20" width="44" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="x.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapCancelButton" destination="Lgn-rI-kpk" eventType="touchUpInside" id="3Ay-xo-T6H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KVO-hF-OeN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -504,6 +513,7 @@
         <image name="person.fill.xmark" catalog="system" width="128" height="88"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
+        <image name="x.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
