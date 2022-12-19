@@ -16,7 +16,6 @@ class MapViewController: UIViewController {
     private var ploggingService = PloggingService()
     
     private var ploggings: [Plogging] = []
-    private var plogging: Plogging?
     
     private var ploggingsUI: [PloggingUI] = []
     private var ploggingUI: PloggingUI?
@@ -85,10 +84,6 @@ class MapViewController: UIViewController {
     }
     
     // MARK: - Send datas thanks segue
-    
-    func sendPloggingsUI() {
-        performSegue(withIdentifier: SegueIdentifier.fromMapToPlogging.identifier, sender: nil)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

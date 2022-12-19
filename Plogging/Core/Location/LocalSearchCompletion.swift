@@ -10,17 +10,9 @@ import MapKit
 class LocalSearchCompletion: MKLocalSearchCompleter {
     
     // MARK: - Properties
-        
-    var placemark: CLPlacemark?
     
     var placeCoordinate: CLLocationCoordinate2D?
-    
     var searchResults: [MKLocalSearchCompletion] = []
-    
-    let autoCompletion = MKLocalSearchCompleter()
-    
-    var suggestion: String?
-    
     var completion: MKLocalSearchCompletion = MKLocalSearchCompletion()
     
     // MARK: - Location from Local search completion

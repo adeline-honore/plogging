@@ -29,8 +29,6 @@ struct PloggingUI {
     
     var mainImage: UIImage?
     
-//    var messages: [Message]
-    
     
     init(plogging: Plogging, schedule: Date) {
         
@@ -49,9 +47,6 @@ struct PloggingUI {
         isTakingPart = plogging.isTakingPart
         
         distance = plogging.distance
-        
-//        self.messages = messages
-        
     }
     
     // init for create an instance of PloggingUI
@@ -85,14 +80,4 @@ struct PloggingUI {
         formatter.dateFormat = "YYYY-MM-dd HH:mm"
         return formatter.string(from: date)
     }
-}
-
-
-struct Message: Codable {
-    
-    var sender: String
-    var recipient: String
-    var text: String
-    var timestamp: Double
-    
 }

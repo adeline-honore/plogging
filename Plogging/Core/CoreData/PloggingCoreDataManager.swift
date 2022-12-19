@@ -31,7 +31,7 @@ final class PloggingCoreDataManager {
         
         ploggingCD.setValue(ploggingUI.id, forKey: "id")
         ploggingCD.setValue(ploggingUI.admin, forKey: "admin")
-        ploggingCD.setValue(dateToDisplayedString(date :ploggingUI.beginning), forKey: "beginning")
+        ploggingCD.setValue(dateToSaveAsString(date :ploggingUI.beginning), forKey: "beginning")
         ploggingCD.setValue(ploggingUI.place, forKey: "place")
         ploggingCD.setValue(ploggingUI.latitude, forKey: "latitude")
         ploggingCD.setValue(ploggingUI.longitude, forKey: "longitude")
@@ -80,7 +80,7 @@ final class PloggingCoreDataManager {
         
         if let results = try coreDataStack.viewContext.fetch(request) as? [NSManagedObject] {
             if results.count > 0 {
-                results[0].setValue(dateToDisplayedString(date :ploggingUI.beginning), forKey: "beginning")
+                results[0].setValue(dateToSaveAsString(date :ploggingUI.beginning), forKey: "beginning")
                 results[0].setValue(ploggingUI.place, forKey: "place")
                 results[0].setValue(ploggingUI.latitude, forKey: "latitude")
                 results[0].setValue(ploggingUI.longitude, forKey: "longitude")
@@ -107,10 +107,9 @@ final class PloggingCoreDataManager {
         return date
     }
     
-    func dateToDisplayedString(date :Date) -> String {
+    func dateToSaveAsString(date :Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd HH:mm"
-        formatter.locale = Locale.init(identifier: "en_GB")
         return formatter.string(from: date)
     }
 }

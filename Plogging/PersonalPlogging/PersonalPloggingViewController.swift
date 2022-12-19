@@ -88,7 +88,7 @@ class PersonalPloggingViewController: UIViewController {
     
     // MARK: - View details of plogging
     
-    func sendPloggingsUI() {
+    func sendPloggingUI() {
         performSegue(withIdentifier: SegueIdentifier.fromPersonalToDetails.identifier, sender: nil)
     }
     
@@ -122,14 +122,13 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
         if !ploggingsSection.isEmpty {
             cell.configure(plogging: ploggingsSection[indexPath.section][indexPath.row])
         }
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         ploggingUI = ploggingsSection[indexPath.section][indexPath.row]
-        sendPloggingsUI()
+        sendPloggingUI()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
