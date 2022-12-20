@@ -23,6 +23,8 @@ enum AlertType{
     case isTakingPart
     case isNotTakingPart
     
+    case mailAppUnavailable
+    
     var message: String {
         switch self {
         case .locationSaved:
@@ -46,6 +48,9 @@ enum AlertType{
             return "Yeah ! You will participate at this plogging ."
         case .isNotTakingPart:
             return "Ok ! You will not take part at this plogging ."
+            
+        case .mailAppUnavailable:
+            return "Mail app unavailable . Please try for yourself ."
         }
     }
     

@@ -86,6 +86,18 @@ class PloggingDetailsViewController: UIViewController {
     @IBAction func didTapEditMainImage() {
         chooseImage(source: .photoLibrary)
     }
+    
+    // MARK: - Open mail app and send mail
+    
+    @IBAction func didTapMessageButton() {
+        let addressMail = "abc@xyz.com"
+        
+        if let emailURL = URL(string: "mailto:\(addressMail)"), UIApplication.shared.canOpenURL(emailURL) {
+            UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+        } else {
+            userAlert(element: .mailAppUnavailable)
+        }
+    }
 }
 
 
