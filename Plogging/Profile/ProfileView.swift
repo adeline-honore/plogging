@@ -19,7 +19,6 @@ class ProfileView: UIView {
 
 extension ProfileView {
     func configure() {
-        initialImageView.layer.cornerRadius = initialImageView.frame.width / 2
-        initialImageView.clipsToBounds = true
+        circleImageRounded(initialImageView)
     }
 }

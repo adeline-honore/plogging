@@ -34,6 +34,7 @@
 		6E69EFA92951AE6800EBE7B9 /* SetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFA82951AE6800EBE7B9 /* SetProfileView.swift */; };
 		6E69EFAB2951AE9600EBE7B9 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFAA2951AE9600EBE7B9 /* SetProfileViewController.swift */; };
 		6E69EFAD2951B53100EBE7B9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFAC2951B53100EBE7B9 /* ChangePasswordViewController.swift */; };
+		6E69EFAF2951BE5400EBE7B9 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFAE2951BE5300EBE7B9 /* Extension+View.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
 		6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* SomeDataz.json */; };
 		6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B128E8D8B000450FE4 /* AppDelegate.swift */; };
@@ -94,6 +95,7 @@
 		6E69EFA82951AE6800EBE7B9 /* SetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileView.swift; sourceTree = "<group>"; };
 		6E69EFAA2951AE9600EBE7B9 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		6E69EFAC2951B53100EBE7B9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		6E69EFAE2951BE5300EBE7B9 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6EBFB9D72901251C00E1741A /* SomeDataz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SomeDataz.json; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +256,7 @@
 				6ED589B728E8D8B000450FE4 /* Main.storyboard */,
 				6E12D2122923C75200D2F45B /* PloggingTableViewCell.xib */,
 				6E12D2142923C8A500D2F45B /* PloggingTableViewCell.swift */,
+				6E69EFAE2951BE5300EBE7B9 /* Extension+View.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */,
 				6E1E655B2949E567004E1C94 /* LocalSearchCompletionViewController.swift in Sources */,
 				6E3821AE28FD54C100F39184 /* Extension+MKMapView.swift in Sources */,
+				6E69EFAF2951BE5400EBE7B9 /* Extension+View.swift in Sources */,
 				6E3821B228FD57C800F39184 /* PloggingAnnotation.swift in Sources */,
 				6E69EFA92951AE6800EBE7B9 /* SetProfileView.swift in Sources */,
 				6E35AA35291E853D000FF104 /* OnboardingViewController.swift in Sources */,

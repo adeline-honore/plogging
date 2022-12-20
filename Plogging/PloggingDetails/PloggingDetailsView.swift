@@ -28,6 +28,7 @@ extension PloggingDetailsView {
         } else {
             mainImage.image = plogging.mainImage
         }
+        circleImageRounded(mainImage)
         
         dateAndHourLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)
         placeLabel.text = plogging.place
