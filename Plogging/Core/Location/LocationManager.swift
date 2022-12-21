@@ -7,11 +7,17 @@
 
 import CoreLocation
 
+protocol LocationManagerDelegate: AnyObject {
+    func accessUserCoordinate(_ location: CLLocation)
+}
+
 class LocationManager: CLLocationManager, CLLocationManagerDelegate {
     
     // MARK: - Properties
     
     static var shared = LocationManager()
+    
+    weak var locationManagerDelegate: LocationManagerDelegate?
     
     let locationManager = CLLocationManager()
     
@@ -73,6 +79,8 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
         guard let firstLocation = locations.first else { return }
         
         placeCoordinate = firstLocation.coordinate
+        
+        locationManagerDelegate?.accessUserCoordinate(firstLocation)
         
         CLGeocoder().reverseGeocodeLocation(firstLocation) { places, _ in
             
