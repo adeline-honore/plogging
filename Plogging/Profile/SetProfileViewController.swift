@@ -19,5 +19,6 @@ class SetProfileViewController: UIViewController {
         setProfileView = view as? SetProfileView
         
         setProfileView.pseudoTextField.becomeFirstResponder()
+        setupKeyboardDismissRecognizer(self)
     }
 }

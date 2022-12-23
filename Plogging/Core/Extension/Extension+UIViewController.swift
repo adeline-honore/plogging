@@ -17,4 +17,16 @@ extension UIViewController {
     func userAlert(element: AlertType) {
         displayAlert(message: element.message)
     }
+        
+    func setupKeyboardDismissRecognizer(_ viewController: UIViewController) {
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(viewController.dismissKeyboard))
+        
+        self.view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

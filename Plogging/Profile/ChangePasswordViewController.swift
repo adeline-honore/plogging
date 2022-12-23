@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: UIViewController{
 
     // MARK: - IBOutlet
     
@@ -18,6 +18,7 @@ class ChangePasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.becomeFirstResponder()
+        setupKeyboardDismissRecognizer(self)
     }
     
     // MARK: - Save button
