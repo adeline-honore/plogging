@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="2877" y="-953"/>
         </scene>
-        <!--Map View Controller-->
+        <!--All ploggings-->
         <scene sceneID="JI3-EG-8ne">
             <objects>
                 <viewController id="RTa-LR-pUA" customClass="MapViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +63,7 @@
                             <constraint firstItem="UuT-mh-KO3" firstAttribute="top" secondItem="dRB-fb-SEf" secondAttribute="top" id="ejY-cT-HVt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Zme-Py-rlf">
+                    <navigationItem key="navigationItem" title="All ploggings" id="Zme-Py-rlf">
                         <barButtonItem key="rightBarButtonItem" title="Create" id="gq7-mT-e3c">
                             <connections>
                                 <action selector="didTapCreatePlogging:" destination="RTa-LR-pUA" id="nko-2n-UX1"/>
@@ -341,7 +341,7 @@
             </objects>
             <point key="canvasLocation" x="4016" y="1019"/>
         </scene>
-        <!--Set Profile View Controller-->
+        <!--Edit Profile-->
         <scene sceneID="gwK-Mm-es7">
             <objects>
                 <viewController id="xH0-zO-0RI" customClass="SetProfileViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
@@ -350,10 +350,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NM2-tp-CvW">
-                                <rect key="frame" x="0.0" y="88" width="414" height="620"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="400"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aEW-VI-5kY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vQH-yR-CZh">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
@@ -379,15 +379,8 @@
                                                     <constraint firstAttribute="trailing" secondItem="lty-cg-UKH" secondAttribute="trailing" id="sky-Jq-yc3"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWL-5d-nZy">
-                                                <rect key="frame" x="0.0" y="85.5" width="414" height="200"/>
-                                                <color key="backgroundColor" systemColor="systemBrownColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="K8J-ol-Wka"/>
-                                                </constraints>
-                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fbY-wB-KHd">
-                                                <rect key="frame" x="0.0" y="305.5" width="414" height="65.5"/>
+                                                <rect key="frame" x="0.0" y="85.5" width="414" height="65.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZQ-1r-Lzw">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="23"/>
@@ -403,7 +396,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rf5-Gg-Cfe">
-                                                <rect key="frame" x="0.0" y="391" width="414" height="65.5"/>
+                                                <rect key="frame" x="0.0" y="171" width="414" height="65.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-Uk-YCk">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="23"/>
@@ -419,7 +412,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jV7-QZ-lHz">
-                                                <rect key="frame" x="0.0" y="476.5" width="414" height="65.5"/>
+                                                <rect key="frame" x="0.0" y="256.5" width="414" height="65.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNX-rI-b8E">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="23"/>
@@ -435,7 +428,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LCV-kM-dG5">
-                                                <rect key="frame" x="0.0" y="562" width="414" height="58"/>
+                                                <rect key="frame" x="0.0" y="342" width="414" height="58"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbZ-HX-HgH">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="23"/>
@@ -500,7 +493,7 @@
                             <outlet property="pseudoTextField" destination="CDM-t3-rrO" id="hLN-EH-8g0"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="H3O-Bh-CUs"/>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="H3O-Bh-CUs"/>
                     <connections>
                         <outlet property="scrollView" destination="NM2-tp-CvW" id="cck-aJ-HKd"/>
                     </connections>
@@ -771,7 +764,7 @@
             </objects>
             <point key="canvasLocation" x="4843.4782608695659" y="-393.08035714285711"/>
         </scene>
-        <!--Create Plogging View Controller-->
+        <!--Create plogging-->
         <scene sceneID="3ng-2I-Xyb">
             <objects>
                 <viewController id="mHZ-Vc-rgi" customClass="CreatePloggingViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
@@ -875,7 +868,7 @@
                             <outlet property="whenDatePicker" destination="kbg-0c-R8A" id="NUM-KU-JsY"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="o7S-09-nqU">
+                    <navigationItem key="navigationItem" title="Create plogging" id="o7S-09-nqU">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="u1n-3F-xfO">
                             <connections>
                                 <action selector="didTapSavePlogging:" destination="mHZ-Vc-rgi" id="efb-LE-OXc"/>
@@ -898,12 +891,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ufX-gv-XkX">
-                                <rect key="frame" x="20" y="84" width="374" height="51"/>
+                            <searchBar contentMode="redraw" text="" placeholder="Departure address ..." translatesAutoresizingMaskIntoConstraints="NO" id="ufX-gv-XkX">
+                                <rect key="frame" x="20" y="127" width="374" height="51"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="location"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uUL-xX-wuV">
-                                <rect key="frame" x="20" y="155" width="374" height="645"/>
+                                <rect key="frame" x="20" y="198" width="374" height="602"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mR-fA-cg3">
@@ -917,6 +910,12 @@
                                     <action selector="didTapCancelButton" destination="Lgn-rI-kpk" eventType="touchUpInside" id="3Ay-xo-T6H"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a departure address : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-gU-ZZe">
+                                <rect key="frame" x="20" y="84" width="337" height="23"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KVO-hF-OeN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -924,12 +923,14 @@
                             <constraint firstItem="uUL-xX-wuV" firstAttribute="top" secondItem="ufX-gv-XkX" secondAttribute="bottom" constant="20" id="1Pi-Gj-PKN"/>
                             <constraint firstItem="KVO-hF-OeN" firstAttribute="trailing" secondItem="ufX-gv-XkX" secondAttribute="trailing" constant="20" id="2rU-eA-ct5"/>
                             <constraint firstItem="KVO-hF-OeN" firstAttribute="trailing" secondItem="4mR-fA-cg3" secondAttribute="trailing" constant="20" id="4Ow-EV-78J"/>
+                            <constraint firstItem="ufX-gv-XkX" firstAttribute="top" secondItem="VTQ-gU-ZZe" secondAttribute="bottom" constant="20" id="Azw-Us-sXp"/>
                             <constraint firstItem="4mR-fA-cg3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KVO-hF-OeN" secondAttribute="leading" symbolic="YES" id="EZg-6Z-rYx"/>
+                            <constraint firstItem="VTQ-gU-ZZe" firstAttribute="top" secondItem="4mR-fA-cg3" secondAttribute="bottom" constant="20" id="FsH-xb-Mrs"/>
                             <constraint firstItem="KVO-hF-OeN" firstAttribute="trailing" secondItem="uUL-xX-wuV" secondAttribute="trailing" constant="20" id="IeF-Wx-U4J"/>
                             <constraint firstItem="uUL-xX-wuV" firstAttribute="leading" secondItem="KVO-hF-OeN" secondAttribute="leading" constant="20" id="JjG-yg-yfb"/>
+                            <constraint firstItem="VTQ-gU-ZZe" firstAttribute="leading" secondItem="NT1-OE-0dU" secondAttribute="leading" constant="20" id="Mqa-7u-VfO"/>
                             <constraint firstItem="ufX-gv-XkX" firstAttribute="leading" secondItem="KVO-hF-OeN" secondAttribute="leading" constant="20" id="UOM-Vo-0Js"/>
                             <constraint firstItem="4mR-fA-cg3" firstAttribute="top" secondItem="KVO-hF-OeN" secondAttribute="top" constant="20" id="dfJ-p0-sJv"/>
-                            <constraint firstItem="ufX-gv-XkX" firstAttribute="top" secondItem="4mR-fA-cg3" secondAttribute="bottom" constant="20" id="dsi-be-fo7"/>
                             <constraint firstItem="KVO-hF-OeN" firstAttribute="bottom" secondItem="uUL-xX-wuV" secondAttribute="bottom" constant="8" id="wYA-1T-q05"/>
                         </constraints>
                     </view>
@@ -964,8 +965,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ILF-OV-iDw"/>
-        <segue reference="SiG-cO-rBp"/>
+        <segue reference="xPl-ih-Rc6"/>
+        <segue reference="Tyh-uL-0oh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
@@ -981,9 +982,6 @@
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
