@@ -31,12 +31,8 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         mapView.delegate = self
         locationManager.locationManagerDelegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        // on boarding page
         
+        // on boarding page
         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
             displayAppOverviewPage()
             UserDefaults.standard.set(true, forKey: "ExecuteOnce")
@@ -45,6 +41,10 @@ class MapViewController: UIViewController {
             // get user geo location
             locationManager.getUserGeoLocation()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
     }
     
     // MARK: - App overview page
