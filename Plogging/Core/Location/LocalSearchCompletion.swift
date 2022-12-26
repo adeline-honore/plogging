@@ -13,11 +13,10 @@ class LocalSearchCompletion: MKLocalSearchCompleter {
     
     var placeCoordinate: CLLocationCoordinate2D?
     var searchResults: [MKLocalSearchCompletion] = []
-    var completion: MKLocalSearchCompletion = MKLocalSearchCompletion()
     
     // MARK: - Location from Local search completion
     
-    func getCoordinateFromLocalSearchCompletion (completion: MKLocalSearchCompletion) {
+    func getCoordinateFromLocalSearchCompletion(completion: MKLocalSearchCompletion) {
         let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in

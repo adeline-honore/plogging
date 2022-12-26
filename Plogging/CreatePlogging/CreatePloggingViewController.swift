@@ -30,6 +30,7 @@ class CreatePloggingViewController: UIViewController {
     private var distanceArray: [String] = []
     private var distanceSelected: String = ""
     
+    private var localSearchCompletion = LocalSearchCompletion()
     private var placeCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     // MARK: - Init
@@ -153,8 +154,7 @@ extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSo
 // MARK: - LocalSearchCompletionViewControllerDelegate
 
 extension CreatePloggingViewController: LocalSearchCompletionViewControllerDelegate {
-    func departurePlaceChoosen(result: MKLocalSearchCompletion, coordinate: CLLocationCoordinate2D) {
+    func departurePlaceChoosen(result: MKLocalSearchCompletion) {
         createPloggingView.resultLocationLabel.text = result.title
-        placeCoordinate = coordinate
     }
 }

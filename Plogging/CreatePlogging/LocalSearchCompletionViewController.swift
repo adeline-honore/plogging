@@ -8,7 +8,7 @@
 import MapKit
 
 protocol LocalSearchCompletionViewControllerDelegate: AnyObject {
-    func departurePlaceChoosen(result: MKLocalSearchCompletion, coordinate: CLLocationCoordinate2D)
+    func departurePlaceChoosen(result: MKLocalSearchCompletion)
 }
 
 class LocalSearchCompletionViewController: UIViewController {
@@ -82,13 +82,8 @@ extension LocalSearchCompletionViewController: UISearchBarDelegate {
 
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          tableView.deselectRow(at: indexPath, animated: true)
-
-         localSearchCompletion.completion = localSearchCompletion.searchResults[indexPath.row]
-         localSearchCompletion.getCoordinateFromLocalSearchCompletion(completion: localSearchCompletion.completion)
          
-         guard let coordinate = localSearchCompletion.placeCoordinate else { return }
-         
-         localSearchCompletionViewControllerDelegate?.departurePlaceChoosen(result: localSearchCompletion.completion, coordinate: coordinate)
+         localSearchCompletionViewControllerDelegate?.departurePlaceChoosen(result: localSearchCompletion.searchResults[indexPath.row])
          
          self.dismiss(animated: true, completion: nil)
      }
