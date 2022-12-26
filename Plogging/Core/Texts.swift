@@ -15,8 +15,7 @@ enum Texts {
     case onBoardingTabThree
     case onBoardingButton
     
-    
-    
+    case noPlogging
     
     
     var value: String {
@@ -31,6 +30,9 @@ enum Texts {
             return "Let's go \nand \nclean Earth !!"
         case .onBoardingButton:
             return "OK !"
+            
+        case .noPlogging:
+            return "There is no race in which you participate ."
         }
     }
 }

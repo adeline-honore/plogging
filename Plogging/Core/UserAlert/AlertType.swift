@@ -18,8 +18,6 @@ enum AlertType{
     
     case network
     
-    case noPersonalPlogging
-    
     case isTakingPart
     case isNotTakingPart
     
@@ -40,9 +38,6 @@ enum AlertType{
             
         case .network:
             return "Oups ! Network troubles ."
-            
-        case .noPersonalPlogging:
-            return "No personal plogging ."
             
         case .isTakingPart:
             return "Yeah ! You will participate at this plogging ."

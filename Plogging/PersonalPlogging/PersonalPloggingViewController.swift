@@ -12,7 +12,7 @@ class PersonalPloggingViewController: UIViewController {
     // MARK: - IBOutlet
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var noPloggingLabel: UILabel!
     
     // MARK: - Properties
     
@@ -48,7 +48,13 @@ class PersonalPloggingViewController: UIViewController {
         getPersonalPloggings()
                 
         if ploggingsUI.isEmpty {
-            userAlert(element: AlertType.noPersonalPlogging)
+            tableView.isHidden = true
+            noPloggingLabel.isHidden = false
+            noPloggingLabel.text = Texts.noPlogging.value
+            noPloggingLabel.textColor = Color().appColor
+        } else {
+            tableView.isHidden = false
+            noPloggingLabel.isHidden = true
         }
     }
     

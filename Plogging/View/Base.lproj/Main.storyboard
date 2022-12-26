@@ -107,6 +107,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KU9-7f-2cC">
+                                <rect key="frame" x="100" y="448" width="214" height="0.0"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nfy-Cr-6M6">
                                 <rect key="frame" x="20" y="96" width="374" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -133,10 +139,14 @@
                             <constraint firstItem="nfy-Cr-6M6" firstAttribute="top" secondItem="WfY-fR-ayI" secondAttribute="top" constant="8" id="QbW-EN-DIK"/>
                             <constraint firstItem="nfy-Cr-6M6" firstAttribute="leading" secondItem="WfY-fR-ayI" secondAttribute="leading" constant="20" id="ftX-ki-DE0"/>
                             <constraint firstItem="WfY-fR-ayI" firstAttribute="bottom" secondItem="nfy-Cr-6M6" secondAttribute="bottom" constant="8" id="iqA-WP-jrx"/>
+                            <constraint firstItem="KU9-7f-2cC" firstAttribute="centerY" secondItem="wGr-Wv-B4G" secondAttribute="centerY" id="jz2-nR-4Oj"/>
+                            <constraint firstItem="KU9-7f-2cC" firstAttribute="centerX" secondItem="wGr-Wv-B4G" secondAttribute="centerX" id="m4e-cM-hA7"/>
+                            <constraint firstItem="KU9-7f-2cC" firstAttribute="leading" secondItem="wGr-Wv-B4G" secondAttribute="leading" constant="100" id="xk2-TY-GwM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Races in which I participate" id="VCg-vZ-fQV"/>
                     <connections>
+                        <outlet property="noPloggingLabel" destination="KU9-7f-2cC" id="bR2-a2-phB"/>
                         <outlet property="tableView" destination="nfy-Cr-6M6" id="15x-y1-Isj"/>
                         <segue destination="cjp-X3-h0i" kind="show" identifier="fromPersonalToDetails" id="ILF-OV-iDw"/>
                     </connections>
@@ -965,7 +975,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xPl-ih-Rc6"/>
+        <segue reference="ILF-OV-iDw"/>
         <segue reference="Tyh-uL-0oh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
