@@ -105,7 +105,14 @@ class PersonalPloggingViewController: UIViewController {
 extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20.0
+        var height: CGFloat = 0.0
+        
+        if ploggingsSection[section].isEmpty {
+            height = 0
+        } else {
+            height = 20.0
+        }
+        return height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
