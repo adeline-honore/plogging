@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController{
+class ChangePasswordViewController: SetConstraintForKeyboardViewController {
 
     // MARK: - IBOutlet
     

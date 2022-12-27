@@ -7,11 +7,12 @@
 
 import UIKit
 
-class SetProfileViewController: UIViewController {
+class SetProfileViewController: SetConstraintForKeyboardViewController {
     
     // MARK: - Properties
     
     private var setProfileView: SetProfileView!
+    
     // MARK: - Init
     
     override func viewDidLoad() {
