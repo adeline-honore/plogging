@@ -21,23 +21,12 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     
-    var placemark: CLPlacemark?
-        
-    var placeCoordinate: CLLocationCoordinate2D?
-    
-    let initialLocation = CLLocation(latitude: 47.6162601, longitude: -2.6565199)
-    
-    var ploggingModels: [Plogging] = []
-    var ploggingAnnotations: [PloggingAnnotation] = []
-    
-    
     // MARK: - Init
     
     override init() {
         super.init()
         locationManager.delegate = self
     }
-    
     
     // MARK: - User's geo location
     
@@ -59,7 +48,6 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
         }
     }
     
-    
     func locationManager(
         _ manager: CLLocationManager,
         didChangeAuthorization status: CLAuthorizationStatus
@@ -78,19 +66,7 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
         
         guard let firstLocation = locations.first else { return }
         
-        placeCoordinate = firstLocation.coordinate
-        
         locationManagerDelegate?.accessUserCoordinate(firstLocation)
-        
-        CLGeocoder().reverseGeocodeLocation(firstLocation) { places, _ in
-            
-            guard
-              let firstPlace = places?.first
-              else {
-                return
-            }
-            self.placemark = firstPlace
-        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

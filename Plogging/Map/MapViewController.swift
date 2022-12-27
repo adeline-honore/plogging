@@ -170,6 +170,9 @@ extension MapViewController: LocationManagerDelegate {
         // Set initial location center on user's location
         setInitialLocation()
         
+        // display user location point
+        mapView.showsUserLocation = true
+        
         // display PloggingAnnotation items
         displayPloggingAnnotationItems()
     }
