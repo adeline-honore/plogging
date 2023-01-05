@@ -15,6 +15,7 @@ enum AlertType{
     case ploggingSaved
     case ploggingNotSaved
     case ploggingWithoutPlace
+    case createError
     
     case network
     
@@ -35,6 +36,8 @@ enum AlertType{
             return "Oups ! Your plogging race is not saved . Please try again ."
         case .ploggingWithoutPlace:
             return "Please enter a departure address ."
+        case .createError:
+            return "An error occured . Please try again ."
             
         case .network:
             return "Oups ! Network troubles ."

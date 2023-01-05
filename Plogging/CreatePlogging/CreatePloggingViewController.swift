@@ -24,14 +24,14 @@ class CreatePloggingViewController: UIViewController {
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
         
-    private var newPloggingUI: PloggingUI = PloggingUI(id: "", admin: "", beginning: Date(), place: "", latitude: 0, longitude: 0, isTakingPart: false, distance: 0, ploggers: [""])
-    private var when: Date = Date()
+    private var currentPlogging: PloggingUI = PloggingUI()
+    private var startDate: Date = Date()
     
     private var distanceArray: [String] = []
     private var distanceSelected: String = ""
+    private var selectedSearchCompletion: MKLocalSearchCompletion?
     
     private var localSearchCompletion = LocalSearchCompletion()
-    private var placeCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     // MARK: - Init
     
@@ -44,21 +44,15 @@ class CreatePloggingViewController: UIViewController {
         
         setupDatePicker()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        newPloggingUI.place = ""
-    }
 
     // MARK: - Date Picker View
     
     @IBAction func getDateFromPickerView() {
-        when = createPloggingView.whenDatePicker.date
+        startDate = createPloggingView.whenDatePicker.date
     }
     
-    func setupDatePicker(){
-
-        createPloggingView.whenDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: when)!
+    func setupDatePicker() {
+        createPloggingView.whenDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
     }
     
     // MARK: - Distance Picker View
@@ -79,45 +73,46 @@ class CreatePloggingViewController: UIViewController {
     }
     
     private func savePlogging() {
+        
+        // set current plogging
         setPloggingElement()
         
-        if newPloggingUI.place.isEmpty {
+        // Check plogging's place validity
+        guard currentPlogging.isValid else {
             userAlert(element: .ploggingWithoutPlace)
+            return
         }
-        else if newPloggingUI.id.isEmpty ||
-            newPloggingUI.admin.isEmpty ||
-            newPloggingUI.latitude == nil ||
-            newPloggingUI.longitude == nil ||
-            newPloggingUI.isTakingPart == false ||
-            newPloggingUI.distance == 0 {
-            userAlert(element: .ploggingNotSaved)
-        }
-        else {
-            // save into CoreData
-            do {
-                try repository.createEntity(ploggingUI: newPloggingUI)
-                // TO DO send ploggingUI in cloud
-                self.navigationController?.popViewController(animated: true)
-                delegate?.ploggingIsCreated(ploggingUICreated: newPloggingUI)
-                
-            } catch {
-                userAlert(element: AlertType.ploggingNotSaved)
+        
+        // Get coordinates
+        localSearchCompletion.getCoordinates(for: selectedSearchCompletion) { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case let .success(coordinates):
+                self.currentPlogging.latitude = coordinates?.latitude
+                self.currentPlogging.longitude = coordinates?.longitude
+                // TODO: save into CoreData
+                do {
+                    try self.repository.createEntity(ploggingUI: self.currentPlogging)
+                    // TO DO send ploggingUI in cloud
+                    self.navigationController?.popViewController(animated: true)
+                    self.delegate?.ploggingIsCreated(ploggingUICreated: self.currentPlogging)
+                } catch {
+                    self.userAlert(element: AlertType.ploggingNotSaved)
+                }
+            case let .failure(error):
+                print(error)
+                self.userAlert(element: AlertType.createError)
             }
         }
     }
         
     private func setPloggingElement() {
-        
-        //let id = UUID().uuidString
-        let id = "plogging2"
-        let admin = "admin1"
-        let ploggers = [admin]
-        
-        guard let place = createPloggingView.resultLocationLabel.text,
-              let distance = Double(distanceSelected)
-        else { return }
-        
-        newPloggingUI = PloggingUI(id: id, admin: admin, beginning: when, place: place, latitude: placeCoordinate.latitude, longitude: placeCoordinate.longitude, isTakingPart: true, distance: distance, ploggers: ploggers)
+        currentPlogging.id = "plogging2"
+        currentPlogging.admin = "admin1"
+        currentPlogging.ploggers = ["admin1"]
+        currentPlogging.isTakingPart = true
     }
     
     // MARK: - Segue
@@ -156,5 +151,7 @@ extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSo
 extension CreatePloggingViewController: LocalSearchCompletionViewControllerDelegate {
     func departurePlaceChoosen(result: MKLocalSearchCompletion) {
         createPloggingView.resultLocationLabel.text = result.title
+        selectedSearchCompletion = result
+        currentPlogging.place = result.title
     }
 }

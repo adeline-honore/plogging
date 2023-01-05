@@ -7,6 +7,10 @@
 
 import MapKit
 
+enum LocalSearchError: Error {
+    case emptyCompletion
+}
+
 class LocalSearchCompletion: MKLocalSearchCompleter {
     
     // MARK: - Properties
@@ -16,11 +20,16 @@ class LocalSearchCompletion: MKLocalSearchCompleter {
     
     // MARK: - Location from Local search completion
     
-    func getCoordinateFromLocalSearchCompletion(completion: MKLocalSearchCompletion) {
-        let searchRequest = MKLocalSearch.Request(completion: completion)
+    func getCoordinates(for searchCompletion: MKLocalSearchCompletion?, completionHandler: @escaping((Result<CLLocationCoordinate2D?, Error>) -> Void)) {
+        guard let searchCompletion = searchCompletion else {
+            return completionHandler(.failure(LocalSearchError.emptyCompletion))
+        }
+        
+        let searchRequest = MKLocalSearch.Request(completion: searchCompletion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
-            self.placeCoordinate = response?.mapItems[0].placemark.coordinate
+            let coordinates = response?.mapItems.first?.placemark.coordinate
+            completionHandler(.success(coordinates))
         }
     }
 }

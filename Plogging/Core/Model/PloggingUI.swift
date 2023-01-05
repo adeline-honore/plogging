@@ -50,7 +50,15 @@ struct PloggingUI {
     }
     
     // init for create an instance of PloggingUI
-    init(id: String?, admin: String?, beginning: Date?, place: String?, latitude: Double?, longitude: Double?, isTakingPart: Bool = false, distance: Double?, ploggers: [String]?) {
+    init(id: String? = nil,
+         admin: String? = nil,
+         beginning: Date? = nil,
+         place: String? = nil,
+         latitude: Double? = nil,
+         longitude: Double? = nil,
+         isTakingPart: Bool = false,
+         distance: Double? = nil,
+         ploggers: [String]? = nil) {
         self.id = id ?? ""
         self.admin = admin ?? ""
         self.beginning = beginning ?? Date()
@@ -79,5 +87,9 @@ struct PloggingUI {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd HH:mm"
         return formatter.string(from: date)
+    }
+    
+    var isValid: Bool {
+        !place.isEmpty
     }
 }
