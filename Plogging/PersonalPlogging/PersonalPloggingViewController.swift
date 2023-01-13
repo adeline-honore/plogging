@@ -26,6 +26,7 @@ class PersonalPloggingViewController: UIViewController {
     
     private var dateNowInteger: Date = Date()
     
+    private let icon = UIImage(imageLiteralResourceName: "icon")
     
     // MARK: - Init
     
@@ -61,7 +62,7 @@ class PersonalPloggingViewController: UIViewController {
     private func getPersonalPloggings() {
         do {
             let ploggingsCD = try repository.getEntities()
-            ploggingsUI = ploggingsCD.map { PloggingUI(ploggingCD: $0, beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? "")) }
+            ploggingsUI = ploggingsCD.map { PloggingUI(ploggingCD: $0, beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? ""), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon) }
         } catch {
             fatalError()
         }
