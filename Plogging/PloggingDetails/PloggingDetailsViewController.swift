@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol ChooseImageDelegate: AnyObject {
-    func chooseImage(source: UIImagePickerController.SourceType)
-}
-
 protocol PloggingDetailsViewControllerDelegate: AnyObject {
     func didSetMainImage(id: String, modifiedPlogging: PloggingUI)
 }
@@ -53,6 +49,7 @@ class PloggingDetailsViewController: UIViewController {
         if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
             let viewController = segue.destination as? DetailsCollectionViewController
             viewController?.images = images
+            viewController?.delegate = self
         }
     }
     
@@ -153,4 +150,14 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
         }
         
     }
+}
+
+// MARK: - Set Images
+
+extension PloggingDetailsViewController: DetailsCollectionDelegate {
+    func didSetImages(images: [UIImage?]) {
+        // TODO: save into CoreData
+        // TODO: save into Cloudkit
+    }
+    
 }
