@@ -12,6 +12,7 @@ class DetailsCollectionViewController: UIViewController {
     // MARK: - IBOutlet
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noImagesLabel: UILabel!
     
     // MARK: - Properties
     
@@ -21,6 +22,21 @@ class DetailsCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: - Display Collection View Races
+    
+    private func displayCollectionView() {
+                
+        if images.isEmpty {
+            collectionView.isHidden = true
+            noImagesLabel.isHidden = false
+            noImagesLabel.text = Texts.noImages.value
+            noImagesLabel.textColor = Color().appColor
+        } else {
+            collectionView.isHidden = false
+            noImagesLabel.isHidden = true
+        }
     }
     
 }

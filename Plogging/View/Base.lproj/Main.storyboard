@@ -769,6 +769,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1m-m2-Ox2">
+                                <rect key="frame" x="100" y="437.5" width="214" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-1q-y30">
                                 <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -807,15 +813,19 @@
                         <viewLayoutGuide key="safeArea" id="fmk-Pi-kJ2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="n1m-m2-Ox2" firstAttribute="centerX" secondItem="PJB-5u-pc6" secondAttribute="centerX" id="0kb-9Q-kms"/>
                             <constraint firstItem="fmk-Pi-kJ2" firstAttribute="bottom" secondItem="lqb-1q-y30" secondAttribute="bottom" id="CJs-5b-7Y1"/>
+                            <constraint firstItem="n1m-m2-Ox2" firstAttribute="leading" secondItem="fmk-Pi-kJ2" secondAttribute="leading" constant="100" id="Enr-dR-Q1m"/>
                             <constraint firstItem="fmk-Pi-kJ2" firstAttribute="trailing" secondItem="lqb-1q-y30" secondAttribute="trailing" id="Ozc-gE-Oa6"/>
                             <constraint firstItem="lqb-1q-y30" firstAttribute="leading" secondItem="fmk-Pi-kJ2" secondAttribute="leading" id="Wtq-GV-ywx"/>
                             <constraint firstItem="lqb-1q-y30" firstAttribute="top" secondItem="fmk-Pi-kJ2" secondAttribute="top" id="aC9-Q8-Tiy"/>
+                            <constraint firstItem="n1m-m2-Ox2" firstAttribute="centerY" secondItem="PJB-5u-pc6" secondAttribute="centerY" id="iQT-32-wLh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gSN-1z-Sxc"/>
                     <connections>
                         <outlet property="collectionView" destination="lqb-1q-y30" id="wNm-yr-y1S"/>
+                        <outlet property="noImagesLabel" destination="n1m-m2-Ox2" id="fdi-tn-Vyn"/>
                         <segue destination="CkX-Th-H99" kind="show" id="eD6-Ol-hbT"/>
                     </connections>
                 </viewController>

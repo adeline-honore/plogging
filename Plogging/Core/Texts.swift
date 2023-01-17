@@ -17,6 +17,8 @@ enum Texts {
     
     case noPlogging
     
+    case noImages
+    
     
     var value: String {
         switch self {
@@ -33,6 +35,9 @@ enum Texts {
             
         case .noPlogging:
             return "There is no race in which you participate ."
+            
+        case .noImages:
+            return "There isn't images for this race ."
         }
     }
 }
