@@ -609,6 +609,9 @@
                                                         <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="photo.artframe" catalog="system" title=""/>
+                                                        <connections>
+                                                            <action selector="didTapPhotosButton" destination="cjp-X3-h0i" eventType="touchUpInside" id="Dxr-R3-Aqb"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVg-Fb-8S0">
                                                         <rect key="frame" x="127.5" y="0.0" width="119" height="34"/>
@@ -737,29 +740,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="t4p-qq-uTf"/>
                     <connections>
-                        <segue destination="DJF-2v-GM6" kind="show" id="E8Y-iw-feo"/>
+                        <segue destination="O7h-2y-H4P" kind="show" identifier="fromDetailsToCollectionView" id="KQK-oH-7rq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhY-hL-IO8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4843.4782608695659" y="-393.08035714285711"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="C50-kK-ds4">
-            <objects>
-                <navigationController id="DJF-2v-GM6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7pl-tB-2TQ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aoj-ix-5cD">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="O7h-2y-H4P" kind="relationship" relationship="rootViewController" id="uD2-3m-djE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Np6-52-rgQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5638" y="-844"/>
+            <point key="canvasLocation" x="4839" y="-405"/>
         </scene>
         <!--Details Collection View Controller-->
         <scene sceneID="slw-SK-dCk">
@@ -769,8 +755,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1m-m2-Ox2">
-                                <rect key="frame" x="100" y="437.5" width="214" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1m-m2-Ox2">
+                                <rect key="frame" x="100" y="438" width="214" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

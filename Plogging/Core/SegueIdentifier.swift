@@ -17,6 +17,8 @@ enum SegueIdentifier {
     case fromPersonalToDetails
     
     case fromCreateToLocalSearch
+    
+    case fromDetailsToCollectionView
         
     var identifier: String {
         switch self {
@@ -32,6 +34,9 @@ enum SegueIdentifier {
             
         case .fromCreateToLocalSearch:
             return "fromCreateToLocalSearch"
+            
+        case .fromDetailsToCollectionView:
+            return "fromDetailsToCollectionView"
         }
     }
 }

@@ -24,6 +24,10 @@ class DetailsCollectionViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        displayCollectionView()
+    }
+    
     // MARK: - Display Collection View Races
     
     private func displayCollectionView() {

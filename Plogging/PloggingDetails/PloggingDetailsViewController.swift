@@ -26,6 +26,8 @@ class PloggingDetailsViewController: UIViewController {
         managedObjectContext: CoreDataStack().viewContext)
         
     var ploggingUI: PloggingUI?
+    var images: [UIImage?] = [UIImage]()
+    
     
     weak var delegate: PloggingDetailsViewControllerDelegate?
     
@@ -45,6 +47,13 @@ class PloggingDetailsViewController: UIViewController {
             return
         }
         ploggingDetailsView.configure(plogging: ploggingUI)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
+            let viewController = segue.destination as? DetailsCollectionViewController
+            viewController?.images = images
+        }
     }
     
     // MARK: - Toogle to take part at race
@@ -97,6 +106,12 @@ class PloggingDetailsViewController: UIViewController {
         } else {
             userAlert(element: .mailAppUnavailable)
         }
+    }
+    
+    // MARK: - Display all race's photos
+    
+    @IBAction func didTapPhotosButton() {
+        performSegue(withIdentifier: SegueIdentifier.fromDetailsToCollectionView.identifier, sender: nil)
     }
 }
 
