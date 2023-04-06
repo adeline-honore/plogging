@@ -44,6 +44,12 @@ class CreatePloggingViewController: UIViewController {
         
         setupDatePicker()
     }
+    
+    // MARK: - Change Main Image
+    
+    @IBAction func didTapChangeImage() {
+        chooseImage(source: .photoLibrary)
+    }
 
     // MARK: - Date Picker View
     
@@ -109,10 +115,16 @@ class CreatePloggingViewController: UIViewController {
     }
         
     private func setPloggingElement() {
-        currentPlogging.id = "plogging2"
-        currentPlogging.admin = "admin1"
-        currentPlogging.ploggers = ["admin1"]
+        let i = Int.random(in: 0...1000)
+        currentPlogging.id = "plogging \(i)"
+        currentPlogging.admin = "admin \(i)"
+        currentPlogging.ploggers = ["admin\(i)"]
         currentPlogging.isTakingPart = true
+        
+        guard let image = currentPlogging.mainImage else { return }
+        if currentPlogging.mainImage != nil {
+            currentPlogging.mainImageBinary = image.jpegData(compressionQuality: 1)
+        }
     }
     
     // MARK: - Segue
@@ -153,5 +165,32 @@ extension CreatePloggingViewController: LocalSearchCompletionViewControllerDeleg
         createPloggingView.resultLocationLabel.text = result.title
         selectedSearchCompletion = result
         currentPlogging.place = result.title
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension CreatePloggingViewController: ChooseImageDelegate {
+    func chooseImage(source: UIImagePickerController.SourceType) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = source
+        imagePickerController.delegate = self
+        
+        present(imagePickerController, animated: true, completion: nil)
+    }
+}
+
+extension CreatePloggingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
+        guard let choosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return
+        }
+        
+        currentPlogging.mainImage = choosenImage
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }
