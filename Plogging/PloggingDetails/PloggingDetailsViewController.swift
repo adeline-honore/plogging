@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PloggingDetailsViewControllerDelegate: AnyObject {
-    func didSetMainImage(id: String, modifiedPlogging: PloggingUI)
+    func didSetPlogging(modifiedPlogging: PloggingUI)
 }
 
 class PloggingDetailsViewController: UIViewController {
@@ -22,8 +22,6 @@ class PloggingDetailsViewController: UIViewController {
         managedObjectContext: CoreDataStack().viewContext)
         
     var ploggingUI: PloggingUI?
-    var images: [UIImage?] = [UIImage]()
-    
     
     weak var delegate: PloggingDetailsViewControllerDelegate?
     
@@ -48,8 +46,9 @@ class PloggingDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
             let viewController = segue.destination as? DetailsCollectionViewController
-            viewController?.images = images
             viewController?.delegate = self
+            guard let photos = ploggingUI?.photos else { return }
+            viewController?.photos = photos
         }
     }
     
@@ -110,6 +109,16 @@ class PloggingDetailsViewController: UIViewController {
     @IBAction func didTapPhotosButton() {
         performSegue(withIdentifier: SegueIdentifier.fromDetailsToCollectionView.identifier, sender: nil)
     }
+    
+    // MARK: - Set images
+    
+    private func setImages(photos: [PhotoUI]) {
+        ploggingUI?.photos = photos
+        
+        guard let plogging = ploggingUI else { return }
+        
+        delegate?.didSetPlogging(modifiedPlogging: plogging)
+    }
 }
 
 
@@ -140,11 +149,9 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
         ploggingUI?.mainImageBinary = choosenImage.jpegData(compressionQuality: 1.0)
         
         guard let ploggingUI = ploggingUI else { return }
-        
-        delegate?.didSetMainImage(id: ploggingUI.id, modifiedPlogging: ploggingUI)
-        
+                
         do {
-            try repository.setEntity(place: ploggingUI.place, ploggingUI: ploggingUI)
+            try repository.setEntity(ploggingUI: ploggingUI)
         } catch {
             print(error)
         }
@@ -155,8 +162,9 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
 // MARK: - Set Images
 
 extension PloggingDetailsViewController: DetailsCollectionDelegate {
-    func didSetImages(images: [UIImage?]) {
+    func didSetPhotos(photos: [PhotoUI]) {
         // TODO: save into CoreData
+        setImages(photos: photos)
         // TODO: save into Cloudkit
     }
     

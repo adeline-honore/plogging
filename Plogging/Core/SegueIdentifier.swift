@@ -19,6 +19,8 @@ enum SegueIdentifier {
     case fromCreateToLocalSearch
     
     case fromDetailsToCollectionView
+    
+    case fromCollectionViewToImage
         
     var identifier: String {
         switch self {
@@ -37,6 +39,9 @@ enum SegueIdentifier {
             
         case .fromDetailsToCollectionView:
             return "fromDetailsToCollectionView"
+            
+        case .fromCollectionViewToImage:
+            return "fromCollectionViewToImage"
         }
     }
 }

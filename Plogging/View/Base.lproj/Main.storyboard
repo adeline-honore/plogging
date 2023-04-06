@@ -848,7 +848,7 @@
                         <outlet property="maxNumberPhotosLabel" destination="oFw-m7-ZWe" id="5Ov-M6-Gmj"/>
                         <outlet property="noImagesLabel" destination="n1m-m2-Ox2" id="fdi-tn-Vyn"/>
                         <outlet property="setPhotosView" destination="4tY-Pl-MrS" id="7TK-Bm-RYt"/>
-                        <segue destination="CkX-Th-H99" kind="show" id="eD6-Ol-hbT"/>
+                        <segue destination="CkX-Th-H99" kind="show" identifier="fromCollectionViewToImage" id="eD6-Ol-hbT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AU3-fB-l2s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

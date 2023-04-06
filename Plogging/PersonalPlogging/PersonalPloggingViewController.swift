@@ -62,10 +62,40 @@ class PersonalPloggingViewController: UIViewController {
     private func getPersonalPloggings() {
         do {
             let ploggingsCD = try repository.getEntities()
-            ploggingsUI = ploggingsCD.map { PloggingUI(ploggingCD: $0, beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? ""), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon) }
+            ploggingsUI = ploggingsCD.map { PloggingUI(
+                ploggingCD: $0,
+                beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? ""),
+                image: UIImage(data: $0.imageBinary ?? Data()) ?? icon,
+                photos: photosCDToPhotosUI(photosCD: getPhotosFromOwner(owner: $0) ?? [PhotoCD]()))
+            }
         } catch {
             fatalError()
         }
+    }
+    
+    
+    private func getPhotosFromOwner(owner: PloggingCD) -> [PhotoCD]? {
+        do {
+            return try repository.getPloggingPhoto(owner: owner)
+        } catch {
+            print("getPhotosFromOwner")
+        }
+        return nil
+    }
+    
+    
+    private func photosCDToPhotosUI(photosCD: [Any]) -> [PhotoUI]? {
+        if !photosCD.isEmpty {
+            var photos = [PhotoUI]()
+            
+            photosCD.forEach { element in
+                let photo : PhotoUI = PhotoUI(name: (element as AnyObject).name, imageBinary: (element as AnyObject).imageBinary, image: UIImage(data: (element as AnyObject).imageBinary ?? Data()))
+                
+                photos.append(photo)
+            }
+            return photos
+        }
+        return nil
     }
     
     // MARK: - Configure Table View
@@ -104,6 +134,32 @@ class PersonalPloggingViewController: UIViewController {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
             viewController?.delegate = self
+        }
+    }
+    
+    // MARK: - Set PloggingCD
+    
+    private func setPlogging(ploggingtoSet: PloggingUI) {
+        do {
+            let ploggingsCD = try repository.getEntities()
+            
+            guard let ploggingCD = ploggingsCD.first(where: {$0.id == ploggingtoSet.id}) else { return }
+            
+            var photosUI = [PhotoUI]()
+            
+            ploggingtoSet.photos?.forEach({ element in
+                let photo = PhotoUI(name: element.name, imageBinary: element.imageBinary, image: element.image, owner: ploggingCD)
+                
+                photosUI.append(photo)
+            })
+            
+            if ploggingCD.photos?.count ?? 0 >= 1 {
+                try repository.setPhotoEntity(photosUI: photosUI, owner: ploggingCD)
+            } else {
+                try repository.createPhotoEntity(photosUI: photosUI)
+            }
+        } catch {
+            fatalError()
         }
     }
 }
@@ -152,10 +208,7 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
 
 
 extension PersonalPloggingViewController: PloggingDetailsViewControllerDelegate {
-    func didSetMainImage(id: String, modifiedPlogging: PloggingUI) {
-        
-        if let row = self.ploggingsUI.firstIndex(where: {$0.id == id}) {
-            ploggingsUI[row] = modifiedPlogging
-        }
+    func didSetPlogging(modifiedPlogging: PloggingUI) {
+        setPlogging(ploggingtoSet: modifiedPlogging)
     }
 }

@@ -29,6 +29,8 @@ struct PloggingUI {
     
     var mainImage: UIImage?
     
+    var photos: [PhotoUI]?
+    
     
     init(plogging: Plogging, schedule: Date) {
         
@@ -71,7 +73,7 @@ struct PloggingUI {
     }
     
     // init from PlogginCD
-    init(ploggingCD: PloggingCD, beginning: Date, image: UIImage) {
+    init(ploggingCD: PloggingCD, beginning: Date, image: UIImage, photos: [PhotoUI]?) {
         self.id = ploggingCD.id ?? ""
         self.admin = ploggingCD.admin ?? ""
         self.beginning = beginning
@@ -83,6 +85,7 @@ struct PloggingUI {
         self.distance = ploggingCD.distance
         self.mainImageBinary = ploggingCD.imageBinary
         self.mainImage = image
+        self.photos = photos
     }
     
     func dateToDisplayedString(date :Date) -> String {

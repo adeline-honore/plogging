@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DetailsCollectionDelegate: AnyObject {
-    func didSetImages(images: [UIImage?])
+    func didSetPhotos(photos: [PhotoUI])
 }
 
 class DetailsCollectionViewController: UIViewController {
@@ -23,7 +23,7 @@ class DetailsCollectionViewController: UIViewController {
     // MARK: - Properties
     
     weak var delegate: DetailsCollectionDelegate?
-    var images: [UIImage?] = [UIImage?]()
+    var photos: [PhotoUI] = [PhotoUI]()
     
     // MARK: - Init
     
@@ -42,7 +42,7 @@ class DetailsCollectionViewController: UIViewController {
     
     private func displayCollectionView() {
                 
-        if images.isEmpty {
+        if photos.isEmpty {
             collectionView.isHidden = true
             noImagesLabel.isHidden = false
             noImagesLabel.text = Texts.noImages.value
@@ -64,16 +64,14 @@ class DetailsCollectionViewController: UIViewController {
 
 extension DetailsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsCollectionViewCell().identifier, for: indexPath) as! DetailsCollectionViewCell
         
-        
-        guard let image = images[indexPath.row] else { return DetailsCollectionViewCell() }
-        
+        guard let image = photos[indexPath.row].image else { return DetailsCollectionViewCell() }
         cell.configure(image: image)
         
         return cell
@@ -100,13 +98,14 @@ extension DetailsCollectionViewController: UIImagePickerControllerDelegate, UINa
             return
         }
                 
-        images.append(choosenImage)
+        let photo = PhotoUI(name: String(photos.count + 1), imageBinary: choosenImage.jpegData(compressionQuality: 1), image: choosenImage)
         
-        delegate?.didSetImages(images: images)
+        photos.append(photo)
+        
+        delegate?.didSetPhotos(photos: photos)
+        picker.dismiss(animated: true, completion: nil)
         
         collectionView.reloadData()
-        
-        picker.dismiss(animated: true, completion: nil)
     }
     
 }
