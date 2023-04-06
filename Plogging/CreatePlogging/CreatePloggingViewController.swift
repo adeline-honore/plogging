@@ -120,6 +120,7 @@ class CreatePloggingViewController: UIViewController {
         currentPlogging.admin = "admin \(i)"
         currentPlogging.ploggers = ["admin\(i)"]
         currentPlogging.isTakingPart = true
+        currentPlogging.distance = Double(distanceSelected) ?? 2
         
         guard let image = currentPlogging.mainImage else { return }
         if currentPlogging.mainImage != nil {
