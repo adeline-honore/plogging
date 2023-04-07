@@ -45,7 +45,7 @@ class PloggingDetailsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
-            let viewController = segue.destination as? DetailsCollectionViewController
+            let viewController = segue.destination as? PloggingCollectionViewController
             viewController?.delegate = self
             guard let photos = ploggingUI?.photos else { return }
             viewController?.photos = photos

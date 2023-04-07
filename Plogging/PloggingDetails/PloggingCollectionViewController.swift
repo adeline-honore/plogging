@@ -11,7 +11,7 @@ protocol DetailsCollectionDelegate: AnyObject {
     func didSetPhotos(photos: [PhotoUI])
 }
 
-class DetailsCollectionViewController: UIViewController {
+class PloggingCollectionViewController: UIViewController {
     
     // MARK: - IBOutlet
     
@@ -24,6 +24,7 @@ class DetailsCollectionViewController: UIViewController {
     
     weak var delegate: DetailsCollectionDelegate?
     var photos: [PhotoUI] = [PhotoUI]()
+    var photoToSend: PhotoUI = PhotoUI()
     
     // MARK: - Init
     
@@ -35,7 +36,7 @@ class DetailsCollectionViewController: UIViewController {
         // TODO: check authentification
         maxNumberPhotosLabel.isHidden = true
         noImagesLabel.isHidden = true
-//        displayCollectionView()
+        displayCollectionView()
     }
     
     // MARK: - Display Collection View Races
@@ -59,10 +60,22 @@ class DetailsCollectionViewController: UIViewController {
         chooseImage(source: .photoLibrary)
     }
     
+    // MARK: - Go to
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.fromCollectionViewToImage.identifier {
+            let viewController = segue.destination as? ImageViewController
+            viewController?.photoUI = photoToSend
+        }
+    }
+
+    func sendImage(photoUI: PhotoUI) {
+        performSegue(withIdentifier: SegueIdentifier.fromCollectionViewToImage.identifier, sender: nil)
+    }
 }
 
 
-extension DetailsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PloggingCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         photos.count
     }
@@ -76,10 +89,16 @@ extension DetailsCollectionViewController: UICollectionViewDelegate, UICollectio
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        photoToSend = photos[indexPath.row]
+        sendImage(photoUI: photos[indexPath.row])
+    }
 }
 
 
-extension DetailsCollectionViewController: ChooseImageDelegate {
+extension PloggingCollectionViewController: ChooseImageDelegate {
     func chooseImage(source: UIImagePickerController.SourceType) {
         
         let imagePickerController = UIImagePickerController()
@@ -90,7 +109,7 @@ extension DetailsCollectionViewController: ChooseImageDelegate {
     }
 }
 
-extension DetailsCollectionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension PloggingCollectionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
