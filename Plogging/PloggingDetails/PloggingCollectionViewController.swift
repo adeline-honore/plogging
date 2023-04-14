@@ -19,6 +19,7 @@ class PloggingCollectionViewController: UIViewController {
     @IBOutlet weak var noImagesLabel: UILabel!
     @IBOutlet weak var setPhotosView: UIView!
     @IBOutlet weak var maxNumberPhotosLabel: UILabel!
+    @IBOutlet weak var addPhotoButton: UIButton!
     
     // MARK: - Properties
     
@@ -35,8 +36,6 @@ class PloggingCollectionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // TODO: check authentification
-        maxNumberPhotosLabel.isHidden = true
-        noImagesLabel.isHidden = true
         displayCollectionView()
     }
     
@@ -47,11 +46,17 @@ class PloggingCollectionViewController: UIViewController {
         if photos.isEmpty {
             collectionView.isHidden = true
             noImagesLabel.isHidden = false
+            maxNumberPhotosLabel.isHidden = true
+            addPhotoButton.isHidden = false
             noImagesLabel.text = Texts.noImages.value
             noImagesLabel.textColor = Color().appColor
         } else {
             collectionView.isHidden = false
             noImagesLabel.isHidden = true
+            maxNumberPhotosLabel.isHidden = false
+            if photos.count == 5 {
+                addPhotoButton.isHidden = true
+            }
         }
     }
     

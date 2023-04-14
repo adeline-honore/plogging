@@ -848,6 +848,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gSN-1z-Sxc"/>
                     <connections>
+                        <outlet property="addPhotoButton" destination="CkF-gr-d00" id="KaW-xs-G33"/>
                         <outlet property="collectionView" destination="lqb-1q-y30" id="wNm-yr-y1S"/>
                         <outlet property="maxNumberPhotosLabel" destination="oFw-m7-ZWe" id="5Ov-M6-Gmj"/>
                         <outlet property="noImagesLabel" destination="n1m-m2-Ox2" id="fdi-tn-Vyn"/>
