@@ -41,6 +41,7 @@
 		6E69EFAF2951BE5400EBE7B9 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFAE2951BE5300EBE7B9 /* Extension+View.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
 		6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* SomeDataz.json */; };
+		6EC9F21529E9338B0048B6BC /* PhotoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9F21429E9338B0048B6BC /* PhotoAction.swift */; };
 		6ED589B228E8D8B000450FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B128E8D8B000450FE4 /* AppDelegate.swift */; };
 		6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */; };
 		6ED589B928E8D8B000450FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED589B728E8D8B000450FE4 /* Main.storyboard */; };
@@ -112,6 +113,7 @@
 		6E69EFAE2951BE5300EBE7B9 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6EBFB9D72901251C00E1741A /* SomeDataz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SomeDataz.json; sourceTree = "<group>"; };
+		6EC9F21429E9338B0048B6BC /* PhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAction.swift; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED589B128E8D8B000450FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -257,11 +259,12 @@
 				6ED589E928E8DD1B00450FE4 /* Model */,
 				6EECBFBC28F2F36500FAE3FE /* UserAlert */,
 				6E3821AC28FD545F00F39184 /* Extension */,
+				6EE5E472297756C0005DE40F /* ChooseImageDelegate.swift */,
 				6E290480291ED6CD00FB7D9A /* Color.swift */,
+				6EC9F21429E9338B0048B6BC /* PhotoAction.swift */,
 				6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */,
 				6E5E67EB295AFB1D00E638C4 /* SetConstraintForKeyboardViewController.swift */,
 				6E088F932916830900F401A6 /* Texts.swift */,
-				6EE5E472297756C0005DE40F /* ChooseImageDelegate.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				6EE5E473297756C0005DE40F /* ChooseImageDelegate.swift in Sources */,
 				6E088F942916830900F401A6 /* Texts.swift in Sources */,
 				6E12D2152923C8A500D2F45B /* PloggingTableViewCell.swift in Sources */,
+				6EC9F21529E9338B0048B6BC /* PhotoAction.swift in Sources */,
 				6E69EFA72951AE4A00EBE7B9 /* ProfileView.swift in Sources */,
 				6E1412F42922750F009E1BDB /* CreatePloggingView.swift in Sources */,
 				6E3821B028FD566B00F39184 /* Plogging.swift in Sources */,

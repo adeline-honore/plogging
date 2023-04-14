@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PloggingDetailsViewControllerDelegate: AnyObject {
-    func didSetPlogging(modifiedPlogging: PloggingUI)
+    func didSetPloggingPhoto(photoUI: PhotoUI, removePhoto: Bool)
 }
 
 class PloggingDetailsViewController: UIViewController {
@@ -47,7 +47,9 @@ class PloggingDetailsViewController: UIViewController {
         if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
             let viewController = segue.destination as? PloggingCollectionViewController
             viewController?.delegate = self
-            guard let photos = ploggingUI?.photos else { return }
+            guard let ploggingUI else { return }
+            viewController?.ploggingId = ploggingUI.id
+            guard let photos = ploggingUI.photos else { return }
             viewController?.photos = photos
         }
     }
@@ -112,12 +114,37 @@ class PloggingDetailsViewController: UIViewController {
     
     // MARK: - Set images
     
-    private func setImages(photos: [PhotoUI]) {
-        ploggingUI?.photos = photos
+    private func setImage(photo: PhotoUI, action: String) {
+        do {
+            switch action {
+            case PhotoAction.create.rawValue:
+                let photoToCreate = PhotoUI(name: photo.name, imageBinary: photo.imageBinary, image: photo.image, owner: returnPloggingCD())
+                try repository.createPhotoEntity(photoUI: photoToCreate)
+            case PhotoAction.set.rawValue:
+                try repository.setPhotoEntity(photo: photo)
+            case PhotoAction.delete.rawValue:
+                try repository.removePhotoEntity(photo: photo)
+            default:
+                return
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func returnPloggingCD() -> PloggingCD {
         
-        guard let plogging = ploggingUI else { return }
+        guard let ploggingUI else { return PloggingCD() }
         
-        delegate?.didSetPlogging(modifiedPlogging: plogging)
+        do {
+            let ploggingsCD = try repository.getEntities()
+            
+            guard let ploggingCD = ploggingsCD.first(where: {$0.id == ploggingUI.id}) else { return PloggingCD()}
+            return ploggingCD
+        } catch {
+            print(error)
+        }
+        return PloggingCD()
     }
 }
 
@@ -162,10 +189,9 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
 // MARK: - Set Images
 
 extension PloggingDetailsViewController: DetailsCollectionDelegate {
-    func didSetPhotos(photos: [PhotoUI]) {
+    func didSetPhoto(photo: PhotoUI, action: String) {
         // TODO: save into CoreData
-        setImages(photos: photos)
+        setImage(photo: photo, action: action)
         // TODO: save into Cloudkit
     }
-    
 }

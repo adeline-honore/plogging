@@ -133,33 +133,6 @@ class PersonalPloggingViewController: UIViewController {
         if segue.identifier == SegueIdentifier.fromPersonalToDetails.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
-            viewController?.delegate = self
-        }
-    }
-    
-    // MARK: - Set PloggingCD
-    
-    private func setPlogging(ploggingtoSet: PloggingUI) {
-        do {
-            let ploggingsCD = try repository.getEntities()
-            
-            guard let ploggingCD = ploggingsCD.first(where: {$0.id == ploggingtoSet.id}) else { return }
-            
-            var photosUI = [PhotoUI]()
-            
-            ploggingtoSet.photos?.forEach({ element in
-                let photo = PhotoUI(name: element.name, imageBinary: element.imageBinary, image: element.image, owner: ploggingCD)
-                
-                photosUI.append(photo)
-            })
-            
-            if ploggingCD.photos?.count ?? 0 >= 1 {
-                try repository.setPhotoEntity(photosUI: photosUI, owner: ploggingCD)
-            } else {
-                try repository.createPhotoEntity(photosUI: photosUI)
-            }
-        } catch {
-            fatalError()
         }
     }
 }
@@ -203,12 +176,5 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return (section == 0) ? "upcoming ploggings" : "past ploggings"
-    }
-}
-
-
-extension PersonalPloggingViewController: PloggingDetailsViewControllerDelegate {
-    func didSetPlogging(modifiedPlogging: PloggingUI) {
-        setPlogging(ploggingtoSet: modifiedPlogging)
     }
 }

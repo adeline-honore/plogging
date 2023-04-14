@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DetailsCollectionDelegate: AnyObject {
-    func didSetPhotos(photos: [PhotoUI])
+    func didSetPhoto(photo: PhotoUI, action: String)
 }
 
 class PloggingCollectionViewController: UIViewController {
@@ -25,6 +25,7 @@ class PloggingCollectionViewController: UIViewController {
     weak var delegate: DetailsCollectionDelegate?
     var photos: [PhotoUI] = [PhotoUI]()
     var photoToSend: PhotoUI = PhotoUI()
+    var ploggingId: String = String()
     
     // MARK: - Init
     
@@ -66,6 +67,7 @@ class PloggingCollectionViewController: UIViewController {
         if segue.identifier == SegueIdentifier.fromCollectionViewToImage.identifier {
             let viewController = segue.destination as? ImageViewController
             viewController?.photoUI = photoToSend
+            viewController?.delegate = self
         }
     }
 
@@ -116,15 +118,21 @@ extension PloggingCollectionViewController: UIImagePickerControllerDelegate, UIN
         guard let choosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
-                
-        let photo = PhotoUI(name: String(photos.count + 1), imageBinary: choosenImage.jpegData(compressionQuality: 1), image: choosenImage)
+        
+        let photo = PhotoUI(name: ploggingId + "&photo:" + String(photos.count + 1), imageBinary: choosenImage.jpegData(compressionQuality: 1), image: choosenImage)
         
         photos.append(photo)
         
-        delegate?.didSetPhotos(photos: photos)
+        delegate?.didSetPhoto(photo: photo, action: PhotoAction.create.rawValue)
         picker.dismiss(animated: true, completion: nil)
         
         collectionView.reloadData()
     }
     
+}
+
+extension PloggingCollectionViewController: ImageViewControllerDelegate {
+    func setPhoto(photo: PhotoUI, action: String) {
+        delegate?.didSetPhoto(photo: photo, action: action)
+    }
 }

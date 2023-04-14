@@ -115,38 +115,35 @@ final class PloggingCoreDataManager {
     
     // MARK: - PhotoCD
     
-    func createPhotoEntity(photosUI: [PhotoUI]) throws {
+    func createPhotoEntity(photoUI: PhotoUI) throws {
         let entity = NSEntityDescription.entity(forEntityName: "PhotoCD",
                                                 in: coreDataStack.viewContext)!
         
-        try photosUI.forEach { photo in
-            let photoCD = NSManagedObject(entity: entity, insertInto: coreDataStack.viewContext)
-            photoCD.setValue(photo.name, forKey: "name")
-            photoCD.setValue(photo.imageBinary, forKey: "imageBinary")
-            photoCD.setValue(photo.owner, forKey: "owner")
-            
-            try coreDataStack.viewContext.save()
-        }
+        let photoCD = NSManagedObject(entity: entity, insertInto: coreDataStack.viewContext)
+        photoCD.setValue(photoUI.name, forKey: "name")
+        photoCD.setValue(photoUI.imageBinary, forKey: "imageBinary")
+        photoCD.setValue(photoUI.owner, forKey: "owner")
+        
+        try coreDataStack.viewContext.save()
     }
     
-    func setPhotoEntity(photosUI: [PhotoUI], owner: PloggingCD) throws {
+    func setPhotoEntity(photo: PhotoUI) throws {
+        let request: NSFetchRequest<PhotoCD> = PhotoCD.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", photo.name!)
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PhotoCD")
-        request.predicate = NSPredicate(format:"owner = %@", owner)
+        let results = try coreDataStack.viewContext.fetch(request)
+        results.first?.setValue(photo.imageBinary, forKey: "imageBinary")
         
-        if let results = try coreDataStack.viewContext.fetch(request) as? [NSManagedObject] {
-            if results.count > 0 {
-                coreDataStack.viewContext.delete(results[0])
-                do {
-                    try coreDataStack.viewContext.save()
-                    try createPhotoEntity(photosUI: photosUI)
-                } catch {
-                    throw error
-                }
-            } else {
-                print("oups")
-            }
-        }
+        try coreDataStack.viewContext.save()
+    }
+    
+    func removePhotoEntity(photo: PhotoUI) throws {
+        let request: NSFetchRequest<PhotoCD> = PhotoCD.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", photo.name!)
+        
+        let results = try coreDataStack.viewContext.fetch(request)
+        coreDataStack.viewContext.delete(results.first ?? PhotoCD())
+        try coreDataStack.viewContext.save()
     }
     
     func getPloggingPhoto(owner: PloggingCD) throws -> [PhotoCD]? {

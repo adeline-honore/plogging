@@ -867,18 +867,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SE3-UW-Ren">
-                                <rect key="frame" x="107" y="393" width="150" height="34.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SE3-UW-Ren">
+                                <rect key="frame" x="85" y="768.5" width="244" height="34.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-6j-LQO">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="34.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Set photo"/>
+                                        <connections>
+                                            <action selector="didTapSetButton" destination="CkX-Th-H99" eventType="touchUpInside" id="HIH-0F-eNd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbe-Aa-1lb">
-                                        <rect key="frame" x="75" y="0.0" width="75" height="34.5"/>
+                                        <rect key="frame" x="122" y="0.0" width="122" height="34.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Delete photo"/>
+                                        <connections>
+                                            <action selector="didTapDeleteButton" destination="CkX-Th-H99" eventType="touchUpInside" id="tmc-yj-coX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -890,7 +896,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="x84-4a-4b3" firstAttribute="leading" secondItem="Rfr-8u-M4O" secondAttribute="leading" id="FFz-5q-4RP"/>
+                            <constraint firstItem="Rfr-8u-M4O" firstAttribute="bottom" secondItem="SE3-UW-Ren" secondAttribute="bottom" constant="10" id="cIM-Bq-6eR"/>
                             <constraint firstItem="Rfr-8u-M4O" firstAttribute="trailing" secondItem="x84-4a-4b3" secondAttribute="trailing" id="eDy-hI-IE9"/>
+                            <constraint firstItem="SE3-UW-Ren" firstAttribute="centerX" secondItem="5Z9-vx-oSg" secondAttribute="centerX" id="lWS-rd-gPw"/>
                             <constraint firstItem="Rfr-8u-M4O" firstAttribute="bottom" secondItem="x84-4a-4b3" secondAttribute="bottom" id="uqE-ub-C9T"/>
                             <constraint firstItem="x84-4a-4b3" firstAttribute="top" secondItem="Rfr-8u-M4O" secondAttribute="top" id="yEG-Qc-cQp"/>
                         </constraints>
