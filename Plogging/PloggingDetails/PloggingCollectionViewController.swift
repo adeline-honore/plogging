@@ -15,7 +15,7 @@ class PloggingCollectionViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noImagesLabel: UILabel!
     @IBOutlet weak var setPhotosView: UIView!
     @IBOutlet weak var maxNumberPhotosLabel: UILabel!
@@ -32,11 +32,20 @@ class PloggingCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // TODO: check authentification
         displayCollectionView()
+        tableView.reloadData()
+    }
+    
+    // MARK: - Configure Table View
+    
+    private func configureTableView() {
+        let cellNib = UINib(nibName: PhotoTableViewCell.identifier, bundle: .main)
+        tableView.register(cellNib, forCellReuseIdentifier: PhotoTableViewCell.identifier)
     }
     
     // MARK: - Display Collection View Races
@@ -44,18 +53,21 @@ class PloggingCollectionViewController: UIViewController {
     private func displayCollectionView() {
                 
         if photos.isEmpty {
-            collectionView.isHidden = true
+            tableView.isHidden = true
             noImagesLabel.isHidden = false
             maxNumberPhotosLabel.isHidden = true
             addPhotoButton.isHidden = false
             noImagesLabel.text = Texts.noImages.value
             noImagesLabel.textColor = Color().appColor
         } else {
-            collectionView.isHidden = false
+            tableView.isHidden = false
             noImagesLabel.isHidden = true
-            maxNumberPhotosLabel.isHidden = false
-            if photos.count == 5 {
+            if photos.count >= 5 {
                 addPhotoButton.isHidden = true
+                maxNumberPhotosLabel.isHidden = false
+            } else {
+                addPhotoButton.isHidden = false
+                maxNumberPhotosLabel.isHidden = true
             }
         }
     }
@@ -81,29 +93,28 @@ class PloggingCollectionViewController: UIViewController {
     }
 }
 
-
-extension PloggingCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension PloggingCollectionViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         photos.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsCollectionViewCell().identifier, for: indexPath) as! DetailsCollectionViewCell
-        
-        guard let image = photos[indexPath.row].image else { return DetailsCollectionViewCell() }
-        cell.configure(image: image)
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier) as? PhotoTableViewCell ?? PhotoTableViewCell()
+        guard let image = photos[indexPath.row].image else { return PhotoTableViewCell() }
+        cell.photoImage.image = image
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height / 5
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         photoToSend = photos[indexPath.row]
         sendImage(photoUI: photos[indexPath.row])
     }
 }
-
 
 extension PloggingCollectionViewController: ChooseImageDelegate {
     func chooseImage(source: UIImagePickerController.SourceType) {
@@ -131,7 +142,7 @@ extension PloggingCollectionViewController: UIImagePickerControllerDelegate, UIN
         delegate?.didSetPhoto(photo: photo, action: PhotoAction.create.rawValue)
         picker.dismiss(animated: true, completion: nil)
         
-        collectionView.reloadData()
+        tableView.reloadData()
     }
     
 }
