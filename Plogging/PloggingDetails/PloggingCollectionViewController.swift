@@ -38,7 +38,6 @@ class PloggingCollectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // TODO: check authentification
         displayCollectionView()
-        tableView.reloadData()
     }
     
     // MARK: - Configure Table View
@@ -70,6 +69,7 @@ class PloggingCollectionViewController: UIViewController {
                 maxNumberPhotosLabel.isHidden = true
             }
         }
+        tableView.reloadData()
     }
     
     // MARK: - Set Images
@@ -90,6 +90,26 @@ class PloggingCollectionViewController: UIViewController {
 
     func sendImage(photoUI: PhotoUI) {
         performSegue(withIdentifier: SegueIdentifier.fromCollectionViewToImage.identifier, sender: nil)
+    }
+    
+    private func updateTableView(photo: PhotoUI, action: String) {
+        switch action {
+        case PhotoAction.set.rawValue:
+            if let index = photos.firstIndex(where: {$0.name == photo.name}) {
+                photos[index] = photo
+            } else {
+                print("error")
+            }
+        case PhotoAction.delete.rawValue:
+            if let index = photos.firstIndex(where: {$0.name == photo.name}) {
+                photos.remove(at: index)
+            } else {
+                print("error")
+            }
+        default:
+            return
+        }
+        displayCollectionView()
     }
 }
 
@@ -142,7 +162,7 @@ extension PloggingCollectionViewController: UIImagePickerControllerDelegate, UIN
         delegate?.didSetPhoto(photo: photo, action: PhotoAction.create.rawValue)
         picker.dismiss(animated: true, completion: nil)
         
-        tableView.reloadData()
+        displayCollectionView()
     }
     
 }
@@ -150,5 +170,6 @@ extension PloggingCollectionViewController: UIImagePickerControllerDelegate, UIN
 extension PloggingCollectionViewController: ImageViewControllerDelegate {
     func setPhoto(photo: PhotoUI, action: String) {
         delegate?.didSetPhoto(photo: photo, action: action)
+        updateTableView(photo: photo, action: action)
     }
 }

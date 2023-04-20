@@ -119,10 +119,21 @@ class PloggingDetailsViewController: UIViewController {
             switch action {
             case PhotoAction.create.rawValue:
                 let photoToCreate = PhotoUI(name: photo.name, imageBinary: photo.imageBinary, image: photo.image, owner: returnPloggingCD())
+                ploggingUI?.photos?.append(photoToCreate)
                 try repository.createPhotoEntity(photoUI: photoToCreate)
             case PhotoAction.set.rawValue:
+                if let index = ploggingUI?.photos?.firstIndex(where: {$0.name == photo.name}) {
+                    ploggingUI?.photos?[index] = photo
+                } else {
+                    print("error")
+                }
                 try repository.setPhotoEntity(photo: photo)
             case PhotoAction.delete.rawValue:
+                if let index = ploggingUI?.photos?.firstIndex(where: {$0.name == photo.name}) {
+                    ploggingUI?.photos?.remove(at: index)
+                } else {
+                    print("error")
+                }
                 try repository.removePhotoEntity(photo: photo)
             default:
                 return
@@ -190,7 +201,6 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
 
 extension PloggingDetailsViewController: DetailsCollectionDelegate {
     func didSetPhoto(photo: PhotoUI, action: String) {
-        // TODO: save into CoreData
         setImage(photo: photo, action: action)
         // TODO: save into Cloudkit
     }

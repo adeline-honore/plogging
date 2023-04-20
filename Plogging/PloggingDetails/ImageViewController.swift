@@ -36,15 +36,21 @@ class ImageViewController: UIViewController {
         chooseImage(source: .photoLibrary)
     }
     
-    // MARK: - Set Photo
+    // MARK: - Delete Photo
     
     @IBAction func didTapDeleteButton() {
         deletePhoto()
     }
     
     private func deletePhoto() {
-        
         delegate?.setPhoto(photo: photoUI, action: PhotoAction.delete.rawValue)
+        self.dismiss(animated: true)
+    }
+    
+    // MARK: - Cancel View Controller
+    
+    @IBAction func didTapCancelButton() {
+        self.dismiss(animated: true)
     }
 }
 
@@ -69,7 +75,10 @@ extension ImageViewController: UIImagePickerControllerDelegate, UINavigationCont
         photoUI.image = choosenImage
         photoUI.imageBinary = choosenImage.jpegData(compressionQuality: 1)
         
+        photo.image = choosenImage
+        
         delegate?.setPhoto(photo: photoUI, action: PhotoAction.set.rawValue)
         picker.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true)
     }
 }

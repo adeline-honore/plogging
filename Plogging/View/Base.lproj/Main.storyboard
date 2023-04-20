@@ -822,23 +822,35 @@
                         <outlet property="noImagesLabel" destination="n1m-m2-Ox2" id="fdi-tn-Vyn"/>
                         <outlet property="setPhotosView" destination="4tY-Pl-MrS" id="7TK-Bm-RYt"/>
                         <outlet property="tableView" destination="Rzc-uH-Vmf" id="41z-JX-Vk6"/>
-                        <segue destination="CkX-Th-H99" kind="show" identifier="fromCollectionViewToImage" id="eD6-Ol-hbT"/>
+                        <segue destination="CkX-Th-H99" kind="presentation" identifier="fromCollectionViewToImage" id="NiG-m1-Peb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AU3-fB-l2s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6686.9565217391309" y="-842.41071428571422"/>
+            <point key="canvasLocation" x="6687" y="-842"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="klF-4m-CCT">
             <objects>
                 <viewController id="CkX-Th-H99" customClass="ImageViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Z9-vx-oSg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axk-Li-dA5">
+                                <rect key="frame" x="358.5" y="68" width="35.5" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="X" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapCancelButton" destination="CkX-Th-H99" eventType="touchUpInside" id="flz-Jx-H0T"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SE3-UW-Ren">
-                                <rect key="frame" x="85" y="768.5" width="244" height="34.5"/>
+                                <rect key="frame" x="85" y="783.5" width="244" height="34.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-6j-LQO">
                                         <rect key="frame" x="0.0" y="0.0" width="122" height="34.5"/>
@@ -859,14 +871,16 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x84-4a-4b3">
-                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="790"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rfr-8u-M4O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="x84-4a-4b3" firstAttribute="leading" secondItem="Rfr-8u-M4O" secondAttribute="leading" id="FFz-5q-4RP"/>
-                            <constraint firstItem="Rfr-8u-M4O" firstAttribute="bottom" secondItem="SE3-UW-Ren" secondAttribute="bottom" constant="10" id="cIM-Bq-6eR"/>
+                            <constraint firstItem="Rfr-8u-M4O" firstAttribute="trailing" secondItem="axk-Li-dA5" secondAttribute="trailing" constant="20" id="LqE-PC-Tax"/>
+                            <constraint firstItem="axk-Li-dA5" firstAttribute="top" secondItem="Rfr-8u-M4O" secondAttribute="top" constant="20" id="VrI-5V-6cc"/>
+                            <constraint firstItem="Rfr-8u-M4O" firstAttribute="bottom" secondItem="SE3-UW-Ren" secondAttribute="bottom" constant="20" id="cIM-Bq-6eR"/>
                             <constraint firstItem="Rfr-8u-M4O" firstAttribute="trailing" secondItem="x84-4a-4b3" secondAttribute="trailing" id="eDy-hI-IE9"/>
                             <constraint firstItem="SE3-UW-Ren" firstAttribute="centerX" secondItem="5Z9-vx-oSg" secondAttribute="centerX" id="lWS-rd-gPw"/>
                             <constraint firstItem="Rfr-8u-M4O" firstAttribute="bottom" secondItem="x84-4a-4b3" secondAttribute="bottom" id="uqE-ub-C9T"/>
