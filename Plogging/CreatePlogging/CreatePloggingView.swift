@@ -15,4 +15,6 @@ class CreatePloggingView: UIView {
     @IBOutlet weak var resultLocationLabel: UILabel!
     @IBOutlet weak var whenDatePicker: UIDatePicker!
     @IBOutlet weak var distancePickerView: UIPickerView!
+    @IBOutlet weak var mainStack: UIStackView!
+    @IBOutlet weak var noInternetLabel: UILabel!
 }

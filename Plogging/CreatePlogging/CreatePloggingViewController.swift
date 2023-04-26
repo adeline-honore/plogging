@@ -38,11 +38,25 @@ class CreatePloggingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createPloggingView = view as? CreatePloggingView
-        
-        distanceArray = returnDistance()
-        distanceSelected = distanceArray[0]
-        
-        setupDatePicker()
+        displayView()
+    }
+    
+    private func displayView() {
+        if isInternetAvailable() {
+            distanceArray = returnDistance()
+            distanceSelected = distanceArray[0]
+            
+            setupDatePicker()
+            createPloggingView.noInternetLabel.isHidden = true
+            createPloggingView.mainStack.isHidden = false
+        } else {
+            createPloggingView.noInternetLabel.isHidden = false
+            createPloggingView.noInternetLabel.text = AlertType.internetNotAvailable.message
+            createPloggingView.mainStack.isHidden = true
+            if #available(iOS 16.0, *) {
+                navigationItem.rightBarButtonItem?.isHidden = true
+            }
+        }
     }
     
     // MARK: - Change Main Image

@@ -57,7 +57,11 @@ class PloggingDetailsViewController: UIViewController {
     // MARK: - Toogle to take part at race
     
     @IBAction func didTapIsTakingPartButton() {
-        toggleTakePart()
+        if isInternetAvailable() {
+            toggleTakePart()
+        } else {
+            userAlert(element: .unableToSaveChangeInternet)
+        }
     }
     
     private func toggleTakePart() {
@@ -91,7 +95,11 @@ class PloggingDetailsViewController: UIViewController {
     // MARK: - Set main image
     
     @IBAction func didTapEditMainImage() {
-        chooseImage(source: .photoLibrary)
+        if isInternetAvailable() {
+            chooseImage(source: .photoLibrary)
+        } else {
+            userAlert(element: .unableToSaveChangeInternet)
+        }
     }
     
     // MARK: - Open mail app and send mail
@@ -187,7 +195,7 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
         ploggingUI?.mainImageBinary = choosenImage.jpegData(compressionQuality: 1.0)
         
         guard let ploggingUI = ploggingUI else { return }
-                
+        
         do {
             try repository.setEntity(ploggingUI: ploggingUI)
         } catch {

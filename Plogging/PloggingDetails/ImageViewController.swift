@@ -29,7 +29,11 @@ class ImageViewController: UIViewController {
     // MARK: - Set Photo
     
     @IBAction func didTapSetButton() {
-        setPhoto()
+        if isInternetAvailable() {
+            setPhoto()
+        } else {
+            userAlert(element: .unableToSaveChangeInternet)
+        }
     }
     
     private func setPhoto() {
@@ -39,7 +43,11 @@ class ImageViewController: UIViewController {
     // MARK: - Delete Photo
     
     @IBAction func didTapDeleteButton() {
-        deletePhoto()
+        if isInternetAvailable() {
+            deletePhoto()
+        } else {
+            userAlert(element: .unableToSaveChangeInternet)
+        }
     }
     
     private func deletePhoto() {

@@ -24,6 +24,11 @@ enum AlertType{
     
     case mailAppUnavailable
     
+    case internetNotAvailable
+    case unableToSaveChangeInternet
+    case unableToCreate
+
+    
     var message: String {
         switch self {
         case .locationSaved:
@@ -49,6 +54,13 @@ enum AlertType{
             
         case .mailAppUnavailable:
             return "Mail app unavailable . Please try for yourself ."
+            
+        case .internetNotAvailable:
+            return "Oups ! No internet connection ."
+        case .unableToSaveChangeInternet:
+            return "Unable to save change. There is no internet connection ."
+        case .unableToCreate:
+            return "Unable to create Plogging. There is no internet connection"
         }
     }
     

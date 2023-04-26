@@ -39,7 +39,11 @@ class MapViewController: UIViewController {
 
         } else {
             // get user geo location
-            locationManager.getUserGeoLocation()
+            if isInternetAvailable() {
+                locationManager.getUserGeoLocation()
+            } else {
+                userAlert(element: .internetNotAvailable)
+            }
         }
     }
     
@@ -151,7 +155,11 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: PresentationViewControllerDelegate {
     func didPressDismissButton() {
         // get user geo location
-        locationManager.getUserGeoLocation()
+        if isInternetAvailable() {
+            locationManager.getUserGeoLocation()
+        } else {
+            userAlert(element: .internetNotAvailable)
+        }
     }
 }
 
