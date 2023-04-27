@@ -18,7 +18,7 @@ extension UIViewController {
     func userAlert(element: AlertType) {
         displayAlert(message: element.message)
     }
-        
+    
     func setupKeyboardDismissRecognizer(_ viewController: UIViewController) {
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
@@ -29,6 +29,21 @@ extension UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func validateEmail(email: String) -> Bool {
+        // Create the regex
+        let emailRegEx = #"^[a-z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$"#
+        guard let gRegex = try? NSRegularExpression(pattern: emailRegEx) else {
+            return false
+        }
+        // Create the range
+        let range = NSRange(location: 0, length: email.utf16.count)
+        // Perform the test
+        if gRegex.firstMatch(in: email, options: [], range: range) != nil {
+            return true
+        }
+        return false
     }
 }
 

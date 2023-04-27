@@ -19,6 +19,8 @@ enum Texts {
     
     case noImages
     
+    case newEmailSentence
+    
     
     var value: String {
         switch self {
@@ -38,6 +40,9 @@ enum Texts {
             
         case .noImages:
             return "There isn't images for this race ."
+            
+        case .newEmailSentence:
+            return "Please, enter an email address to participate at this race ."
         }
     }
 }

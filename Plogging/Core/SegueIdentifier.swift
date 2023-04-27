@@ -19,6 +19,7 @@ enum SegueIdentifier {
     case fromCreateToLocalSearch
     
     case fromDetailsToCollectionView
+    case fromDetailsToEmail
     
     case fromCollectionViewToImage
         
@@ -39,6 +40,8 @@ enum SegueIdentifier {
             
         case .fromDetailsToCollectionView:
             return "fromDetailsToCollectionView"
+        case .fromDetailsToEmail:
+            return "fromDetailsToEmail"
             
         case .fromCollectionViewToImage:
             return "fromCollectionViewToImage"

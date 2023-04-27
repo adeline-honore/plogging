@@ -27,6 +27,9 @@ enum AlertType{
     case internetNotAvailable
     case unableToSaveChangeInternet
     case unableToCreate
+    
+    case unavailableEmail
+    case invalidEmail
 
     
     var message: String {
@@ -61,6 +64,11 @@ enum AlertType{
             return "Unable to save change. There is no internet connection ."
         case .unableToCreate:
             return "Unable to create Plogging. There is no internet connection"
+            
+        case .unavailableEmail:
+            return "Please, enter an email address ."
+        case .invalidEmail:
+            return "Please, enter a valid email address ."
         }
     }
     

@@ -52,6 +52,10 @@ class PloggingDetailsViewController: UIViewController {
             guard let photos = ploggingUI.photos else { return }
             viewController?.photos = photos
         }
+        if segue.identifier == SegueIdentifier.fromDetailsToEmail.identifier {
+            let viewController = segue.destination as? WhoIsTakingPartViewController
+            viewController?.delegate = self
+        }
     }
     
     // MARK: - Toogle to take part at race
@@ -65,31 +69,42 @@ class PloggingDetailsViewController: UIViewController {
     }
     
     private func toggleTakePart() {
-        guard var plogging = ploggingUI else {
-            return
-        }
-                
-        if plogging.isTakingPart { // if user already takes part at this plogging race then remove participation
-            do {
-                try repository.removeEntity(id: plogging.id)
-                plogging.isTakingPart = false
-                userAlert(element: AlertType.isNotTakingPart)
-            } catch {
-                fatalError()
-            }
-            
-        } else { // if user wants take part, isTakingPart = true
-            do {
-                try repository.createEntity(ploggingUI: plogging)
-                plogging.isTakingPart = true
-                userAlert(element: AlertType.isTakingPart)
-            } catch {
-                fatalError()
-            }
-        }        
-            ploggingDetailsView.manageIsTakingPartButton(button: ploggingDetailsView.isTakingPartButton, isTakingPart: plogging.isTakingPart)
         
-        ploggingUI = plogging
+        if ploggingUI?.isTakingPart == true {
+            // if user already takes part at this plogging race then remove participation
+            guard let emailIndex = ploggingUI?.ploggers?.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue)}) else {
+                return
+            }
+            ploggingUI?.ploggers?.remove(at: emailIndex)
+            ploggingUI?.isTakingPart = false
+            saveTakePartChoice()
+            userAlert(element: .isNotTakingPart)
+        } else if ploggingUI?.isTakingPart == false && UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil  {
+            participate()
+        } else {
+            performSegue(withIdentifier: SegueIdentifier.fromDetailsToEmail.identifier, sender: nil)
+        }
+    }
+    
+    private func saveTakePartChoice() {
+        guard let ploggingUI else { return }
+        
+        do {
+            try repository.setEntity(ploggingUI: ploggingUI)
+            // TODO: modifier cloudkit
+        } catch {
+            fatalError()
+        }
+        
+        ploggingDetailsView.manageIsTakingPartButton(button: ploggingDetailsView.isTakingPartButton, isTakingPart: ploggingUI.isTakingPart)
+    }
+    
+    private func participate() {
+        guard let email = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) else { return }
+        ploggingUI?.ploggers?.append(email)
+        ploggingUI?.isTakingPart = true
+        saveTakePartChoice()
+        userAlert(element: .isTakingPart)
     }
     
     // MARK: - Set main image
@@ -105,9 +120,9 @@ class PloggingDetailsViewController: UIViewController {
     // MARK: - Open mail app and send mail
     
     @IBAction func didTapMessageButton() {
-        let addressMail = "abc@xyz.com"
+        let addressMail = ploggingUI?.admin
         
-        if let emailURL = URL(string: "mailto:\(addressMail)"), UIApplication.shared.canOpenURL(emailURL) {
+        if let emailURL = URL(string: "mailto:\(String(describing: addressMail))"), UIApplication.shared.canOpenURL(emailURL) {
             UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
         } else {
             userAlert(element: .mailAppUnavailable)
@@ -211,5 +226,13 @@ extension PloggingDetailsViewController: DetailsCollectionDelegate {
     func didSetPhoto(photo: PhotoUI, action: String) {
         setImage(photo: photo, action: action)
         // TODO: save into Cloudkit
+    }
+}
+
+
+// MARK: - New Email address
+extension PloggingDetailsViewController: WhoIsTakingPartDelegate {
+    func getEmailAddress() {
+        participate()
     }
 }
