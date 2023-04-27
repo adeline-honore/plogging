@@ -33,9 +33,9 @@ class MapViewController: UIViewController {
         locationManager.locationManagerDelegate = self
         
         // on boarding page
-        if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
+        if !UserDefaults.standard.bool(forKey: UserDefaultsName.ExecuteOnce.rawValue) {
             displayAppOverviewPage()
-            UserDefaults.standard.set(true, forKey: "ExecuteOnce")
+            UserDefaults.standard.set(true, forKey: UserDefaultsName.ExecuteOnce.rawValue)
 
         } else {
             // get user geo location
