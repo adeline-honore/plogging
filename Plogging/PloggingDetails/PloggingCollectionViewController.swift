@@ -27,6 +27,7 @@ class PloggingCollectionViewController: UIViewController {
     var photos: [PhotoUI] = [PhotoUI]()
     var photoToSend: PhotoUI = PhotoUI()
     var ploggingId: String = String()
+    var isPloggingAdmin: Bool = false
     
     // MARK: - Init
     
@@ -55,20 +56,17 @@ class PloggingCollectionViewController: UIViewController {
             tableView.isHidden = true
             noImagesLabel.isHidden = false
             maxNumberPhotosLabel.isHidden = true
-            addPhotoButton.isHidden = false
             noImagesLabel.text = Texts.noImages.value
             noImagesLabel.textColor = Color().appColor
         } else {
             tableView.isHidden = false
             noImagesLabel.isHidden = true
-            if photos.count >= 5 {
-                addPhotoButton.isHidden = true
-                maxNumberPhotosLabel.isHidden = false
-            } else {
-                addPhotoButton.isHidden = false
-                maxNumberPhotosLabel.isHidden = true
-            }
+            
+            maxNumberPhotosLabel.isHidden =  photos.count >= 5 ? true : false
         }
+        
+        maxNumberPhotosLabel.isHidden = isPloggingAdmin == true && photos.count <= 5 ? false : true
+        
         tableView.reloadData()
     }
     

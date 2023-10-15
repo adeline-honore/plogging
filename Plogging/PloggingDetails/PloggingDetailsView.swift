@@ -23,7 +23,7 @@ class PloggingDetailsView: UIView {
 extension PloggingDetailsView {
     func configure(plogging: PloggingUI) {
         
-            mainImage.image = plogging.mainImage
+        mainImage.image = plogging.mainImage
         
         dateAndHourLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)
         placeLabel.text = plogging.place

@@ -16,6 +16,7 @@ class PloggingDetailsViewController: UIViewController {
     // MARK: - Properties
     
     private var ploggingDetailsView: PloggingDetailsView!
+    private var isAdmin: Bool = false
     
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
@@ -30,8 +31,6 @@ class PloggingDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ploggingDetailsView = view as? PloggingDetailsView
-        
-        // TODO : check if user is admin of race to display or not editMainImageButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +40,8 @@ class PloggingDetailsViewController: UIViewController {
             return
         }
         ploggingDetailsView.configure(plogging: ploggingUI)
+        isAdmin = ploggingUI.admin == UserDefaultsName.emailAddress.rawValue ? true : false
+        displayEditMainImageButton()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,6 +50,7 @@ class PloggingDetailsViewController: UIViewController {
             viewController?.delegate = self
             guard let ploggingUI else { return }
             viewController?.ploggingId = ploggingUI.id
+            viewController?.isPloggingAdmin = isAdmin
             guard let photos = ploggingUI.photos else { return }
             viewController?.photos = photos
         }
@@ -115,6 +117,10 @@ class PloggingDetailsViewController: UIViewController {
         } else {
             userAlert(element: .unableToSaveChangeInternet)
         }
+    }
+    
+    private func displayEditMainImageButton () {
+        ploggingDetailsView.editMainImageButton.isHidden = !isAdmin
     }
     
     // MARK: - Open mail app and send mail
