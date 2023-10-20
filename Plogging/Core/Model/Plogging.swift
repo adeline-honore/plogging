@@ -30,6 +30,18 @@ struct Plogging: Codable {
     
     var distance: Double
     
+    init() {
+        id = ""
+        admin = ""
+        beginning = ""
+        place = ""
+        latitude = 0.0
+        longitude = 0.0
+        ploggers = [""]
+        isTakingPart = true
+        distance = 10
+    }
+    
     
     func stringDateToDateObject(dateString: String) -> Date {
         let dateFormatter = DateFormatter()
