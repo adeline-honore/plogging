@@ -129,12 +129,22 @@ class PloggingDetailsViewController: UIViewController {
     // MARK: - Open mail app and send mail
     
     @IBAction func didTapMessageButton() {
-        let addressMail = ploggingUI?.admin
-        
-        if let emailURL = URL(string: "mailto:\(String(describing: addressMail))"), UIApplication.shared.canOpenURL(emailURL) {
-            UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+        if isAdmin {
+            let addressMailList = ploggingUI?.ploggers
+            
+            if let emailURLList = URL(string: "mailto:\(String(describing: addressMailList))"), UIApplication.shared.canOpenURL(emailURLList) {
+                UIApplication.shared.open(emailURLList, options: [:], completionHandler: nil)
+            } else {
+                userAlert(element: .mailAppUnavailable)
+            }
         } else {
-            userAlert(element: .mailAppUnavailable)
+            let addressMail = ploggingUI?.admin
+            
+            if let emailURL = URL(string: "mailto:\(String(describing: addressMail))"), UIApplication.shared.canOpenURL(emailURL) {
+                UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+            } else {
+                userAlert(element: .mailAppUnavailable)
+            }
         }
     }
     
