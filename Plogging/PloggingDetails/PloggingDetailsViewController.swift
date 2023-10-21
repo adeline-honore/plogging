@@ -44,7 +44,6 @@ class PloggingDetailsViewController: UIViewController {
                 
         ploggingDetailsView.configure(plogging: ploggingUI, isAdmin: isAdmin)
         isAdmin = ploggingUI.admin == UserDefaultsName.emailAddress.rawValue ? true : false
-        displayEditMainImageButton()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -120,10 +119,6 @@ class PloggingDetailsViewController: UIViewController {
         } else {
             userAlert(element: .unableToSaveChangeInternet)
         }
-    }
-    
-    private func displayEditMainImageButton () {
-        ploggingDetailsView.editMainImageButton.isHidden = !isAdmin
     }
     
     // MARK: - Open mail app and send mail
