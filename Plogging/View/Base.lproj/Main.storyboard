@@ -672,10 +672,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iq3-87-HPk">
-                                <rect key="frame" x="20" y="365" width="374" height="250"/>
+                                <rect key="frame" x="20" y="365" width="374" height="426"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sFG-r3-KZ4">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="426"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yp1-gP-NqO">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -763,13 +763,35 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="UmB-jL-YPw">
+                                                <rect key="frame" x="0.0" y="266" width="374" height="160"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ploggers :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8I-Nm-CIe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
+                                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vRF-iN-Gce">
+                                                        <rect key="frame" x="0.0" y="27" width="374" height="133"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </tableView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="160" id="YJJ-2M-7S3"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="UmB-jL-YPw" secondAttribute="trailing" id="2Vx-3T-7PK"/>
+                                            <constraint firstItem="UmB-jL-YPw" firstAttribute="leading" secondItem="sFG-r3-KZ4" secondAttribute="leading" id="MOq-WG-acV"/>
                                             <constraint firstAttribute="trailing" secondItem="hdS-Gb-D8Y" secondAttribute="trailing" id="SKa-z1-63k"/>
                                             <constraint firstAttribute="trailing" secondItem="6oE-ww-Uz0" secondAttribute="trailing" id="Waa-C0-65N"/>
                                             <constraint firstItem="qW5-jK-EV2" firstAttribute="leading" secondItem="sFG-r3-KZ4" secondAttribute="leading" id="ZOt-nO-2Zg"/>
                                             <constraint firstItem="yp1-gP-NqO" firstAttribute="leading" secondItem="sFG-r3-KZ4" secondAttribute="leading" id="lfE-S2-cLl"/>
+                                            <constraint firstAttribute="bottom" secondItem="UmB-jL-YPw" secondAttribute="bottom" id="oAZ-Oc-MkR"/>
                                             <constraint firstItem="6oE-ww-Uz0" firstAttribute="leading" secondItem="sFG-r3-KZ4" secondAttribute="leading" id="q1e-K4-fmM"/>
+                                            <constraint firstItem="UmB-jL-YPw" firstAttribute="top" secondItem="qW5-jK-EV2" secondAttribute="bottom" constant="16" id="wnX-OS-wDr"/>
                                             <constraint firstItem="hdS-Gb-D8Y" firstAttribute="leading" secondItem="sFG-r3-KZ4" secondAttribute="leading" id="xNP-l8-O9z"/>
                                             <constraint firstAttribute="trailing" secondItem="yp1-gP-NqO" secondAttribute="trailing" id="yhk-7Q-mER"/>
                                         </constraints>
@@ -806,6 +828,7 @@
                         </constraints>
                         <connections>
                             <outlet property="adminNameLabel" destination="tjE-gs-qPZ" id="PbO-FW-mf2"/>
+                            <outlet property="adminStack" destination="qW5-jK-EV2" id="rfA-vt-3XA"/>
                             <outlet property="dateAndHourLabel" destination="5Ov-xk-1hU" id="LyY-g4-29J"/>
                             <outlet property="editMainImageButton" destination="GM5-6F-W9q" id="VW3-ns-OmC"/>
                             <outlet property="isTakingPartButton" destination="dO5-U7-XHK" id="pa4-vh-sJh"/>
@@ -813,10 +836,13 @@
                             <outlet property="messageButton" destination="jVg-Fb-8S0" id="F07-Jt-GsZ"/>
                             <outlet property="photosButton" destination="D6C-Xg-Oa5" id="NNu-U2-pJt"/>
                             <outlet property="placeLabel" destination="7SU-Xf-OGj" id="kPr-4L-Haz"/>
+                            <outlet property="ploggerList" destination="s8I-Nm-CIe" id="49n-uG-kwv"/>
+                            <outlet property="ploggersStack" destination="UmB-jL-YPw" id="uqV-Fg-6Gq"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="t4p-qq-uTf"/>
                     <connections>
+                        <outlet property="ploggerTableView" destination="vRF-iN-Gce" id="kI4-tH-26f"/>
                         <segue destination="O7h-2y-H4P" kind="show" identifier="fromDetailsToCollectionView" id="KQK-oH-7rq"/>
                     </connections>
                 </viewController>

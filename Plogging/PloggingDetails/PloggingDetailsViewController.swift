@@ -26,6 +26,8 @@ class PloggingDetailsViewController: UIViewController {
     
     weak var delegate: PloggingDetailsViewControllerDelegate?
     
+    @IBOutlet weak var ploggerTableView: UITableView!
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -39,7 +41,8 @@ class PloggingDetailsViewController: UIViewController {
         guard let ploggingUI = ploggingUI else {
             return
         }
-        ploggingDetailsView.configure(plogging: ploggingUI)
+                
+        ploggingDetailsView.configure(plogging: ploggingUI, isAdmin: isAdmin)
         isAdmin = ploggingUI.admin == UserDefaultsName.emailAddress.rawValue ? true : false
         displayEditMainImageButton()
     }
@@ -240,5 +243,27 @@ extension PloggingDetailsViewController: DetailsCollectionDelegate {
 extension PloggingDetailsViewController: WhoIsTakingPartDelegate {
     func getEmailAddress() {
         participate()
+    }
+}
+
+
+// MARK: - Plogger List Table View Cell
+extension PloggingDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        10
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ploggingUI?.ploggers?.count ?? 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
+        
+        if ploggingUI?.ploggers?.count ?? 1 > 0 {
+            cell.textLabel?.text = ploggingUI?.ploggers?[indexPath.row]
+        }
+        return cell
     }
 }
