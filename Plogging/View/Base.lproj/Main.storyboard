@@ -378,8 +378,8 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Log in ?"/>
                                         <connections>
                                             <action selector="didTapOnLoginButton" destination="Ciz-NZ-kBh" eventType="touchUpInside" id="2iI-TX-cin"/>
-                                            <action selector="didTapOnLoginButton" destination="3B7-NM-3ok" eventType="touchUpInside" id="Uix-DJ-ZnL"/>
                                             <action selector="didTapSaveButton" destination="ZTp-gj-sFE" eventType="touchUpInside" id="41B-tf-8Dk"/>
+                                            <segue destination="33N-kr-M4y" kind="show" id="DTo-be-afm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -421,7 +421,6 @@
                     <navigationItem key="navigationItem" title="My profile" id="91f-5u-8bP">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="3bJ-j7-T2G">
                             <connections>
-                                <action selector="didTapOnEditButton:" destination="3B7-NM-3ok" id="dBD-gn-ULm"/>
                                 <segue destination="xH0-zO-0RI" kind="show" id="SKK-O6-PnY"/>
                             </connections>
                         </barButtonItem>
@@ -1442,8 +1441,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5fH-ub-uL0"/>
-        <segue reference="ILF-OV-iDw"/>
+        <segue reference="DTo-be-afm"/>
+        <segue reference="xPl-ih-Rc6"/>
         <segue reference="Tyh-uL-0oh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

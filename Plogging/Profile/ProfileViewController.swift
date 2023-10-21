@@ -37,10 +37,4 @@ class ProfileViewController: UIViewController {
         profileView.haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
         profileView.configure(isConnected: isConnected)
     }
-    
-    //MARK: - Log in
-    
-    @IBAction func didTapOnLoginButton() {
-        performSegue(withIdentifier: SegueIdentifier.fromPersonalToSignInOrUp.identifier, sender: nil)
-    }
 }
