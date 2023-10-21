@@ -18,6 +18,29 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         profileView = view as? ProfileView
-        profileView.configure()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        let isConnected = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
+        
+        if #available(iOS 16.0, *) {
+            self.editButtonItem.isHidden = !isConnected
+            print(self.editButtonItem.isHidden)
+            print(self.editButtonItem.isHidden)
+        } else {
+            // Fallback on earlier versions
+            print(self.editButtonItem)
+            print(self.editButtonItem)
+        }
+        
+        profileView.haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
+        profileView.configure(isConnected: isConnected)
+    }
+    
+    //MARK: - Log in
+    
+    @IBAction func didTapOnLoginButton() {
+        performSegue(withIdentifier: SegueIdentifier.fromPersonalToSignInOrUp.identifier, sender: nil)
     }
 }
