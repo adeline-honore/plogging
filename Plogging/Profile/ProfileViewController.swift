@@ -22,10 +22,10 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let isConnected = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
+        let isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
         
         if #available(iOS 16.0, *) {
-            self.editButtonItem.isHidden = !isConnected
+            self.editButtonItem.isHidden = !isConnectedUser
             print(self.editButtonItem.isHidden)
             print(self.editButtonItem.isHidden)
         } else {
@@ -35,6 +35,6 @@ class ProfileViewController: UIViewController {
         }
         
         profileView.haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
-        profileView.configure(isConnected: isConnected)
+        profileView.configure(isConnected: isConnectedUser)
     }
 }

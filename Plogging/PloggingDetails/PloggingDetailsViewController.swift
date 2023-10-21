@@ -28,6 +28,8 @@ class PloggingDetailsViewController: UIViewController {
     
     @IBOutlet weak var ploggerTableView: UITableView!
     
+    private var isConnectedUser: Bool = false
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -44,6 +46,8 @@ class PloggingDetailsViewController: UIViewController {
                 
         ploggingDetailsView.configure(plogging: ploggingUI, isAdmin: isAdmin)
         isAdmin = ploggingUI.admin == UserDefaultsName.emailAddress.rawValue ? true : false
+        
+        isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,9 +69,11 @@ class PloggingDetailsViewController: UIViewController {
     // MARK: - Toogle to take part at race
     
     @IBAction func didTapIsTakingPartButton() {
-        if isInternetAvailable() {
+        if isInternetAvailable() && isConnectedUser {
             toggleTakePart()
-        } else {
+        } else if isInternetAvailable() && !isConnectedUser {
+            userAlertWithChoice(element: .haveToLogin)
+        }else {
             userAlert(element: .unableToSaveChangeInternet)
         }
     }

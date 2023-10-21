@@ -39,5 +39,6 @@ extension PloggingDetailsView {
         adminStack.isHidden = isAdmin
         ploggersStack.isHidden = !isAdmin
         editMainImageButton.isHidden = !isAdmin
+        isTakingPartButton.isHidden = isAdmin
     }
 }
