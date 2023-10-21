@@ -94,10 +94,15 @@ class MapViewController: UIViewController {
         } else if segue.identifier == SegueIdentifier.fromMapToPlogging.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
-        }
-        else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
-            let viewController = segue.destination as? CreatePloggingViewController
-            viewController?.delegate = self
+        } else if segue.identifier == SegueIdentifier.fromMapToSignInOrUP.identifier {
+            let overVC = segue.destination as? SignInOrUpViewController
+        } else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
+            if (UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil) {
+                userAlertWithChoice(element: .haveToLogin)
+            } else {
+                let viewController = segue.destination as? CreatePloggingViewController
+                viewController?.delegate = self
+            }
         }
     }
     

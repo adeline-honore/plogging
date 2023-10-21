@@ -9,15 +9,33 @@ import UIKit
 import SystemConfiguration
 
 extension UIViewController {
-    private func displayAlert(title: String? = nil, message: String) {
+    private func displayAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
     
     func userAlert(element: AlertType) {
-        displayAlert(message: element.message)
+        displayAlert(title: element.title, message: element.message)
     }
+    
+    private func displayChoiceAlert(element: AlertType) {
+        let alertVC = UIAlertController(title: element.title, message: element.message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+//        alertVC.addAction(UIAlertAction(title: "Validate", style: .default, handler: choiceValidated(element: element, completion: () -> Void)))
+        present(alertVC, animated: true, completion: nil)
+    }
+    
+    func userAlertWithChoice(element: AlertType) {
+        displayChoiceAlert(element: element)
+    }
+    
+    func choiceValidated(element: AlertType, completion: () -> Void) {
+        if element == AlertType.haveToLogin {
+            performSegue(withIdentifier: SegueIdentifier.fromMapToSignInOrUP.identifier, sender: self)
+        }
+    }
+    
     
     func setupKeyboardDismissRecognizer(_ viewController: UIViewController) {
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(

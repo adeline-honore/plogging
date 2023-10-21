@@ -30,6 +30,8 @@ enum AlertType{
     
     case unavailableEmail
     case invalidEmail
+    
+    case haveToLogin
 
     
     var message: String {
@@ -69,6 +71,18 @@ enum AlertType{
             return "Please, enter an email address ."
         case .invalidEmail:
             return "Please, enter a valid email address ."
+            
+        case .haveToLogin:
+            return "You have to be log in order to open this function. Do you want to log in ?"
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .haveToLogin:
+            return "Oups !"
+        default:
+            return ""
         }
     }
     
