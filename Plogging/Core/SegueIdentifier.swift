@@ -16,6 +16,7 @@ enum SegueIdentifier {
     case fromMapToSignInOrUP
     
     case fromPersonalToDetails
+    case fromPersonalToSignInOrUp
     
     case fromCreateToLocalSearch
     
@@ -37,6 +38,8 @@ enum SegueIdentifier {
             
         case .fromPersonalToDetails:
             return "fromPersonalToDetails"
+        case .fromPersonalToSignInOrUp:
+            return "fromPersonalToSignInOrUp"
             
         case .fromCreateToLocalSearch:
             return "fromCreateToLocalSearch"

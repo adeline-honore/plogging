@@ -13,6 +13,9 @@ class PersonalPloggingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noPloggingLabel: UILabel!
+    @IBOutlet weak var haveToLoginView: UIView!
+    @IBOutlet weak var haveToLoginTextLabel: UILabel!
+    @IBOutlet weak var haveToLoginButton: UIButton!
     
     // MARK: - Properties
     
@@ -37,9 +40,22 @@ class PersonalPloggingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        displayPersonalPloggings()
-        createDataSection()
-        tableView.reloadData()
+        if (UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil) {
+            tableView.isHidden = true
+            noPloggingLabel.isHidden = true
+            haveToLoginView.isHidden = false
+            haveToLoginTextLabel.isHidden = false
+            haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
+            haveToLoginButton.isHidden = false
+            userAlertWithChoice(element: .haveToLogin)
+        } else {
+            tableView.isHidden = false
+            noPloggingLabel.isHidden = false
+            haveToLoginView.isHidden = true
+            displayPersonalPloggings()
+            createDataSection()
+            tableView.reloadData()
+        }
     }
     
     
@@ -133,8 +149,18 @@ class PersonalPloggingViewController: UIViewController {
         if segue.identifier == SegueIdentifier.fromPersonalToDetails.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
+        } else if segue.identifier == SegueIdentifier.fromPersonalToSignInOrUp.identifier {
+            let viewController = segue.destination as? SignInOrUpViewController
         }
     }
+    
+    //MARK: - Log in
+    
+    @IBAction func didTapOnLoginButton() {
+        performSegue(withIdentifier: SegueIdentifier.fromPersonalToSignInOrUp.identifier, sender: nil)
+    }
+    
+    
 }
 
 

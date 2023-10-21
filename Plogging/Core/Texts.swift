@@ -21,6 +21,7 @@ enum Texts {
     
     case newEmailSentence
     
+    case haveToLoginMessage
     
     var value: String {
         switch self {
@@ -43,6 +44,9 @@ enum Texts {
             
         case .newEmailSentence:
             return "Please, enter an email address to participate at this race ."
+            
+        case .haveToLoginMessage:
+            return "Please, login to acces to this page"
         }
     }
 }
