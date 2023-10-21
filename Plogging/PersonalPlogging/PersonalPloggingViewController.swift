@@ -47,7 +47,6 @@ class PersonalPloggingViewController: UIViewController {
             haveToLoginTextLabel.isHidden = false
             haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
             haveToLoginButton.isHidden = false
-            userAlertWithChoice(element: .haveToLogin)
         } else {
             tableView.isHidden = false
             noPloggingLabel.isHidden = false

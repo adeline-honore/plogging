@@ -61,22 +61,6 @@ class TestPloggingCoreDataManager: XCTestCase {
         }
     }
     
-//    func testRemovePlogging() {
-//        do {
-//            
-//            try coreDataManager.createEntity(ploggingUI: ploggingUI)
-//            
-//            let getPloggings = try coreDataManager.getEntities()
-//            
-//            try coreDataManager.removeEntity(id: ploggingUI.id)
-//            
-//            XCTAssertNotNil(getPloggings)
-//            XCTAssertTrue(getPloggings.count == 0)
-//        } catch {
-//            print("error, tests fails !")
-//        }
-//    }
-    
     func testSetPlogging() {
         do {
             
