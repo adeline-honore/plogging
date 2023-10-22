@@ -32,6 +32,8 @@ enum AlertType{
     case invalidEmail
     
     case haveToLogin
+    
+    case emptyIdentifier
 
     
     var message: String {
@@ -74,6 +76,9 @@ enum AlertType{
             
         case .haveToLogin:
             return "You have to be log in order to open this function. Do you want to log in ?"
+            
+        case .emptyIdentifier:
+            return "Fields not filled in"
         }
     }
     
