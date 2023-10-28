@@ -22,7 +22,9 @@ extension UIViewController {
     private func displayChoiceAlert(element: AlertType) {
         let alertVC = UIAlertController(title: element.title, message: element.message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-//        alertVC.addAction(UIAlertAction(title: "Validate", style: .default, handler: choiceValidated(element: element, completion: () -> Void)))
+        alertVC.addAction(UIAlertAction(title: "Validate", style: .default, handler: { UIAlertAction in
+            self.choiceValidated(element: element)
+        }))
         present(alertVC, animated: true, completion: nil)
     }
     
@@ -30,7 +32,7 @@ extension UIViewController {
         displayChoiceAlert(element: element)
     }
     
-    func choiceValidated(element: AlertType, completion: () -> Void) {
+    func choiceValidated(element: AlertType) {
         if element == AlertType.haveToLogin {
             performSegue(withIdentifier: SegueIdentifier.fromMapToSignInOrUP.identifier, sender: self)
         }
