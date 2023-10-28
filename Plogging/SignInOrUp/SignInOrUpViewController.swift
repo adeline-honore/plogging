@@ -9,18 +9,22 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class SignInOrUpViewController: UIViewController {
+class SignInOrUpViewController: SetConstraintForKeyboardViewController {
 
     // MARK: - Properties
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    private var signInOrUpView: SignInOrUpView!
     
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signInOrUpView = view as? SignInOrUpView
+        setupKeyboardDismissRecognizer(self)
+        
+        signInOrUpView.emailTextField.delegate = self
+        signInOrUpView.passwordTextField.delegate = self
     }
     
     
@@ -31,13 +35,12 @@ class SignInOrUpViewController: UIViewController {
     }
     
     private func signupButtonWasPressed() {
-        
-        if emailTextField.text == "" && passwordTextField.text == "" {
+        if signInOrUpView.emailTextField.text == "" && signInOrUpView.passwordTextField.text == "" {
             userAlert(element: .emptyIdentifier)
-        } else if validateEmail(email: emailTextField.text ?? "") == false {
+        } else if validateEmail(email: signInOrUpView.emailTextField.text ?? "") == false {
             userAlert(element: .invalidEmail)
-        } else if validateEmail(email: emailTextField.text ?? "") == true {
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
+        } else if validateEmail(email: signInOrUpView.emailTextField.text ?? "") == true {
+            Auth.auth().createUser(withEmail: signInOrUpView.emailTextField.text!, password: signInOrUpView.passwordTextField.text!) { (authResult, error) in
                 if error != nil {
                     print("erreur signup : \(error.debugDescription)")
                 } else {
@@ -45,5 +48,11 @@ class SignInOrUpViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+extension SignInOrUpViewController: UITextFieldDelegate {
+    override class func didChangeValue(forKey key: String) {
+        print(key)
     }
 }
