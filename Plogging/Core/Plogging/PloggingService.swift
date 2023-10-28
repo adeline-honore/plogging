@@ -9,27 +9,34 @@ import Foundation
 
 class PloggingService {
     
-    typealias PloggingServiceResult = Result<[Plogging], PloggingServiceError>
+//    typealias PloggingServiceResult = Result<[Plogging], PloggingServiceError>
     
-    enum PloggingServiceError: Error {
-        case fileNotFound
-        case unableToDecode
-    }
+//    enum PloggingServiceError: Error {
+//        case fileNotFound
+//        case unableToDecode
+//    }
     
-    func load(completion: (PloggingServiceResult) -> Void) {
-        guard
-            let fileName = Bundle.main.url(forResource: "SomeDataz", withExtension: "json"),
-            let ploggingData = try? Data(contentsOf: fileName)
-        else {
-            completion(.failure(.fileNotFound))
-            return
-        }
-        
-        do {
-            let ploggingResult = try transformToPloggingsModel(data: ploggingData)
-            completion(.success(ploggingResult.datas))
-        } catch {
-            completion(.failure(.unableToDecode))
+    private let mapService = MapService()
+    
+    func load(completionHandler: @escaping (Result<[Plogging], Error>) -> ()) {
+    
+        mapService.getPloggingList() { result in
+            switch result {
+            case .success(let data):
+                print(data)
+                do {
+                    let firebaseData = try self.transformToPloggingsModel(data: data)
+                    let ploggingList = firebaseData.datas.map {$0}
+
+                    completionHandler(.success(ploggingList))
+                } catch {
+                    print("eeee")
+                    completionHandler(.failure(error))
+                }
+            case .failure(let error):
+                print(error)
+                completionHandler(.failure(error))
+            }
         }
     }
     

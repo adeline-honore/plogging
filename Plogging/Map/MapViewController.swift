@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
     
     private var ploggingService = PloggingService()
     
-    private var ploggings: [Plogging] = []
+    static var ploggings: [Plogging] = []
     
     private var ploggingsUI: [PloggingUI] = []
     private var ploggingUI: PloggingUI?
@@ -49,6 +49,9 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if isInternetAvailable() {
+            displayPloggingAnnotationItems()
+        }
     }
     
     // MARK: - App overview page
@@ -67,12 +70,19 @@ class MapViewController: UIViewController {
         ploggingService.load { result in
             switch result {
             case .success(let ploggingsResult):
-                ploggings = ploggingsResult
-                mapView.addAnnotations(PloggingLoader.init(ploggingService: ploggingService).createAnnotationFromPloggingModels(model: ploggingsResult))
-                self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: ploggings)
+                self.createPloggingAnnotationItems(ploggingList: ploggingsResult)
             case .failure:
-                userAlert(element: .network)
+                self.userAlert(element: .network)
             }
+        }
+    }
+    
+    private func createPloggingAnnotationItems(ploggingList: [Plogging]) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            MapViewController.ploggings = ploggingList
+            self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: ploggingList))
+            self.ploggingsUI = self.transformPloggingsToPloggingsUI(ploggings: MapViewController.ploggings)
         }
     }
     
@@ -95,7 +105,7 @@ class MapViewController: UIViewController {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
         } else if segue.identifier == SegueIdentifier.fromMapToSignInOrUP.identifier {
-            let overVC = segue.destination as? SignInOrUpViewController
+            _ = segue.destination as? SignInOrUpViewController
         } else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
             if (UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil) {
                 userAlertWithChoice(element: .haveToLogin)
@@ -186,7 +196,8 @@ extension MapViewController: LocationManagerDelegate {
         // display user location point
         mapView.showsUserLocation = true
         
-        // display PloggingAnnotation items
-        displayPloggingAnnotationItems()
+//        // display PloggingAnnotation items
+//        displayPloggingAnnotationItems()
+        
     }
 }

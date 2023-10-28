@@ -20,6 +20,8 @@
 		6E290481291ED6CD00FB7D9A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E290480291ED6CD00FB7D9A /* Color.swift */; };
 		6E290483291EDBC500FB7D9A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E290482291EDBC500FB7D9A /* CoreDataStack.swift */; };
 		6E290485291EDC0C00FB7D9A /* PloggingCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E290484291EDC0C00FB7D9A /* PloggingCoreDataManager.swift */; };
+		6E3239212AED43BC001B4D8B /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3239202AED43BC001B4D8B /* MapService.swift */; };
+		6E3239232AED44C8001B4D8B /* DatabaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3239222AED44C8001B4D8B /* DatabaseURL.swift */; };
 		6E35AA35291E853D000FF104 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E35AA34291E853D000FF104 /* OnboardingViewController.swift */; };
 		6E3821AE28FD54C100F39184 /* Extension+MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */; };
 		6E3821B028FD566B00F39184 /* Plogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3821AF28FD566A00F39184 /* Plogging.swift */; };
@@ -98,6 +100,8 @@
 		6E290480291ED6CD00FB7D9A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6E290482291EDBC500FB7D9A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		6E290484291EDC0C00FB7D9A /* PloggingCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingCoreDataManager.swift; sourceTree = "<group>"; };
+		6E3239202AED43BC001B4D8B /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		6E3239222AED44C8001B4D8B /* DatabaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseURL.swift; sourceTree = "<group>"; };
 		6E35AA34291E853D000FF104 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		6E3821AD28FD54C100F39184 /* Extension+MKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MKMapView.swift"; sourceTree = "<group>"; };
 		6E3821AF28FD566A00F39184 /* Plogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plogging.swift; sourceTree = "<group>"; };
@@ -189,6 +193,23 @@
 				6E1412F82922FD69009E1BDB /* PersonalPloggingViewController.swift */,
 			);
 			path = PersonalPlogging;
+			sourceTree = "<group>";
+		};
+		6E32391E2AED4319001B4D8B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6E3239202AED43BC001B4D8B /* MapService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6E32391F2AED4379001B4D8B /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				6E3239222AED44C8001B4D8B /* DatabaseURL.swift */,
+				6E32391E2AED4319001B4D8B /* Service */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 		6E3821AC28FD545F00F39184 /* Extension */ = {
@@ -298,6 +319,7 @@
 				6ED589EA28E8DD8B00450FE4 /* CoreData */,
 				6EECBFB928F2EEBE00FAE3FE /* Location */,
 				6ED589E928E8DD1B00450FE4 /* Model */,
+				6E32391F2AED4379001B4D8B /* NetWork */,
 				6EECBFBC28F2F36500FAE3FE /* UserAlert */,
 				6E3821AC28FD545F00F39184 /* Extension */,
 				6EE5E472297756C0005DE40F /* ChooseImageDelegate.swift */,
@@ -530,6 +552,7 @@
 				6E5E67EC295AFB1D00E638C4 /* SetConstraintForKeyboardViewController.swift in Sources */,
 				6E00AA202926434800798F03 /* Extension+UIView.swift in Sources */,
 				6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */,
+				6E3239232AED44C8001B4D8B /* DatabaseURL.swift in Sources */,
 				6E1E655B2949E567004E1C94 /* LocalSearchCompletionViewController.swift in Sources */,
 				6EB6A2BF29F9C3DF00960639 /* WhoIsTakingPartViewController.swift in Sources */,
 				6EE2560429DE04190058509C /* PhotoUI.swift in Sources */,
@@ -562,6 +585,7 @@
 				6E1412F42922750F009E1BDB /* CreatePloggingView.swift in Sources */,
 				6E3821B028FD566B00F39184 /* Plogging.swift in Sources */,
 				6EE2560B29DE081E0058509C /* PloggingCD+CoreDataClass.swift in Sources */,
+				6E3239212AED43BC001B4D8B /* MapService.swift in Sources */,
 				6EECBFBE28F2F3AE00FAE3FE /* AlertType.swift in Sources */,
 				6E6375AE2AE441EC00C9E961 /* SignInViewController.swift in Sources */,
 				6E1412EF29227100009E1BDB /* Plogging.xcdatamodeld in Sources */,
