@@ -68,7 +68,7 @@ extension OnboardingViewController {
             imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
 
             textLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: textLabel.trailingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: textLabel.trailingAnchor, multiplier: 2)
         ])
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AlertType{
+enum AlertType {
 
     case locationSaved
     case locationNotSaved
@@ -35,7 +35,6 @@ enum AlertType{
     case haveToLogin
 
     case emptyIdentifier
-
 
     var message: String {
         switch self {

@@ -134,8 +134,8 @@ class PersonalPloggingViewController: UIViewController {
             var photos = [PhotoUI]()
 
             photosCD.forEach { element in
-                let photo : PhotoUI = PhotoUI(name: (element as AnyObject).name, imageBinary: (element as AnyObject).imageBinary, image: UIImage(data: (element as AnyObject).imageBinary ?? Data()))
-                
+                let photo: PhotoUI = PhotoUI(name: (element as AnyObject).name, imageBinary: (element as AnyObject).imageBinary, image: UIImage(data: (element as AnyObject).imageBinary ?? Data()))
+
                 photos.append(photo)
             }
             return photos
@@ -179,7 +179,7 @@ class PersonalPloggingViewController: UIViewController {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
         } else if segue.identifier == SegueIdentifier.fromPersonalToSignInOrUp.identifier {
-            let viewController = segue.destination as? SignInOrUpViewController
+            _ = segue.destination as? SignInOrUpViewController
         }
     }
 

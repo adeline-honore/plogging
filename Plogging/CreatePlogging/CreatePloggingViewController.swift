@@ -79,8 +79,8 @@ class CreatePloggingViewController: UIViewController {
 
     private func returnDistance() -> [String] {
 
-        for i in stride(from: 2, through: 20, by: 2) {
-            distanceArray.append(String(i))
+        for distanceRange in stride(from: 2, through: 20, by: 2) {
+            distanceArray.append(String(distanceRange))
         }
         return distanceArray
     }
@@ -128,10 +128,10 @@ class CreatePloggingViewController: UIViewController {
     }
 
     private func setPloggingElement() {
-        let i = Int.random(in: 0...1000)
-        currentPlogging.id = "plogging \(i)"
-        currentPlogging.admin = "admin \(i)"
-        currentPlogging.ploggers = ["admin\(i)"]
+        let randomInt = Int.random(in: 0...1000)
+        currentPlogging.id = "plogging \(randomInt)"
+        currentPlogging.admin = "admin \(randomInt)"
+        currentPlogging.ploggers = ["admin\(randomInt)"]
         currentPlogging.isTakingPart = true
         currentPlogging.distance = Double(distanceSelected) ?? 2
 

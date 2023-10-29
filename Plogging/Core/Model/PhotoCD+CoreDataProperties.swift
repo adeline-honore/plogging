@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension PhotoCD {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PhotoCD> {
@@ -22,6 +21,6 @@ extension PhotoCD {
 
 }
 
-extension PhotoCD : Identifiable {
+extension PhotoCD: Identifiable {
 
 }

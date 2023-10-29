@@ -32,9 +32,9 @@ class MapViewController: UIViewController {
         locationManager.locationManagerDelegate = self
 
         // on boarding page
-        if !UserDefaults.standard.bool(forKey: UserDefaultsName.ExecuteOnce.rawValue) {
+        if !UserDefaults.standard.bool(forKey: UserDefaultsName.executeOnce.rawValue) {
             displayAppOverviewPage()
-            UserDefaults.standard.set(true, forKey: UserDefaultsName.ExecuteOnce.rawValue)
+            UserDefaults.standard.set(true, forKey: UserDefaultsName.executeOnce.rawValue)
 
         } else {
             // get user geo location
@@ -119,7 +119,7 @@ class MapViewController: UIViewController {
         } else if segue.identifier == SegueIdentifier.fromMapToSignInOrUP.identifier {
             _ = segue.destination as? SignInOrUpViewController
         } else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
-            if (UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil) {
+            if UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil {
                 userAlertWithChoice(element: .haveToLogin)
             } else {
                 let viewController = segue.destination as? CreatePloggingViewController
@@ -142,8 +142,7 @@ extension MapViewController: MKMapViewDelegate {
         var annotationView = MKMarkerAnnotationView()
 
         guard let annotation = annotation as? PloggingAnnotation,
-              let glyphImage = UIImage(systemName: "trash.circle.fill") else
-              {return nil}
+              let glyphImage = UIImage(systemName: "trash.circle.fill") else {return nil}
 
         let identifier = ""
 
@@ -190,7 +189,7 @@ extension MapViewController: PresentationViewControllerDelegate {
 
 extension MapViewController: CreatePloggingViewControllerDelegate {
     func ploggingIsCreated(ploggingUICreated: PloggingUI) {
-        let alertVC = UIAlertController(title: nil, message: "Awesome ! \nyou create a new plogging race. \nIt will beginning \(ploggingUICreated.dateToDisplayedString(date:ploggingUICreated.beginning)) \nat \(ploggingUICreated.place) \nfor \(ploggingUICreated.distance) km.", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: nil, message: "Awesome ! \nyou create a new plogging race. \nIt will beginning \(ploggingUICreated.dateToDisplayedString(date: ploggingUICreated.beginning)) \nat \(ploggingUICreated.place) \nfor \(ploggingUICreated.distance) km.", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }

@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension PloggingCD {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PloggingCD> {
@@ -53,6 +52,6 @@ extension PloggingCD {
 
 }
 
-extension PloggingCD : Identifiable {
+extension PloggingCD: Identifiable {
 
 }

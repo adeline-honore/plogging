@@ -8,6 +8,6 @@
 import Foundation
 
 enum UserDefaultsName: String {
-    case ExecuteOnce = "ExecuteOnce"
-    case emailAddress = "emailAddress"
+    case executeOnce
+    case emailAddress
 }
