@@ -315,19 +315,19 @@
 		6ED589E428E8D92F00450FE4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				6EF0AA1B2902BBAB0004F374 /* Plogging */,
+				6EE5E472297756C0005DE40F /* ChooseImageDelegate.swift */,
+				6E290480291ED6CD00FB7D9A /* Color.swift */,
 				6ED589EA28E8DD8B00450FE4 /* CoreData */,
+				6E3821AC28FD545F00F39184 /* Extension */,
 				6EECBFB928F2EEBE00FAE3FE /* Location */,
 				6ED589E928E8DD1B00450FE4 /* Model */,
 				6E32391F2AED4379001B4D8B /* NetWork */,
-				6EECBFBC28F2F36500FAE3FE /* UserAlert */,
-				6E3821AC28FD545F00F39184 /* Extension */,
-				6EE5E472297756C0005DE40F /* ChooseImageDelegate.swift */,
-				6E290480291ED6CD00FB7D9A /* Color.swift */,
 				6EC9F21429E9338B0048B6BC /* PhotoAction.swift */,
+				6EF0AA1B2902BBAB0004F374 /* Plogging */,
 				6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */,
 				6E5E67EB295AFB1D00E638C4 /* SetConstraintForKeyboardViewController.swift */,
 				6E088F932916830900F401A6 /* Texts.swift */,
+				6EECBFBC28F2F36500FAE3FE /* UserAlert */,
 				6E8A6AB929FA7EAE000BF2B5 /* UserDefaultsName.swift */,
 			);
 			path = Core;

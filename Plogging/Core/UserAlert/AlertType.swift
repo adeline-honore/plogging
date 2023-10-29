@@ -27,6 +27,7 @@ enum AlertType{
     case internetNotAvailable
     case unableToSaveChangeInternet
     case unableToCreate
+    case unableToCreateUser
     
     case unavailableEmail
     case invalidEmail
@@ -68,6 +69,8 @@ enum AlertType{
             return "Unable to save change. There is no internet connection ."
         case .unableToCreate:
             return "Unable to create Plogging. There is no internet connection"
+        case .unableToCreateUser:
+            return "Unable to create user. Please try again later ."
             
         case .unavailableEmail:
             return "Please, enter an email address ."

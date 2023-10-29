@@ -16,13 +16,18 @@ class PersonalPloggingViewController: UIViewController {
     @IBOutlet weak var haveToLoginView: UIView!
     @IBOutlet weak var haveToLoginTextLabel: UILabel!
     @IBOutlet weak var haveToLoginButton: UIButton!
+    @IBOutlet weak var networkErrorLabel: UILabel!
     
     // MARK: - Properties
+    
+    private var ploggingService = PloggingService()
     
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
     
+    private var ploggings: [Plogging] = []
+
     private var ploggingsUI: [PloggingUI] = []
     private var ploggingsSection: [[PloggingUI]] = [[], []]
     private var ploggingUI: PloggingUI?
@@ -40,29 +45,25 @@ class PersonalPloggingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if (UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil) {
-            tableView.isHidden = true
-            noPloggingLabel.isHidden = true
-            haveToLoginView.isHidden = false
-            haveToLoginTextLabel.isHidden = false
+        noPloggingLabel.isHidden = true
+        networkErrorLabel.isHidden = true
+
+        let isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
+        
+            tableView.isHidden = !isConnectedUser
+            haveToLoginView.isHidden = isConnectedUser
+            haveToLoginTextLabel.isHidden = isConnectedUser
             haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
-            haveToLoginButton.isHidden = false
-        } else {
-            tableView.isHidden = false
-            noPloggingLabel.isHidden = false
-            haveToLoginView.isHidden = true
-            displayPersonalPloggings()
+            haveToLoginButton.isHidden = isConnectedUser
+            getPersonalPloggings()
             createDataSection()
             tableView.reloadData()
-        }
     }
     
     
     // MARK: - Display Personal Races
     
     private func displayPersonalPloggings() {
-        getPersonalPloggings()
-                
         if ploggingsUI.isEmpty {
             tableView.isHidden = true
             noPloggingLabel.isHidden = false
@@ -75,6 +76,37 @@ class PersonalPloggingViewController: UIViewController {
     }
     
     private func getPersonalPloggings() {
+        
+        ploggingService.load { result in
+            switch result {
+            case .success(let ploggingsResult):
+                self.getPersonnalPloggingList(ploggingList: ploggingsResult)
+                
+            case .failure:
+                self.networkErrorLabel.isHidden = false
+                self.networkErrorLabel.text = Texts.ploggingUpDateError.value
+                self.displayPloggingFromCoreData()
+            }
+        }
+    }
+    
+    private func getPersonnalPloggingList(ploggingList: [Plogging]) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            ploggingList.forEach { item in
+                if item.isTakingPart {
+                    self.ploggings.append(item)
+                }
+            }
+            self.savePloggingListInCoreData(ploggingList: self.ploggings)
+        }
+    }
+    
+    private func savePloggingListInCoreData(ploggingList: [Plogging]) {
+        displayPloggingFromCoreData()
+    }
+    
+    private func displayPloggingFromCoreData() {
         do {
             let ploggingsCD = try repository.getEntities()
             ploggingsUI = ploggingsCD.map { PloggingUI(
@@ -86,6 +118,7 @@ class PersonalPloggingViewController: UIViewController {
         } catch {
             fatalError()
         }
+        displayPersonalPloggings()
     }
     
     

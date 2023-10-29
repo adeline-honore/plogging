@@ -35,6 +35,5 @@ extension ProfileView {
         haveToLoginTextLabel.isHidden = isConnected
         haveToLoginTextLabel.isHidden = isConnected
         
-        
     }
 }

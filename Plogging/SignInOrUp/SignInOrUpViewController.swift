@@ -7,9 +7,8 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
 
-class SignInOrUpViewController: UIViewController {
+class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Properties
     
@@ -23,7 +22,9 @@ class SignInOrUpViewController: UIViewController {
         signInOrUpView = view as? SignInOrUpView
         setupKeyboardDismissRecognizer(self)
         
-        signInOrUpView.emailTextField.becomeFirstResponder()        
+        signInOrUpView.emailTextField.becomeFirstResponder()
+        signInOrUpView.emailTextField.delegate = self
+        signInOrUpView.passwordTextField.delegate = self
     }
     
     
@@ -48,7 +49,6 @@ class SignInOrUpViewController: UIViewController {
             
             if error == nil {
                 UserDefaults.standard.set(self.signInOrUpView.emailTextField.text, forKey: "emailAddress")
-                DatabaseURL.ref.child("Users").setValue(["Email": self.signInOrUpView.emailTextField.text, "Password": self.signInOrUpView.passwordTextField.text])
                 _ = self.navigationController?.popViewController(animated: true)
                 self.userAlert(element: .isTakingPart)
             } else {

@@ -23,6 +23,8 @@ enum Texts {
     
     case haveToLoginMessage
     
+    case ploggingUpDateError
+    
     var value: String {
         switch self {
         case .onBoardingTitle:
@@ -47,6 +49,9 @@ enum Texts {
             
         case .haveToLoginMessage:
             return "Please, login to acces to this page"
+            
+        case .ploggingUpDateError:
+            return "Impossible to update your ploggings"
         }
     }
 }

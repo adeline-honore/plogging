@@ -109,6 +109,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAF-aX-NwV">
+                                <rect key="frame" x="186" y="437" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WD8-pS-yJY">
                                 <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <subviews>
@@ -184,6 +191,7 @@
                         <outlet property="haveToLoginButton" destination="yKJ-EK-sOr" id="UZE-go-IQm"/>
                         <outlet property="haveToLoginTextLabel" destination="7ZY-Y9-fCw" id="QeU-gi-02a"/>
                         <outlet property="haveToLoginView" destination="WD8-pS-yJY" id="Xer-BL-qWp"/>
+                        <outlet property="networkErrorLabel" destination="HAF-aX-NwV" id="ezl-gt-vLl"/>
                         <outlet property="noPloggingLabel" destination="KU9-7f-2cC" id="bR2-a2-phB"/>
                         <outlet property="tableView" destination="nfy-Cr-6M6" id="15x-y1-Isj"/>
                         <segue destination="cjp-X3-h0i" kind="show" identifier="fromPersonalToDetails" id="ILF-OV-iDw"/>
@@ -569,9 +577,6 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="H3O-Bh-CUs"/>
-                    <connections>
-                        <outlet property="keyboardHeightLayoutConstraint" destination="K0c-KH-3hO" id="jli-Zt-OXi"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5l-GG-wSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -633,7 +638,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="keyboardHeightLayoutConstraint" destination="GaZ-aE-WE4" id="huB-bt-0n1"/>
                         <outlet property="passwordTextField" destination="JZd-zy-8jF" id="F3b-CR-a1M"/>
                     </connections>
                 </viewController>
@@ -865,7 +869,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-uA-ZTL">
                                         <rect key="frame" x="0.0" y="39" width="240" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="go" textContentType="new-password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -915,12 +919,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nAZ-yY-3Gl">
                                         <rect key="frame" x="0.0" y="0.0" width="155.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cve-sM-UK1">
                                         <rect key="frame" x="0.0" y="34" width="155.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="namePhonePad" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -1341,8 +1345,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="60G-7t-Ujx"/>
-        <segue reference="xPl-ih-Rc6"/>
+        <segue reference="TRd-7a-Wbb"/>
+        <segue reference="ILF-OV-iDw"/>
         <segue reference="SiG-cO-rBp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
