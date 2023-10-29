@@ -8,20 +8,20 @@
 import CoreLocation
 
 final class PloggingLoader {
-    
+
     let ploggingService: PloggingService
-    
+
     init(ploggingService: PloggingService) {
         self.ploggingService = ploggingService
     }
-    
+
     func createAnnotationFromPloggingModels(model: [Plogging]) -> [PloggingAnnotation] {
-        
+
         var ploggingAnnotations: [PloggingAnnotation] = []
-        
-        model.forEach{ model in
+
+        model.forEach {model in
             let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: model.id)
-            
+
             if CLLocationCoordinate2DIsValid(annotation.coordinate) {
                 ploggingAnnotations.append(annotation)
             } else {

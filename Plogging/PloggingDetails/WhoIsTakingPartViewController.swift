@@ -13,33 +13,33 @@ protocol WhoIsTakingPartDelegate: AnyObject {
 
 class WhoIsTakingPartViewController: SetConstraintForKeyboardViewController {
     // MARK: - Properties
-    
+
     private var whoIsTakingPartView: WhoIsTakingPartView!
     weak var delegate: WhoIsTakingPartDelegate?
-    
+
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         whoIsTakingPartView = view as? WhoIsTakingPartView
         whoIsTakingPartView.configure()
-        
+
         whoIsTakingPartView.newEmailTextField.becomeFirstResponder()
         setupKeyboardDismissRecognizer(self)
     }
-    
+
     // MARK: Save email address
-    
+
     @IBAction func didTapSaveButton(_ sender: Any) {
         saveEmail()
     }
-    
+
     private func saveEmail() {
-        
+
         guard let emailInput = whoIsTakingPartView.newEmailTextField.text?.trimmingCharacters(in: .whitespaces) else {
             return
         }
-        
+
         if emailInput.isEmpty {
             userAlert(element: .unavailableEmail)
         } else if validateEmail(email: emailInput) == true {
@@ -50,9 +50,9 @@ class WhoIsTakingPartViewController: SetConstraintForKeyboardViewController {
             userAlert(element: .invalidEmail)
         }
     }
-    
+
     // MARK: - Dismmiss view controller
-    
+
     @IBAction func didTapCancelButton() {
         self.dismiss(animated: true)
     }

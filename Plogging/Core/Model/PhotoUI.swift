@@ -12,5 +12,5 @@ struct PhotoUI {
     var imageBinary: Data?
     var image: UIImage?
     var owner: PloggingCD?
-    
+
 }

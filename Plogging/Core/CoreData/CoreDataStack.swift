@@ -9,25 +9,24 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    
+
     // MARK: - Properties
-    
+
     public static let persistentContainerName = "Plogging"
-    
+
     public static let model: NSManagedObjectModel = {
       let modelURL = Bundle.main.url(forResource: persistentContainerName, withExtension: "momd")!
       return NSManagedObjectModel(contentsOf: modelURL)!
     }()
-    
-    
+
     // MARK: - Public
-    
+
     var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    
+
     public init() {}
-    
+
     public lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: CoreDataStack.persistentContainerName, managedObjectModel: CoreDataStack.model)
         container.loadPersistentStores(completionHandler: { storeDescription, error in

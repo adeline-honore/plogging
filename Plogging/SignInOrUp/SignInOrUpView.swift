@@ -8,8 +8,8 @@
 import UIKit
 
 class SignInOrUpView: UIView {
-    
+
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+
 }

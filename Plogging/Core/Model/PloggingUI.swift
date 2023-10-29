@@ -9,48 +9,47 @@ import UIKit
 
 struct PloggingUI {
     var id: String
-    
+
     var admin: String
-    
+
     var beginning: Date
-    
+
     var place: String
-    
+
     var latitude: Double?
     var longitude: Double?
-    
+
     var ploggers: [String]?
-    
+
     var isTakingPart: Bool
-    
+
     var distance: Double
-        
+
     var mainImageBinary: Data?
-    
+
     var mainImage: UIImage?
-    
+
     var photos: [PhotoUI]?
-    
-    
+
     init(plogging: Plogging, schedule: Date) {
-        
+
         id = plogging.id
         admin = plogging.admin
-        
+
         beginning = schedule
-        
+
         place = plogging.place
-        
+
         latitude = plogging.latitude
         longitude = plogging.longitude
-        
+
         ploggers = plogging.ploggers
-        
+
         isTakingPart = plogging.isTakingPart
-        
+
         distance = plogging.distance
     }
-    
+
     // init for create an instance of PloggingUI
     init(id: String? = nil,
          admin: String? = nil,
@@ -71,7 +70,7 @@ struct PloggingUI {
         self.distance = distance ?? 0
         self.ploggers = ploggers
     }
-    
+
     // init from PlogginCD
     init(ploggingCD: PloggingCD, beginning: Date, image: UIImage, photos: [PhotoUI]?) {
         self.id = ploggingCD.id ?? ""
@@ -87,13 +86,13 @@ struct PloggingUI {
         self.mainImage = image
         self.photos = photos
     }
-    
-    func dateToDisplayedString(date :Date) -> String {
+
+    func dateToDisplayedString(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd HH:mm"
         return formatter.string(from: date)
     }
-    
+
     var isValid: Bool {
         !place.isEmpty
     }

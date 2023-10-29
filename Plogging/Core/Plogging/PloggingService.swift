@@ -8,19 +8,19 @@
 import Foundation
 
 class PloggingService {
-    
+
 //    typealias PloggingServiceResult = Result<[Plogging], PloggingServiceError>
-    
+
 //    enum PloggingServiceError: Error {
 //        case fileNotFound
 //        case unableToDecode
 //    }
-    
+
     private let mapService = MapService()
-    
+
     func load(completionHandler: @escaping (Result<[Plogging], Error>) -> ()) {
-    
-        mapService.getPloggingList() { result in
+
+        mapService.getPloggingList { result in
             switch result {
             case .success(let data):
                 print(data)
@@ -39,9 +39,9 @@ class PloggingService {
             }
         }
     }
-    
+
     private func transformToPloggingsModel(data: Data) throws -> PloggingDatas {
-        
+
         do {
             return try JSONDecoder().decode(PloggingDatas.self, from: data)
         } catch {

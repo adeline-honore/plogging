@@ -12,22 +12,22 @@ protocol ImageViewControllerDelegate: AnyObject {
 }
 
 class ImageViewController: UIViewController {
-    
+
     // MARK: - Properties
-    
+
     @IBOutlet weak var photo: UIImageView!
     var photoUI = PhotoUI()
     weak var delegate: ImageViewControllerDelegate?
-    
+
     // MARK: - Init
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         photo.image = photoUI.image
     }
-    
+
     // MARK: - Set Photo
-    
+
     @IBAction func didTapSetButton() {
         if isInternetAvailable() {
             setPhoto()
@@ -35,13 +35,13 @@ class ImageViewController: UIViewController {
             userAlert(element: .unableToSaveChangeInternet)
         }
     }
-    
+
     private func setPhoto() {
         chooseImage(source: .photoLibrary)
     }
-    
+
     // MARK: - Delete Photo
-    
+
     @IBAction func didTapDeleteButton() {
         if isInternetAvailable() {
             deletePhoto()
@@ -49,14 +49,14 @@ class ImageViewController: UIViewController {
             userAlert(element: .unableToSaveChangeInternet)
         }
     }
-    
+
     private func deletePhoto() {
         delegate?.setPhoto(photo: photoUI, action: PhotoAction.delete.rawValue)
         self.dismiss(animated: true)
     }
-    
+
     // MARK: - Cancel View Controller
-    
+
     @IBAction func didTapCancelButton() {
         self.dismiss(animated: true)
     }
@@ -64,27 +64,27 @@ class ImageViewController: UIViewController {
 
 extension ImageViewController: ChooseImageDelegate {
     func chooseImage(source: UIImagePickerController.SourceType) {
-        
+
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = source
         imagePickerController.delegate = self
-        
+
         present(imagePickerController, animated: true, completion: nil)
     }
 }
 
 extension ImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        
+
         guard let choosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
-        
+
         photoUI.image = choosenImage
         photoUI.imageBinary = choosenImage.jpegData(compressionQuality: 1)
-        
+
         photo.image = choosenImage
-        
+
         delegate?.setPhoto(photo: photoUI, action: PhotoAction.set.rawValue)
         picker.dismiss(animated: true, completion: nil)
         self.dismiss(animated: true)

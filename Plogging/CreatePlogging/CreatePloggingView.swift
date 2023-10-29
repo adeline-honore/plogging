@@ -8,9 +8,9 @@
 import UIKit
 
 class CreatePloggingView: UIView {
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var searchLocationButton: UIButton!
     @IBOutlet weak var resultLocationLabel: UILabel!
     @IBOutlet weak var whenDatePicker: UIDatePicker!

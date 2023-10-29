@@ -8,35 +8,35 @@
 import Foundation
 
 enum AlertType{
-    
+
     case locationSaved
     case locationNotSaved
-    
+
     case ploggingSaved
     case ploggingNotSaved
     case ploggingWithoutPlace
     case createError
-    
+
     case network
-    
+
     case isTakingPart
     case isNotTakingPart
-    
+
     case mailAppUnavailable
-    
+
     case internetNotAvailable
     case unableToSaveChangeInternet
     case unableToCreate
     case unableToCreateUser
-    
+
     case unavailableEmail
     case invalidEmail
-    
+
     case haveToLogin
-    
+
     case emptyIdentifier
 
-    
+
     var message: String {
         switch self {
         case .locationSaved:
@@ -51,18 +51,18 @@ enum AlertType{
             return "Please enter a departure address ."
         case .createError:
             return "An error occured . Please try again ."
-            
+
         case .network:
             return "Oups ! Network troubles ."
-            
+
         case .isTakingPart:
             return "Yeah ! You will participate at this plogging ."
         case .isNotTakingPart:
             return "Ok ! You will not take part at this plogging ."
-            
+
         case .mailAppUnavailable:
             return "Mail app unavailable . Please try for yourself ."
-            
+
         case .internetNotAvailable:
             return "Oups ! No internet connection ."
         case .unableToSaveChangeInternet:
@@ -71,20 +71,20 @@ enum AlertType{
             return "Unable to create Plogging. There is no internet connection"
         case .unableToCreateUser:
             return "Unable to create user. Please try again later ."
-            
+
         case .unavailableEmail:
             return "Please, enter an email address ."
         case .invalidEmail:
             return "Please, enter a valid email address ."
-            
+
         case .haveToLogin:
             return "You have to be log in order to open this function. Do you want to log in ?"
-            
+
         case .emptyIdentifier:
             return "Fields not filled in"
         }
     }
-    
+
     var title: String {
         switch self {
         case .haveToLogin:
@@ -93,6 +93,4 @@ enum AlertType{
             return ""
         }
     }
-    
 }
-

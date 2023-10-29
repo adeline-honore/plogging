@@ -8,17 +8,17 @@
 import UIKit
 
 class SetProfileViewController: SetConstraintForKeyboardViewController {
-    
+
     // MARK: - Properties
-    
+
     private var setProfileView: SetProfileView!
-    
+
     // MARK: - Init
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setProfileView = view as? SetProfileView
-        
+
         setProfileView.pseudoTextField.becomeFirstResponder()
         setupKeyboardDismissRecognizer(self)
     }

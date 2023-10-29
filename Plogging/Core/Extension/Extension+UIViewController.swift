@@ -14,11 +14,11 @@ extension UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
-    
+
     func userAlert(element: AlertType) {
         displayAlert(title: element.title, message: element.message)
     }
-    
+
     private func displayChoiceAlert(element: AlertType) {
         let alertVC = UIAlertController(title: element.title, message: element.message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
@@ -27,17 +27,17 @@ extension UIViewController {
         }))
         present(alertVC, animated: true, completion: nil)
     }
-    
+
     func userAlertWithChoice(element: AlertType) {
         displayChoiceAlert(element: element)
     }
-    
+
     func choiceValidated(element: AlertType) {
         if element == AlertType.haveToLogin {
             performSegue(withIdentifier: SegueIdentifier.fromMapToSignInOrUP.identifier, sender: self)
         }
     }
-    
+
 //    @objc func keyboardNotification(notification: NSNotification) {
 //        guard let userInfo = notification.userInfo else { return }
 //
@@ -61,7 +61,7 @@ extension UIViewController {
 //            animations: { self.view.layoutIfNeeded() },
 //            completion: nil)
 //    }
-    
+
     func setupKeyboardDismissRecognizer(_ viewController: UIViewController) {
 //        NotificationCenter.default.addObserver(self,
 //                                               selector: #selector(self.keyboardNotification(notification:)),
@@ -71,14 +71,14 @@ extension UIViewController {
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(viewController.dismissKeyboard))
-        
+
         self.view.addGestureRecognizer(tapRecognizer)
     }
-    
+
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
+
     func validateEmail(email: String) -> Bool {
         // Create the regex
         let emailRegEx = #"^[a-z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$"#
@@ -102,13 +102,13 @@ extension UIViewController {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
-        
+
         let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
             $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
                 SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
             }
         }
-        
+
         var flags = SCNetworkReachabilityFlags()
         if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
             return false

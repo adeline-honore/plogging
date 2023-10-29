@@ -12,19 +12,19 @@ enum LocalSearchError: Error {
 }
 
 class LocalSearchCompletion: MKLocalSearchCompleter {
-    
+
     // MARK: - Properties
-    
+
     var placeCoordinate: CLLocationCoordinate2D?
     var searchResults: [MKLocalSearchCompletion] = []
-    
+
     // MARK: - Location from Local search completion
-    
+
     func getCoordinates(for searchCompletion: MKLocalSearchCompletion?, completionHandler: @escaping((Result<CLLocationCoordinate2D?, Error>) -> Void)) {
         guard let searchCompletion = searchCompletion else {
             return completionHandler(.failure(LocalSearchError.emptyCompletion))
         }
-        
+
         let searchRequest = MKLocalSearch.Request(completion: searchCompletion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in

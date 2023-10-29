@@ -9,13 +9,13 @@ import Foundation
 import FirebaseDatabase
 
 class MapService {
-    
+
     func getPloggingList(completionHandler: @escaping (Result<Data, Error>) -> ()) {
-        
+
         DatabaseURL.ref.observe(DataEventType.childAdded) { snapshot  in
-            
+
             guard let data = try? JSONSerialization.data(withJSONObject: snapshot.value as Any) else { return }
-            
+
             if !data.isEmpty {
                 completionHandler(.success(data))
             } else {
@@ -24,4 +24,3 @@ class MapService {
         }
     }
 }
-

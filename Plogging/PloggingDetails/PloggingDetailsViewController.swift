@@ -14,42 +14,42 @@ protocol PloggingDetailsViewControllerDelegate: AnyObject {
 class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Properties
-    
+
     private var ploggingDetailsView: PloggingDetailsView!
     private var isAdmin: Bool = false
-    
+
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
-        
+
     var ploggingUI: PloggingUI?
-    
+
     weak var delegate: PloggingDetailsViewControllerDelegate?
-    
+
     @IBOutlet weak var ploggerTableView: UITableView!
-    
+
     private var isConnectedUser: Bool = false
-    
+
     // MARK: - Life cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         ploggingDetailsView = view as? PloggingDetailsView
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+
         guard let ploggingUI = ploggingUI else {
             return
         }
-                
+
         ploggingDetailsView.configure(plogging: ploggingUI, isAdmin: isAdmin)
         isAdmin = ploggingUI.admin == UserDefaultsName.emailAddress.rawValue ? true : false
-        
+
         isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
             let viewController = segue.destination as? PloggingCollectionViewController
@@ -65,21 +65,21 @@ class PloggingDetailsViewController: UIViewController {
             viewController?.delegate = self
         }
     }
-    
+
     // MARK: - Toogle to take part at race
-    
+
     @IBAction func didTapIsTakingPartButton() {
         if isInternetAvailable() && isConnectedUser {
             toggleTakePart()
         } else if isInternetAvailable() && !isConnectedUser {
             userAlertWithChoice(element: .haveToLogin)
-        }else {
+        } else {
             userAlert(element: .unableToSaveChangeInternet)
         }
     }
-    
+
     private func toggleTakePart() {
-        
+
         if ploggingUI?.isTakingPart == true {
             // if user already takes part at this plogging race then remove participation
             guard let emailIndex = ploggingUI?.ploggers?.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue)}) else {
@@ -89,26 +89,26 @@ class PloggingDetailsViewController: UIViewController {
             ploggingUI?.isTakingPart = false
             saveTakePartChoice()
             userAlert(element: .isNotTakingPart)
-        } else if ploggingUI?.isTakingPart == false && UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil  {
+        } else if ploggingUI?.isTakingPart == false && UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil {
             participate()
         } else {
             performSegue(withIdentifier: SegueIdentifier.fromDetailsToEmail.identifier, sender: nil)
         }
     }
-    
+
     private func saveTakePartChoice() {
         guard let ploggingUI else { return }
-        
+
         do {
             try repository.setEntity(ploggingUI: ploggingUI)
             // TODO: modifier cloudkit
         } catch {
             fatalError()
         }
-        
+
         ploggingDetailsView.manageIsTakingPartButton(button: ploggingDetailsView.isTakingPartButton, isTakingPart: ploggingUI.isTakingPart)
     }
-    
+
     private func participate() {
         guard let email = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) else { return }
         ploggingUI?.ploggers?.append(email)
@@ -116,9 +116,9 @@ class PloggingDetailsViewController: UIViewController {
         saveTakePartChoice()
         userAlert(element: .isTakingPart)
     }
-    
+
     // MARK: - Set main image
-    
+
     @IBAction func didTapEditMainImage() {
         if isInternetAvailable() {
             chooseImage(source: .photoLibrary)
@@ -126,13 +126,13 @@ class PloggingDetailsViewController: UIViewController {
             userAlert(element: .unableToSaveChangeInternet)
         }
     }
-    
+
     // MARK: - Open mail app and send mail
-    
+
     @IBAction func didTapMessageButton() {
         if isAdmin {
             let addressMailList = ploggingUI?.ploggers
-            
+
             if let emailURLList = URL(string: "mailto:\(String(describing: addressMailList))"), UIApplication.shared.canOpenURL(emailURLList) {
                 UIApplication.shared.open(emailURLList, options: [:], completionHandler: nil)
             } else {
@@ -140,7 +140,7 @@ class PloggingDetailsViewController: UIViewController {
             }
         } else {
             let addressMail = ploggingUI?.admin
-            
+
             if let emailURL = URL(string: "mailto:\(String(describing: addressMail))"), UIApplication.shared.canOpenURL(emailURL) {
                 UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
             } else {
@@ -148,15 +148,15 @@ class PloggingDetailsViewController: UIViewController {
             }
         }
     }
-    
+
     // MARK: - Display all race's photos
-    
+
     @IBAction func didTapPhotosButton() {
         performSegue(withIdentifier: SegueIdentifier.fromDetailsToCollectionView.identifier, sender: nil)
     }
-    
+
     // MARK: - Set images
-    
+
     private func setImage(photo: PhotoUI, action: String) {
         do {
             switch action {
@@ -185,14 +185,14 @@ class PloggingDetailsViewController: UIViewController {
             print(error)
         }
     }
-    
+
     private func returnPloggingCD() -> PloggingCD {
-        
+
         guard let ploggingUI else { return PloggingCD() }
-        
+
         do {
             let ploggingsCD = try repository.getEntities()
-            
+
             guard let ploggingCD = ploggingsCD.first(where: {$0.id == ploggingUI.id}) else { return PloggingCD()}
             return ploggingCD
         } catch {
@@ -202,10 +202,9 @@ class PloggingDetailsViewController: UIViewController {
     }
 }
 
-
 extension PloggingDetailsViewController: ChooseImageDelegate {
     func chooseImage(source: UIImagePickerController.SourceType) {
-        
+
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = source
         imagePickerController.delegate = self
@@ -215,28 +214,26 @@ extension PloggingDetailsViewController: ChooseImageDelegate {
 }
 
 extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        
+
         guard let choosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
-                
+
         ploggingDetailsView.mainImage.image = choosenImage
-        
+
         picker.dismiss(animated: true, completion: nil)
-              
+
         ploggingUI?.mainImage = choosenImage
         ploggingUI?.mainImageBinary = choosenImage.jpegData(compressionQuality: 1.0)
-        
+
         guard let ploggingUI = ploggingUI else { return }
-        
+
         do {
             try repository.setEntity(ploggingUI: ploggingUI)
         } catch {
             print(error)
         }
-        
     }
 }
 
@@ -249,7 +246,6 @@ extension PloggingDetailsViewController: DetailsCollectionDelegate {
     }
 }
 
-
 // MARK: - New Email address
 extension PloggingDetailsViewController: WhoIsTakingPartDelegate {
     func getEmailAddress() {
@@ -257,21 +253,20 @@ extension PloggingDetailsViewController: WhoIsTakingPartDelegate {
     }
 }
 
-
 // MARK: - Plogger List Table View Cell
 extension PloggingDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         10
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ploggingUI?.ploggers?.count ?? 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-        
+
         if ploggingUI?.ploggers?.count ?? 1 > 0 {
             cell.textLabel?.text = ploggingUI?.ploggers?[indexPath.row]
         }

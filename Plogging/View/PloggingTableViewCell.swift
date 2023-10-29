@@ -8,19 +8,18 @@
 import UIKit
 
 class PloggingTableViewCell: UITableViewCell {
-    
+
     // MARK: - IBOutlets & properties
-    
+
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
-    
+
     static let identifier = "PloggingTableViewCell"
-    
-    
+
     // MARK: - Init
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.frame = bounds
@@ -29,7 +28,7 @@ class PloggingTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
     func configure(plogging: PloggingUI) {
         placeLabel.text = "Place : " + plogging.place
         dateLabel.text = "Departure : " + plogging.dateToDisplayedString(date: plogging.beginning)

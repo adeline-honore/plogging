@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-
 extension UIView {
-    
+
     func manageIsTakingPartButton(button: UIButton, isTakingPart: Bool) {
         if isTakingPart {
             button.setImage(UIImage(systemName: "person.fill.checkmark"), for:.normal)

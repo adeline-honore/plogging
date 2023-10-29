@@ -8,14 +8,14 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell {
-    
+
     // MARK: - Properties
-    
+
     @IBOutlet weak var photoImage: UIImageView!
     static let identifier = "PhotoTableViewCell"
-    
+
     // MARK: - Init
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.frame = bounds

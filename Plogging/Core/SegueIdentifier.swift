@@ -8,23 +8,23 @@
 import Foundation
 
 enum SegueIdentifier {
-    
+
     case appOverviewPage
-    
+
     case fromMapToPlogging
     case fromMapToCreatePlogging
     case fromMapToSignInOrUP
-    
+
     case fromPersonalToDetails
     case fromPersonalToSignInOrUp
-    
+
     case fromCreateToLocalSearch
-    
+
     case fromDetailsToCollectionView
     case fromDetailsToEmail
-    
+
     case fromCollectionViewToImage
-        
+
     var identifier: String {
         switch self {
         case .appOverviewPage:
@@ -35,20 +35,20 @@ enum SegueIdentifier {
             return "fromMapToCreatePlogging"
         case .fromMapToSignInOrUP:
             return "fromMapToLogin"
-            
+
         case .fromPersonalToDetails:
             return "fromPersonalToDetails"
         case .fromPersonalToSignInOrUp:
             return "fromPersonalToSignInOrUp"
-            
+
         case .fromCreateToLocalSearch:
             return "fromCreateToLocalSearch"
-            
+
         case .fromDetailsToCollectionView:
             return "fromDetailsToCollectionView"
         case .fromDetailsToEmail:
             return "fromDetailsToEmail"
-            
+
         case .fromCollectionViewToImage:
             return "fromCollectionViewToImage"
         }
