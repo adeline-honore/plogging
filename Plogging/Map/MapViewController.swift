@@ -86,9 +86,22 @@ class MapViewController: UIViewController {
         }
     }
     
+    private func filterPloggingList(ploggingList: [Plogging]) -> [Plogging] {
+        let now = Date()
+        var upcommingPloggingList: [Plogging] = []
+        ploggingList.forEach { item in
+            let itemDate = item.stringDateToDateObject(dateString: item.beginning)
+            if itemDate > now {
+                upcommingPloggingList.append(item)
+            }
+        }
+        return upcommingPloggingList
+    }
+    
     private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
+        let ploggingListFitered = filterPloggingList(ploggingList: ploggings)
         
-        let array = ploggings.map { PloggingUI(plogging: $0, schedule: $0.stringDateToDateObject(dateString: $0.beginning)) }
+        let array = ploggingListFitered.map { PloggingUI(plogging: $0, schedule: $0.stringDateToDateObject(dateString: $0.beginning)) }
             
             return array
     }
