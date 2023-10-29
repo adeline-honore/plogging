@@ -8,5 +8,5 @@ jobs:
 
 steps:
     - name: Test
-        run: xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace
+        run: xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace/xcuserdata/adeline.xcuserdatad/UserInterfaceState.xcuserstate
     -scheme TestApp -destination 'platform=iOS Simulator,
