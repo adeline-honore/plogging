@@ -7,4 +7,4 @@ jobs:
         runs-on: macos-latest
 
 steps:
-    -  run: echo Test One Worked!
+    run: echo Test One Worked!
