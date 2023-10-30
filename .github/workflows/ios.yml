@@ -7,6 +7,11 @@ jobs:
         runs-on: macos-latest
 
 steps:
-    - name: Test
-        run: xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace/xcuserdata/adeline.xcuserdatad/UserInterfaceState.xcuserstate
-    -scheme TestApp -destination 'platform=iOS Simulator,
+  - uses: actions/checkout@v4
+  - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
+    with:
+      swift-version: "5.3.3"
+  - name: Build
+    run: swift build
+  - name: Run tests
+    run: swift test
