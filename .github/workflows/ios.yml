@@ -7,7 +7,7 @@ jobs:
         runs-on: macos-latest
 
 steps:
-  - name: Build
-    run: swift build
-  - name: Run tests
-    run: swift test
+    - name: Build
+        run: swift build
+    - name: Run tests
+        run: swift test
