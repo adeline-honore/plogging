@@ -26,8 +26,6 @@ class PloggingDetailsViewController: UIViewController {
 
     weak var delegate: PloggingDetailsViewControllerDelegate?
 
-    @IBOutlet weak var ploggerTableView: UITableView!
-
     private var isConnectedUser: Bool = false
 
     // MARK: - Life cycle
@@ -59,10 +57,6 @@ class PloggingDetailsViewController: UIViewController {
             viewController?.isPloggingAdmin = isAdmin
             guard let photos = ploggingUI.photos else { return }
             viewController?.photos = photos
-        }
-        if segue.identifier == SegueIdentifier.fromDetailsToEmail.identifier {
-            let viewController = segue.destination as? WhoIsTakingPartViewController
-            viewController?.delegate = self
         }
     }
 
@@ -243,33 +237,5 @@ extension PloggingDetailsViewController: DetailsCollectionDelegate {
     func didSetPhoto(photo: PhotoUI, action: String) {
         setImage(photo: photo, action: action)
         // TODO: save into Cloudkit
-    }
-}
-
-// MARK: - New Email address
-extension PloggingDetailsViewController: WhoIsTakingPartDelegate {
-    func getEmailAddress() {
-        participate()
-    }
-}
-
-// MARK: - Plogger List Table View Cell
-extension PloggingDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        10
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ploggingUI?.ploggers?.count ?? 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-
-        if ploggingUI?.ploggers?.count ?? 1 > 0 {
-            cell.textLabel?.text = ploggingUI?.ploggers?[indexPath.row]
-        }
-        return cell
     }
 }

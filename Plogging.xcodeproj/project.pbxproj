@@ -42,7 +42,6 @@
 		6E69EFAB2951AE9600EBE7B9 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFAA2951AE9600EBE7B9 /* SetProfileViewController.swift */; };
 		6E69EFAD2951B53100EBE7B9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFAC2951B53100EBE7B9 /* ChangePasswordViewController.swift */; };
 		6E69EFAF2951BE5400EBE7B9 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFAE2951BE5300EBE7B9 /* Extension+View.swift */; };
-		6E6B6D952AE505C500B5D00B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E6B6D942AE505C400B5D00B /* GoogleService-Info.plist */; };
 		6E6B6D982AE507B500B5D00B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 6E6B6D972AE507B500B5D00B /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		6E6B6D9A2AE507B500B5D00B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6E6B6D992AE507B500B5D00B /* FirebaseAuth */; };
 		6E6B6D9C2AE507B500B5D00B /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6E6B6D9B2AE507B500B5D00B /* FirebaseDatabase */; };
@@ -50,6 +49,7 @@
 		6E9040E22AE30F8B009A6E80 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9040E12AE30F8B009A6E80 /* TestCoreDataStack.swift */; };
 		6E9040E42AE31064009A6E80 /* TestPloggingCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9040E32AE31064009A6E80 /* TestPloggingCoreDataManager.swift */; };
 		6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E94F04328EC244400D94CA5 /* MapViewController.swift */; };
+		6EA0EB4A2AF059D000487F3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0EB492AF059D000487F3F /* GoogleService-Info.plist */; };
 		6EB6A2BF29F9C3DF00960639 /* WhoIsTakingPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6A2BE29F9C3DF00960639 /* WhoIsTakingPartViewController.swift */; };
 		6EB6A2C129F9C40300960639 /* WhoIsTakingPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6A2C029F9C40300960639 /* WhoIsTakingPartView.swift */; };
 		6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* SomeDataz.json */; };
@@ -122,11 +122,11 @@
 		6E69EFAA2951AE9600EBE7B9 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		6E69EFAC2951B53100EBE7B9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		6E69EFAE2951BE5300EBE7B9 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
-		6E6B6D942AE505C400B5D00B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../dev/iOS/p12/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E8A6AB929FA7EAE000BF2B5 /* UserDefaultsName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsName.swift; sourceTree = "<group>"; };
 		6E9040E12AE30F8B009A6E80 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		6E9040E32AE31064009A6E80 /* TestPloggingCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPloggingCoreDataManager.swift; sourceTree = "<group>"; };
 		6E94F04328EC244400D94CA5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6EA0EB492AF059D000487F3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6EB6A2BE29F9C3DF00960639 /* WhoIsTakingPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsTakingPartViewController.swift; sourceTree = "<group>"; };
 		6EB6A2C029F9C40300960639 /* WhoIsTakingPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsTakingPartView.swift; sourceTree = "<group>"; };
 		6EBFB9D72901251C00E1741A /* SomeDataz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SomeDataz.json; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 		6ED589B028E8D8B000450FE4 /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
-				6E6B6D942AE505C400B5D00B /* GoogleService-Info.plist */,
+				6EA0EB492AF059D000487F3F /* GoogleService-Info.plist */,
 				6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */,
 				6ED589E428E8D92F00450FE4 /* Core */,
 				6E1412F029227492009E1BDB /* CreatePlogging */,
@@ -518,12 +518,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EC9F21929E9397E0048B6BC /* PhotoTableViewCell.xib in Resources */,
+				6EA0EB4A2AF059D000487F3F /* GoogleService-Info.plist in Resources */,
 				6ED589C128E8D8BD00450FE4 /* LaunchScreen.storyboard in Resources */,
 				6E12D2132923C75200D2F45B /* PloggingTableViewCell.xib in Resources */,
 				6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */,
 				6ED589BE28E8D8BD00450FE4 /* Assets.xcassets in Resources */,
 				6ED589B928E8D8B000450FE4 /* Main.storyboard in Resources */,
-				6E6B6D952AE505C500B5D00B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

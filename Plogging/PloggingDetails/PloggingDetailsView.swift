@@ -17,9 +17,9 @@ class PloggingDetailsView: UIView {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var adminNameLabel: UILabel!
     @IBOutlet weak var editMainImageButton: UIButton!
-
     @IBOutlet weak var adminStack: UIStackView!
     @IBOutlet weak var ploggersStack: UIStackView!
+    @IBOutlet weak var ploggerList: UILabel!
 }
 
 extension PloggingDetailsView {
@@ -39,5 +39,7 @@ extension PloggingDetailsView {
         ploggersStack.isHidden = !isAdmin
         editMainImageButton.isHidden = !isAdmin
         isTakingPartButton.isHidden = isAdmin
+        ploggerList.isHidden = !isAdmin
+        ploggerList.text = "Ploggers : \(plogging.ploggers?.count ?? 1)"
     }
 }
