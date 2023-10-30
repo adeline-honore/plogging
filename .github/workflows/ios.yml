@@ -10,6 +10,6 @@ steps:
     uses: actions/checkout@v4
     uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
     name: Build
-    run: swift build
+        run: swift build
     name: Run tests
-    run: swift test
+        run: swift test
