@@ -58,7 +58,7 @@ class PloggingDetailsViewController: UIViewController {
 //            viewController?.isPloggingAdmin = isAdmin
 //            guard let photos = ploggingUI.photos else { return }
 //            viewController?.photos = photos
-        }
+//        }
     }
 
     // MARK: - Toogle to take part at race

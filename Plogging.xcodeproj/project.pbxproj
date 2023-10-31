@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2109E2DC1CB172B894ADB06E /* Pods_Plogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB40D8157E08F10170DD34E0 /* Pods_Plogging.framework */; };
 		6E00AA202926434800798F03 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E00AA1F2926434800798F03 /* Extension+UIView.swift */; };
 		6E088F942916830900F401A6 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E088F932916830900F401A6 /* Texts.swift */; };
 		6E12D2132923C75200D2F45B /* PloggingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E12D2122923C75200D2F45B /* PloggingTableViewCell.xib */; };
@@ -77,7 +76,6 @@
 		6EECBFC028F2F4C900FAE3FE /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */; };
 		6EF0AA1D2902BBD40004F374 /* PloggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF0AA1C2902BBD40004F374 /* PloggingService.swift */; };
 		6EF0AA1F2902BC4E0004F374 /* PloggingLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF0AA1E2902BC4E0004F374 /* PloggingLoader.swift */; };
-		D1225B45302C033E9B4FFA39 /* Pods_PloggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F354B0A14E7143E9CCE3D97 /* Pods_PloggingTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,8 +89,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A5606DD13892F96BEBBD1C9 /* Pods-PloggingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PloggingTests.debug.xcconfig"; path = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2F354B0A14E7143E9CCE3D97 /* Pods_PloggingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PloggingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E00AA1F2926434800798F03 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		6E088F932916830900F401A6 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		6E12D2122923C75200D2F45B /* PloggingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PloggingTableViewCell.xib; sourceTree = "<group>"; };
@@ -162,10 +158,6 @@
 		6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		6EF0AA1C2902BBD40004F374 /* PloggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingService.swift; sourceTree = "<group>"; };
 		6EF0AA1E2902BC4E0004F374 /* PloggingLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingLoader.swift; sourceTree = "<group>"; };
-		A24E1FE9C9A20EF53B555129 /* Pods-PloggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PloggingTests.release.xcconfig"; path = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.release.xcconfig"; sourceTree = "<group>"; };
-		B76A162B6C735DAE1DFD407A /* Pods-Plogging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.debug.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.debug.xcconfig"; sourceTree = "<group>"; };
-		BB40D8157E08F10170DD34E0 /* Pods_Plogging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C100C6B5EDE01DF66C648BB5 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +168,6 @@
 				6E6B6D9C2AE507B500B5D00B /* FirebaseDatabase in Frameworks */,
 				6E6B6D982AE507B500B5D00B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				6E6B6D9A2AE507B500B5D00B /* FirebaseAuth in Frameworks */,
-				2109E2DC1CB172B894ADB06E /* Pods_Plogging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +175,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1225B45302C033E9B4FFA39 /* Pods_PloggingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,8 +284,6 @@
 				6E9040DF2AE30F18009A6E80 /* PloggingTests */,
 				6ED589B028E8D8B000450FE4 /* Plogging */,
 				6ED589AF28E8D8B000450FE4 /* Products */,
-				FE0B5F58046A10ABA23F123E /* Pods */,
-				B01ACA75D43E746F0EFD1B91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -442,26 +430,6 @@
 				6EF0AA1E2902BC4E0004F374 /* PloggingLoader.swift */,
 			);
 			path = Plogging;
-			sourceTree = "<group>";
-		};
-		B01ACA75D43E746F0EFD1B91 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BB40D8157E08F10170DD34E0 /* Pods_Plogging.framework */,
-				2F354B0A14E7143E9CCE3D97 /* Pods_PloggingTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FE0B5F58046A10ABA23F123E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B76A162B6C735DAE1DFD407A /* Pods-Plogging.debug.xcconfig */,
-				C100C6B5EDE01DF66C648BB5 /* Pods-Plogging.release.xcconfig */,
-				0A5606DD13892F96BEBBD1C9 /* Pods-PloggingTests.debug.xcconfig */,
-				A24E1FE9C9A20EF53B555129 /* Pods-PloggingTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -880,7 +848,6 @@
 		};
 		6ED589DC28E8D8BE00450FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B76A162B6C735DAE1DFD407A /* Pods-Plogging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -909,7 +876,6 @@
 		};
 		6ED589DD28E8D8BE00450FE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C100C6B5EDE01DF66C648BB5 /* Pods-Plogging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -938,7 +904,6 @@
 		};
 		6ED589DF28E8D8BE00450FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A5606DD13892F96BEBBD1C9 /* Pods-PloggingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -966,7 +931,6 @@
 		};
 		6ED589E028E8D8BE00450FE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A24E1FE9C9A20EF53B555129 /* Pods-PloggingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
