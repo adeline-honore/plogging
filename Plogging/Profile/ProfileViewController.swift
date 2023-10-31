@@ -24,17 +24,8 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(true)
         let isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
 
-        if #available(iOS 16.0, *) {
-            self.editButtonItem.isHidden = !isConnectedUser
-            print(self.editButtonItem.isHidden)
-            print(self.editButtonItem.isHidden)
-        } else {
-            // Fallback on earlier versions
-            print(self.editButtonItem)
-            print(self.editButtonItem)
-        }
-
-        profileView.haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
+        profileView.emailLabel.text = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue)
+        profileView.haveToLoginLabel.text = Texts.haveToLoginMessage.value
         profileView.configure(isConnected: isConnectedUser)
     }
 }
