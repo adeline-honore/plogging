@@ -59,4 +59,16 @@ class PloggingService {
             }
         }
     }
+    
+    func savePhoto(ploggingUI: PloggingUI, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+        
+        networkService.uploadPhoto(ploggingUI: ploggingUI) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(.network))
+            }
+        }
+    }
 }

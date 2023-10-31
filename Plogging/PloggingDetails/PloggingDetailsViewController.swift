@@ -50,14 +50,14 @@ class PloggingDetailsViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
-            let viewController = segue.destination as? PloggingCollectionViewController
-            viewController?.delegate = self
-            guard let ploggingUI else { return }
-            viewController?.ploggingId = ploggingUI.id
-            viewController?.isPloggingAdmin = isAdmin
-            guard let photos = ploggingUI.photos else { return }
-            viewController?.photos = photos
+//        if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
+//            let viewController = segue.destination as? PloggingCollectionViewController
+//            viewController?.delegate = self
+//            guard let ploggingUI else { return }
+//            viewController?.ploggingId = ploggingUI.id
+//            viewController?.isPloggingAdmin = isAdmin
+//            guard let photos = ploggingUI.photos else { return }
+//            viewController?.photos = photos
         }
     }
 
@@ -156,9 +156,9 @@ class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Display all race's photos
 
-    @IBAction func didTapPhotosButton() {
-        performSegue(withIdentifier: SegueIdentifier.fromDetailsToCollectionView.identifier, sender: nil)
-    }
+//    @IBAction func didTapPhotosButton() {
+//        performSegue(withIdentifier: SegueIdentifier.fromDetailsToCollectionView.identifier, sender: nil)
+//    }
 
     // MARK: - Set images
 
@@ -244,12 +244,12 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
 
 // MARK: - Set Images
 
-extension PloggingDetailsViewController: DetailsCollectionDelegate {
-    func didSetPhoto(photo: PhotoUI, action: String) {
-        setImage(photo: photo, action: action)
-        // TODO: save into Cloudkit
-    }
-}
+//extension PloggingDetailsViewController: DetailsCollectionDelegate {
+//    func didSetPhoto(photo: PhotoUI, action: String) {
+//        setImage(photo: photo, action: action)
+//        // TODO: save into Cloudkit
+//    }
+//}
 
 extension PloggingDetailsViewController: PopUpModalDelegate {
     func didValidateAction() {

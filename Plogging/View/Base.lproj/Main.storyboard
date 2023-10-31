@@ -407,17 +407,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yp1-gP-NqO">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6C-Xg-Oa5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="34"/>
-                                                        <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="photo.artframe" catalog="system" title=""/>
-                                                        <connections>
-                                                            <action selector="didTapPhotosButton" destination="cjp-X3-h0i" eventType="touchUpInside" id="Dxr-R3-Aqb"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVg-Fb-8S0">
-                                                        <rect key="frame" x="127.5" y="0.0" width="119" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="34"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="message.fill" catalog="system"/>
                                                         <connections>
@@ -425,7 +416,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dO5-U7-XHK">
-                                                        <rect key="frame" x="254.5" y="0.0" width="119.5" height="34"/>
+                                                        <rect key="frame" x="191" y="0.0" width="183" height="34"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="person.fill.xmark" catalog="system" title=""/>
                                                         <connections>
@@ -434,8 +425,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="dO5-U7-XHK" firstAttribute="width" secondItem="D6C-Xg-Oa5" secondAttribute="width" id="4hk-vU-gmB"/>
-                                                    <constraint firstItem="jVg-Fb-8S0" firstAttribute="width" secondItem="D6C-Xg-Oa5" secondAttribute="width" id="Y8r-NP-b2m"/>
+                                                    <constraint firstItem="dO5-U7-XHK" firstAttribute="width" secondItem="jVg-Fb-8S0" secondAttribute="width" id="8Kf-wC-EXN"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6oE-ww-Uz0">
@@ -561,16 +551,12 @@
                             <outlet property="isTakingPartButton" destination="dO5-U7-XHK" id="pa4-vh-sJh"/>
                             <outlet property="mainImage" destination="nCV-Xt-ASj" id="6eY-g0-L6m"/>
                             <outlet property="messageButton" destination="jVg-Fb-8S0" id="F07-Jt-GsZ"/>
-                            <outlet property="photosButton" destination="D6C-Xg-Oa5" id="NNu-U2-pJt"/>
                             <outlet property="placeLabel" destination="7SU-Xf-OGj" id="kPr-4L-Haz"/>
                             <outlet property="ploggerList" destination="s8I-Nm-CIe" id="49n-uG-kwv"/>
                             <outlet property="ploggersStack" destination="UmB-jL-YPw" id="uqV-Fg-6Gq"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="t4p-qq-uTf"/>
-                    <connections>
-                        <segue destination="O7h-2y-H4P" kind="show" identifier="fromDetailsToCollectionView" id="KQK-oH-7rq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhY-hL-IO8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -699,156 +685,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPj-FK-3Ed" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4861" y="-1517"/>
-        </scene>
-        <!--Plogging Collection View Controller-->
-        <scene sceneID="slw-SK-dCk">
-            <objects>
-                <viewController id="O7h-2y-H4P" customClass="PloggingCollectionViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PJB-5u-pc6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tY-Pl-MrS">
-                                <rect key="frame" x="50" y="92" width="314" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkF-gr-d00">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="60"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Add photo (max 5)"/>
-                                        <connections>
-                                            <action selector="didTapAddPhotosButton" destination="O7h-2y-H4P" eventType="touchUpInside" id="QNE-8A-1eP"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum number of photos reached" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFw-m7-ZWe">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="60"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="oFw-m7-ZWe" firstAttribute="top" secondItem="4tY-Pl-MrS" secondAttribute="top" id="0Yx-0B-6jS"/>
-                                    <constraint firstItem="CkF-gr-d00" firstAttribute="leading" secondItem="4tY-Pl-MrS" secondAttribute="leading" id="1bh-Zp-8iq"/>
-                                    <constraint firstItem="CkF-gr-d00" firstAttribute="top" secondItem="4tY-Pl-MrS" secondAttribute="top" id="5iE-CQ-2xg"/>
-                                    <constraint firstAttribute="bottom" secondItem="CkF-gr-d00" secondAttribute="bottom" id="Qvi-BJ-P1R"/>
-                                    <constraint firstAttribute="bottom" secondItem="oFw-m7-ZWe" secondAttribute="bottom" id="TpG-iB-4Ec"/>
-                                    <constraint firstAttribute="trailing" secondItem="CkF-gr-d00" secondAttribute="trailing" id="g78-Jr-pU9"/>
-                                    <constraint firstItem="oFw-m7-ZWe" firstAttribute="leading" secondItem="4tY-Pl-MrS" secondAttribute="leading" id="g7m-J9-CJ6"/>
-                                    <constraint firstAttribute="trailing" secondItem="oFw-m7-ZWe" secondAttribute="trailing" id="icT-NI-7oy"/>
-                                    <constraint firstAttribute="height" constant="60" id="m2t-KH-qUR"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1m-m2-Ox2">
-                                <rect key="frame" x="100" y="438" width="214" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rzc-uH-Vmf">
-                                <rect key="frame" x="0.0" y="152" width="414" height="661"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="O7h-2y-H4P" id="t00-FW-RBh"/>
-                                    <outlet property="delegate" destination="O7h-2y-H4P" id="3KR-44-YKN"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="fmk-Pi-kJ2"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="n1m-m2-Ox2" firstAttribute="centerX" secondItem="PJB-5u-pc6" secondAttribute="centerX" id="0kb-9Q-kms"/>
-                            <constraint firstItem="n1m-m2-Ox2" firstAttribute="leading" secondItem="fmk-Pi-kJ2" secondAttribute="leading" constant="100" id="Enr-dR-Q1m"/>
-                            <constraint firstItem="4tY-Pl-MrS" firstAttribute="top" secondItem="fmk-Pi-kJ2" secondAttribute="top" id="GUd-kE-hb2"/>
-                            <constraint firstItem="4tY-Pl-MrS" firstAttribute="leading" secondItem="fmk-Pi-kJ2" secondAttribute="leading" constant="50" id="PU6-n7-Zt0"/>
-                            <constraint firstItem="fmk-Pi-kJ2" firstAttribute="trailing" secondItem="Rzc-uH-Vmf" secondAttribute="trailing" id="PuZ-Y2-vjw"/>
-                            <constraint firstItem="fmk-Pi-kJ2" firstAttribute="bottom" secondItem="Rzc-uH-Vmf" secondAttribute="bottom" id="bQL-cz-2uC"/>
-                            <constraint firstItem="n1m-m2-Ox2" firstAttribute="centerY" secondItem="PJB-5u-pc6" secondAttribute="centerY" id="iQT-32-wLh"/>
-                            <constraint firstItem="Rzc-uH-Vmf" firstAttribute="leading" secondItem="fmk-Pi-kJ2" secondAttribute="leading" id="reM-q8-AXI"/>
-                            <constraint firstItem="fmk-Pi-kJ2" firstAttribute="trailing" secondItem="4tY-Pl-MrS" secondAttribute="trailing" constant="50" id="vus-WD-eLQ"/>
-                            <constraint firstItem="Rzc-uH-Vmf" firstAttribute="top" secondItem="4tY-Pl-MrS" secondAttribute="bottom" id="z58-ce-MFO"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="gSN-1z-Sxc"/>
-                    <connections>
-                        <outlet property="addPhotoButton" destination="CkF-gr-d00" id="KaW-xs-G33"/>
-                        <outlet property="maxNumberPhotosLabel" destination="oFw-m7-ZWe" id="5Ov-M6-Gmj"/>
-                        <outlet property="noImagesLabel" destination="n1m-m2-Ox2" id="fdi-tn-Vyn"/>
-                        <outlet property="setPhotosView" destination="4tY-Pl-MrS" id="7TK-Bm-RYt"/>
-                        <outlet property="tableView" destination="Rzc-uH-Vmf" id="41z-JX-Vk6"/>
-                        <segue destination="CkX-Th-H99" kind="presentation" identifier="fromCollectionViewToImage" id="NiG-m1-Peb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AU3-fB-l2s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6687" y="-842"/>
-        </scene>
-        <!--Image View Controller-->
-        <scene sceneID="klF-4m-CCT">
-            <objects>
-                <viewController id="CkX-Th-H99" customClass="ImageViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Z9-vx-oSg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axk-Li-dA5">
-                                <rect key="frame" x="358.5" y="68" width="35.5" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="X" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="didTapCancelButton" destination="CkX-Th-H99" eventType="touchUpInside" id="flz-Jx-H0T"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SE3-UW-Ren">
-                                <rect key="frame" x="85" y="783.5" width="244" height="34.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-6j-LQO">
-                                        <rect key="frame" x="0.0" y="0.0" width="122" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Set photo"/>
-                                        <connections>
-                                            <action selector="didTapSetButton" destination="CkX-Th-H99" eventType="touchUpInside" id="HIH-0F-eNd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbe-Aa-1lb">
-                                        <rect key="frame" x="122" y="0.0" width="122" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Delete photo"/>
-                                        <connections>
-                                            <action selector="didTapDeleteButton" destination="CkX-Th-H99" eventType="touchUpInside" id="tmc-yj-coX"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x84-4a-4b3">
-                                <rect key="frame" x="0.0" y="48" width="414" height="790"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Rfr-8u-M4O"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="x84-4a-4b3" firstAttribute="leading" secondItem="Rfr-8u-M4O" secondAttribute="leading" id="FFz-5q-4RP"/>
-                            <constraint firstItem="Rfr-8u-M4O" firstAttribute="trailing" secondItem="axk-Li-dA5" secondAttribute="trailing" constant="20" id="LqE-PC-Tax"/>
-                            <constraint firstItem="axk-Li-dA5" firstAttribute="top" secondItem="Rfr-8u-M4O" secondAttribute="top" constant="20" id="VrI-5V-6cc"/>
-                            <constraint firstItem="Rfr-8u-M4O" firstAttribute="bottom" secondItem="SE3-UW-Ren" secondAttribute="bottom" constant="20" id="cIM-Bq-6eR"/>
-                            <constraint firstItem="Rfr-8u-M4O" firstAttribute="trailing" secondItem="x84-4a-4b3" secondAttribute="trailing" id="eDy-hI-IE9"/>
-                            <constraint firstItem="SE3-UW-Ren" firstAttribute="centerX" secondItem="5Z9-vx-oSg" secondAttribute="centerX" id="lWS-rd-gPw"/>
-                            <constraint firstItem="Rfr-8u-M4O" firstAttribute="bottom" secondItem="x84-4a-4b3" secondAttribute="bottom" id="uqE-ub-C9T"/>
-                            <constraint firstItem="x84-4a-4b3" firstAttribute="top" secondItem="Rfr-8u-M4O" secondAttribute="top" id="yEG-Qc-cQp"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="04q-JF-Ytv"/>
-                    <connections>
-                        <outlet property="photo" destination="x84-4a-4b3" id="MIP-tJ-gUT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fwz-gl-Xbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7764" y="-842"/>
         </scene>
         <!--Create plogging-->
         <scene sceneID="3ng-2I-Xyb">
@@ -1084,7 +920,6 @@
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.fill.xmark" catalog="system" width="128" height="89"/>
-        <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
         <image name="x.circle.fill" catalog="system" width="128" height="123"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>

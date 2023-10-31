@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
 class NetworkService {
 
@@ -40,5 +41,21 @@ class NetworkService {
                             "/user-posts/\(ploggingUI.id)/\(key)/": ploggingSetted]
         DatabaseURL.ref.updateChildValues(childUpdates)
 
+    }
+
+    func uploadPhoto(ploggingUI: PloggingUI) {
+
+        let storageRef = Storage.storage().reference()
+
+        guard let imageData = ploggingUI.mainImage?.jpegData(compressionQuality: 0.8) else { return }
+
+        let fileRef = storageRef.child("images/\(ploggingUI.id).jpg")
+
+        let uploadTask = fileRef.putData(imageData) { metadata, error in
+
+            if error == nil && metadata != nil {
+                
+            }
+        }
     }
 }
