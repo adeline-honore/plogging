@@ -98,7 +98,7 @@ class CreatePloggingViewController: UIViewController {
 
         // Check plogging's place validity
         guard currentPlogging.isValid else {
-            userAlert(element: .ploggingWithoutPlace)
+            PopUpModalViewController().userAlert(element: .ploggingWithoutPlace, viewController: self)
             return
         }
 
@@ -118,11 +118,11 @@ class CreatePloggingViewController: UIViewController {
                     self.navigationController?.popViewController(animated: true)
                     self.delegate?.ploggingIsCreated(ploggingUICreated: self.currentPlogging)
                 } catch {
-                    self.userAlert(element: AlertType.ploggingNotSaved)
+                    PopUpModalViewController().userAlert(element: AlertType.ploggingNotSaved, viewController: self)
                 }
             case let .failure(error):
                 print(error)
-                self.userAlert(element: AlertType.createError)
+                PopUpModalViewController().userAlert(element: AlertType.createError, viewController: self)
             }
         }
     }

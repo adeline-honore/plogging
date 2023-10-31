@@ -22,6 +22,8 @@ class MapViewController: UIViewController {
     private var ploggingsUI: [PloggingUI] = []
     private var ploggingUI: PloggingUI?
 
+    private let popUpModal: PopUpModalViewController = PopUpModalViewController()
+
     @IBOutlet weak var mapView: MKMapView!
 
     // MARK: - Life cycle
@@ -41,7 +43,7 @@ class MapViewController: UIViewController {
             if isInternetAvailable() {
                 locationManager.getUserGeoLocation()
             } else {
-                userAlert(element: .internetNotAvailable)
+                popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
             }
         }
     }
@@ -71,7 +73,7 @@ class MapViewController: UIViewController {
             case .success(let ploggingsResult):
                 self.createPloggingAnnotationItems(ploggingList: ploggingsResult)
             case .failure:
-                self.userAlert(element: .network)
+                self.popUpModal.userAlert(element: .network, viewController: self)
             }
         }
     }
@@ -120,7 +122,7 @@ class MapViewController: UIViewController {
             _ = segue.destination as? SignInOrUpViewController
         } else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
             if UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil {
-                userAlertWithChoice(element: .haveToLogin)
+                popUpModal.userAlertWithChoice(element: .haveToLogin, viewController: self)
             } else {
                 let viewController = segue.destination as? CreatePloggingViewController
                 viewController?.delegate = self
@@ -182,7 +184,7 @@ extension MapViewController: PresentationViewControllerDelegate {
         if isInternetAvailable() {
             locationManager.getUserGeoLocation()
         } else {
-            userAlert(element: .internetNotAvailable)
+            popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
         }
     }
 }

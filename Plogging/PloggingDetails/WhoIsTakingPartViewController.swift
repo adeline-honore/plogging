@@ -41,13 +41,13 @@ class WhoIsTakingPartViewController: SetConstraintForKeyboardViewController {
         }
 
         if emailInput.isEmpty {
-            userAlert(element: .unavailableEmail)
+            PopUpModalViewController().userAlert(element: .unavailableEmail, viewController: self)
         } else if validateEmail(email: emailInput) == true {
             UserDefaults.standard.setValue(whoIsTakingPartView.newEmailTextField.text, forKey: UserDefaultsName.emailAddress.rawValue)
             delegate?.getEmailAddress()
             self.dismiss(animated: true)
         } else {
-            userAlert(element: .invalidEmail)
+            PopUpModalViewController().userAlert(element: .invalidEmail, viewController: self)
         }
     }
 

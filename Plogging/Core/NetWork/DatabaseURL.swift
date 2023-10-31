@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
+import Firebase
 
 struct DatabaseURL {
     let url: String = "https://plogging-412ed-default-rtdb.europe-west1.firebasedatabase.app/"

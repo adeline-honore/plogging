@@ -32,7 +32,7 @@ class ImageViewController: UIViewController {
         if isInternetAvailable() {
             setPhoto()
         } else {
-            userAlert(element: .unableToSaveChangeInternet)
+            PopUpModalViewController().userAlert(element: .unableToSaveChangeInternet, viewController: self)
         }
     }
 
@@ -46,7 +46,7 @@ class ImageViewController: UIViewController {
         if isInternetAvailable() {
             deletePhoto()
         } else {
-            userAlert(element: .unableToSaveChangeInternet)
+            PopUpModalViewController().userAlert(element: .unableToSaveChangeInternet, viewController: self)
         }
     }
 

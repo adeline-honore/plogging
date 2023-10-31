@@ -34,9 +34,9 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
 
     private func signupButtonWasPressed() {
         if (signInOrUpView.emailTextField.text?.isEmpty) != nil || ((signInOrUpView.passwordTextField.text?.isEmpty) != nil) {
-            userAlert(element: .emptyIdentifier)
+            PopUpModalViewController().userAlert(element: .emptyIdentifier, viewController: self)
         } else if validateEmail(email: signInOrUpView.emailTextField.text ?? "") == false {
-            userAlert(element: .invalidEmail)
+            PopUpModalViewController().userAlert(element: .invalidEmail, viewController: self)
         } else {
             createUser()
         }
@@ -48,9 +48,9 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
             if error == nil {
                 UserDefaults.standard.set(self.signInOrUpView.emailTextField.text, forKey: "emailAddress")
                 _ = self.navigationController?.popViewController(animated: true)
-                self.userAlert(element: .isTakingPart)
+                PopUpModalViewController().userAlert(element: .isTakingPart, viewController: self)
             } else {
-                self.userAlert(element: .unableToCreateUser)
+                PopUpModalViewController().userAlert(element: .unableToCreateUser, viewController: self)
             }
         }
     }

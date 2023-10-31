@@ -18,6 +18,7 @@ class PloggingDetailsViewController: UIViewController {
     private var ploggingDetailsView: PloggingDetailsView!
     private var isAdmin: Bool = false
 
+    private var ploggingService = PloggingService()
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
@@ -66,49 +67,59 @@ class PloggingDetailsViewController: UIViewController {
         if isInternetAvailable() && isConnectedUser {
             toggleTakePart()
         } else if isInternetAvailable() && !isConnectedUser {
-            userAlertWithChoice(element: .haveToLogin)
+            PopUpModalViewController().userAlertWithChoice(element: .haveToLogin, viewController: self)
         } else {
-            userAlert(element: .unableToSaveChangeInternet)
+            PopUpModalViewController().userAlert(element: .unableToSaveChangeInternet, viewController: self)
         }
     }
 
     private func toggleTakePart() {
-
         if ploggingUI?.isTakingPart == true {
             // if user already takes part at this plogging race then remove participation
-            guard let emailIndex = ploggingUI?.ploggers?.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue)}) else {
-                return
-            }
-            ploggingUI?.ploggers?.remove(at: emailIndex)
-            ploggingUI?.isTakingPart = false
-            saveTakePartChoice()
-            userAlert(element: .isNotTakingPart)
-        } else if ploggingUI?.isTakingPart == false && UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil {
-            participate()
+            PopUpModalViewController().userAlertWithChoice(element: .wantToNoParticipate, viewController: self)
         } else {
-            performSegue(withIdentifier: SegueIdentifier.fromDetailsToEmail.identifier, sender: nil)
+            PopUpModalViewController().userAlertWithChoice(element: .wantToParticipate, viewController: self)
         }
     }
 
     private func saveTakePartChoice() {
-        guard let ploggingUI else { return }
-
-        do {
-            try repository.setEntity(ploggingUI: ploggingUI)
-            // TODO: modifier cloudkit
-        } catch {
-            fatalError()
+        guard let emailIndex = ploggingUI?.ploggers?.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue)}) else {
+            return
         }
 
-        ploggingDetailsView.manageIsTakingPartButton(button: ploggingDetailsView.isTakingPartButton, isTakingPart: ploggingUI.isTakingPart)
+        // if user already takes part at this plogging race then remove participation
+        if ploggingUI?.isTakingPart == true {
+            ploggingUI?.isTakingPart = false
+            ploggingUI?.ploggers?.remove(at: emailIndex)
+        } else {
+            ploggingUI?.isTakingPart = true
+            ploggingUI?.ploggers?.append(UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? "")
+        }
+
+        guard let ploggingUI else { return }
+
+        ploggingService.setPlogging(ploggingUI: ploggingUI) { result in
+            switch result {
+            case .success:
+                self.saveIntoInternalDatabase(ploggingUI: ploggingUI)
+            case .failure:
+                PopUpModalViewController().userAlert(element: .network, viewController: self)
+            }
+        }
     }
 
-    private func participate() {
-        guard let email = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) else { return }
-        ploggingUI?.ploggers?.append(email)
-        ploggingUI?.isTakingPart = true
-        saveTakePartChoice()
-        userAlert(element: .isTakingPart)
+    private func saveIntoInternalDatabase(ploggingUI: PloggingUI) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            do {
+                try self.repository.setEntity(ploggingUI: ploggingUI)
+            } catch {
+                PopUpModalViewController().userAlert(element: .internalDatabase, viewController: self)
+            }
+
+            self.ploggingDetailsView.manageIsTakingPartButton(button: self.ploggingDetailsView.isTakingPartButton, isTakingPart: ploggingUI.isTakingPart)
+            ploggingUI.isTakingPart ? PopUpModalViewController().userAlert(element: .isTakingPart, viewController: self) : PopUpModalViewController().userAlert(element: .isNotTakingPart, viewController: self)
+        }
     }
 
     // MARK: - Set main image
@@ -117,7 +128,7 @@ class PloggingDetailsViewController: UIViewController {
         if isInternetAvailable() {
             chooseImage(source: .photoLibrary)
         } else {
-            userAlert(element: .unableToSaveChangeInternet)
+            PopUpModalViewController().userAlert(element: .unableToSaveChangeInternet, viewController: self)
         }
     }
 
@@ -130,7 +141,7 @@ class PloggingDetailsViewController: UIViewController {
             if let emailURLList = URL(string: "mailto:\(String(describing: addressMailList))"), UIApplication.shared.canOpenURL(emailURLList) {
                 UIApplication.shared.open(emailURLList, options: [:], completionHandler: nil)
             } else {
-                userAlert(element: .mailAppUnavailable)
+                PopUpModalViewController().userAlert(element: .mailAppUnavailable, viewController: self)
             }
         } else {
             let addressMail = ploggingUI?.admin
@@ -138,7 +149,7 @@ class PloggingDetailsViewController: UIViewController {
             if let emailURL = URL(string: "mailto:\(String(describing: addressMail))"), UIApplication.shared.canOpenURL(emailURL) {
                 UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
             } else {
-                userAlert(element: .mailAppUnavailable)
+                PopUpModalViewController().userAlert(element: .mailAppUnavailable, viewController: self)
             }
         }
     }
@@ -237,5 +248,11 @@ extension PloggingDetailsViewController: DetailsCollectionDelegate {
     func didSetPhoto(photo: PhotoUI, action: String) {
         setImage(photo: photo, action: action)
         // TODO: save into Cloudkit
+    }
+}
+
+extension PloggingDetailsViewController: PopUpModalDelegate {
+    func didValidateAction() {
+        saveTakePartChoice()
     }
 }

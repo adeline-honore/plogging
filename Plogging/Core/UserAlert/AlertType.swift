@@ -17,6 +17,7 @@ enum AlertType {
     case ploggingWithoutPlace
     case createError
 
+    case internalDatabase
     case network
 
     case isTakingPart
@@ -36,6 +37,10 @@ enum AlertType {
 
     case emptyIdentifier
 
+    case wantToParticipate
+    case wantToNoParticipate
+    case ploggingSetWithSuccess
+
     var message: String {
         switch self {
         case .locationSaved:
@@ -51,6 +56,8 @@ enum AlertType {
         case .createError:
             return "An error occured . Please try again ."
 
+        case .internalDatabase:
+            return "Oups ! Internal Memory troubles ."
         case .network:
             return "Oups ! Network troubles ."
 
@@ -81,6 +88,13 @@ enum AlertType {
 
         case .emptyIdentifier:
             return "Fields not filled in"
+
+        case .wantToParticipate:
+            return "Do you want to participate in this plogging ?"
+        case .wantToNoParticipate:
+            return "Do you want to cancel your participation in this race?"
+        case .ploggingSetWithSuccess:
+            return "Plogging has been set with success"
         }
     }
 
