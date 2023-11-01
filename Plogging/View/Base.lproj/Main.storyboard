@@ -299,6 +299,7 @@
                             <outlet property="haveToLoginLabel" destination="VwS-r7-Jdd" id="moF-jT-tA4"/>
                             <outlet property="initialImageView" destination="xVH-Qo-iX7" id="LJr-MU-NhH"/>
                             <outlet property="setPasswordButton" destination="Hu7-62-TQz" id="Cwl-QC-USd"/>
+                            <outlet property="welcomeLabel" destination="x5H-3D-thG" id="pph-Ve-2bH"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="My profile" id="91f-5u-8bP"/>

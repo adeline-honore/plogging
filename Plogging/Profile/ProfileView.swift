@@ -10,6 +10,8 @@ import UIKit
 class ProfileView: UIView {
 
     @IBOutlet weak var initialImageView: UIImageView!
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var setPasswordButton: UIButton!
     
@@ -18,10 +20,13 @@ class ProfileView: UIView {
 }
 
 extension ProfileView {
-    func configure(isConnected: Bool) {
+    func configure(isConnected: Bool, email: String) {
         circleImageRounded(initialImageView)
 
-        initialImageView.isHidden = !isConnected
+        haveToLoginLabel.text = Texts.haveToLoginMessage.value
+        welcomeLabel.isHidden = !isConnected
+        emailLabel.text = email
+        
         emailLabel.isHidden = !isConnected
         setPasswordButton.isHidden = !isConnected
         haveToLoginLabel.isHidden = isConnected

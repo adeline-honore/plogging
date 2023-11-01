@@ -26,6 +26,7 @@ class PersonalPloggingViewController: UIViewController {
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
 
+    private var isConnectedUser: Bool = false
     private var ploggings: [Plogging] = []
 
     private var ploggingsUI: [PloggingUI] = []
@@ -48,28 +49,29 @@ class PersonalPloggingViewController: UIViewController {
         noPloggingLabel.isHidden = true
         networkErrorLabel.isHidden = true
 
-        let isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
+        isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
 
-            tableView.isHidden = !isConnectedUser
-            haveToLoginView.isHidden = isConnectedUser
-            haveToLoginTextLabel.isHidden = isConnectedUser
-            haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
-            haveToLoginButton.isHidden = isConnectedUser
-            getPersonalPloggings()
-            createDataSection()
-            tableView.reloadData()
+        tableView.isHidden = !isConnectedUser
+        haveToLoginView.isHidden = isConnectedUser
+        haveToLoginTextLabel.isHidden = isConnectedUser
+        haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
+        haveToLoginButton.isHidden = isConnectedUser
+        getPersonalPloggings()
+        createDataSection()
+        tableView.reloadData()
+        
     }
 
     // MARK: - Display Personal Races
 
     private func displayPersonalPloggings() {
-        if ploggingsUI.isEmpty {
-            tableView.isHidden = true
+        tableView.isHidden = ploggingsUI.isEmpty
+        
+        if isConnectedUser && !ploggingsUI.isEmpty {
             noPloggingLabel.isHidden = false
             noPloggingLabel.text = Texts.noPlogging.value
             noPloggingLabel.textColor = Color().appColor
         } else {
-            tableView.isHidden = false
             noPloggingLabel.isHidden = true
         }
     }

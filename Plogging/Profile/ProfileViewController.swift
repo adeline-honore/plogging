@@ -24,8 +24,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(true)
         let isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
 
-        profileView.emailLabel.text = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue)
-        profileView.haveToLoginLabel.text = Texts.haveToLoginMessage.value
-        profileView.configure(isConnected: isConnectedUser)
+        let email = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""
+        profileView.configure(isConnected: isConnectedUser, email: email)
     }
 }
