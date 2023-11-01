@@ -39,7 +39,7 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
 
             self?.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
 
-            if CLLocationManager.authorizationStatus() == .notDetermined {
+            if self?.locationManager.authorizationStatus == .notDetermined {
                 self?.locationManager.requestWhenInUseAuthorization()
             } else {
                 self?.locationManager.requestLocation()
