@@ -40,10 +40,6 @@ class PopUpModalViewController: UIViewController {
     }
 
     func choiceValidated(element: AlertType) {
-        if element == AlertType.haveToLogin {
-            performSegue(withIdentifier: SegueIdentifier.fromMapToSignInOrUP.identifier, sender: self)
-        } else if element == AlertType.wantToParticipate || element == AlertType.wantToNoParticipate {
-            delegate?.didValidateAction()
-        }
+        delegate?.didValidateAction()
     }
 }

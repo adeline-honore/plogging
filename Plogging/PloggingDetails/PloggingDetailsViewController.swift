@@ -17,6 +17,8 @@ class PloggingDetailsViewController: UIViewController {
 
     private var ploggingDetailsView: PloggingDetailsView!
     private var isAdmin: Bool = false
+    
+    private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
     private var ploggingService = PloggingService()
     private let repository = PloggingCoreDataManager(
@@ -67,7 +69,8 @@ class PloggingDetailsViewController: UIViewController {
         if isInternetAvailable() && isConnectedUser {
             toggleTakePart()
         } else if isInternetAvailable() && !isConnectedUser {
-            PopUpModalViewController().userAlertWithChoice(element: .haveToLogin, viewController: self)
+            popUpModal.delegate = self
+            popUpModal.userAlertWithChoice(element: .haveToLogin, viewController: self)
         } else {
             PopUpModalViewController().userAlert(element: .unableToSaveChangeInternet, viewController: self)
         }
@@ -253,6 +256,6 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
 
 extension PloggingDetailsViewController: PopUpModalDelegate {
     func didValidateAction() {
-        saveTakePartChoice()
+        performSegue(withIdentifier: SegueIdentifier.fromDetailsToSignInOrUp.identifier, sender: self)
     }
 }

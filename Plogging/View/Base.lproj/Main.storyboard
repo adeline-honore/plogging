@@ -76,7 +76,7 @@
                         <segue destination="cjp-X3-h0i" kind="show" identifier="fromMapToPlogging" id="xPl-ih-Rc6"/>
                         <segue destination="mHZ-Vc-rgi" kind="show" identifier="fromMapToCreatePlogging" id="CDe-xZ-W2L"/>
                         <segue destination="JK4-nf-oDH" kind="presentation" identifier="appOverviewPage" id="cFW-Kj-qkK"/>
-                        <segue destination="aMf-2i-nsy" kind="show" identifier="fromMapToSignInOrUP" id="60G-7t-Ujx"/>
+                        <segue destination="aMf-2i-nsy" kind="show" identifier="fromMapToSignInOrUp" id="60G-7t-Ujx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSk-IY-h4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -558,6 +558,9 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="t4p-qq-uTf"/>
+                    <connections>
+                        <segue destination="aMf-2i-nsy" kind="show" identifier="fromDetailsToSignInOrUp" id="uIo-ek-C8L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhY-hL-IO8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -908,7 +911,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TRd-7a-Wbb"/>
+        <segue reference="uIo-ek-C8L"/>
         <segue reference="ILF-OV-iDw"/>
         <segue reference="SiG-cO-rBp"/>
     </inferredMetricsTieBreakers>

@@ -13,13 +13,14 @@ enum SegueIdentifier {
 
     case fromMapToPlogging
     case fromMapToCreatePlogging
-    case fromMapToSignInOrUP
+    case fromMapToSignInOrUp
 
     case fromPersonalToDetails
     case fromPersonalToSignInOrUp
 
     case fromCreateToLocalSearch
 
+    case fromDetailsToSignInOrUp
     case fromDetailsToCollectionView
     case fromDetailsToEmail
 
@@ -33,8 +34,8 @@ enum SegueIdentifier {
             return "fromMapToPlogging"
         case .fromMapToCreatePlogging:
             return "fromMapToCreatePlogging"
-        case .fromMapToSignInOrUP:
-            return "fromMapToLogin"
+        case .fromMapToSignInOrUp:
+            return "fromMapToSignInOrUp"
 
         case .fromPersonalToDetails:
             return "fromPersonalToDetails"
@@ -44,6 +45,8 @@ enum SegueIdentifier {
         case .fromCreateToLocalSearch:
             return "fromCreateToLocalSearch"
 
+        case .fromDetailsToSignInOrUp:
+            return "fromDetailsToSignInOrUp"
         case .fromDetailsToCollectionView:
             return "fromDetailsToCollectionView"
         case .fromDetailsToEmail:

@@ -118,10 +118,11 @@ class MapViewController: UIViewController {
         } else if segue.identifier == SegueIdentifier.fromMapToPlogging.identifier {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
-        } else if segue.identifier == SegueIdentifier.fromMapToSignInOrUP.identifier {
+        } else if segue.identifier == SegueIdentifier.fromMapToSignInOrUp.identifier {
             _ = segue.destination as? SignInOrUpViewController
         } else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
             if UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil {
+                popUpModal.delegate = self
                 popUpModal.userAlertWithChoice(element: .haveToLogin, viewController: self)
             } else {
                 let viewController = segue.destination as? CreatePloggingViewController
@@ -210,5 +211,11 @@ extension MapViewController: LocationManagerDelegate {
 //        // display PloggingAnnotation items
 //        displayPloggingAnnotationItems()
 
+    }
+}
+
+extension MapViewController: PopUpModalDelegate {
+    func didValidateAction() {
+        performSegue(withIdentifier: SegueIdentifier.fromMapToSignInOrUp.identifier, sender: self)
     }
 }
