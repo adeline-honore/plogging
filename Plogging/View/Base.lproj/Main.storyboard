@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hUe-CK-IaC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hUe-CK-IaC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="Presentation" id="JK4-nf-oDH" customClass="PresentationViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Afm-XA-pj0" customClass="PresentationView" customModule="Plogging" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="yIQ-iz-sCN"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,7 +192,7 @@
                         <outlet property="haveToLoginTextLabel" destination="7ZY-Y9-fCw" id="QeU-gi-02a"/>
                         <outlet property="haveToLoginView" destination="WD8-pS-yJY" id="Xer-BL-qWp"/>
                         <outlet property="networkErrorLabel" destination="HAF-aX-NwV" id="ezl-gt-vLl"/>
-                        <outlet property="noPloggingLabel" destination="KU9-7f-2cC" id="bR2-a2-phB"/>
+                        <outlet property="noPloggingLabel" destination="KU9-7f-2cC" id="eNx-Kx-dfM"/>
                         <outlet property="tableView" destination="nfy-Cr-6M6" id="15x-y1-Isj"/>
                         <segue destination="cjp-X3-h0i" kind="show" identifier="fromPersonalToDetails" id="ILF-OV-iDw"/>
                     </connections>
@@ -597,6 +597,7 @@
                                 <rect key="frame" x="107" y="394.5" width="200" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1xp-Ic-7rl"/>
+                                    <constraint firstAttribute="width" secondItem="7Ao-kR-69M" secondAttribute="height" multiplier="15:8" id="Doa-qQ-aYt"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="nIR-ea-She"/>
                                 </constraints>
                             </imageView>
@@ -606,7 +607,6 @@
                         <constraints>
                             <constraint firstItem="1bX-K7-AJr" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="1Ee-Bc-oeu"/>
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="4ig-MI-GK2"/>
-                            <constraint firstItem="7Ao-kR-69M" firstAttribute="width" secondItem="7Ao-kR-69M" secondAttribute="height" multiplier="15:8" id="Doa-qQ-aYt"/>
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="centerY" secondItem="kUM-5D-UNx" secondAttribute="centerY" id="exr-MT-XgZ"/>
                             <constraint firstItem="1bX-K7-AJr" firstAttribute="top" secondItem="7Ao-kR-69M" secondAttribute="bottom" constant="40" id="zBz-ro-TMR"/>
                         </constraints>
@@ -829,19 +829,19 @@
             <objects>
                 <viewController id="Lgn-rI-kpk" customClass="LocalSearchCompletionViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NT1-OE-0dU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Departure address ..." translatesAutoresizingMaskIntoConstraints="NO" id="ufX-gv-XkX">
-                                <rect key="frame" x="20" y="181" width="374" height="56"/>
+                                <rect key="frame" x="20" y="133" width="374" height="56"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="location"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uUL-xX-wuV">
-                                <rect key="frame" x="20" y="257" width="374" height="573"/>
+                                <rect key="frame" x="20" y="209" width="374" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mR-fA-cg3">
-                                <rect key="frame" x="344" y="68" width="50" height="50"/>
+                                <rect key="frame" x="344" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4mR-fA-cg3" secondAttribute="height" multiplier="1:1" id="axk-DK-PYa"/>
                                 </constraints>
@@ -852,7 +852,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a departure address : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-gU-ZZe">
-                                <rect key="frame" x="20" y="138" width="337" height="23"/>
+                                <rect key="frame" x="20" y="90" width="337" height="23"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

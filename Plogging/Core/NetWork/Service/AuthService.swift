@@ -13,9 +13,9 @@ class Authservice {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
 
             if error == nil {
-                completionHandler(FirebaseResult.success)
+                completionHandler(.success(FirebaseResult.success))
             } else {
-                completionHandler(ErrorType.network)
+                completionHandler(.failure(ErrorType.network))
             }
         }
     }
@@ -25,9 +25,9 @@ class Authservice {
           guard let strongSelf = self else { return }
 
             if error == nil {
-                completionHandler(FirebaseResult.success)
+                completionHandler(.success(FirebaseResult.success))
             } else {
-                completionHandler(ErrorType.network)
+                completionHandler(.failure(ErrorType.network))
             }
         }
     }
@@ -40,5 +40,5 @@ class Authservice {
 //            } else {
 //                completionHandler(ErrorType.network)
 //            }
-//        }
+        }
 }

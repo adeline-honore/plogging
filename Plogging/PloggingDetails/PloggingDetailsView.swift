@@ -10,7 +10,7 @@ import UIKit
 class PloggingDetailsView: UIView {
 
     @IBOutlet weak var mainImage: UIImageView!
-    @IBOutlet weak var photosButton: UIButton!
+//    @IBOutlet weak var photosButton: UIButton!
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var isTakingPartButton: UIButton!
     @IBOutlet weak var dateAndHourLabel: UILabel!
@@ -31,7 +31,7 @@ extension PloggingDetailsView {
         placeLabel.text = plogging.place
         adminNameLabel.text = plogging.admin
 
-        photosButton.tintColor = Color().appColor
+//        photosButton.tintColor = Color().appColor
         messageButton.tintColor = Color().appColor
         manageIsTakingPartButton(button: isTakingPartButton, isTakingPart: plogging.isTakingPart)
 

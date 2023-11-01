@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
-import FirebaseStorage
+//import FirebaseStorage
 
 class NetworkService {
 
@@ -43,19 +43,19 @@ class NetworkService {
 
     }
 
-    func uploadPhoto(ploggingUI: PloggingUI) {
+    func uploadPhoto(ploggingUI: PloggingUI, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
 
-        let storageRef = Storage.storage().reference()
-
-        guard let imageData = ploggingUI.mainImage?.jpegData(compressionQuality: 0.8) else { return }
-
-        let fileRef = storageRef.child("images/\(ploggingUI.id).jpg")
-
-        let uploadTask = fileRef.putData(imageData) { metadata, error in
-
-            if error == nil && metadata != nil {
-                
-            }
-        }
+//        let storageRef = Storage.storage().reference()
+//
+//        guard let imageData = ploggingUI.mainImage?.jpegData(compressionQuality: 0.8) else { return }
+//
+//        let fileRef = storageRef.child("images/\(ploggingUI.id).jpg")
+//
+//        let uploadTask = fileRef.putData(imageData) { metadata, error in
+//
+//            if error == nil && metadata != nil {
+//                
+//            }
+//        }
     }
 }

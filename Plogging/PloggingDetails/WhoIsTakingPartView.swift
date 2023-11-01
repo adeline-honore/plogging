@@ -8,16 +8,16 @@
 import UIKit
 
 class WhoIsTakingPartView: UIView {
-
-    // MARK: - IBOutlets
-
-    @IBOutlet weak var newEmailSentence: UILabel!
-    @IBOutlet weak var newEmailTextField: UITextField!
-
-}
-
-extension WhoIsTakingPartView {
-    func configure() {
-        newEmailSentence.text = Texts.newEmailSentence.value
-    }
+//
+//    // MARK: - IBOutlets
+//
+//    @IBOutlet weak var newEmailSentence: UILabel!
+//    @IBOutlet weak var newEmailTextField: UITextField!
+//
+//}
+//
+//extension WhoIsTakingPartView {
+//    func configure() {
+//        newEmailSentence.text = Texts.newEmailSentence.value
+//    }
 }
