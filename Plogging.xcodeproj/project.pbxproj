@@ -266,8 +266,6 @@
 			children = (
 				6E9040DF2AE30F18009A6E80 /* PloggingTests */,
 				6ED589B028E8D8B000450FE4 /* Plogging */,
-				6E9F11012AF1CF60005C087E /* SignInOrUp */,
-				6E9F11032AF1CF72005C087E /* SupportingFiles */,
 				6ED589AF28E8D8B000450FE4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -284,6 +282,8 @@
 		6ED589B028E8D8B000450FE4 /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
+				6E9F11032AF1CF72005C087E /* SupportingFiles */,
+				6E9F11012AF1CF60005C087E /* SignInOrUp */,
 				6EA0EB492AF059D000487F3F /* GoogleService-Info.plist */,
 				6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */,
 				6ED589E428E8D92F00450FE4 /* Core */,
