@@ -8,6 +8,8 @@
 import Foundation
 
 enum AlertType {
+    
+    case welcomeMessage
 
     case locationSaved
     case locationNotSaved
@@ -43,6 +45,8 @@ enum AlertType {
 
     var message: String {
         switch self {
+        case .welcomeMessage:
+            return "Welcome in the community of ploggers :-)"
         case .locationSaved:
             return "This location is saved ."
         case .locationNotSaved:

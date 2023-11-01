@@ -109,9 +109,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAF-aX-NwV">
-                                <rect key="frame" x="186" y="437" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAF-aX-NwV">
+                                <rect key="frame" x="20" y="112" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,7 +151,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nfy-Cr-6M6">
-                                <rect key="frame" x="20" y="100" width="374" height="705"/>
+                                <rect key="frame" x="20" y="117" width="374" height="688"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="identifier" id="CU6-I4-w8F">
@@ -173,9 +172,10 @@
                         <viewLayoutGuide key="safeArea" id="WfY-fR-ayI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="HAF-aX-NwV" firstAttribute="centerX" secondItem="wGr-Wv-B4G" secondAttribute="centerX" id="5Q0-nV-pR8"/>
                             <constraint firstItem="nfy-Cr-6M6" firstAttribute="centerX" secondItem="wGr-Wv-B4G" secondAttribute="centerX" id="B5U-Lp-yZx"/>
                             <constraint firstItem="WfY-fR-ayI" firstAttribute="bottom" secondItem="WD8-pS-yJY" secondAttribute="bottom" id="Hx6-Qr-Zhj"/>
-                            <constraint firstItem="nfy-Cr-6M6" firstAttribute="top" secondItem="WfY-fR-ayI" secondAttribute="top" constant="8" id="QbW-EN-DIK"/>
+                            <constraint firstItem="HAF-aX-NwV" firstAttribute="top" secondItem="WfY-fR-ayI" secondAttribute="top" constant="20" id="QuQ-Tw-GnB"/>
                             <constraint firstItem="WD8-pS-yJY" firstAttribute="top" secondItem="WfY-fR-ayI" secondAttribute="top" id="SVG-BR-zPv"/>
                             <constraint firstItem="nfy-Cr-6M6" firstAttribute="leading" secondItem="WfY-fR-ayI" secondAttribute="leading" constant="20" id="ftX-ki-DE0"/>
                             <constraint firstItem="WfY-fR-ayI" firstAttribute="bottom" secondItem="nfy-Cr-6M6" secondAttribute="bottom" constant="8" id="iqA-WP-jrx"/>
@@ -183,7 +183,9 @@
                             <constraint firstItem="KU9-7f-2cC" firstAttribute="centerY" secondItem="wGr-Wv-B4G" secondAttribute="centerY" id="jz2-nR-4Oj"/>
                             <constraint firstItem="WD8-pS-yJY" firstAttribute="leading" secondItem="WfY-fR-ayI" secondAttribute="leading" id="kHa-Wd-JfQ"/>
                             <constraint firstItem="KU9-7f-2cC" firstAttribute="centerX" secondItem="wGr-Wv-B4G" secondAttribute="centerX" id="m4e-cM-hA7"/>
+                            <constraint firstItem="HAF-aX-NwV" firstAttribute="leading" secondItem="WfY-fR-ayI" secondAttribute="leading" constant="20" id="wgl-8Q-zgx"/>
                             <constraint firstItem="KU9-7f-2cC" firstAttribute="leading" secondItem="wGr-Wv-B4G" secondAttribute="leading" constant="100" id="xk2-TY-GwM"/>
+                            <constraint firstItem="nfy-Cr-6M6" firstAttribute="top" secondItem="WfY-fR-ayI" secondAttribute="top" constant="25" id="y99-Y5-H9q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Races in which I participate" id="VCg-vZ-fQV"/>
@@ -911,7 +913,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uIo-ek-C8L"/>
+        <segue reference="TRd-7a-Wbb"/>
         <segue reference="ILF-OV-iDw"/>
         <segue reference="SiG-cO-rBp"/>
     </inferredMetricsTieBreakers>
