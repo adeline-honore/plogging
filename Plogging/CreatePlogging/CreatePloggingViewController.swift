@@ -20,6 +20,7 @@ class CreatePloggingViewController: UIViewController {
 
     private var createPloggingView: CreatePloggingView!
 
+    private var ploggingService = PloggingService()
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
@@ -32,6 +33,9 @@ class CreatePloggingViewController: UIViewController {
     private var selectedSearchCompletion: MKLocalSearchCompletion?
 
     private var localSearchCompletion = LocalSearchCompletion()
+    
+    private let popUpModal: PopUpModalViewController = PopUpModalViewController()
+
 
     // MARK: - Init
 
@@ -98,7 +102,7 @@ class CreatePloggingViewController: UIViewController {
 
         // Check plogging's place validity
         guard currentPlogging.isValid else {
-            PopUpModalViewController().userAlert(element: .ploggingWithoutPlace, viewController: self)
+            popUpModal.userAlert(element: .ploggingWithoutPlace, viewController: self)
             return
         }
 
@@ -111,27 +115,47 @@ class CreatePloggingViewController: UIViewController {
             case let .success(coordinates):
                 self.currentPlogging.latitude = coordinates?.latitude
                 self.currentPlogging.longitude = coordinates?.longitude
-                // TODO: save into CoreData
-                do {
-                    try self.repository.createEntity(ploggingUI: self.currentPlogging)
-                    // TO DO send ploggingUI in cloud
-                    self.navigationController?.popViewController(animated: true)
-                    self.delegate?.ploggingIsCreated(ploggingUICreated: self.currentPlogging)
-                } catch {
-                    PopUpModalViewController().userAlert(element: AlertType.ploggingNotSaved, viewController: self)
-                }
-            case let .failure(error):
-                print(error)
-                PopUpModalViewController().userAlert(element: AlertType.createError, viewController: self)
+                // create UUID for plogging
+//                currentPlogging.id = UUID().uuidString
+                
+                let gggg = String(Int.random(in: 0..<1000))
+                currentPlogging.id = "EEZZ-000-24-JAAUG-WWWW" + gggg
+                
+                distantDatabaseSaveRequest()
+            case .failure:
+                popUpModal.userAlert(element: AlertType.createError, viewController: self)
+            }
+        }
+    }
+    
+    private func distantDatabaseSaveRequest() {
+        ploggingService.savePloggingRequest(ploggingUI: currentPlogging) { result in
+                switch result {
+                case .success:
+                    self.internalDatabaseSaveRequest()
+                case .failure:
+                    self.popUpModal.userAlert(element: .network, viewController: self)
+            }
+        }
+    }
+    
+    private func internalDatabaseSaveRequest() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            do {
+                try self.repository.createEntity(ploggingUI: self.currentPlogging)
+                self.navigationController?.popViewController(animated: true)
+                self.delegate?.ploggingIsCreated(ploggingUICreated: self.currentPlogging)
+            } catch {
+                popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)
             }
         }
     }
 
     private func setPloggingElement() {
-        let randomInt = Int.random(in: 0...1000)
-        currentPlogging.id = "plogging \(randomInt)"
-        currentPlogging.admin = "admin \(randomInt)"
-        currentPlogging.ploggers = ["admin\(randomInt)"]
+        currentPlogging.id = "plogging"
+        currentPlogging.admin = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""
+        currentPlogging.ploggers = [UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""]
         currentPlogging.isTakingPart = true
         currentPlogging.distance = Double(distanceSelected) ?? 2
 

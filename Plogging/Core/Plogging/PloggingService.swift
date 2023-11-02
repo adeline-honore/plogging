@@ -17,6 +17,18 @@ class PloggingService {
 //    }
 
     private let networkService = NetworkService()
+    
+    func savePloggingRequest(ploggingUI: PloggingUI, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+        
+        networkService.createDatabasePlogging(ploggingUI: ploggingUI) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(.network))
+            }
+        }
+    }
 
     func load(completionHandler: @escaping (Result<[Plogging], Error>) -> Void) {
 

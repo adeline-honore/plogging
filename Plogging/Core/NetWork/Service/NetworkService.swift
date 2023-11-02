@@ -10,6 +10,30 @@ import FirebaseDatabase
 //import FirebaseStorage
 
 class NetworkService {
+    
+    func createDatabasePlogging(ploggingUI: PloggingUI, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+        
+        // create object with accepted datas
+        let ploggingToSave:[String: Any] = [
+            "id": NSString(string: ploggingUI.id),
+            "admin": NSString(string: ploggingUI.admin),
+            "beginning": NSNumber(value: ploggingUI.beginning.timeIntervalSince1970),
+            "place": NSString(string: ploggingUI.place),
+            "latitude": NSNumber(value: ploggingUI.latitude ?? 0.0),
+            "longitude": NSNumber(value: ploggingUI.longitude ?? 0.0),
+            "ploggers": NSArray(array: [ploggingUI.admin]),
+            "distance": NSNumber(value: ploggingUI.distance)
+            ]
+        
+        DatabaseURL.ref.child("plogging\(ploggingUI.id)").setValue(ploggingToSave) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                completionHandler(.failure(ErrorType.network))
+            } else {
+                completionHandler(.success(FirebaseResult.success))
+            }
+        }
+    }
 
     func getPloggingList(completionHandler: @escaping (Result<Data, Error>) -> Void) {
 
