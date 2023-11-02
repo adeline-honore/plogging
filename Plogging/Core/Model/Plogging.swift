@@ -12,21 +12,13 @@ struct PloggingDatas: Codable {
 }
 
 struct Plogging: Codable {
-    let id: String
-
-    let admin: String
-
-    let beginning: String
-
-    let place: String
-
-    let latitude: Double
-    let longitude: Double
-
-    let ploggers: [String]
-
-    var isTakingPart: Bool
-
+    var id: String
+    var admin: String
+    var beginning: String
+    var place: String
+    var latitude: Double
+    var longitude: Double
+    var ploggers: [String]
     var distance: Double
 
     init() {
@@ -37,7 +29,6 @@ struct Plogging: Codable {
         latitude = 0.0
         longitude = 0.0
         ploggers = [""]
-        isTakingPart = true
         distance = 10
     }
 

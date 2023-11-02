@@ -36,6 +36,8 @@ class PersonalPloggingViewController: UIViewController {
     private var dateNowInteger: Date = Date()
 
     private let icon = UIImage(imageLiteralResourceName: "icon")
+    
+    private var isTakingPart: Bool = false
 
     // MARK: - Init
 
@@ -60,6 +62,7 @@ class PersonalPloggingViewController: UIViewController {
         createDataSection()
         tableView.reloadData()
         
+        isTakingPart = ploggingUI?.ploggers?.contains(UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? "") != nil
     }
 
     // MARK: - Display Personal Races
@@ -95,7 +98,7 @@ class PersonalPloggingViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             ploggingList.forEach { item in
-                if item.isTakingPart {
+                if self.isTakingPart {
                     self.ploggings.append(item)
                 }
             }

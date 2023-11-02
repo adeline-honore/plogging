@@ -25,7 +25,7 @@ class CreatePloggingViewController: UIViewController {
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
 
-    private var currentPlogging: PloggingUI = PloggingUI()
+    private var currentPloggingUI: PloggingUI = PloggingUI()
     private var startDate: Date = Date()
 
     private var distanceArray: [String] = []
@@ -101,7 +101,7 @@ class CreatePloggingViewController: UIViewController {
         setPloggingElement()
 
         // Check plogging's place validity
-        guard currentPlogging.isValid else {
+        guard currentPloggingUI.isValid else {
             popUpModal.userAlert(element: .ploggingWithoutPlace, viewController: self)
             return
         }
@@ -113,13 +113,13 @@ class CreatePloggingViewController: UIViewController {
 
             switch result {
             case let .success(coordinates):
-                self.currentPlogging.latitude = coordinates?.latitude
-                self.currentPlogging.longitude = coordinates?.longitude
+                self.currentPloggingUI.latitude = coordinates?.latitude
+                self.currentPloggingUI.longitude = coordinates?.longitude
                 // create UUID for plogging
 //                currentPlogging.id = UUID().uuidString
                 
                 let gggg = String(Int.random(in: 0..<1000))
-                currentPlogging.id = "EEZZ-000-24-JAAUG-WWWW" + gggg
+                currentPloggingUI.id = "EEZZ-000-24-JAAUG-WWWW" + gggg
                 
                 distantDatabaseSaveRequest()
             case .failure:
@@ -129,7 +129,36 @@ class CreatePloggingViewController: UIViewController {
     }
     
     private func distantDatabaseSaveRequest() {
-        ploggingService.savePloggingRequest(ploggingUI: currentPlogging) { result in
+        DispatchQueue.main.async { [weak self] in
+            self?.ploggingService.load { result in
+                
+                self?.updatePloggingData(array: [])
+                //            switch result {
+                //            case .success(let array):
+                //                self.updatePloggingData(array: array)
+                //            case .failure:
+                //                self.popUpModal.userAlert(element: .network, viewController: self)
+                //            }
+            }
+        }
+    }
+    
+    private func updatePloggingData(array: [Plogging]) {
+        var ploggingList = array
+        
+        var currentPlogging = Plogging()
+        currentPlogging.id = currentPloggingUI.id
+        currentPlogging.admin = currentPloggingUI.admin
+        currentPlogging.beginning = convertDateToString(date: currentPloggingUI.beginning)
+        currentPlogging.latitude = currentPloggingUI.latitude ?? 0.0
+        currentPlogging.longitude = currentPloggingUI.longitude ?? 0.0
+        currentPlogging.ploggers = [currentPloggingUI.admin]
+        currentPlogging.distance = currentPloggingUI.distance
+        
+        
+        ploggingList.append(currentPlogging)
+        
+        ploggingService.savePloggingRequest(ploggingArray: ploggingList) { result in
                 switch result {
                 case .success:
                     self.internalDatabaseSaveRequest()
@@ -139,13 +168,25 @@ class CreatePloggingViewController: UIViewController {
         }
     }
     
+    private func convertDateToString(date: Date) -> String {
+        // Create Date Formatter
+        let dateFormatter = DateFormatter()
+
+        // Set Date Format
+        dateFormatter.dateFormat = "YY, MMM d, hh:mm"
+
+        // Convert Date to String
+        return dateFormatter.string(from: date)
+    }
+    
+    
     private func internalDatabaseSaveRequest() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             do {
-                try self.repository.createEntity(ploggingUI: self.currentPlogging)
+                try self.repository.createEntity(ploggingUI: self.currentPloggingUI)
                 self.navigationController?.popViewController(animated: true)
-                self.delegate?.ploggingIsCreated(ploggingUICreated: self.currentPlogging)
+                self.delegate?.ploggingIsCreated(ploggingUICreated: self.currentPloggingUI)
             } catch {
                 popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)
             }
@@ -153,15 +194,15 @@ class CreatePloggingViewController: UIViewController {
     }
 
     private func setPloggingElement() {
-        currentPlogging.id = "plogging"
-        currentPlogging.admin = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""
-        currentPlogging.ploggers = [UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""]
-        currentPlogging.isTakingPart = true
-        currentPlogging.distance = Double(distanceSelected) ?? 2
+        currentPloggingUI.id = "plogging"
+        currentPloggingUI.admin = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""
+        currentPloggingUI.ploggers = [UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""]
+        currentPloggingUI.isTakingPart = true
+        currentPloggingUI.distance = Double(distanceSelected) ?? 2
 
-        guard let image = currentPlogging.mainImage else { return }
-        if currentPlogging.mainImage != nil {
-            currentPlogging.mainImageBinary = image.jpegData(compressionQuality: 1)
+        guard let image = currentPloggingUI.mainImage else { return }
+        if currentPloggingUI.mainImage != nil {
+            currentPloggingUI.mainImageBinary = image.jpegData(compressionQuality: 1)
         }
     }
 
@@ -202,7 +243,7 @@ extension CreatePloggingViewController: LocalSearchCompletionViewControllerDeleg
     func departurePlaceChoosen(result: MKLocalSearchCompletion) {
         createPloggingView.resultLocationLabel.text = result.title
         selectedSearchCompletion = result
-        currentPlogging.place = result.title
+        currentPloggingUI.place = result.title
     }
 }
 
@@ -227,7 +268,7 @@ extension CreatePloggingViewController: UIImagePickerControllerDelegate, UINavig
             return
         }
 
-        currentPlogging.mainImage = choosenImage
+        currentPloggingUI.mainImage = choosenImage
 
         picker.dismiss(animated: true, completion: nil)
     }

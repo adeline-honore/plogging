@@ -45,7 +45,7 @@ struct PloggingUI {
 
         ploggers = plogging.ploggers
 
-        isTakingPart = plogging.isTakingPart
+        isTakingPart = false
 
         distance = plogging.distance
     }

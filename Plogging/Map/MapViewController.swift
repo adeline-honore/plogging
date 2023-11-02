@@ -77,6 +77,7 @@ class MapViewController: UIViewController {
             }
         }
     }
+    
 
     private func createPloggingAnnotationItems(ploggingList: [Plogging]) {
         DispatchQueue.main.async { [weak self] in
