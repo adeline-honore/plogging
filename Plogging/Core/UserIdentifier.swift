@@ -23,7 +23,7 @@ class UserIdentifier {
         }
     }
     
-    func signinRequest(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+    func signInRequest(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
 
         authService.connectUser(email: email, password: password) { result in
             switch result {

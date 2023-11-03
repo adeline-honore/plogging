@@ -42,9 +42,7 @@ class NetworkService {
     func getPloggingList(completionHandler: @escaping (Result<[Plogging], ErrorType>) -> Void) {
         DatabaseURL.ref.observe(DataEventType.childAdded) { snapshot   in
             var ploggingArray = [Plogging]()
-            print(snapshot.childrenCount) // I got the expected number of items
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
-//                print(rest.value)
                 let dict = rest.value as? NSDictionary
 
                 var newPlogging = Plogging()
@@ -63,7 +61,6 @@ class NetworkService {
             if snapshot.exists() {
                 completionHandler(.success(ploggingArray))
             } else {
-                print("getPloggingList error")
                 completionHandler(.failure(ErrorType.snapshotDoNotExist))
             }
         }

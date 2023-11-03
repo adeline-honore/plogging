@@ -13,6 +13,8 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
 
     private var signInOrUpView: SignInOrUpView!
+    private var userIdentifier = UserIdentifier()
+    private var popUpModal = PopUpModalViewController()
 
     // MARK: - Life cycle
 
@@ -41,19 +43,19 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
         } else if validateEmail(email: signInOrUpView.emailTextField.text ?? "") == false {
             PopUpModalViewController().userAlert(element: .invalidEmail, viewController: self)
         } else {
-            createUser()
+            createUser(email: email ?? "", password: password ?? "")
         }
     }
 
-    private func createUser() {
-        Auth.auth().createUser(withEmail: signInOrUpView.emailTextField.text!, password: signInOrUpView.passwordTextField.text!) { (authResult, error) in
-
-            if error == nil {
-                UserDefaults.standard.set(self.signInOrUpView.emailTextField.text, forKey: "emailAddress")
+    private func createUser(email: String, password: String) {
+        userIdentifier.createUserRequest(email: email, password: password){ result in
+            switch result {
+            case .success:
+                UserDefaults.standard.set(email, forKey: "emailAddress")
                 _ = self.navigationController?.popViewController(animated: true)
-                PopUpModalViewController().userAlert(element: .welcomeMessage, viewController: self)
-            } else {
-                PopUpModalViewController().userAlert(element: .unableToCreateUser, viewController: self)
+                self.popUpModal.userAlert(element: .welcomeMessage, viewController: self)
+            case .failure:
+                self.popUpModal.userAlert(element: .unableToConnectUser, viewController: self)
             }
         }
     }

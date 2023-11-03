@@ -10,6 +10,7 @@ import Foundation
 enum AlertType {
     
     case welcomeMessage
+    case salutationsMessage
     case logOut
 
     case locationSaved
@@ -32,6 +33,7 @@ enum AlertType {
     case unableToSaveChangeInternet
     case unableToCreate
     case unableToCreateUser
+    case unableToConnectUser
 
     case unavailableEmail
     case invalidEmail
@@ -48,6 +50,8 @@ enum AlertType {
         switch self {
         case .welcomeMessage:
             return "Welcome in the community of ploggers :-)"
+        case .salutationsMessage:
+            return "Hi, we are happy to see you again ."
         case .logOut:
             return "Are you sure that you want to log out ?"
         case .locationSaved:
@@ -84,6 +88,8 @@ enum AlertType {
             return "Unable to create Plogging. There is no internet connection"
         case .unableToCreateUser:
             return "Unable to create user. Please try again later ."
+        case .unableToConnectUser:
+            return "Unable to connect user. Please try again ."
 
         case .unavailableEmail:
             return "Please, enter an email address ."

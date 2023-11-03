@@ -583,13 +583,20 @@
         <!--Sign In View Controller-->
         <scene sceneID="4Rf-Ao-TFs">
             <objects>
-                <viewController id="u0z-XU-7t2" customClass="SignInViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kUM-5D-UNx">
+                <viewController id="u0z-XU-7t2" customClass="SignInViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kUM-5D-UNx" customClass="SignInView" customModule="Plogging" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ao-kR-69M">
+                                <rect key="frame" x="40" y="112" width="334" height="178"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7Ao-kR-69M" secondAttribute="height" multiplier="15:8" id="Doa-qQ-aYt"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="nIR-ea-She"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1bX-K7-AJr">
-                                <rect key="frame" x="87" y="541.5" width="240" height="73"/>
+                                <rect key="frame" x="87" y="411.5" width="240" height="73"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zoh-2J-aPB">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
@@ -611,23 +618,32 @@
                                     <constraint firstItem="Zoh-2J-aPB" firstAttribute="leading" secondItem="1bX-K7-AJr" secondAttribute="leading" id="t0Z-uV-CfU"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ao-kR-69M">
-                                <rect key="frame" x="107" y="394.5" width="200" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="1xp-Ic-7rl"/>
-                                    <constraint firstAttribute="width" secondItem="7Ao-kR-69M" secondAttribute="height" multiplier="15:8" id="Doa-qQ-aYt"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="nIR-ea-She"/>
-                                </constraints>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-0P-blu">
+                                <rect key="frame" x="80" y="758.5" width="254" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="didTapSigInButton" destination="u0z-XU-7t2" eventType="touchUpInside" id="pRY-ql-Sl6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UE2-6N-Cu4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1bX-K7-AJr" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="1Ee-Bc-oeu"/>
+                            <constraint firstItem="1bX-K7-AJr" firstAttribute="centerY" secondItem="kUM-5D-UNx" secondAttribute="centerY" id="2HK-K9-IA3"/>
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="4ig-MI-GK2"/>
-                            <constraint firstItem="7Ao-kR-69M" firstAttribute="centerY" secondItem="kUM-5D-UNx" secondAttribute="centerY" id="exr-MT-XgZ"/>
-                            <constraint firstItem="1bX-K7-AJr" firstAttribute="top" secondItem="7Ao-kR-69M" secondAttribute="bottom" constant="40" id="zBz-ro-TMR"/>
+                            <constraint firstItem="z1T-0P-blu" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="GRH-sK-0qF"/>
+                            <constraint firstItem="7Ao-kR-69M" firstAttribute="top" secondItem="UE2-6N-Cu4" secondAttribute="top" constant="20" id="OL3-F7-DSe"/>
+                            <constraint firstItem="z1T-0P-blu" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="80" id="WFg-2Y-vUQ"/>
+                            <constraint firstItem="UE2-6N-Cu4" firstAttribute="bottom" secondItem="z1T-0P-blu" secondAttribute="bottom" constant="20" id="aNU-jB-W6p"/>
+                            <constraint firstItem="7Ao-kR-69M" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="40" id="d7R-qo-55T"/>
                         </constraints>
+                        <connections>
+                            <outlet property="emailTextField" destination="Zoh-2J-aPB" id="tva-MS-2p7"/>
+                            <outlet property="passwordTextField" destination="mRa-uA-ZTL" id="iBt-81-4VU"/>
+                            <outlet property="signInButton" destination="z1T-0P-blu" id="khW-lr-Wjz"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="6Si-nK-9pC"/>
                 </viewController>

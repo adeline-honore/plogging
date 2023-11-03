@@ -37,21 +37,11 @@ class PloggingService {
             switch result {
             case .success(let ploggingArray):
                 completionHandler(.success(ploggingArray))
-            case .failure(let error):
-                print(error)
+            case .failure:
                 completionHandler(.failure(ErrorType.network))
             }
         }
     }
-    
-//    private func transformToPloggingsModel(data: Data) throws -> PloggingDatas? {
-//
-//        do {
-//            return try JSONDecoder().decode(PloggingDatas.self, from: data)
-//        } catch {
-//            throw error
-//        }
-//    }
 
     func setPlogging(ploggingUI: PloggingUI, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
 
