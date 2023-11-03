@@ -47,7 +47,7 @@ struct PloggingUI {
 
         isTakingPart = false
 
-        distance = plogging.distance
+        distance = Double(plogging.distance)
     }
 
     // init for create an instance of PloggingUI

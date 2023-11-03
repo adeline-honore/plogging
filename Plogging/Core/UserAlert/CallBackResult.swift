@@ -14,4 +14,5 @@ enum FirebaseResult {
 enum ErrorType: Error {
     case network
     case coredataError
+    case snapshotDoNotExist
 }

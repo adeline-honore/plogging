@@ -84,8 +84,8 @@ class PersonalPloggingViewController: UIViewController {
         ploggingService.load { result in
             switch result {
             case .success(let ploggingsResult):
-                self.getPersonnalPloggingList(ploggingList: ploggingsResult)
-
+//                self.getPersonnalPloggingList(ploggingList: ploggingsResult)
+print("sssss")
             case .failure:
                 self.networkErrorLabel.isHidden = false
                 self.networkErrorLabel.text = Texts.ploggingUpDateError.value

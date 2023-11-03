@@ -13,6 +13,8 @@ class ProfileView: UIView {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var setPasswordButton: UIButton!
     
     @IBOutlet weak var haveToLoginLabel: UILabel!
@@ -26,6 +28,7 @@ extension ProfileView {
         haveToLoginLabel.text = Texts.haveToLoginMessage.value
         welcomeLabel.isHidden = !isConnected
         emailLabel.text = email
+        logOutButton.isHidden = !isConnected
         
         emailLabel.isHidden = !isConnected
         setPasswordButton.isHidden = !isConnected

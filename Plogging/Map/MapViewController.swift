@@ -72,6 +72,7 @@ class MapViewController: UIViewController {
             switch result {
             case .success(let ploggingsResult):
                 self.createPloggingAnnotationItems(ploggingList: ploggingsResult)
+                print("zzz")
             case .failure:
                 self.popUpModal.userAlert(element: .network, viewController: self)
             }
@@ -84,7 +85,7 @@ class MapViewController: UIViewController {
             guard let self = self else { return }
             MapViewController.ploggings = ploggingList
             self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: ploggingList))
-            self.ploggingsUI = self.transformPloggingsToPloggingsUI(ploggings: MapViewController.ploggings)
+            self.ploggingsUI = self.transformPloggingsToPloggingsUI(ploggings: ploggingList)
         }
     }
 

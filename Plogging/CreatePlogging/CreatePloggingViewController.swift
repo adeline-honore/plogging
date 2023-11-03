@@ -131,14 +131,13 @@ class CreatePloggingViewController: UIViewController {
     private func distantDatabaseSaveRequest() {
         DispatchQueue.main.async { [weak self] in
             self?.ploggingService.load { result in
-                
-                self?.updatePloggingData(array: [])
-                //            switch result {
-                //            case .success(let array):
-                //                self.updatePloggingData(array: array)
-                //            case .failure:
-                //                self.popUpModal.userAlert(element: .network, viewController: self)
-                //            }
+                guard let self else { return }
+                    switch result {
+                    case .success(let array):
+                        self.updatePloggingData(array: array)
+                    case .failure:
+                        self.popUpModal.userAlert(element: .network, viewController: self)
+                    }
             }
         }
     }
@@ -153,7 +152,7 @@ class CreatePloggingViewController: UIViewController {
         currentPlogging.latitude = currentPloggingUI.latitude ?? 0.0
         currentPlogging.longitude = currentPloggingUI.longitude ?? 0.0
         currentPlogging.ploggers = [currentPloggingUI.admin]
-        currentPlogging.distance = currentPloggingUI.distance
+        currentPlogging.distance = Int(currentPloggingUI.distance)
         
         
         ploggingList.append(currentPlogging)

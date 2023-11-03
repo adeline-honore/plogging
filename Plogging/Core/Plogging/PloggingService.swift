@@ -25,58 +25,26 @@ class PloggingService {
             case .success:
                 completionHandler(.success(FirebaseResult.success))
             case .failure:
-                completionHandler(.failure(.network))
+                completionHandler(.failure(.snapshotDoNotExist))
             }
         }
     }
-    
-//    func savePloggingRequest(ploggingUI: PloggingUI, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-//        
-//        networkService.createDatabasePlogging(ploggingUI: ploggingUI) { result in
-//            switch result {
-//            case .success:
-//                completionHandler(.success(FirebaseResult.success))
-//            case .failure:
-//                completionHandler(.failure(.network))
-//            }
-//        }
-//    }
 
     func load(completionHandler: @escaping (Result<[Plogging], ErrorType>) -> Void) {
 
         networkService.getPloggingList { result in
+            
             switch result {
-            case .success(let data):
-                if !data.isEmpty {
-                    do {
-                        let firebaseData = try self.transformToPloggingsModel(data: data)
-                        //                    let ploggingList = firebaseData.datas.map {$0}
-                        
-                        //                    completionHandler(.success(ploggingList))
-//
-                        let ploggingArray = firebaseData.datas.map{$0}
-                        completionHandler(.success(ploggingArray))
-                    } catch {
-                        print("eeee")
-                        completionHandler(.failure(ErrorType.network))
-                    }} else {completionHandler(.success([]))}
+            case .success(let ploggingArray):
+                completionHandler(.success(ploggingArray))
             case .failure(let error):
                 print(error)
                 completionHandler(.failure(ErrorType.network))
             }
         }
     }
-
-    private func transformToPloggingsModel(data: Data) throws -> PloggingDatas {
-
-        do {
-            return try JSONDecoder().decode(PloggingDatas.self, from: data)
-        } catch {
-            throw error
-        }
-    }
     
-//    private func transformToPloggingsModel(data: Data) throws -> PloggingDatas {
+//    private func transformToPloggingsModel(data: Data) throws -> PloggingDatas? {
 //
 //        do {
 //            return try JSONDecoder().decode(PloggingDatas.self, from: data)

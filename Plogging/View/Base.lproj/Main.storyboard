@@ -280,26 +280,38 @@
                                     <segue destination="ZTp-gj-sFE" kind="show" id="qke-f5-9LR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvU-IM-UDk">
+                                <rect key="frame" x="80" y="556" width="254" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out ?"/>
+                                <connections>
+                                    <action selector="didTapLogOutButton" destination="3B7-NM-3ok" eventType="touchUpInside" id="C19-a1-rrK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CCm-vn-MV1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VwS-r7-Jdd" firstAttribute="centerY" secondItem="g6O-Ph-qI6" secondAttribute="centerY" id="2zd-WM-ZOU"/>
                             <constraint firstItem="CCm-vn-MV1" firstAttribute="bottom" secondItem="Hu7-62-TQz" secondAttribute="bottom" constant="20" id="5ez-z4-Rvm"/>
+                            <constraint firstItem="vvU-IM-UDk" firstAttribute="centerX" secondItem="g6O-Ph-qI6" secondAttribute="centerX" id="8Vv-de-gag"/>
                             <constraint firstItem="nma-KK-Xir" firstAttribute="centerX" secondItem="g6O-Ph-qI6" secondAttribute="centerX" id="CT5-NL-GdR"/>
                             <constraint firstItem="DkR-Am-TMd" firstAttribute="centerX" secondItem="g6O-Ph-qI6" secondAttribute="centerX" id="F1T-is-MbB"/>
                             <constraint firstItem="Hu7-62-TQz" firstAttribute="centerX" secondItem="g6O-Ph-qI6" secondAttribute="centerX" id="H4T-6g-G0z"/>
                             <constraint firstItem="nma-KK-Xir" firstAttribute="centerY" secondItem="g6O-Ph-qI6" secondAttribute="centerY" id="KPP-kh-rfh"/>
+                            <constraint firstItem="vvU-IM-UDk" firstAttribute="leading" secondItem="CCm-vn-MV1" secondAttribute="leading" constant="80" id="QGk-lw-1Qz"/>
                             <constraint firstItem="xVH-Qo-iX7" firstAttribute="top" secondItem="CCm-vn-MV1" secondAttribute="top" constant="20" id="Z2e-wM-cwJ"/>
                             <constraint firstItem="xVH-Qo-iX7" firstAttribute="centerX" secondItem="g6O-Ph-qI6" secondAttribute="centerX" id="dFX-XU-Wcj"/>
                             <constraint firstItem="VwS-r7-Jdd" firstAttribute="centerX" secondItem="g6O-Ph-qI6" secondAttribute="centerX" id="me5-oS-ZnL"/>
                             <constraint firstItem="CCm-vn-MV1" firstAttribute="bottom" secondItem="DkR-Am-TMd" secondAttribute="bottom" constant="20" id="rhy-BR-Ll3"/>
+                            <constraint firstItem="vvU-IM-UDk" firstAttribute="top" secondItem="nma-KK-Xir" secondAttribute="bottom" constant="80" id="tij-BS-aOd"/>
                         </constraints>
                         <connections>
                             <outlet property="emailLabel" destination="JX6-UR-Ro2" id="xO1-9h-19E"/>
                             <outlet property="haveToLoginButton" destination="DkR-Am-TMd" id="Slg-2T-53I"/>
                             <outlet property="haveToLoginLabel" destination="VwS-r7-Jdd" id="moF-jT-tA4"/>
                             <outlet property="initialImageView" destination="xVH-Qo-iX7" id="LJr-MU-NhH"/>
+                            <outlet property="logOutButton" destination="vvU-IM-UDk" id="8FT-4h-yAd"/>
                             <outlet property="setPasswordButton" destination="Hu7-62-TQz" id="Cwl-QC-USd"/>
                             <outlet property="welcomeLabel" destination="x5H-3D-thG" id="pph-Ve-2bH"/>
                         </connections>

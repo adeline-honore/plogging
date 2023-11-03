@@ -7,29 +7,32 @@
 
 import Foundation
 
+// MARK: - PloggingDatas
 struct PloggingDatas: Codable {
     let datas: [Plogging]
 }
 
+// MARK: - Plogging
 struct Plogging: Codable {
-    var id: String
     var admin: String
     var beginning: String
-    var place: String
+    var distance: Int
+    var id: String
     var latitude: Double
     var longitude: Double
+    var place: String
     var ploggers: [String]
-    var distance: Double
 
     init() {
-        id = ""
         admin = ""
         beginning = ""
-        place = ""
+        distance = 10
+        id = ""
         latitude = 0.0
         longitude = 0.0
+        place = ""
         ploggers = [""]
-        distance = 10
+       
     }
 
     func stringDateToDateObject(dateString: String) -> Date {

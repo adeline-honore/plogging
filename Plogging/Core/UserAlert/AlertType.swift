@@ -10,6 +10,7 @@ import Foundation
 enum AlertType {
     
     case welcomeMessage
+    case logOut
 
     case locationSaved
     case locationNotSaved
@@ -47,6 +48,8 @@ enum AlertType {
         switch self {
         case .welcomeMessage:
             return "Welcome in the community of ploggers :-)"
+        case .logOut:
+            return "Are you sure that you want to log out ?"
         case .locationSaved:
             return "This location is saved ."
         case .locationNotSaved:
