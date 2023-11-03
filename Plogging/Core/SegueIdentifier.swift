@@ -25,6 +25,8 @@ enum SegueIdentifier {
     case fromDetailsToEmail
 
     case fromCollectionViewToImage
+    
+    case fromProfileToMap
 
     var identifier: String {
         switch self {
@@ -54,6 +56,9 @@ enum SegueIdentifier {
 
         case .fromCollectionViewToImage:
             return "fromCollectionViewToImage"
+            
+        case .fromProfileToMap:
+            return "fromProfileToMap"
         }
     }
 }

@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Properties
 
     private var profileView: ProfileView!
+    private var userIdentifier = UserIdentifier()
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
     // MARK: - Init
@@ -24,10 +25,16 @@ class ProfileViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
+        let isConnectedUser = UserDefaults.standard.string(forKey: "emailAddress") != nil
 
-        let email = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""
+        let email = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
         profileView.configure(isConnected: isConnectedUser, email: email)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.fromProfileToMap.identifier {
+            _ = segue.destination as? MapViewController
+        }
     }
     
     // MARK: - Log Out
@@ -37,8 +44,22 @@ class ProfileViewController: UIViewController {
     }
     
     private func wantToLogOut() {
-//        UserDefaults.standard.set("", forKey: UserDefaultsName.emailAddress.rawValue)
-//        UserDefaults.removeObject(UserDefaults())
+        userIdentifier.signOutRequest { result in
+            switch result {
+            case .success:
+                self.logOutSucces()
+            case .failure:
+                self.popUpModal.userAlert(element: .unableToDisconnectUser, viewController: self)
+            }
+        }
+    }
+    
+    private func logOutSucces() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            UserDefaults.standard.set(nil, forKey: "emailAddress")
+            self.performSegue(withIdentifier: SegueIdentifier.fromProfileToMap.identifier, sender: self)
+        }
     }
 }
 

@@ -2038,48 +2038,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "30045B77-C516-47BD-9C28-6969C3EBDAF6"
+            uuid = "20BE3EDC-178C-490B-AC2D-A9AFC13327D0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/SignInOrUp/SignInOrUpViewController.swift"
+            filePath = "Plogging/Core/NetWork/Service/AuthService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "createUser(email:password:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "disconnectUser(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "844CA856-397C-4A0B-84BB-6D14F10F1E10"
+            uuid = "2FCB5335-592B-41EE-943E-44587F70DA85"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/SignInOrUp/SignInOrUpViewController.swift"
+            filePath = "Plogging/Profile/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "createUser(email:password:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3F0DB7C8-2A57-4A12-B4F5-5CDE07BDD0B9"
+            uuid = "E688DAD3-046B-42D0-9CEA-E0D90DAB2587"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Plogging/SignInOrUp/SignInOrUpViewController.swift"
+            filePath = "Plogging/Profile/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "createUser(email:password:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "logOutSucces()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -194,8 +194,8 @@ class CreatePloggingViewController: UIViewController {
 
     private func setPloggingElement() {
         currentPloggingUI.id = "plogging"
-        currentPloggingUI.admin = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""
-        currentPloggingUI.ploggers = [UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""]
+        currentPloggingUI.admin = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
+//        currentPloggingUI.ploggers = [UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""]
         currentPloggingUI.isTakingPart = true
         currentPloggingUI.distance = Double(distanceSelected) ?? 2
 

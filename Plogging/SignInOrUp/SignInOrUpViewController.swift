@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
 
@@ -39,9 +38,9 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
         let password = signInOrUpView.passwordTextField.text
         
         if (email == nil) || (password == nil) {
-            PopUpModalViewController().userAlert(element: .emptyIdentifier, viewController: self)
+            popUpModal.userAlert(element: .emptyIdentifier, viewController: self)
         } else if validateEmail(email: signInOrUpView.emailTextField.text ?? "") == false {
-            PopUpModalViewController().userAlert(element: .invalidEmail, viewController: self)
+            popUpModal.userAlert(element: .invalidEmail, viewController: self)
         } else {
             createUser(email: email ?? "", password: password ?? "")
         }

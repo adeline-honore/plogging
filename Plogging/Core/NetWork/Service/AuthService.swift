@@ -41,4 +41,13 @@ class Authservice {
 //                completionHandler(ErrorType.network)
 //            }
         }
+    
+    func disconnectUser(completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completionHandler(.success(.success))
+        } catch {
+            completionHandler(.failure(ErrorType.network))
+        }
+    }
 }

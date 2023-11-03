@@ -48,7 +48,7 @@ class PloggingDetailsViewController: UIViewController {
         ploggingDetailsView.configure(plogging: ploggingUI, isAdmin: isAdmin)
         isAdmin = ploggingUI.admin == UserDefaultsName.emailAddress.rawValue ? true : false
 
-        isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
+        isConnectedUser = UserDefaults.standard.string(forKey: "emailAddress") != nil
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,7 +86,7 @@ class PloggingDetailsViewController: UIViewController {
     }
 
     private func saveTakePartChoice() {
-        guard let emailIndex = ploggingUI?.ploggers?.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue)}) else {
+        guard let emailIndex = ploggingUI?.ploggers?.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: "emailAddress")}) else {
             return
         }
 
@@ -96,7 +96,7 @@ class PloggingDetailsViewController: UIViewController {
             ploggingUI?.ploggers?.remove(at: emailIndex)
         } else {
             ploggingUI?.isTakingPart = true
-            ploggingUI?.ploggers?.append(UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? "")
+            ploggingUI?.ploggers?.append(UserDefaults.standard.string(forKey: "emailAddress") ?? "")
         }
 
         guard let ploggingUI else { return }

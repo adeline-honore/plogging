@@ -317,6 +317,9 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="My profile" id="91f-5u-8bP"/>
+                    <connections>
+                        <segue destination="RTa-LR-pUA" kind="show" identifier="fromProfileToMap" id="aP2-ml-fqT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGU-5s-YnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -944,6 +947,7 @@
         <segue reference="TRd-7a-Wbb"/>
         <segue reference="ILF-OV-iDw"/>
         <segue reference="SiG-cO-rBp"/>
+        <segue reference="aP2-ml-fqT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22128194570000001" green="0.52676659820000005" blue="0.4954491258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

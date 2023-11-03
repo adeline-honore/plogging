@@ -34,4 +34,16 @@ class UserIdentifier {
             }
         }
     }
+    
+    func signOutRequest(completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+
+        authService.disconnectUser() { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(.network))
+            }
+        }
+    }
 }

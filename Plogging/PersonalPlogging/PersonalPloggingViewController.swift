@@ -51,18 +51,16 @@ class PersonalPloggingViewController: UIViewController {
         noPloggingLabel.isHidden = true
         networkErrorLabel.isHidden = true
 
-        isConnectedUser = UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) != nil
+        isConnectedUser = UserDefaults.standard.string(forKey: "emailAddress") != nil
 
-        tableView.isHidden = !isConnectedUser
         haveToLoginView.isHidden = isConnectedUser
         haveToLoginTextLabel.isHidden = isConnectedUser
         haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
         haveToLoginButton.isHidden = isConnectedUser
         getPersonalPloggings()
         createDataSection()
-        tableView.reloadData()
         
-        isTakingPart = ploggingUI?.ploggers?.contains(UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? "") != nil
+        isTakingPart = ploggingUI?.ploggers?.contains(UserDefaults.standard.string(forKey: "emailAddress") ?? "") != nil
     }
 
     // MARK: - Display Personal Races
@@ -71,11 +69,13 @@ class PersonalPloggingViewController: UIViewController {
         tableView.isHidden = ploggingsUI.isEmpty
         
         if isConnectedUser && !ploggingsUI.isEmpty {
+            noPloggingLabel.isHidden = true
+            tableView.isHidden = false
+            tableView.reloadData()
+        } else if isConnectedUser && ploggingsUI.isEmpty {
             noPloggingLabel.isHidden = false
             noPloggingLabel.text = Texts.noPlogging.value
             noPloggingLabel.textColor = Color().appColor
-        } else {
-            noPloggingLabel.isHidden = true
         }
     }
 
@@ -84,8 +84,7 @@ class PersonalPloggingViewController: UIViewController {
         ploggingService.load { result in
             switch result {
             case .success(let ploggingsResult):
-//                self.getPersonnalPloggingList(ploggingList: ploggingsResult)
-print("sssss")
+                self.getPersonnalPloggingList(ploggingList: ploggingsResult)
             case .failure:
                 self.networkErrorLabel.isHidden = false
                 self.networkErrorLabel.text = Texts.ploggingUpDateError.value
