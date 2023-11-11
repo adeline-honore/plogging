@@ -11,6 +11,7 @@ class PersonalPloggingViewController: UIViewController {
 
     // MARK: - IBOutlet
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noPloggingLabel: UILabel!
     @IBOutlet weak var haveToLoginView: UIView!
@@ -27,7 +28,6 @@ class PersonalPloggingViewController: UIViewController {
         managedObjectContext: CoreDataStack().viewContext)
 
     private var isConnectedUser: Bool = false
-    private var ploggings: [Plogging] = []
 
     private var ploggingsUI: [PloggingUI] = []
     private var ploggingsSection: [[PloggingUI]] = [[], []]
@@ -36,47 +36,70 @@ class PersonalPloggingViewController: UIViewController {
     private var dateNowInteger: Date = Date()
 
     private let icon = UIImage(imageLiteralResourceName: "icon")
-    
-    private var isTakingPart: Bool = false
 
-    // MARK: - Init
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        noPloggingLabel.isHidden = true
-        networkErrorLabel.isHidden = true
-
+        tableView.delegate = self
+        tableView.dataSource = self
         isConnectedUser = UserDefaults.standard.string(forKey: "emailAddress") != nil
 
-        haveToLoginView.isHidden = isConnectedUser
-        haveToLoginTextLabel.isHidden = isConnectedUser
-        haveToLoginTextLabel.text = Texts.haveToLoginMessage.value
-        haveToLoginButton.isHidden = isConnectedUser
-        getPersonalPloggings()
-        createDataSection()
+        activityIndicator.isHidden = false
+        tableView.isHidden = true
+        noPloggingLabel.isHidden = true
+        haveToLoginView.isHidden = true
+        haveToLoginTextLabel.isHidden = true
+        haveToLoginButton.isHidden = true
+        networkErrorLabel.isHidden = true
         
-        isTakingPart = ploggingUI?.ploggers?.contains(UserDefaults.standard.string(forKey: "emailAddress") ?? "") != nil
+        if !isInternetAvailable() && !isConnectedUser {
+            screenWhenInternetIsUnavailable()
+            screenWhenUserIsNotConnected()
+        } else if !isInternetAvailable() && isConnectedUser {
+            screenWhenUserIsNotConnected()
+            displayPloggingFromCoreData()
+        } else {
+            getPersonalPloggings()
+        }
+    }
+    
+    // MARK: - If Internet Unavailable
+
+    private func screenWhenInternetIsUnavailable() {
+        activityIndicator.isHidden = true
+        networkErrorLabel.isHidden = false
+    }
+    
+    // MARK: - If User Is Not Connected
+
+    private func screenWhenUserIsNotConnected() {
+        activityIndicator.isHidden = true
+        haveToLoginView.isHidden = false
+        haveToLoginTextLabel.isHidden = false
+        haveToLoginButton.isHidden = false
     }
 
     // MARK: - Display Personal Races
 
     private func displayPersonalPloggings() {
-        tableView.isHidden = ploggingsUI.isEmpty
-        
-        if isConnectedUser && !ploggingsUI.isEmpty {
-            noPloggingLabel.isHidden = true
+
+        if !ploggingsUI.isEmpty {
             tableView.isHidden = false
+            createDataSection()
             tableView.reloadData()
-        } else if isConnectedUser && ploggingsUI.isEmpty {
+            configureTableView()
+        } else {
             noPloggingLabel.isHidden = false
             noPloggingLabel.text = Texts.noPlogging.value
             noPloggingLabel.textColor = Color().appColor
         }
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
     }
 
     private func getPersonalPloggings() {
@@ -94,43 +117,75 @@ class PersonalPloggingViewController: UIViewController {
     }
 
     private func getPersonnalPloggingList(ploggingList: [Plogging]) {
+        var ploggings: [Plogging] = []
+
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
+            guard let emailAddress = UserDefaults.standard.string(forKey: "emailAddress") else { return }
+
             ploggingList.forEach { item in
-                if self.isTakingPart {
-                    self.ploggings.append(item)
+                if item.ploggers.contains(emailAddress) {
+                    ploggings.append(item)
                 }
             }
-            self.savePloggingListInCoreData(ploggingList: self.ploggings)
+            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, schedule: $0.stringDateToDateObject(dateString: $0.beginning)) }
+            displayPersonalPloggings()
+            self.savePloggingListInCoreData(ploggingUIList: ploggingsUI)
         }
     }
 
-    private func savePloggingListInCoreData(ploggingList: [Plogging]) {
-        displayPloggingFromCoreData()
-    }
+    // MARK: - Save Personal Races in CoreData
 
-    private func displayPloggingFromCoreData() {
+    private func savePloggingListInCoreData(ploggingUIList: [PloggingUI]) {
+
+        var ploggingUIListFromCD: [PloggingUI] = getPloggingFromCoreData()
+
+        let newPloggingsToSaveInCD = zip(ploggingUIList, ploggingUIListFromCD).enumerated().filter() {
+            $1.0.id == $1.1.id
+        }.map{$0.0}
+
+        var indexOfPloggingList: Int = 0
+        ploggingUIList.forEach { ploggingUI in
+            
+            if newPloggingsToSaveInCD.contains(indexOfPloggingList) {
+                do {
+                    try repository.createEntity(ploggingUI: ploggingUI)
+                } catch {
+                    print("fatalError")
+                }
+            } else {
+                do {
+                    try repository.setEntity(ploggingUI: ploggingUI)
+                } catch {
+                    print("fatalError")
+                }
+            }
+            indexOfPloggingList += 1
+        }
+    }
+    
+    // MARK: - Get Personal Races from CoreData
+
+    private func getPloggingFromCoreData() -> [PloggingUI] {
+        var ploggingUIList: [PloggingUI] = []
         do {
             let ploggingsCD = try repository.getEntities()
-            ploggingsUI = ploggingsCD.map { PloggingUI(
+            ploggingUIList = ploggingsCD.map { PloggingUI(
                 ploggingCD: $0,
                 beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? ""),
-                image: UIImage(data: $0.imageBinary ?? Data()) ?? icon,
-                photos: photosCDToPhotosUI(photosCD: getPhotosFromOwner(owner: $0) ?? [PhotoCD]()))
+                image: UIImage(data: $0.imageBinary ?? Data()) ?? icon
+                )
             }
         } catch {
-            fatalError()
+            print("fatalError")
         }
-        displayPersonalPloggings()
+        return ploggingUIList
     }
 
-    private func getPhotosFromOwner(owner: PloggingCD) -> [PhotoCD]? {
-        do {
-            return try repository.getPloggingPhoto(owner: owner)
-        } catch {
-            print("getPhotosFromOwner")
-        }
-        return nil
+    // MARK: - Display Personal Races from CoreData
+
+    private func displayPloggingFromCoreData() {
+        ploggingsUI = getPloggingFromCoreData()
     }
 
     private func photosCDToPhotosUI(photosCD: [Any]) -> [PhotoUI]? {
@@ -172,7 +227,7 @@ class PersonalPloggingViewController: UIViewController {
         }
     }
 
-    // MARK: - View details of plogging
+    // MARK: - Go To Plogging Details
 
     func sendPloggingUI() {
         performSegue(withIdentifier: SegueIdentifier.fromPersonalToDetails.identifier, sender: nil)
@@ -187,13 +242,15 @@ class PersonalPloggingViewController: UIViewController {
         }
     }
 
-    // MARK: - Log in
+    // MARK: - Go To Log in
 
     @IBAction func didTapOnLoginButton() {
         performSegue(withIdentifier: SegueIdentifier.fromPersonalToSignInOrUp.identifier, sender: nil)
     }
 
 }
+
+// MARK: - Extension for UITableView
 
 extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSource {
 

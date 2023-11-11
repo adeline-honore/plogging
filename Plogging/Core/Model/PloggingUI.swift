@@ -70,9 +70,23 @@ struct PloggingUI {
         self.distance = distance ?? 0
         self.ploggers = ploggers
     }
+    
+    // init from personnal Ploggin 
+    init(plogging: Plogging, beginning: Date, image: UIImage) {
+        self.id = plogging.id
+        self.admin = plogging.admin
+        self.beginning = beginning
+        self.place = plogging.place
+        self.latitude = plogging.latitude
+        self.longitude = plogging.longitude
+        self.ploggers = plogging.ploggers
+        self.isTakingPart = true
+        self.distance = Double(plogging.distance)
+//        self.mainImage = image
+    }
 
     // init from PlogginCD
-    init(ploggingCD: PloggingCD, beginning: Date, image: UIImage, photos: [PhotoUI]?) {
+    init(ploggingCD: PloggingCD, beginning: Date, image: UIImage/*, photos: [PhotoUI]?*/) {
         self.id = ploggingCD.id ?? ""
         self.admin = ploggingCD.admin ?? ""
         self.beginning = beginning
@@ -82,9 +96,9 @@ struct PloggingUI {
         self.ploggers = ploggingCD.ploggers ?? [""]
         self.isTakingPart = ploggingCD.isTakingPart
         self.distance = ploggingCD.distance
-        self.mainImageBinary = ploggingCD.imageBinary
-        self.mainImage = image
-        self.photos = photos
+//        self.mainImageBinary = ploggingCD.imageBinary
+//        self.mainImage = image
+//        self.photos = photos
     }
 
     func dateToDisplayedString(date: Date) -> String {
