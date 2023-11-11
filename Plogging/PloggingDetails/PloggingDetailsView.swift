@@ -9,34 +9,36 @@ import UIKit
 
 class PloggingDetailsView: UIView {
 
+    // MARK: - @IBOutlet
+
     @IBOutlet weak var mainImage: UIImageView!
-//    @IBOutlet weak var photosButton: UIButton!
+    @IBOutlet weak var editMainImageButton: UIButton!
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var isTakingPartButton: UIButton!
     @IBOutlet weak var dateAndHourLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var adminNameTextLabel: UILabel!
     @IBOutlet weak var adminNameLabel: UILabel!
-    @IBOutlet weak var editMainImageButton: UIButton!
-    @IBOutlet weak var adminStack: UIStackView!
-    @IBOutlet weak var ploggersStack: UIStackView!
     @IBOutlet weak var ploggerList: UILabel!
 }
 
 extension PloggingDetailsView {
+    // MARK: - Configure Plogging Details View
+
     func configure(plogging: PloggingUI, isAdmin: Bool) {
 
+        // @IBOutlet informations
         mainImage.image = plogging.mainImage
-
         dateAndHourLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)
         placeLabel.text = plogging.place
         adminNameLabel.text = plogging.admin
-
-//        photosButton.tintColor = Color().appColor
         messageButton.tintColor = Color().appColor
         manageIsTakingPartButton(button: isTakingPartButton, isTakingPart: plogging.isTakingPart)
+        manageMessageButtonLabel(button: messageButton, isAdmin: isAdmin)
 
-        adminStack.isHidden = isAdmin
-        ploggersStack.isHidden = !isAdmin
+        // Manage display @IBOutlet
+        adminNameTextLabel.isHidden = isAdmin
+        adminNameLabel.isHidden = isAdmin
         editMainImageButton.isHidden = !isAdmin
         isTakingPartButton.isHidden = isAdmin
         ploggerList.isHidden = !isAdmin

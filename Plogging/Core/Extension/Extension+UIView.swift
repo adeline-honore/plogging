@@ -19,4 +19,8 @@ extension UIView {
             button.tintColor = .gray
         }
     }
+    
+    func manageMessageButtonLabel(button: UIButton, isAdmin: Bool) {
+        isAdmin ? button.setTitle(" Send mail for all ploggers ?", for: .normal) : button.setTitle(" Send mail to race's admin ?", for: .normal)
+    }
 }

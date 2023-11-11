@@ -17,7 +17,7 @@ class PloggingDetailsViewController: UIViewController {
 
     private var ploggingDetailsView: PloggingDetailsView!
     private var isAdmin: Bool = false
-    
+
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
     private var ploggingService = PloggingService()
@@ -45,27 +45,17 @@ class PloggingDetailsViewController: UIViewController {
             return
         }
 
+        isAdmin = ploggingUI.admin == UserDefaults.standard.string(forKey: "emailAddress") ? true : false
+
         ploggingDetailsView.configure(plogging: ploggingUI, isAdmin: isAdmin)
-        isAdmin = ploggingUI.admin == UserDefaultsName.emailAddress.rawValue ? true : false
 
         isConnectedUser = UserDefaults.standard.string(forKey: "emailAddress") != nil
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == SegueIdentifier.fromDetailsToCollectionView.identifier {
-//            let viewController = segue.destination as? PloggingCollectionViewController
-//            viewController?.delegate = self
-//            guard let ploggingUI else { return }
-//            viewController?.ploggingId = ploggingUI.id
-//            viewController?.isPloggingAdmin = isAdmin
-//            guard let photos = ploggingUI.photos else { return }
-//            viewController?.photos = photos
-//        }
-    }
-
-    // MARK: - Toogle to take part at race
+    // MARK: - Toogle to take part at race For No Admin User
 
     @IBAction func didTapIsTakingPartButton() {
+        // only if user is not admin of race
         if isInternetAvailable() && isConnectedUser {
             toggleTakePart()
         } else if isInternetAvailable() && !isConnectedUser {
@@ -125,7 +115,7 @@ class PloggingDetailsViewController: UIViewController {
         }
     }
 
-    // MARK: - Set main image
+    // MARK: - Set main image For Admin
 
     @IBAction func didTapEditMainImage() {
         if isInternetAvailable() {
@@ -135,7 +125,7 @@ class PloggingDetailsViewController: UIViewController {
         }
     }
 
-    // MARK: - Open mail app and send mail
+    // MARK: - Open mail App app and send mail
 
     @IBAction func didTapMessageButton() {
         if isAdmin {
@@ -155,58 +145,6 @@ class PloggingDetailsViewController: UIViewController {
                 PopUpModalViewController().userAlert(element: .mailAppUnavailable, viewController: self)
             }
         }
-    }
-
-    // MARK: - Display all race's photos
-
-//    @IBAction func didTapPhotosButton() {
-//        performSegue(withIdentifier: SegueIdentifier.fromDetailsToCollectionView.identifier, sender: nil)
-//    }
-
-    // MARK: - Set images
-
-    private func setImage(photo: PhotoUI, action: String) {
-        do {
-            switch action {
-            case PhotoAction.create.rawValue:
-                let photoToCreate = PhotoUI(name: photo.name, imageBinary: photo.imageBinary, image: photo.image, owner: returnPloggingCD())
-                ploggingUI?.photos?.append(photoToCreate)
-                try repository.createPhotoEntity(photoUI: photoToCreate)
-            case PhotoAction.set.rawValue:
-                if let index = ploggingUI?.photos?.firstIndex(where: {$0.name == photo.name}) {
-                    ploggingUI?.photos?[index] = photo
-                } else {
-                    print("error")
-                }
-                try repository.setPhotoEntity(photo: photo)
-            case PhotoAction.delete.rawValue:
-                if let index = ploggingUI?.photos?.firstIndex(where: {$0.name == photo.name}) {
-                    ploggingUI?.photos?.remove(at: index)
-                } else {
-                    print("error")
-                }
-                try repository.removePhotoEntity(photo: photo)
-            default:
-                return
-            }
-        } catch {
-            print(error)
-        }
-    }
-
-    private func returnPloggingCD() -> PloggingCD {
-
-        guard let ploggingUI else { return PloggingCD() }
-
-        do {
-            let ploggingsCD = try repository.getEntities()
-
-            guard let ploggingCD = ploggingsCD.first(where: {$0.id == ploggingUI.id}) else { return PloggingCD()}
-            return ploggingCD
-        } catch {
-            print(error)
-        }
-        return PloggingCD()
     }
 }
 
