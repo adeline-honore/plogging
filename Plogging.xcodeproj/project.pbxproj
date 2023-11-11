@@ -449,6 +449,7 @@
 				6ED589AB28E8D8B000450FE4 /* Frameworks */,
 				6ED589AC28E8D8B000450FE4 /* Resources */,
 				6E3239242AEF05FE001B4D8B /* ShellScript */,
+				0996895E2AFAF42700387E71 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -552,6 +553,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0996895E2AFAF42700387E71 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 		0BF5EC9D5E420965E723712B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -843,6 +861,8 @@
 				DEVELOPMENT_TEAM = 7MYTN58B65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plogging/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to autofill the start/end location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to autofill the start/end location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -872,6 +892,8 @@
 				DEVELOPMENT_TEAM = 7MYTN58B65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plogging/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to autofill the start/end location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to autofill the start/end location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -39,10 +39,7 @@ class MapViewController: UIViewController {
             UserDefaults.standard.set(true, forKey: UserDefaultsName.executeOnce.rawValue)
 
         } else {
-            // get user geo location
-            if isInternetAvailable() {
-                locationManager.getUserGeoLocation()
-            } else {
+            if !isInternetAvailable() {
                 popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
             }
         }
@@ -50,9 +47,6 @@ class MapViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if isInternetAvailable() {
-            displayPloggingAnnotationItems()
-        }
     }
 
     // MARK: - App overview page
@@ -72,13 +66,11 @@ class MapViewController: UIViewController {
             switch result {
             case .success(let ploggingsResult):
                 self.createPloggingAnnotationItems(ploggingList: ploggingsResult)
-                print("zzz")
             case .failure:
                 self.popUpModal.userAlert(element: .network, viewController: self)
             }
         }
     }
-    
 
     private func createPloggingAnnotationItems(ploggingList: [Plogging]) {
         DispatchQueue.main.async { [weak self] in
@@ -123,7 +115,7 @@ class MapViewController: UIViewController {
         } else if segue.identifier == SegueIdentifier.fromMapToSignInOrUp.identifier {
             _ = segue.destination as? SignInOrUpViewController
         } else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
-            if UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) == nil {
+            if UserDefaults.standard.string(forKey: "emailAddress") == nil {
                 popUpModal.delegate = self
                 popUpModal.userAlertWithChoice(element: .haveToLogin, viewController: self)
             } else {
@@ -184,9 +176,7 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: PresentationViewControllerDelegate {
     func didPressDismissButton() {
         // get user geo location
-        if isInternetAvailable() {
-            locationManager.getUserGeoLocation()
-        } else {
+        if !isInternetAvailable() {
             popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
         }
     }
@@ -210,9 +200,8 @@ extension MapViewController: LocationManagerDelegate {
         // display user location point
         mapView.showsUserLocation = true
 
-//        // display PloggingAnnotation items
-//        displayPloggingAnnotationItems()
-
+        // display PloggingAnnotation items
+        displayPloggingAnnotationItems()
     }
 }
 

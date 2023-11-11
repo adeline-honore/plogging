@@ -30,20 +30,25 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
 
     // MARK: - User's geo location
 
-    func getUserGeoLocation () {
-
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard CLLocationManager.locationServicesEnabled() else {
-                return
-            }
-
-            self?.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-
-            if self?.locationManager.authorizationStatus == .notDetermined {
-                self?.locationManager.requestWhenInUseAuthorization()
-            } else {
-                self?.locationManager.requestLocation()
-
+            guard let self else { return }
+            switch manager.authorizationStatus {
+            case .authorizedWhenInUse:  // Location services are available.
+                self.locationManager.startUpdatingLocation()
+                break
+                
+            case .restricted, .denied:  // Location services currently unavailable.
+                //            disableLocationFeatures()
+                print("restricted")
+                break
+                
+            case .notDetermined:        // Authorization not determined yet.
+                manager.requestWhenInUseAuthorization()
+                break
+                
+            default:
+                break
             }
         }
     }
