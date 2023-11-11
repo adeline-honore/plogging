@@ -341,22 +341,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4t-41-WKK">
-                                <rect key="frame" x="344" y="112" width="50" height="34"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="didTapCancelButton" destination="ZTp-gj-sFE" eventType="touchUpInside" id="RVl-D5-944"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your new password : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWa-CB-4Fn">
-                                <rect key="frame" x="20" y="166" width="374" height="23"/>
+                                <rect key="frame" x="20" y="192" width="374" height="23"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZd-zy-8jF">
-                                <rect key="frame" x="20" y="197" width="374" height="37"/>
+                                <rect key="frame" x="20" y="223" width="374" height="37"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="new-password"/>
                             </textField>
@@ -371,26 +363,36 @@
                                     <action selector="didTapSaveButton" destination="ZTp-gj-sFE" eventType="touchUpInside" id="HVu-8g-Mkj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79d-OL-NrK">
+                                <rect key="frame" x="40" y="438" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f97-eG-mWp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="q4t-41-WKK" firstAttribute="top" secondItem="f97-eG-mWp" secondAttribute="top" constant="20" id="3hm-KL-jCR"/>
                             <constraint firstItem="VWa-CB-4Fn" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="20" id="8AO-rz-MwI"/>
                             <constraint firstItem="JZd-zy-8jF" firstAttribute="centerX" secondItem="H8F-iH-bzX" secondAttribute="centerX" id="EdU-Tv-Xbt"/>
                             <constraint firstItem="Duc-UM-w00" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="20" id="EiT-GU-iMp"/>
                             <constraint firstItem="f97-eG-mWp" firstAttribute="bottom" secondItem="Duc-UM-w00" secondAttribute="bottom" constant="16" id="GaZ-aE-WE4"/>
-                            <constraint firstItem="f97-eG-mWp" firstAttribute="trailing" secondItem="q4t-41-WKK" secondAttribute="trailing" constant="20" id="Sah-24-Uhz"/>
                             <constraint firstItem="VWa-CB-4Fn" firstAttribute="centerX" secondItem="H8F-iH-bzX" secondAttribute="centerX" id="WEa-E0-dxM"/>
-                            <constraint firstItem="VWa-CB-4Fn" firstAttribute="top" secondItem="q4t-41-WKK" secondAttribute="bottom" constant="20" id="cyL-hH-MKz"/>
+                            <constraint firstItem="79d-OL-NrK" firstAttribute="centerX" secondItem="H8F-iH-bzX" secondAttribute="centerX" id="Xlu-zX-ipq"/>
                             <constraint firstItem="JZd-zy-8jF" firstAttribute="top" secondItem="VWa-CB-4Fn" secondAttribute="bottom" constant="8" id="d0K-6k-DaK"/>
                             <constraint firstItem="JZd-zy-8jF" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="20" id="iR1-Ak-U8K"/>
+                            <constraint firstItem="79d-OL-NrK" firstAttribute="centerY" secondItem="H8F-iH-bzX" secondAttribute="centerY" id="jBE-dD-od5"/>
+                            <constraint firstItem="VWa-CB-4Fn" firstAttribute="top" secondItem="f97-eG-mWp" secondAttribute="top" constant="100" id="rVO-cf-uML"/>
                             <constraint firstItem="f97-eG-mWp" firstAttribute="trailing" secondItem="Duc-UM-w00" secondAttribute="trailing" constant="20" id="sZk-E6-R6j"/>
+                            <constraint firstItem="79d-OL-NrK" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="40" id="uvU-GB-rHR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TRv-n3-4XS"/>
                     <connections>
+                        <outlet property="noInternetLabel" destination="79d-OL-NrK" id="AT9-Gf-P7M"/>
+                        <outlet property="passwordLabel" destination="VWa-CB-4Fn" id="FWY-aq-Y0C"/>
                         <outlet property="passwordTextField" destination="JZd-zy-8jF" id="F3b-CR-a1M"/>
+                        <outlet property="setPasswordButton" destination="Duc-UM-w00" id="wT0-db-Vxb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gfy-v1-YDD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -967,7 +969,6 @@
         <image name="person.fill.xmark" catalog="system" width="128" height="89"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
         <image name="x.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

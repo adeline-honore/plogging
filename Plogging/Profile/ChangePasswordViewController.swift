@@ -11,9 +11,18 @@ class ChangePasswordViewController: SetConstraintForKeyboardViewController {
 
     // MARK: - IBOutlet
 
+    
+    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var noInternetLabel: UILabel!
+    @IBOutlet weak var setPasswordButton: UIButton!
+    
+    // MARK: - Properties
 
-    // MARK: - Init
+    private var userIdentifier = UserIdentifier()
+    private let popUpModal: PopUpModalViewController = PopUpModalViewController()
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +30,36 @@ class ChangePasswordViewController: SetConstraintForKeyboardViewController {
         setupKeyboardDismissRecognizer(self)
     }
 
-    // MARK: - Save button
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
-    @IBAction func didTapSaveButton() {
+        passwordLabel.isHidden = !isInternetAvailable()
+        passwordTextField.isHidden = !isInternetAvailable()
+        noInternetLabel.isHidden = isInternetAvailable()
+        noInternetLabel.text = Texts.internetIsUnavailable.value
+        setPasswordButton.isHidden = !isInternetAvailable()
     }
 
-    // MARK: - Cancel button
+    // MARK: - Set Password
 
-    @IBAction func didTapCancelButton() {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func didTapSaveButton() {
+        wantToSetPassword()
+    }
+
+    private func wantToSetPassword() {
+
+        guard let newPassword = passwordTextField.text, !newPassword.isEmpty else {
+            popUpModal.userAlert(element: .emptyIdentifier, viewController: self)
+            return
+            }
+
+        userIdentifier.setPasswordRequest(newPassword: newPassword) { result in
+            switch result {
+            case .success:
+                self.popUpModal.userAlert(element: .passwordSetted, viewController: self)
+            case .failure:
+                self.popUpModal.userAlert(element: .unableToSetPassword, viewController: self)
+            }
+        }
     }
 }

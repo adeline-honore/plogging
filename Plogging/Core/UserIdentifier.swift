@@ -35,6 +35,17 @@ class UserIdentifier {
         }
     }
     
+    func setPasswordRequest(newPassword: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+        authService.changePassword(newPassword: newPassword) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(.network))
+            }
+        }
+    }
+    
     func signOutRequest(completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
 
         authService.disconnectUser() { result in

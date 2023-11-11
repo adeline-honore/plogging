@@ -35,6 +35,8 @@ enum AlertType {
     case unableToCreateUser
     case unableToConnectUser
     case unableToDisconnectUser
+    case passwordSetted
+    case unableToSetPassword
 
     case unavailableEmail
     case invalidEmail
@@ -93,6 +95,10 @@ enum AlertType {
             return "Unable to connect user. Please try again ."
         case .unableToDisconnectUser:
             return "Unable to disconnect ."
+        case .passwordSetted:
+            return "Password setted with success ."
+        case .unableToSetPassword:
+            return "Unable to set password ."
 
         case .unavailableEmail:
             return "Please, enter an email address ."
