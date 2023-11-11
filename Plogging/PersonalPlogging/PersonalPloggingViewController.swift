@@ -128,17 +128,26 @@ class PersonalPloggingViewController: UIViewController {
                     ploggings.append(item)
                 }
             }
-            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, schedule: $0.stringDateToDateObject(dateString: $0.beginning)) }
+            
+            var imageList: [PloggingImage] = []
+            
+            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, beginning: $0.stringDateToDateObject(dateString: $0.beginning), image:  self.associateImageToPloggingUI(images: imageList, ploggindId: $0.id)) }
             displayPersonalPloggings()
             self.savePloggingListInCoreData(ploggingUIList: ploggingsUI)
         }
+    }
+    
+    private func associateImageToPloggingUI(images: [PloggingImage], ploggindId: String) -> UIImage {
+
+        guard let image = images.first(where: { $0.id == ploggindId })?.mainImage else { return icon}
+        return image
     }
 
     // MARK: - Save Personal Races in CoreData
 
     private func savePloggingListInCoreData(ploggingUIList: [PloggingUI]) {
 
-        var ploggingUIListFromCD: [PloggingUI] = getPloggingFromCoreData()
+        let ploggingUIListFromCD: [PloggingUI] = getPloggingFromCoreData()
 
         let newPloggingsToSaveInCD = zip(ploggingUIList, ploggingUIListFromCD).enumerated().filter() {
             $1.0.id == $1.1.id
