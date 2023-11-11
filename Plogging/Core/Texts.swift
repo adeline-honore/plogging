@@ -14,6 +14,8 @@ enum Texts {
     case onBoardingTabTwo
     case onBoardingTabThree
     case onBoardingButton
+    
+    case internetIsUnavailable
 
     case noPlogging
 
@@ -22,6 +24,7 @@ enum Texts {
     case newEmailSentence
 
     case haveToLoginMessage
+    case haveToLoginMessageNoInternet
 
     case ploggingUpDateError
 
@@ -37,6 +40,9 @@ enum Texts {
             return "Let's go \nand \nclean Earth !!"
         case .onBoardingButton:
             return "OK !"
+            
+        case .internetIsUnavailable:
+            return "No internet connection ."
 
         case .noPlogging:
             return "There is no race in which you participate ."
@@ -48,7 +54,9 @@ enum Texts {
             return "Please, enter an email address to participate at this race ."
 
         case .haveToLoginMessage:
-            return "Please, login to acces to this page"
+            return "Please, log in to acces to this page"
+        case .haveToLoginMessageNoInternet:
+            return "Please, log in to acces to this page when internet will be available"
 
         case .ploggingUpDateError:
             return "Impossible to update your ploggings"

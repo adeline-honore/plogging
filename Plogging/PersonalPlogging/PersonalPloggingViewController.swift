@@ -61,8 +61,10 @@ class PersonalPloggingViewController: UIViewController {
             screenWhenInternetIsUnavailable()
             screenWhenUserIsNotConnected()
         } else if !isInternetAvailable() && isConnectedUser {
-            screenWhenUserIsNotConnected()
+            screenWhenInternetIsUnavailable()
             displayPloggingFromCoreData()
+        } else if isInternetAvailable() && !isConnectedUser {
+            screenWhenUserIsNotConnected()
         } else {
             getPersonalPloggings()
         }
@@ -73,13 +75,16 @@ class PersonalPloggingViewController: UIViewController {
     private func screenWhenInternetIsUnavailable() {
         activityIndicator.isHidden = true
         networkErrorLabel.isHidden = false
+        networkErrorLabel.text = Texts.internetIsUnavailable.value
     }
     
     // MARK: - If User Is Not Connected
 
     private func screenWhenUserIsNotConnected() {
+        activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         haveToLoginView.isHidden = false
+        haveToLoginTextLabel.text = isInternetAvailable() ? Texts.haveToLoginMessage.value : Texts.haveToLoginMessageNoInternet.value
         haveToLoginTextLabel.isHidden = false
         haveToLoginButton.isHidden = false
     }
