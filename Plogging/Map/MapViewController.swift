@@ -52,7 +52,7 @@ class MapViewController: UIViewController {
     // MARK: - App overview page
 
     private func displayAppOverviewPage() {
-        performSegue(withIdentifier: SegueIdentifier.appOverviewPage.identifier, sender: nil)
+        performSegue(withIdentifier: SegueIdentifier.appOverviewPage.rawValue, sender: nil)
     }
 
     // MARK: - Initial Location on Map
@@ -105,16 +105,16 @@ class MapViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if segue.identifier == SegueIdentifier.appOverviewPage.identifier {
+        if segue.identifier == SegueIdentifier.appOverviewPage.rawValue {
             let overVC = segue.destination as? PresentationViewController
             overVC?.presentationViewControllerDelegate = self
 
-        } else if segue.identifier == SegueIdentifier.fromMapToPlogging.identifier {
+        } else if segue.identifier == SegueIdentifier.fromMapToPlogging.rawValue {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
-        } else if segue.identifier == SegueIdentifier.fromMapToSignInOrUp.identifier {
+        } else if segue.identifier == SegueIdentifier.fromMapToSignInOrUp.rawValue {
             _ = segue.destination as? SignInOrUpViewController
-        } else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.identifier {
+        } else if segue.identifier == SegueIdentifier.fromMapToCreatePlogging.rawValue {
             if UserDefaults.standard.string(forKey: "emailAddress") == nil {
                 popUpModal.delegate = self
                 popUpModal.userAlertWithChoice(element: .haveToLogin, viewController: self)
@@ -128,7 +128,7 @@ class MapViewController: UIViewController {
     // MARK: - Go to create a plogging
 
     @IBAction func didTapCreatePlogging(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: SegueIdentifier.fromMapToCreatePlogging.identifier, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.fromMapToCreatePlogging.rawValue, sender: self)
     }
 }
 
@@ -169,7 +169,7 @@ extension MapViewController: MKMapViewDelegate {
 
         ploggingUI = selected
 
-        performSegue(withIdentifier: SegueIdentifier.fromMapToPlogging.identifier, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.fromMapToPlogging.rawValue, sender: self)
     }
 }
 
@@ -207,6 +207,6 @@ extension MapViewController: LocationManagerDelegate {
 
 extension MapViewController: PopUpModalDelegate {
     func didValidateAction() {
-        performSegue(withIdentifier: SegueIdentifier.fromMapToSignInOrUp.identifier, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.fromMapToSignInOrUp.rawValue, sender: self)
     }
 }

@@ -208,7 +208,7 @@ class CreatePloggingViewController: UIViewController {
     // MARK: - Segue
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifier.fromCreateToLocalSearch.identifier {
+        if segue.identifier == SegueIdentifier.fromCreateToLocalSearch.rawValue {
             let overVC = segue.destination as? LocalSearchCompletionViewController
             overVC?.localSearchCompletionViewControllerDelegate = self
         }

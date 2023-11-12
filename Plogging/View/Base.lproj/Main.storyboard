@@ -261,6 +261,7 @@
                                 <connections>
                                     <action selector="didTapOnLoginButton" destination="Ciz-NZ-kBh" eventType="touchUpInside" id="2iI-TX-cin"/>
                                     <action selector="didTapSaveButton" destination="ZTp-gj-sFE" eventType="touchUpInside" id="41B-tf-8Dk"/>
+                                    <segue destination="aMf-2i-nsy" kind="show" identifier="fromProfileToSignInOrUp" id="2Yf-Eu-2QB"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="nma-KK-Xir">
@@ -953,7 +954,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TRd-7a-Wbb"/>
+        <segue reference="2Yf-Eu-2QB"/>
         <segue reference="ILF-OV-iDw"/>
         <segue reference="SiG-cO-rBp"/>
         <segue reference="aP2-ml-fqT"/>

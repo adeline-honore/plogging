@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifier.fromProfileToMap.identifier {
+        if segue.identifier == SegueIdentifier.fromProfileToMap.rawValue {
             _ = segue.destination as? MapViewController
         }
     }
@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             UserDefaults.standard.set(nil, forKey: "emailAddress")
-            self.performSegue(withIdentifier: SegueIdentifier.fromProfileToMap.identifier, sender: self)
+            self.performSegue(withIdentifier: SegueIdentifier.fromProfileToMap.rawValue, sender: self)
         }
     }
 }

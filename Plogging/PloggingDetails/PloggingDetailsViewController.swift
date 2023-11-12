@@ -194,6 +194,6 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
 
 extension PloggingDetailsViewController: PopUpModalDelegate {
     func didValidateAction() {
-        performSegue(withIdentifier: SegueIdentifier.fromDetailsToSignInOrUp.identifier, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.fromDetailsToSignInOrUp.rawValue, sender: self)
     }
 }

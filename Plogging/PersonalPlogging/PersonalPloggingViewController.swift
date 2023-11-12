@@ -244,14 +244,14 @@ class PersonalPloggingViewController: UIViewController {
     // MARK: - Go To Plogging Details
 
     func sendPloggingUI() {
-        performSegue(withIdentifier: SegueIdentifier.fromPersonalToDetails.identifier, sender: nil)
+        performSegue(withIdentifier: SegueIdentifier.fromPersonalToDetails.rawValue, sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifier.fromPersonalToDetails.identifier {
+        if segue.identifier == SegueIdentifier.fromPersonalToDetails.rawValue {
             let viewController = segue.destination as? PloggingDetailsViewController
             viewController?.ploggingUI = ploggingUI
-        } else if segue.identifier == SegueIdentifier.fromPersonalToSignInOrUp.identifier {
+        } else if segue.identifier == SegueIdentifier.fromPersonalToSignInOrUp.rawValue {
             _ = segue.destination as? SignInOrUpViewController
         }
     }
@@ -259,7 +259,7 @@ class PersonalPloggingViewController: UIViewController {
     // MARK: - Go To Log in
 
     @IBAction func didTapOnLoginButton() {
-        performSegue(withIdentifier: SegueIdentifier.fromPersonalToSignInOrUp.identifier, sender: nil)
+        performSegue(withIdentifier: SegueIdentifier.fromPersonalToSignInOrUp.rawValue, sender: nil)
     }
 
 }
