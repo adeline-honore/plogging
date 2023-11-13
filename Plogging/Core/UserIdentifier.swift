@@ -11,9 +11,8 @@ class UserIdentifier {
     
     private let authService = Authservice()
 
-    // MARK: - Call To API To Create New User
+    // MARK: - Request To Create New User
     func createUserRequest(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-
         authService.createUserIdentifier(email: email, password: password) { result in
             switch result {
             case .success:
@@ -24,9 +23,8 @@ class UserIdentifier {
         }
     }
 
-    // MARK: - Call To API To Sign In
+    // MARK: - Request To Sign In
     func signInRequest(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-
         authService.connectUser(email: email, password: password) { result in
             switch result {
             case .success:
@@ -37,7 +35,7 @@ class UserIdentifier {
         }
     }
 
-    // MARK: - Call To API To Set Password
+    // MARK: - Request To Set Password
     func setPasswordRequest(newPassword: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
         authService.changePassword(newPassword: newPassword) { result in
             switch result {
@@ -49,7 +47,7 @@ class UserIdentifier {
         }
     }
 
-    // MARK: - Call To API When Password Is Forgotten
+    // MARK: - Request When Password Is Forgotten
     func forgotPasswordRequest(email: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
         authService.forgotPasswordAPI(email: email) {
             result in
@@ -62,7 +60,7 @@ class UserIdentifier {
         }
     }
 
-    // MARK: - Call To API To Sign Out
+    // MARK: - Request To Sign Out
     func signOutRequest(completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
 
         authService.disconnectUser() { result in

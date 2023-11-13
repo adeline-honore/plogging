@@ -45,7 +45,8 @@ class MapViewController: UIViewController {
         if !isInternetAvailable() {
             popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
         } else {
-// TODO a appeler 
+            // display PloggingAnnotation items
+            displayPloggingAnnotationItems()
         }
     }
 
@@ -201,9 +202,6 @@ extension MapViewController: LocationManagerDelegate {
 
         // display user location point
         mapView.showsUserLocation = true
-
-        // display PloggingAnnotation items
-        displayPloggingAnnotationItems()
     }
 }
 
