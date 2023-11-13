@@ -20,6 +20,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         signInView = view as? SignInView
+        signInView.configure()
         setupKeyboardDismissRecognizer(self)
 
         signInView.emailTextField.becomeFirstResponder()
@@ -30,10 +31,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Sign In Request
 
     @IBAction func didTapSigInButton() {
-        signupButtonWasPressed()
+        signInButtonWasPressed()
     }
 
-    private func signupButtonWasPressed() {
+    private func signInButtonWasPressed() {
         let email = signInView.emailTextField.text
         let password = signInView.passwordTextField.text
 

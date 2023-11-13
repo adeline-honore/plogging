@@ -37,16 +37,16 @@ class MapViewController: UIViewController {
         if !UserDefaults.standard.bool(forKey: UserDefaultsName.executeOnce.rawValue) {
             displayAppOverviewPage()
             UserDefaults.standard.set(true, forKey: UserDefaultsName.executeOnce.rawValue)
-
-        } else {
-            if !isInternetAvailable() {
-                popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
-            }
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if !isInternetAvailable() {
+            popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
+        } else {
+// TODO a appeler 
+        }
     }
 
     // MARK: - App overview page
@@ -59,6 +59,8 @@ class MapViewController: UIViewController {
 
     private func setInitialLocation() {
         mapView.centerToLocation(userLocation)
+        print("loc")
+        print(userLocation)
     }
 
     private func displayPloggingAnnotationItems() {

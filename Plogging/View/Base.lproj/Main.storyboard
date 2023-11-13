@@ -639,6 +639,24 @@
                                     <action selector="didTapSigInButton" destination="u0z-XU-7t2" eventType="touchUpInside" id="pRY-ql-Sl6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftn-H9-ZFo">
+                                <rect key="frame" x="186" y="357" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Lf-9i-Wdo">
+                                <rect key="frame" x="87" y="584.5" width="240" height="34.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="nVq-hL-v3A"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password ?"/>
+                                <connections>
+                                    <segue destination="EQK-Lo-YMe" kind="show" id="jyP-Sb-MuR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UE2-6N-Cu4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -648,14 +666,18 @@
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="4ig-MI-GK2"/>
                             <constraint firstItem="z1T-0P-blu" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="GRH-sK-0qF"/>
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="top" secondItem="UE2-6N-Cu4" secondAttribute="top" constant="20" id="OL3-F7-DSe"/>
+                            <constraint firstItem="6Lf-9i-Wdo" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="Tv0-rF-Ui1"/>
                             <constraint firstItem="z1T-0P-blu" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="80" id="WFg-2Y-vUQ"/>
                             <constraint firstItem="UE2-6N-Cu4" firstAttribute="bottom" secondItem="z1T-0P-blu" secondAttribute="bottom" constant="20" id="aNU-jB-W6p"/>
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="40" id="d7R-qo-55T"/>
+                            <constraint firstItem="6Lf-9i-Wdo" firstAttribute="top" secondItem="1bX-K7-AJr" secondAttribute="bottom" constant="100" id="ji0-YE-0ca"/>
                         </constraints>
                         <connections>
                             <outlet property="emailTextField" destination="Zoh-2J-aPB" id="tva-MS-2p7"/>
+                            <outlet property="forgotPasswordButton" destination="6Lf-9i-Wdo" id="IAk-q9-dTV"/>
                             <outlet property="passwordTextField" destination="mRa-uA-ZTL" id="iBt-81-4VU"/>
                             <outlet property="signInButton" destination="z1T-0P-blu" id="khW-lr-Wjz"/>
+                            <outlet property="signInLabel" destination="ftn-H9-ZFo" id="hci-xd-txW"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="6Si-nK-9pC"/>
@@ -663,6 +685,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTo-GX-zC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4838" y="-2206"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="tWP-P3-GGO">
+            <objects>
+                <viewController id="EQK-Lo-YMe" customClass="ForgotPasswordViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tM9-Mc-WiM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0u-kA-T3T">
+                                <rect key="frame" x="165" y="688" width="85" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Validate"/>
+                                <connections>
+                                    <action selector="didTapForgotButton" destination="EQK-Lo-YMe" eventType="touchUpInside" id="IJ3-xh-QKk"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRN-P9-Yog">
+                                <rect key="frame" x="40" y="431" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0v-p7-IDN">
+                                <rect key="frame" x="40" y="386" width="334" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sHb-Jo-0FW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jRN-P9-Yog" firstAttribute="leading" secondItem="sHb-Jo-0FW" secondAttribute="leading" constant="40" id="88O-OM-9bO"/>
+                            <constraint firstItem="jRN-P9-Yog" firstAttribute="top" secondItem="c0v-p7-IDN" secondAttribute="bottom" constant="24" id="BXB-hS-fT1"/>
+                            <constraint firstItem="c0v-p7-IDN" firstAttribute="leading" secondItem="sHb-Jo-0FW" secondAttribute="leading" constant="40" id="Hti-a8-8hl"/>
+                            <constraint firstItem="jRN-P9-Yog" firstAttribute="centerY" secondItem="tM9-Mc-WiM" secondAttribute="centerY" id="Shy-mu-XPv"/>
+                            <constraint firstItem="jRN-P9-Yog" firstAttribute="centerX" secondItem="tM9-Mc-WiM" secondAttribute="centerX" id="Zb5-Jq-hGi"/>
+                            <constraint firstItem="c0v-p7-IDN" firstAttribute="centerX" secondItem="tM9-Mc-WiM" secondAttribute="centerX" id="jpG-AL-O73"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Hu-C1-gu5"/>
+                    <connections>
+                        <outlet property="forgotPasswordButton" destination="g0u-kA-T3T" id="nDW-nD-6W0"/>
+                        <outlet property="forgotPasswordLabel" destination="c0v-p7-IDN" id="7UH-iA-Vra"/>
+                        <outlet property="forgotPasswordTextField" destination="jRN-P9-Yog" id="Aog-JN-apk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzg-jU-lT6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5738" y="-2206"/>
         </scene>
         <!--Sign In Or Up View Controller-->
         <scene sceneID="qDe-nh-qg2">
@@ -974,7 +1047,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

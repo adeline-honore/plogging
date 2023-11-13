@@ -37,6 +37,9 @@ enum AlertType {
     case unableToDisconnectUser
     case passwordSetted
     case unableToSetPassword
+    case forgotPassword
+    case forgotPaswwordRequestSuccess
+    case forgotPasswordRequestFailed
 
     case unavailableEmail
     case invalidEmail
@@ -99,6 +102,12 @@ enum AlertType {
             return "Password setted with success ."
         case .unableToSetPassword:
             return "Unable to set password ."
+        case .forgotPassword:
+            return "Do you forgot your password ?"
+        case .forgotPaswwordRequestSuccess:
+            return "You received an email to reset your password"
+        case .forgotPasswordRequestFailed:
+            return "Unable to send email fot your forgotten password"
 
         case .unavailableEmail:
             return "Please, enter an email address ."

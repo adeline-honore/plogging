@@ -14,8 +14,8 @@
             filePath = "Plogging/Core/UserIdentifier.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "createUserRequest(email:password:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Plogging/Core/UserIdentifier.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "createUserRequest(email:password:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1039,9 +1039,9 @@
             filePath = "Plogging/SignInOrUp/SignInViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "signupButtonWasPressed()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "signInButtonWasPressed()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1074,6 +1074,51 @@
                   endingLineNumber = "37"
                   offsetFromSymbolStart = "124">
                </Location>
+               <Location
+                  uuid = "607B9CC7-D8D4-4930-952D-CBF737613071 - dc1fbe31db93fb0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.SignInViewController.signupButtonWasPressed() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/SignInOrUp/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "607B9CC7-D8D4-4930-952D-CBF737613071 - 8085e8ab95df7f35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.SignInViewController.signInButtonWasPressed() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/SignInOrUp/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "607B9CC7-D8D4-4930-952D-CBF737613071 - 8085e8ab95df78f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.SignInViewController.signInButtonWasPressed() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/SignInOrUp/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "124">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1087,8 +1132,8 @@
             filePath = "Plogging/Core/NetWork/Service/AuthService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "disconnectUser(completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1120,6 +1165,81 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "50"
                   endingLineNumber = "50"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "20BE3EDC-178C-490B-AC2D-A9AFC13327D0 - 57811c7105c6bffa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Authservice.disconnectUser(completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "20BE3EDC-178C-490B-AC2D-A9AFC13327D0 - 57811c7105c6bf9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Authservice.disconnectUser(completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "20BE3EDC-178C-490B-AC2D-A9AFC13327D0 - 57811c7105c6bd4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Authservice.disconnectUser(completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "20BE3EDC-178C-490B-AC2D-A9AFC13327D0 - 57811c7105c6bd21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Authservice.disconnectUser(completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "20BE3EDC-178C-490B-AC2D-A9AFC13327D0 - 57811c7105c6bcc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Authservice.disconnectUser(completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
                   offsetFromSymbolStart = "100">
                </Location>
             </Locations>
@@ -1160,22 +1280,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "09374EEF-52B4-45B9-ABCC-7A6D830B55BD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/NetWork/Service/AuthService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "changePassword(newPassword:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "BCF5835D-14BF-4EB3-A02B-2710CC04AEC5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1183,8 +1287,8 @@
             filePath = "Plogging/Core/NetWork/Service/AuthService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "changePassword(newPassword:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1217,6 +1321,81 @@
                   startingLineNumber = "38"
                   endingLineNumber = "38"
                   offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "BCF5835D-14BF-4EB3-A02B-2710CC04AEC5 - e36b7b9358e6e06f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Authservice.changePassword(newPassword: Swift.String, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "BCF5835D-14BF-4EB3-A02B-2710CC04AEC5 - fc7d0a961b2f3cca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Plogging.Authservice.changePassword(newPassword: Swift.String, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "BCF5835D-14BF-4EB3-A02B-2710CC04AEC5 - e36b7b9358e6e2bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Authservice.changePassword(newPassword: Swift.String, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "BCF5835D-14BF-4EB3-A02B-2710CC04AEC5 - fc7d0a961b2f3e19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Plogging.Authservice.changePassword(newPassword: Swift.String, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "BCF5835D-14BF-4EB3-A02B-2710CC04AEC5 - e36b7b9358e6e2bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Authservice.changePassword(newPassword: Swift.String, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Plogging.ErrorType&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "544">
                </Location>
             </Locations>
          </BreakpointContent>

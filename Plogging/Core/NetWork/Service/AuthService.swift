@@ -21,9 +21,7 @@ class Authservice {
     }
     
     func connectUser(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let strongSelf = self else { return }
-            
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if error == nil {
                 completionHandler(.success(FirebaseResult.success))
             } else {
@@ -34,8 +32,21 @@ class Authservice {
     
     func changePassword(newPassword: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
         
-        print(Auth.auth().currentUser)
+        let userUID = Auth.auth().currentUser?.uid
+        
         Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
+
+            if error == nil {
+                completionHandler(.success(FirebaseResult.success))
+            } else {
+                completionHandler(.failure(ErrorType.network))
+            }
+        }
+    }
+    
+    func forgotPasswordAPI(email: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            let userUID = Auth.auth().currentUser?.uid
 
             if error == nil {
                 completionHandler(.success(FirebaseResult.success))
