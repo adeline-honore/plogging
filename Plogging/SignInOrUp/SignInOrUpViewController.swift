@@ -48,13 +48,15 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
 
     private func createUser(email: String, password: String) {
         userIdentifier.createUserRequest(email: email, password: password){ result in
-            switch result {
-            case .success:
-                UserDefaults.standard.set(email, forKey: "emailAddress")
-                _ = self.navigationController?.popViewController(animated: true)
-                self.popUpModal.userAlert(element: .welcomeMessage, viewController: self)
-            case .failure:
-                self.popUpModal.userAlert(element: .unableToConnectUser, viewController: self)
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    UserDefaults.standard.set(email, forKey: "emailAddress")
+                    _ = self.navigationController?.popViewController(animated: true)
+                    self.popUpModal.userAlert(element: .welcomeMessage, viewController: self)
+                case .failure:
+                    self.popUpModal.userAlert(element: .unableToConnectUser, viewController: self)
+                }
             }
         }
     }

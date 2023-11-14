@@ -52,13 +52,15 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     private func signIn(email: String, password: String) {
         userIdentifier.signInRequest(email: email, password: password){ result in
-            switch result {
-            case .success:
-                UserDefaults.standard.set(email, forKey: "emailAddress")
-                _ = self.navigationController?.popViewController(animated: true)
-                self.popUpModal.userAlert(element: .salutationsMessage, viewController: self)
-            case .failure:
-                self.popUpModal.userAlert(element: .unableToConnectUser, viewController: self)
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    UserDefaults.standard.set(email, forKey: "emailAddress")
+                    _ = self.navigationController?.popToRootViewController(animated: true)
+                    self.popUpModal.userAlert(element: .salutationsMessage, viewController: self)
+                case .failure:
+                    self.popUpModal.userAlert(element: .unableToConnectUser, viewController: self)
+                }
             }
         }
     }

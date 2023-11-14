@@ -30,13 +30,7 @@ class ProfileViewController: UIViewController {
         let email = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
         profileView.configure(isConnected: isConnectedUser, email: email)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifier.fromProfileToMap.rawValue {
-            _ = segue.destination as? MapViewController
-        }
-    }
-    
+
     // MARK: - Log Out
     
     @IBAction func didTapLogOutButton() {
@@ -45,21 +39,21 @@ class ProfileViewController: UIViewController {
     
     private func wantToLogOut() {
         userIdentifier.signOutRequest { result in
-            switch result {
-            case .success:
-                self.logOutSucces()
-            case .failure:
-                self.popUpModal.userAlert(element: .unableToDisconnectUser, viewController: self)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch result {
+                case .success:
+                    self.logOutSucces()
+                case .failure:
+                    self.popUpModal.userAlert(element: .unableToDisconnectUser, viewController: self)
+                }
             }
         }
     }
     
     private func logOutSucces() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            UserDefaults.standard.set(nil, forKey: "emailAddress")
-            self.performSegue(withIdentifier: SegueIdentifier.fromProfileToMap.rawValue, sender: self)
-        }
+        UserDefaults.standard.set(nil, forKey: "emailAddress")
+        profileView.configure(isConnected: false, email: "")
     }
 }
 

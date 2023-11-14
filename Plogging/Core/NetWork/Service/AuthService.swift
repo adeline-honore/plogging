@@ -36,7 +36,7 @@ class Authservice {
     // MARK: - Call To API To Set Password
     func changePassword(newPassword: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
         Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
-            let userUID = Auth.auth().currentUser?.uid
+            _ = Auth.auth().currentUser?.uid
 
             if error == nil {
                 completionHandler(.success(FirebaseResult.success))
@@ -49,7 +49,7 @@ class Authservice {
     // MARK: - Call To API When Password Is Forgotten
     func forgotPasswordAPI(email: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
-            let userUID = Auth.auth().currentUser?.uid
+            _ = Auth.auth().currentUser?.uid
 
             if error == nil {
                 completionHandler(.success(FirebaseResult.success))

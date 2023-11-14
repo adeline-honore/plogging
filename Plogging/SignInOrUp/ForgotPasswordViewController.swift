@@ -49,13 +49,15 @@ class ForgotPasswordViewController: UIViewController {
     
     private func forgotPassword(email: String) {
         userIdentifier.forgotPasswordRequest(email: email) { result in
-            switch result {
-            case .success:
-                UserDefaults.standard.set(email, forKey: "emailAddress")
-                _ = self.navigationController?.popViewController(animated: true)
-                self.popUpModal.userAlert(element: .forgotPaswwordRequestSuccess, viewController: self)
-            case .failure:
-                self.popUpModal.userAlert(element: .forgotPasswordRequestFailed, viewController: self)
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    UserDefaults.standard.set(email, forKey: "emailAddress")
+                    _ = self.navigationController?.popViewController(animated: true)
+                    self.popUpModal.userAlert(element: .forgotPaswwordRequestSuccess, viewController: self)
+                case .failure:
+                    self.popUpModal.userAlert(element: .forgotPasswordRequestFailed, viewController: self)
+                }
             }
         }
     }

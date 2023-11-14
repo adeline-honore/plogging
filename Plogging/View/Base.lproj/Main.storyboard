@@ -609,23 +609,21 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1bX-K7-AJr">
-                                <rect key="frame" x="87" y="411.5" width="240" height="73"/>
+                                <rect key="frame" x="40" y="411.5" width="334" height="73"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zoh-2J-aPB">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="go" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-uA-ZTL">
-                                        <rect key="frame" x="0.0" y="39" width="240" height="34"/>
+                                        <rect key="frame" x="0.0" y="39" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Zoh-2J-aPB" secondAttribute="trailing" id="NbU-Qr-Ygk"/>
-                                    <constraint firstAttribute="width" constant="240" id="QYp-YJ-mEH"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="Vms-TI-lIr"/>
                                     <constraint firstItem="mRa-uA-ZTL" firstAttribute="leading" secondItem="1bX-K7-AJr" secondAttribute="leading" id="fHo-Bf-myD"/>
                                     <constraint firstAttribute="trailing" secondItem="mRa-uA-ZTL" secondAttribute="trailing" id="ka2-TS-3ym"/>
                                     <constraint firstItem="Zoh-2J-aPB" firstAttribute="leading" secondItem="1bX-K7-AJr" secondAttribute="leading" id="t0Z-uV-CfU"/>
@@ -634,23 +632,19 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-0P-blu">
                                 <rect key="frame" x="80" y="758.5" width="254" height="34.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
                                 <connections>
                                     <action selector="didTapSigInButton" destination="u0z-XU-7t2" eventType="touchUpInside" id="pRY-ql-Sl6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftn-H9-ZFo">
-                                <rect key="frame" x="186" y="357" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftn-H9-ZFo">
+                                <rect key="frame" x="40" y="371" width="334" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Lf-9i-Wdo">
-                                <rect key="frame" x="87" y="584.5" width="240" height="34.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="nVq-hL-v3A"/>
-                                </constraints>
+                                <rect key="frame" x="40" y="584.5" width="334" height="34.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password ?"/>
                                 <connections>
@@ -664,13 +658,19 @@
                             <constraint firstItem="1bX-K7-AJr" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="1Ee-Bc-oeu"/>
                             <constraint firstItem="1bX-K7-AJr" firstAttribute="centerY" secondItem="kUM-5D-UNx" secondAttribute="centerY" id="2HK-K9-IA3"/>
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="4ig-MI-GK2"/>
+                            <constraint firstItem="1bX-K7-AJr" firstAttribute="top" secondItem="ftn-H9-ZFo" secondAttribute="bottom" constant="20" id="Arv-7a-vQA"/>
                             <constraint firstItem="z1T-0P-blu" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="GRH-sK-0qF"/>
+                            <constraint firstItem="1bX-K7-AJr" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="40" id="NAD-1y-NE6"/>
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="top" secondItem="UE2-6N-Cu4" secondAttribute="top" constant="20" id="OL3-F7-DSe"/>
+                            <constraint firstItem="ftn-H9-ZFo" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="40" id="QmF-Yc-fJB"/>
                             <constraint firstItem="6Lf-9i-Wdo" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="Tv0-rF-Ui1"/>
                             <constraint firstItem="z1T-0P-blu" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="80" id="WFg-2Y-vUQ"/>
                             <constraint firstItem="UE2-6N-Cu4" firstAttribute="bottom" secondItem="z1T-0P-blu" secondAttribute="bottom" constant="20" id="aNU-jB-W6p"/>
                             <constraint firstItem="7Ao-kR-69M" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="40" id="d7R-qo-55T"/>
+                            <constraint firstItem="ftn-H9-ZFo" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="g9i-c5-K1C"/>
                             <constraint firstItem="6Lf-9i-Wdo" firstAttribute="top" secondItem="1bX-K7-AJr" secondAttribute="bottom" constant="100" id="ji0-YE-0ca"/>
+                            <constraint firstItem="6Lf-9i-Wdo" firstAttribute="leading" secondItem="UE2-6N-Cu4" secondAttribute="leading" constant="40" id="qjb-xY-BMI"/>
+                            <constraint firstItem="1bX-K7-AJr" firstAttribute="centerX" secondItem="kUM-5D-UNx" secondAttribute="centerX" id="sUo-R2-6Uu"/>
                         </constraints>
                         <connections>
                             <outlet property="emailTextField" destination="Zoh-2J-aPB" id="tva-MS-2p7"/>
@@ -694,9 +694,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0u-kA-T3T">
-                                <rect key="frame" x="165" y="688" width="85" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0u-kA-T3T">
+                                <rect key="frame" x="40" y="758" width="334" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Validate"/>
                                 <connections>
@@ -706,7 +705,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRN-P9-Yog">
                                 <rect key="frame" x="40" y="431" width="334" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="go" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0v-p7-IDN">
                                 <rect key="frame" x="40" y="386" width="334" height="21"/>
@@ -721,9 +720,12 @@
                             <constraint firstItem="jRN-P9-Yog" firstAttribute="leading" secondItem="sHb-Jo-0FW" secondAttribute="leading" constant="40" id="88O-OM-9bO"/>
                             <constraint firstItem="jRN-P9-Yog" firstAttribute="top" secondItem="c0v-p7-IDN" secondAttribute="bottom" constant="24" id="BXB-hS-fT1"/>
                             <constraint firstItem="c0v-p7-IDN" firstAttribute="leading" secondItem="sHb-Jo-0FW" secondAttribute="leading" constant="40" id="Hti-a8-8hl"/>
+                            <constraint firstItem="g0u-kA-T3T" firstAttribute="centerX" secondItem="tM9-Mc-WiM" secondAttribute="centerX" id="LMG-6x-0Dd"/>
                             <constraint firstItem="jRN-P9-Yog" firstAttribute="centerY" secondItem="tM9-Mc-WiM" secondAttribute="centerY" id="Shy-mu-XPv"/>
                             <constraint firstItem="jRN-P9-Yog" firstAttribute="centerX" secondItem="tM9-Mc-WiM" secondAttribute="centerX" id="Zb5-Jq-hGi"/>
                             <constraint firstItem="c0v-p7-IDN" firstAttribute="centerX" secondItem="tM9-Mc-WiM" secondAttribute="centerX" id="jpG-AL-O73"/>
+                            <constraint firstItem="sHb-Jo-0FW" firstAttribute="bottom" secondItem="g0u-kA-T3T" secondAttribute="bottom" constant="20" id="oWi-dx-M4R"/>
+                            <constraint firstItem="g0u-kA-T3T" firstAttribute="leading" secondItem="sHb-Jo-0FW" secondAttribute="leading" constant="40" id="rDG-QE-4YF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Hu-C1-gu5"/>
@@ -746,15 +748,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2ME-I9-cVM">
-                                <rect key="frame" x="129.5" y="414" width="155.5" height="68"/>
+                                <rect key="frame" x="40" y="414" width="334" height="68"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nAZ-yY-3Gl">
-                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cve-sM-UK1">
-                                        <rect key="frame" x="0.0" y="34" width="155.5" height="34"/>
+                                        <rect key="frame" x="0.0" y="34" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="namePhonePad" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
@@ -791,6 +793,7 @@
                             <constraint firstItem="2Im-F9-XUP" firstAttribute="centerX" secondItem="exF-17-CAW" secondAttribute="centerX" id="P1l-L5-vNx"/>
                             <constraint firstItem="QI4-lj-5HE" firstAttribute="leading" secondItem="ShD-P3-PXj" secondAttribute="leading" constant="80" id="Ucw-yh-e7p"/>
                             <constraint firstItem="2Im-F9-XUP" firstAttribute="leading" secondItem="ShD-P3-PXj" secondAttribute="leading" constant="80" id="YqW-y3-QDe"/>
+                            <constraint firstItem="2ME-I9-cVM" firstAttribute="leading" secondItem="ShD-P3-PXj" secondAttribute="leading" constant="40" id="avy-1N-MG7"/>
                             <constraint firstItem="QI4-lj-5HE" firstAttribute="centerX" secondItem="exF-17-CAW" secondAttribute="centerX" id="g3u-LL-E2p"/>
                             <constraint firstItem="2Im-F9-XUP" firstAttribute="centerX" secondItem="exF-17-CAW" secondAttribute="centerX" id="kDJ-WG-M2z"/>
                             <constraint firstItem="QI4-lj-5HE" firstAttribute="top" secondItem="2ME-I9-cVM" secondAttribute="bottom" constant="20" id="tgi-wR-2iL"/>
@@ -1027,7 +1030,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Yf-Eu-2QB"/>
+        <segue reference="uIo-ek-C8L"/>
         <segue reference="ILF-OV-iDw"/>
         <segue reference="SiG-cO-rBp"/>
         <segue reference="aP2-ml-fqT"/>

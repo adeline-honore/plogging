@@ -7,6 +7,9 @@
 
 import Foundation
 import FirebaseDatabase
+//import FirebaseFirestore
+//import FirebaseCore
+import FirebaseAuth
 //import FirebaseStorage
 
 class NetworkService {
@@ -16,7 +19,7 @@ class NetworkService {
         var array = [Any]()
 
         ploggingArray.forEach { plogging in
-            var item = [
+            let item = [
                 "id": plogging.id as NSString,
                 "admin": plogging.admin as NSString,
                 "beginning": plogging.beginning as NSString,
@@ -31,7 +34,7 @@ class NetworkService {
 
         DatabaseURL.ref.child("datas").setValue(array) {
             (error:Error?, ref:DatabaseReference) in
-            if let error = error {
+            if error != nil {
                 completionHandler(.failure(ErrorType.network))
             } else {
                 completionHandler(.success(FirebaseResult.success))

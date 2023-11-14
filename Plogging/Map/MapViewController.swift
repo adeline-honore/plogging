@@ -60,8 +60,6 @@ class MapViewController: UIViewController {
 
     private func setInitialLocation() {
         mapView.centerToLocation(userLocation)
-        print("loc")
-        print(userLocation)
     }
 
     private func displayPloggingAnnotationItems() {
