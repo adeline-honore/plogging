@@ -20,7 +20,7 @@ final class PloggingLoader {
         var ploggingAnnotations: [PloggingAnnotation] = []
 
         model.forEach {model in
-            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: model.beginning)
+            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.place, subtitle: model.id)
 
             if CLLocationCoordinate2DIsValid(annotation.coordinate) {
                 ploggingAnnotations.append(annotation)

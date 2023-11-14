@@ -64,22 +64,22 @@ class MapViewController: UIViewController {
 
     private func displayPloggingAnnotationItems() {
         ploggingService.load { result in
-            switch result {
-            case .success(let ploggingsResult):
-                self.createPloggingAnnotationItems(ploggingList: ploggingsResult)
-            case .failure:
-                self.popUpModal.userAlert(element: .network, viewController: self)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch result {
+                case .success(let ploggingsResult):
+                    self.createPloggingAnnotationItems(ploggingList: ploggingsResult)
+                case .failure:
+                    self.popUpModal.userAlert(element: .network, viewController: self)
+                }
             }
         }
     }
 
     private func createPloggingAnnotationItems(ploggingList: [Plogging]) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            MapViewController.ploggings = ploggingList
-            self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: ploggingList))
-            self.ploggingsUI = self.transformPloggingsToPloggingsUI(ploggings: ploggingList)
-        }
+        MapViewController.ploggings = ploggingList
+        self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: ploggingList))
+        self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: ploggingList)
     }
 
     private func filterPloggingList(ploggingList: [Plogging]) -> [Plogging] {
@@ -155,6 +155,7 @@ extension MapViewController: MKMapViewDelegate {
         annotationView.markerTintColor = .white
         annotationView.glyphImage = glyphImage
         annotationView.glyphTintColor = Color().appColor
+        annotationView.subtitleVisibility = .hidden
 
         return annotationView
     }
