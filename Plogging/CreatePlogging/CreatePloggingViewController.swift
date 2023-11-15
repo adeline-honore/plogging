@@ -172,7 +172,8 @@ class CreatePloggingViewController: UIViewController {
         let dateFormatter = DateFormatter()
 
         // Set Date Format
-        dateFormatter.dateFormat = "YY, MMM d, hh:mm"
+//        dateFormatter.dateFormat = "YY, MMM d, hh:mm"
+        dateFormatter.dateFormat = "d MMM YY, hh:mm"
 
         // Convert Date to String
         return dateFormatter.string(from: date)

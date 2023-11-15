@@ -37,7 +37,7 @@ struct Plogging: Codable {
 
     func stringDateToDateObject(dateString: String) -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+        dateFormatter.dateFormat = "d MMM YY, hh:mm"
 
         guard let date = dateFormatter.date(from: dateString) else { return Date() }
 

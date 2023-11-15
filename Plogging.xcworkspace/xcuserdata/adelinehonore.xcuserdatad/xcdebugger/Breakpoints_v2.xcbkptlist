@@ -301,16 +301,160 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A476756D-C26D-4F00-9546-C6B47F651D45"
+            uuid = "D22DA076-E2BA-49F7-8DF9-86DC7C7E2D94"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Plogging/Map/MapViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "mapView(_:viewFor:)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "filterPloggingList(ploggingList:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03A00BEC-D3ED-4DCA-8097-993E7DFA3E9D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/Map/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "transformPloggingsToPloggingsUI(ploggings:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "03A00BEC-D3ED-4DCA-8097-993E7DFA3E9D - a0473a98599e7b39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.MapViewController.transformPloggingsToPloggingsUI(ploggings: Swift.Array&lt;Plogging.Plogging&gt;) -&gt; Swift.Array&lt;Plogging.PloggingUI&gt;"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Map/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "03A00BEC-D3ED-4DCA-8097-993E7DFA3E9D - 526ad58577af7dda"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Plogging.Plogging) -&gt; Plogging.PloggingUI in Plogging.MapViewController.transformPloggingsToPloggingsUI(ploggings: Swift.Array&lt;Plogging.Plogging&gt;) -&gt; Swift.Array&lt;Plogging.PloggingUI&gt;"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Map/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B3AB77E-F3F0-44BD-A4FD-F15C255F57F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/Core/Model/Plogging.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "stringDateToDateObject(dateString:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3B3AB77E-F3F0-44BD-A4FD-F15C255F57F8 - 339d76a7a07fe9d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Plogging.stringDateToDateObject(dateString: Swift.String) -&gt; Foundation.Date"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Model/Plogging.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "652">
+               </Location>
+               <Location
+                  uuid = "3B3AB77E-F3F0-44BD-A4FD-F15C255F57F8 - 339d76a7a07fe9f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.Plogging.stringDateToDateObject(dateString: Swift.String) -&gt; Foundation.Date"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Model/Plogging.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "652">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D05CFC2D-687D-48E9-A985-28733C777F08"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "convertDateToString(date:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DF95A8A-6C36-46F4-B3CA-12477DC64218"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/Map/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6DD22A9-E243-404F-99C7-92D5E167057F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/Map/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "mapView(_:didSelect:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
