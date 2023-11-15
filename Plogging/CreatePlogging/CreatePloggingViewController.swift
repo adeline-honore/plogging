@@ -21,6 +21,7 @@ class CreatePloggingViewController: UIViewController {
     private var createPloggingView: CreatePloggingView!
 
     private var ploggingService = PloggingService()
+    private var networkService = NetworkService(network: Network())
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
@@ -37,7 +38,7 @@ class CreatePloggingViewController: UIViewController {
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
 
-    // MARK: - Init
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,10 +90,24 @@ class CreatePloggingViewController: UIViewController {
         return distanceArray
     }
 
-    // MARK: - Save as PloggingCD
+    // MARK: - User Tap On Create Plogging
 
     @IBAction func didTapSavePlogging(_ sender: UIBarButtonItem) {
         savePlogging()
+    }
+
+    // MARK: - Create valid Plogging
+
+    private func setPloggingElement() {
+        currentPloggingUI.id = "plogging"
+        currentPloggingUI.admin = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
+        currentPloggingUI.isTakingPart = true
+        currentPloggingUI.distance = Double(distanceSelected) ?? 2
+
+        guard let image = currentPloggingUI.mainImage else { return }
+        if currentPloggingUI.mainImage != nil {
+            currentPloggingUI.mainImageBinary = image.jpegData(compressionQuality: 1)
+        }
     }
 
     private func savePlogging() {
@@ -121,65 +136,59 @@ class CreatePloggingViewController: UIViewController {
                 let gggg = String(Int.random(in: 0..<1000))
                 currentPloggingUI.id = "EEZZ-000-24-JAAUG-WWWW" + gggg
                 
+                // get plogging list from APi and update it
                 distantDatabaseSaveRequest()
             case .failure:
                 popUpModal.userAlert(element: AlertType.createError, viewController: self)
             }
         }
     }
-    
+
+    // MARK: - Save Plogging in API
+
     private func distantDatabaseSaveRequest() {
-        DispatchQueue.main.async { [weak self] in
-            self?.ploggingService.load { result in
-                guard let self else { return }
-                    switch result {
-                    case .success(let array):
-                        self.updatePloggingData(array: array)
-                    case .failure:
-                        self.popUpModal.userAlert(element: .network, viewController: self)
-                    }
-            }
-        }
-    }
-    
-    private func updatePloggingData(array: [Plogging]) {
-        var ploggingList = array
-        
-        var currentPlogging = Plogging()
-        currentPlogging.id = currentPloggingUI.id
-        currentPlogging.admin = currentPloggingUI.admin
-        currentPlogging.beginning = convertDateToString(date: currentPloggingUI.beginning)
-        currentPlogging.latitude = currentPloggingUI.latitude ?? 0.0
-        currentPlogging.longitude = currentPloggingUI.longitude ?? 0.0
-        currentPlogging.ploggers = [currentPloggingUI.admin]
-        currentPlogging.distance = Int(currentPloggingUI.distance)
-        
-        
-        ploggingList.append(currentPlogging)
-        
-        ploggingService.savePloggingRequest(ploggingArray: ploggingList) { result in
+        networkService.getPloggingList { result in
                 switch result {
-                case .success:
-                    self.internalDatabaseSaveRequest()
+                case .success(let array):
+                    let ploggingListUpdated = self.updatePloggingData(array: array)
+                    self.updateApiList(updatedList: ploggingListUpdated)
                 case .failure:
                     self.popUpModal.userAlert(element: .network, viewController: self)
             }
         }
     }
     
-    private func convertDateToString(date: Date) -> String {
-        // Create Date Formatter
-        let dateFormatter = DateFormatter()
+    private func updatePloggingData(array: [Plogging]) -> [Plogging] {
+        var ploggingList = array
 
-        // Set Date Format
-//        dateFormatter.dateFormat = "YY, MMM d, hh:mm"
-        dateFormatter.dateFormat = "d MMM YY, hh:mm"
+        var currentPlogging = Plogging()
+        currentPlogging.id = currentPloggingUI.id
+        currentPlogging.admin = currentPloggingUI.admin
+        currentPlogging.beginning = convertPickerDateToString(date: currentPloggingUI.beginning)
+        currentPlogging.latitude = currentPloggingUI.latitude ?? 0.0
+        currentPlogging.longitude = currentPloggingUI.longitude ?? 0.0
+        currentPlogging.place = currentPloggingUI.place
+        currentPlogging.ploggers = [currentPloggingUI.admin]
+        currentPlogging.distance = Int(currentPloggingUI.distance)
 
-        // Convert Date to String
-        return dateFormatter.string(from: date)
+        ploggingList.append(currentPlogging)
+
+        return ploggingList
     }
-    
-    
+
+    private func updateApiList(updatedList: [Plogging]) {
+        networkService.createApiPlogging(ploggingArray: updatedList) { result in
+            switch result {
+            case .success:
+                self.internalDatabaseSaveRequest()
+            case .failure:
+                self.popUpModal.userAlert(element: .network, viewController: self)
+            }
+        }
+    }
+
+    // MARK: - Save Plogging in Internal DataBase
+
     private func internalDatabaseSaveRequest() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -190,19 +199,6 @@ class CreatePloggingViewController: UIViewController {
             } catch {
                 popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)
             }
-        }
-    }
-
-    private func setPloggingElement() {
-        currentPloggingUI.id = "plogging"
-        currentPloggingUI.admin = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
-//        currentPloggingUI.ploggers = [UserDefaults.standard.string(forKey: UserDefaultsName.emailAddress.rawValue) ?? ""]
-        currentPloggingUI.isTakingPart = true
-        currentPloggingUI.distance = Double(distanceSelected) ?? 2
-
-        guard let image = currentPloggingUI.mainImage else { return }
-        if currentPloggingUI.mainImage != nil {
-            currentPloggingUI.mainImageBinary = image.jpegData(compressionQuality: 1)
         }
     }
 

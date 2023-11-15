@@ -12,9 +12,30 @@ import FirebaseDatabase
 import FirebaseAuth
 //import FirebaseStorage
 
-class NetworkService {
+protocol PloggingServiceProtocol {
+    func createApiPlogging(ploggingArray: [Plogging], completionHandler: @escaping (Result<FirebaseResult, Error>) -> ())
+    func getApiPloggingList(completionHandler: @escaping (Result<[Plogging], Error>) -> ())
+    func setApiPloggingList(completionHandler: @escaping (Result<FirebaseResult, Error>) -> ())
+}
+
+class NetworkService: PloggingServiceProtocol {
+
+    private var network: NetworkProtocol
+
+    init(network: NetworkProtocol) {
+        self.network = network
+    }
     
-    func createDatabasePlogging(ploggingArray: [Plogging], completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+    func getApiPloggingList(completionHandler: @escaping (Result<[Plogging], Error>) -> ()) {
+        print("get")
+    }
+    
+    func setApiPloggingList(completionHandler: @escaping (Result<FirebaseResult, Error>) -> ()) {
+        print("set")
+    }
+    
+    
+    func createApiPlogging(ploggingArray: [Plogging], completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void) {
 
         var array = [Any]()
 

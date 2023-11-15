@@ -16,19 +16,19 @@ class PloggingService {
 //        case unableToDecode
 //    }
 
-    private let networkService = NetworkService()
-    
-    func savePloggingRequest(ploggingArray: [Plogging], completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-        
-        networkService.createDatabasePlogging(ploggingArray: ploggingArray) { result in
-            switch result {
-            case .success:
-                completionHandler(.success(FirebaseResult.success))
-            case .failure:
-                completionHandler(.failure(.snapshotDoNotExist))
-            }
-        }
-    }
+    private let networkService = NetworkService(network: Network())
+//    
+//    func savePloggingRequest(ploggingArray: [Plogging], completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+//        
+//        networkService.createDatabasePlogging(ploggingArray: ploggingArray) { result in
+//            switch result {
+//            case .success:
+//                completionHandler(.success(FirebaseResult.success))
+//            case .failure:
+//                completionHandler(.failure(.snapshotDoNotExist))
+//            }
+//        }
+//    }
 
     func load(completionHandler: @escaping (Result<[Plogging], ErrorType>) -> Void) {
 
