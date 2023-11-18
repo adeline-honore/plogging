@@ -113,6 +113,21 @@
                   endingLineNumber = "29"
                   offsetFromSymbolStart = "380">
                </Location>
+               <Location
+                  uuid = "A4E8CCE7-DDAA-4B0A-A79D-24E80FB812E5 - fd86431ac1f644c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Plogging.PloggingUI) -&gt; () in Plogging.PloggingLoader.createAnnotationFromPloggingModels(model: Swift.Array&lt;Plogging.PloggingUI&gt;) -&gt; Swift.Array&lt;Plogging.PloggingAnnotation&gt;"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Plogging/PloggingLoader.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "380">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -159,6 +174,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
                   endingLineNumber = "32"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "67370B96-65F1-4BBF-B781-41C88EF1EE15 - 7e4454fd60085a83"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.PloggingLoader.createAnnotationFromPloggingModels(model: Swift.Array&lt;Plogging.PloggingUI&gt;) -&gt; Swift.Array&lt;Plogging.PloggingAnnotation&gt;"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Plogging/PloggingLoader.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
                   offsetFromSymbolStart = "216">
                </Location>
             </Locations>
@@ -256,6 +286,22 @@
             startingLineNumber = "108"
             endingLineNumber = "108"
             landmarkName = "convertPloggingCDBeginningToBeginningString(dateString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15C5642E-BDF9-45BD-8D25-152922AC5038"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "updatePloggingData(array:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

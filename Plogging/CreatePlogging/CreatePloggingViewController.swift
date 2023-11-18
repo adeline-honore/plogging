@@ -28,6 +28,7 @@ class CreatePloggingViewController: UIViewController {
 
     private var currentPloggingUI: PloggingUI = PloggingUI()
     private var startDate: Date = Date()
+    private var startIntegerTimestamp: Int = 0
 
     private var distanceArray: [String] = []
     private var distanceSelected: String = ""
@@ -74,10 +75,12 @@ class CreatePloggingViewController: UIViewController {
 
     @IBAction func getDateFromPickerView() {
         startDate = createPloggingView.whenDatePicker.date
+        startIntegerTimestamp = Int(createPloggingView.whenDatePicker.date.timeIntervalSince1970)
     }
 
     func setupDatePicker() {
         createPloggingView.whenDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
+        startIntegerTimestamp = Int(createPloggingView.whenDatePicker.date.timeIntervalSince1970)
     }
 
     // MARK: - Distance Picker View
@@ -125,11 +128,13 @@ class CreatePloggingViewController: UIViewController {
         localSearchCompletion.getCoordinates(for: selectedSearchCompletion) { [weak self] result in
 
             guard let self = self else { return }
-
             switch result {
             case let .success(coordinates):
-                self.currentPloggingUI.latitude = coordinates?.latitude
-                self.currentPloggingUI.longitude = coordinates?.longitude
+                
+                guard let latitude = coordinates?.latitude, let longitude = coordinates?.longitude else { return }
+                
+                self.currentPloggingUI.latitude = latitude
+                self.currentPloggingUI.longitude = longitude
                 // create UUID for plogging
 //                currentPlogging.id = UUID().uuidString
                 
@@ -164,9 +169,9 @@ class CreatePloggingViewController: UIViewController {
         var currentPlogging = Plogging()
         currentPlogging.id = currentPloggingUI.id
         currentPlogging.admin = currentPloggingUI.admin
-        currentPlogging.beginning = convertPickerDateToString(date: currentPloggingUI.beginning)
-        currentPlogging.latitude = currentPloggingUI.latitude ?? 0.0
-        currentPlogging.longitude = currentPloggingUI.longitude ?? 0.0
+        currentPlogging.beginning = startIntegerTimestamp
+        currentPlogging.latitude = currentPloggingUI.latitude
+        currentPlogging.longitude = currentPloggingUI.longitude
         currentPlogging.place = currentPloggingUI.place
         currentPlogging.ploggers = [currentPloggingUI.admin]
         currentPlogging.distance = Int(currentPloggingUI.distance)

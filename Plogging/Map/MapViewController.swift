@@ -197,7 +197,7 @@ extension MapViewController: PresentationViewControllerDelegate {
 
 extension MapViewController: CreatePloggingViewControllerDelegate {
     func ploggingIsCreated(ploggingUICreated: PloggingUI) {
-        let alertVC = UIAlertController(title: nil, message: "Awesome ! \nyou create a new plogging race. \nIt will beginning \(ploggingUICreated.beginningString/*ploggingUICreated.dateToDisplayedString(date: ploggingUICreated.beginningDate)*/) \nat \(ploggingUICreated.place) \nfor \(ploggingUICreated.distance) km.", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Awesome ! \nyou create a new plogging race.", message: "\(ploggingUICreated.beginningString) \nat \(ploggingUICreated.place) \nfor \(ploggingUICreated.distance) km.", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
