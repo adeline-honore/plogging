@@ -186,14 +186,8 @@ class PersonalPloggingViewController: UIViewController {
         var ploggingUIList: [PloggingUI] = []
         do {
             let ploggingsCD = try repository.getEntities()
-            ploggingUIList = ploggingsCD.map {PloggingUI(ploggingCD: $0, /*beginningString: repository.stringDateToDateObject(dateString: $0.beginning ?? "0"),*/ beginningString: repository.convertPloggingCDBeginningStringToBeginningUIString(dateString: $0.beginning ?? "0"), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
+            ploggingUIList = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningString: repository.convertPloggingCDBeginningStringToBeginningUIString(dateString: $0.beginning ?? "0"), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
             }
-//            { PloggingUI(
-//                ploggingCD: $0,
-//                beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? ""),
-//                image: UIImage(data: $0.imageBinary ?? Data()) ?? icon
-//                )
-//            }
         } catch {
             print("fatalError")
         }
@@ -204,6 +198,7 @@ class PersonalPloggingViewController: UIViewController {
 
     private func displayPloggingFromCoreData() {
         ploggingsUI = getPloggingFromCoreData()
+        displayPersonalPloggings()
     }
 
     private func photosCDToPhotosUI(photosCD: [Any]) -> [PhotoUI]? {

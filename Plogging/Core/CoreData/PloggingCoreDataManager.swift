@@ -30,7 +30,7 @@ final class PloggingCoreDataManager {
 
         ploggingCD.setValue(ploggingUI.id, forKey: "id")
         ploggingCD.setValue(ploggingUI.admin, forKey: "admin")
-        ploggingCD.setValue(dateToSaveAsString(date: ploggingUI.beginning), forKey: "beginning")
+        ploggingCD.setValue(String(ploggingUI.beginningTimestamp), forKey: "beginning")
         ploggingCD.setValue(ploggingUI.place, forKey: "place")
         ploggingCD.setValue(ploggingUI.latitude, forKey: "latitude")
         ploggingCD.setValue(ploggingUI.longitude, forKey: "longitude")
@@ -79,7 +79,7 @@ final class PloggingCoreDataManager {
 
         if let results = try coreDataStack.viewContext.fetch(request) as? [NSManagedObject] {
             if results.count > 0 {
-                results[0].setValue(dateToSaveAsString(date: ploggingUI.beginning), forKey: "beginning")
+                results[0].setValue(String(ploggingUI.beginningTimestamp), forKey: "beginning")
                 results[0].setValue(ploggingUI.place, forKey: "place")
                 results[0].setValue(ploggingUI.latitude, forKey: "latitude")
                 results[0].setValue(ploggingUI.longitude, forKey: "longitude")
@@ -106,11 +106,13 @@ final class PloggingCoreDataManager {
 
         return date
     }
-
-    func dateToSaveAsString(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-dd HH:mm"
-        return formatter.string(from: date)
+    
+    func convertPloggingCDBeginningStringToBeginningUIString(dateString: String) -> String {
+        let date = NSDate(timeIntervalSince1970: TimeInterval(Int(dateString) ?? 0))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY MMM dd, hh:mm"
+        let uiDate = dateFormatter.string(from: date as Date)
+        return uiDate
     }
 
     // MARK: - PhotoCD
