@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7F021375-7B7D-499D-8048-9D0C26200E0B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "savePlogging()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7F021375-7B7D-499D-8048-9D0C26200E0B - 79717a44fbc9f37c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;__C.CLLocationCoordinate2D&gt;, Swift.Error&gt;) -&gt; () in Plogging.CreatePloggingViewController.savePlogging() -&gt; ()"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/CreatePlogging/CreatePloggingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "1192">
-               </Location>
-               <Location
-                  uuid = "7F021375-7B7D-499D-8048-9D0C26200E0B - 79717a44fbc9f563"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;__C.CLLocationCoordinate2D&gt;, Swift.Error&gt;) -&gt; () in Plogging.CreatePloggingViewController.savePlogging() -&gt; ()"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/CreatePlogging/CreatePloggingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
-                  offsetFromSymbolStart = "1192">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7D038310-8AFE-49AF-A917-307CA1F6A5A3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

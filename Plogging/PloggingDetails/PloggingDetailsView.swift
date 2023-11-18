@@ -29,7 +29,7 @@ extension PloggingDetailsView {
 
         // @IBOutlet informations
         mainImage.image = plogging.mainImage
-        dateAndHourLabel.text = plogging.dateToDisplayedString(date: plogging.beginning)
+        dateAndHourLabel.text =  plogging.beginningString
         placeLabel.text = plogging.place
         adminNameLabel.text = plogging.admin
         messageButton.tintColor = Color().appColor
@@ -42,6 +42,6 @@ extension PloggingDetailsView {
         editMainImageButton.isHidden = !isAdmin
         isTakingPartButton.isHidden = isAdmin
         ploggerList.isHidden = !isAdmin
-        ploggerList.text = "Ploggers : \(plogging.ploggers?.count ?? 1)"
+        ploggerList.text = "Ploggers : \(plogging.ploggers.count )"
     }
 }

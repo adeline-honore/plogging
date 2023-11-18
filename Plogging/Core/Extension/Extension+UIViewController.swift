@@ -93,15 +93,7 @@ extension UIViewController {
 
 // MARK: - Date Formatter
 extension UIViewController {
-    func convertPickerDateToString(date: Date) -> String {
-        // Create Date Formatter
-        let dateFormatter = DateFormatter()
-
-        // Set Date Format
-        dateFormatter.dateFormat = "YY, MMM d, hh:mm"
-//        dateFormatter.dateFormat = "d MMM YY, hh:mm"
-
-        // Convert Date to String
-        return dateFormatter.string(from: date)
+    func convertDateToIntegerTimestamp(date: Date) -> Int {
+        return Int(date.timeIntervalSince1970)
     }
 }

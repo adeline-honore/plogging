@@ -77,29 +77,40 @@ class MapViewController: UIViewController {
     }
 
     private func createPloggingAnnotationItems(ploggingList: [Plogging]) {
-        MapViewController.ploggings = ploggingList
-        self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: ploggingList))
-        self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: ploggingList)
+        // 1 filtrer la liste de ploggins result
+        // Transformer ploggings result en plogging UI
+        // creer annotations depuis plogging UI
+//        MapViewController.ploggings = ploggingList
+//        self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: ploggingList))
+        self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: filterPloggingList(ploggingList: ploggingList))
+        self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: self.ploggingsUI))
     }
 
     private func filterPloggingList(ploggingList: [Plogging]) -> [Plogging] {
-        let now = Date()
+//        let now = Date()
+        let timestamp = Int(NSDate().timeIntervalSince1970)
+        
         var upcommingPloggingList: [Plogging] = []
         ploggingList.forEach { item in
-            let itemDate = item.stringDateToDateObject(dateString: item.beginning)
-            if itemDate > now {
+            if item.beginning > timestamp {
                 upcommingPloggingList.append(item)
             }
+//            let itemDate = item.stringDateToDateObject(dateString: item.convertIntegerTimestampToStringDate())
+//            if itemDate > now {
+//                upcommingPloggingList.append(item)
+//            }
         }
+        MapViewController.ploggings = upcommingPloggingList
         return upcommingPloggingList
     }
 
     private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
-        let ploggingListFitered = filterPloggingList(ploggingList: ploggings)
+//        let ploggingListFitered = filterPloggingList(ploggingList: ploggings)
 
-        let array = ploggingListFitered.map { PloggingUI(plogging: $0, schedule: $0.stringDateToDateObject(dateString: $0.beginning)) }
+        let array = ploggings.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning)) }
 
-            return array
+        ploggingsUI = array
+        return array
     }
 
     // MARK: - Send datas thanks segue
@@ -186,7 +197,7 @@ extension MapViewController: PresentationViewControllerDelegate {
 
 extension MapViewController: CreatePloggingViewControllerDelegate {
     func ploggingIsCreated(ploggingUICreated: PloggingUI) {
-        let alertVC = UIAlertController(title: nil, message: "Awesome ! \nyou create a new plogging race. \nIt will beginning \(ploggingUICreated.dateToDisplayedString(date: ploggingUICreated.beginning)) \nat \(ploggingUICreated.place) \nfor \(ploggingUICreated.distance) km.", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: nil, message: "Awesome ! \nyou create a new plogging race. \nIt will beginning \(ploggingUICreated.beginningString/*ploggingUICreated.dateToDisplayedString(date: ploggingUICreated.beginningDate)*/) \nat \(ploggingUICreated.place) \nfor \(ploggingUICreated.distance) km.", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }

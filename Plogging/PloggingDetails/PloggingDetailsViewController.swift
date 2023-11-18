@@ -76,17 +76,17 @@ class PloggingDetailsViewController: UIViewController {
     }
 
     private func saveTakePartChoice() {
-        guard let emailIndex = ploggingUI?.ploggers?.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: "emailAddress")}) else {
+        guard let emailIndex = ploggingUI?.ploggers.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: "emailAddress")}) else {
             return
         }
 
         // if user already takes part at this plogging race then remove participation
         if ploggingUI?.isTakingPart == true {
             ploggingUI?.isTakingPart = false
-            ploggingUI?.ploggers?.remove(at: emailIndex)
+            ploggingUI?.ploggers.remove(at: emailIndex)
         } else {
             ploggingUI?.isTakingPart = true
-            ploggingUI?.ploggers?.append(UserDefaults.standard.string(forKey: "emailAddress") ?? "")
+            ploggingUI?.ploggers.append(UserDefaults.standard.string(forKey: "emailAddress") ?? "")
         }
 
         guard let ploggingUI else { return }

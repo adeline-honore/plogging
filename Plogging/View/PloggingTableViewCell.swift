@@ -31,7 +31,7 @@ class PloggingTableViewCell: UITableViewCell {
 
     func configure(plogging: PloggingUI) {
         placeLabel.text = "Place : " + plogging.place
-        dateLabel.text = "Departure : " + plogging.dateToDisplayedString(date: plogging.beginning)
+        dateLabel.text = "Departure : " + plogging.beginningString
         distanceLabel.text = "Distance : " + plogging.distance.fixedFraction(digits: 0) + " km"
         arrowImage.tintColor = Color().appColor
     }

@@ -136,7 +136,9 @@ class PersonalPloggingViewController: UIViewController {
             
             var imageList: [PloggingImage] = []
             
-            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, beginning: $0.stringDateToDateObject(dateString: $0.beginning), image:  self.associateImageToPloggingUI(images: imageList, ploggindId: $0.id)) }
+            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning))}
+            
+//            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, beginning: $0.stringDateToDateObject(dateString: String($0.beginning)), image:  self.associateImageToPloggingUI(images: imageList, ploggindId: $0.id)) }
             displayPersonalPloggings()
             self.savePloggingListInCoreData(ploggingUIList: ploggingsUI)
         }
@@ -184,12 +186,14 @@ class PersonalPloggingViewController: UIViewController {
         var ploggingUIList: [PloggingUI] = []
         do {
             let ploggingsCD = try repository.getEntities()
-            ploggingUIList = ploggingsCD.map { PloggingUI(
-                ploggingCD: $0,
-                beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? ""),
-                image: UIImage(data: $0.imageBinary ?? Data()) ?? icon
-                )
+            ploggingUIList = ploggingsCD.map {PloggingUI(ploggingCD: $0, /*beginningString: repository.stringDateToDateObject(dateString: $0.beginning ?? "0"),*/ beginningString: repository.convertPloggingCDBeginningStringToBeginningUIString(dateString: $0.beginning ?? "0"), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
             }
+//            { PloggingUI(
+//                ploggingCD: $0,
+//                beginning: repository.stringDateToDateObject(dateString: $0.beginning ?? ""),
+//                image: UIImage(data: $0.imageBinary ?? Data()) ?? icon
+//                )
+//            }
         } catch {
             print("fatalError")
         }
@@ -229,9 +233,10 @@ class PersonalPloggingViewController: UIViewController {
         ploggingsSection = [[], []]
 
         ploggingsUI.forEach { race in
-            let date =  race.beginning
+            let date =  race.beginningTimestamp
+            let nowTimestampInteger = Int(NSDate().timeIntervalSince1970)
 
-            if date > dateNowInteger {
+            if date > nowTimestampInteger {
                 // upcoming races
                 ploggingsSection[0].append(race)
             } else {

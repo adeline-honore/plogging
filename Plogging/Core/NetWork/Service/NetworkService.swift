@@ -43,7 +43,7 @@ class NetworkService: PloggingServiceProtocol {
             let item = [
                 "id": plogging.id as NSString,
                 "admin": plogging.admin as NSString,
-                "beginning": plogging.beginning as NSString,
+                "beginning": plogging.beginning as NSNumber,
                 "place": plogging.place as NSString,
                 "latitude": plogging.latitude as NSNumber,
                 "longitude": plogging.longitude as NSNumber,
@@ -71,7 +71,7 @@ class NetworkService: PloggingServiceProtocol {
 
                 var newPlogging = Plogging()
                 newPlogging.admin = dict?.value(forKey: "admin") as! String
-                newPlogging.beginning = dict?.value(forKey: "beginning") as! String
+                newPlogging.beginning = dict?.value(forKey: "beginning") as! Int
                 newPlogging.distance = dict?.value(forKey: "distance") as! Int
                 newPlogging.id = dict?.value(forKey: "id") as! String
                 newPlogging.latitude = dict?.value(forKey: "latitude") as! Double
@@ -94,11 +94,11 @@ class NetworkService: PloggingServiceProtocol {
         guard let key = DatabaseURL.ref.child("datas").childByAutoId().key else { return }
 
         let ploggingSetted = [
-            "beginning": ploggingUI.beginning,
+            "beginning": ploggingUI.beginningTimestamp,
             "place": ploggingUI.place,
-            "latitude": ploggingUI.latitude ?? 0,
-            "longitude": ploggingUI.longitude ?? 0,
-            "ploggers": ploggingUI.ploggers ?? [ploggingUI.admin],
+            "latitude": ploggingUI.latitude,
+            "longitude": ploggingUI.longitude,
+            "ploggers": ploggingUI.ploggers,
             "distance": ploggingUI.distance
         ] as [String: Any]
 

@@ -15,12 +15,12 @@ final class PloggingLoader {
         self.ploggingService = ploggingService
     }
 
-    func createAnnotationFromPloggingModels(model: [Plogging]) -> [PloggingAnnotation] {
+    func createAnnotationFromPloggingModels(model: [PloggingUI]) -> [PloggingAnnotation] {
 
         var ploggingAnnotations: [PloggingAnnotation] = []
 
         model.forEach {model in
-            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.beginning, subtitle: model.id)
+            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.beginningString, subtitle: model.id)
 
             if CLLocationCoordinate2DIsValid(annotation.coordinate) {
                 ploggingAnnotations.append(annotation)

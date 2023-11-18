@@ -15,7 +15,7 @@ struct PloggingDatas: Codable {
 // MARK: - Plogging
 struct Plogging: Codable {
     var admin: String
-    var beginning: String
+    var beginning: Int
     var distance: Int
     var id: String
     var latitude: Double
@@ -25,7 +25,7 @@ struct Plogging: Codable {
 
     init() {
         admin = ""
-        beginning = ""
+        beginning = 0
         distance = 10
         id = ""
         latitude = 0.0
@@ -33,14 +33,5 @@ struct Plogging: Codable {
         place = ""
         ploggers = [""]
        
-    }
-
-    func stringDateToDateObject(dateString: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMM YY, hh:mm"
-
-        guard let date = dateFormatter.date(from: dateString) else { return Date() }
-
-        return date
     }
 }
