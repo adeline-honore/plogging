@@ -21,7 +21,8 @@ class PersonalPloggingViewController: UIViewController {
 
     // MARK: - Properties
 
-    private var ploggingService = PloggingService()
+//    private var ploggingService = PloggingService()
+    private var networkService = NetworkService(network: Network())
 
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
@@ -109,7 +110,7 @@ class PersonalPloggingViewController: UIViewController {
 
     private func getPersonalPloggings() {
 
-        ploggingService.load { result in
+        networkService.getPloggingList() { result in
             switch result {
             case .success(let ploggingsResult):
                 self.getPersonnalPloggingList(ploggingList: ploggingsResult)

@@ -15,7 +15,8 @@ class MapViewController: UIViewController {
     private var locationManager = LocationManager.shared
     private var userLocation: CLLocation = CLLocation()
 
-    private var ploggingService = PloggingService()
+    private var ploggingAnnotationLoader = PloggingLoader(networkService: NetworkService(network: Network()))
+    private var networkService = NetworkService(network: Network())
 
     static var ploggings: [Plogging] = []
 
@@ -63,7 +64,7 @@ class MapViewController: UIViewController {
     }
 
     private func displayPloggingAnnotationItems() {
-        ploggingService.load { result in
+        networkService.getPloggingList() { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
@@ -77,13 +78,13 @@ class MapViewController: UIViewController {
     }
 
     private func createPloggingAnnotationItems(ploggingList: [Plogging]) {
-        // 1 filtrer la liste de ploggins result
-        // Transformer ploggings result en plogging UI
-        // creer annotations depuis plogging UI
-//        MapViewController.ploggings = ploggingList
-//        self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: ploggingList))
         self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: filterPloggingList(ploggingList: ploggingList))
-        self.mapView.addAnnotations(PloggingLoader.init(ploggingService: self.ploggingService ).createAnnotationFromPloggingModels(model: self.ploggingsUI))
+
+        let annotationList = ploggingAnnotationLoader.createAnnotationFromPloggingModels(model: ploggingsUI)
+
+        annotationList.forEach { ploggingAnnotation in
+            self.mapView.addAnnotation(ploggingAnnotation)
+        }
     }
 
     private func filterPloggingList(ploggingList: [Plogging]) -> [Plogging] {

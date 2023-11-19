@@ -20,7 +20,6 @@ class CreatePloggingViewController: UIViewController {
 
     private var createPloggingView: CreatePloggingView!
 
-    private var ploggingService = PloggingService()
     private var networkService = NetworkService(network: Network())
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
@@ -106,8 +105,6 @@ class CreatePloggingViewController: UIViewController {
         currentPloggingUI.admin = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
         currentPloggingUI.isTakingPart = true
         currentPloggingUI.distance = Double(distanceSelected) ?? 2
-
-        guard let image = currentPloggingUI.mainImage else { return }
     }
 
     private func savePlogging() {
@@ -196,13 +193,13 @@ class CreatePloggingViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard currentPloggingUI.mainImage != nil else { return }
-            
+
             let mainImageBinary = currentPloggingUI.mainImage?.jpegData(compressionQuality: 0.8)
-            
+
             guard mainImageBinary != nil else { return }
-            
+
             currentPloggingUI.mainImageBinary = mainImageBinary
-            
+
             networkService.uploadPhoto(mainImageBinary: mainImageBinary!, ploggingId: currentPloggingUI.id) { result in
                 print(result)
                 switch result {

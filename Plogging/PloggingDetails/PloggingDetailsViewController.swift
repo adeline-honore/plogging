@@ -20,7 +20,7 @@ class PloggingDetailsViewController: UIViewController {
 
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
-    private var ploggingService = PloggingService()
+    private var networkService = NetworkService(network: Network())
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
@@ -91,7 +91,7 @@ class PloggingDetailsViewController: UIViewController {
 
         guard let ploggingUI else { return }
 
-        ploggingService.setPlogging(ploggingUI: ploggingUI) { result in
+        networkService.setDatabasePlogging(ploggingUI: ploggingUI) { result in
             switch result {
             case .success:
                 self.saveIntoInternalDatabase(ploggingUI: ploggingUI)

@@ -9,10 +9,10 @@ import CoreLocation
 
 final class PloggingLoader {
 
-    let ploggingService: PloggingService
+    var networkService = NetworkService(network: Network())
 
-    init(ploggingService: PloggingService) {
-        self.ploggingService = ploggingService
+    init(networkService: NetworkService) {
+        self.networkService = networkService
     }
 
     func createAnnotationFromPloggingModels(model: [PloggingUI]) -> [PloggingAnnotation] {

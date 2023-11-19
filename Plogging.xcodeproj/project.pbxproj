@@ -84,7 +84,6 @@
 		6EECBFBB28F2EEEA00FAE3FE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBA28F2EEEA00FAE3FE /* LocationManager.swift */; };
 		6EECBFBE28F2F3AE00FAE3FE /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBD28F2F3AE00FAE3FE /* AlertType.swift */; };
 		6EECBFC028F2F4C900FAE3FE /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */; };
-		6EF0AA1D2902BBD40004F374 /* PloggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF0AA1C2902BBD40004F374 /* PloggingService.swift */; };
 		6EF0AA1F2902BC4E0004F374 /* PloggingLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF0AA1E2902BC4E0004F374 /* PloggingLoader.swift */; };
 		74120FA902484F997DAFE1A3 /* Pods_Plogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A052352C96F6D7B02A597936 /* Pods_Plogging.framework */; };
 /* End PBXBuildFile section */
@@ -176,7 +175,6 @@
 		6EECBFBA28F2EEEA00FAE3FE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6EECBFBD28F2F3AE00FAE3FE /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
-		6EF0AA1C2902BBD40004F374 /* PloggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingService.swift; sourceTree = "<group>"; };
 		6EF0AA1E2902BC4E0004F374 /* PloggingLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingLoader.swift; sourceTree = "<group>"; };
 		A052352C96F6D7B02A597936 /* Pods_Plogging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF18B2EC2EB555583E807559 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
@@ -486,7 +484,6 @@
 			isa = PBXGroup;
 			children = (
 				6EBFB9D72901251C00E1741A /* SomeDataz.json */,
-				6EF0AA1C2902BBD40004F374 /* PloggingService.swift */,
 				6EF0AA1E2902BC4E0004F374 /* PloggingLoader.swift */,
 			);
 			path = Plogging;
@@ -689,7 +686,6 @@
 				096B64292AF283F4001072CB /* SignInViewController.swift in Sources */,
 				6E290481291ED6CD00FB7D9A /* Color.swift in Sources */,
 				6E48FC582901DE8300757AA9 /* SegueIdentifier.swift in Sources */,
-				6EF0AA1D2902BBD40004F374 /* PloggingService.swift in Sources */,
 				6E1412F92922FD69009E1BDB /* PersonalPloggingViewController.swift in Sources */,
 				6E1412F2292274C2009E1BDB /* CreatePloggingViewController.swift in Sources */,
 				6EE2560929DE081E0058509C /* PhotoCD+CoreDataClass.swift in Sources */,
