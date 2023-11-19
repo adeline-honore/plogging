@@ -101,11 +101,12 @@ struct PloggingUI {
     
     func convertPloggingCDBeginningToBeginningString(dateString: String) -> String {
         let date = NSDate(timeIntervalSince1970: TimeInterval(Int(dateString) ?? 0))
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY MMM d, hh:mm"
-        let dateUI = dateFormatter.string(from: date as Date)
-        return dateUI
-        
+        if Int(dateString) != nil && Int(dateString) != 0 {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "YYYY MMM d, hh:mm"
+            let dateUI = dateFormatter.string(from: date as Date)
+            return dateUI
+        }
+        return "unable to display correct date"
     }
 }

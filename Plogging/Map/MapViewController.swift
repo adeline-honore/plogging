@@ -87,7 +87,6 @@ class MapViewController: UIViewController {
     }
 
     private func filterPloggingList(ploggingList: [Plogging]) -> [Plogging] {
-//        let now = Date()
         let timestamp = Int(NSDate().timeIntervalSince1970)
         
         var upcommingPloggingList: [Plogging] = []
@@ -95,18 +94,12 @@ class MapViewController: UIViewController {
             if item.beginning > timestamp {
                 upcommingPloggingList.append(item)
             }
-//            let itemDate = item.stringDateToDateObject(dateString: item.convertIntegerTimestampToStringDate())
-//            if itemDate > now {
-//                upcommingPloggingList.append(item)
-//            }
         }
         MapViewController.ploggings = upcommingPloggingList
         return upcommingPloggingList
     }
 
     private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
-//        let ploggingListFitered = filterPloggingList(ploggingList: ploggings)
-
         let array = ploggings.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning)) }
 
         ploggingsUI = array

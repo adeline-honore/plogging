@@ -98,23 +98,6 @@ final class PloggingCoreDataManager {
         }
     }
 
-    func stringDateToDateObject(dateString: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
-
-        guard let date = dateFormatter.date(from: dateString) else { return Date() }
-
-        return date
-    }
-    
-    func convertPloggingCDBeginningStringToBeginningUIString(dateString: String) -> String {
-        let date = NSDate(timeIntervalSince1970: TimeInterval(Int(dateString) ?? 0))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY MMM dd, hh:mm"
-        let uiDate = dateFormatter.string(from: date as Date)
-        return uiDate
-    }
-
     // MARK: - PhotoCD
 
     func createPhotoEntity(photoUI: PhotoUI) throws {
