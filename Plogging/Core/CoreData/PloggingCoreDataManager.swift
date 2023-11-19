@@ -37,6 +37,7 @@ final class PloggingCoreDataManager {
         ploggingCD.setValue(ploggingUI.isTakingPart, forKey: "isTakingPart")
         ploggingCD.setValue(ploggingUI.distance, forKey: "distance")
         ploggingCD.setValue(ploggingUI.mainImageBinary, forKey: "imageBinary")
+        ploggingCD.setValue(ploggingUI.ploggers, forKey: "ploggers")
 
         try coreDataStack.viewContext.save()
     }

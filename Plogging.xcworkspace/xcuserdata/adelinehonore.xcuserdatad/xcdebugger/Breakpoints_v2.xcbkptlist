@@ -71,195 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A4E8CCE7-DDAA-4B0A-A79D-24E80FB812E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/Plogging/PloggingLoader.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "createAnnotationFromPloggingModels(model:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A4E8CCE7-DDAA-4B0A-A79D-24E80FB812E5 - c281ef2a07c8052a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Plogging.Plogging) -&gt; () in Plogging.PloggingLoader.createAnnotationFromPloggingModels(model: Swift.Array&lt;Plogging.Plogging&gt;) -&gt; Swift.Array&lt;Plogging.PloggingAnnotation&gt;"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Plogging/PloggingLoader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "404">
-               </Location>
-               <Location
-                  uuid = "A4E8CCE7-DDAA-4B0A-A79D-24E80FB812E5 - fd86431ac1f644e0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Plogging.PloggingUI) -&gt; () in Plogging.PloggingLoader.createAnnotationFromPloggingModels(model: Swift.Array&lt;Plogging.PloggingUI&gt;) -&gt; Swift.Array&lt;Plogging.PloggingAnnotation&gt;"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Plogging/PloggingLoader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "380">
-               </Location>
-               <Location
-                  uuid = "A4E8CCE7-DDAA-4B0A-A79D-24E80FB812E5 - fd86431ac1f644c7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Plogging.PloggingUI) -&gt; () in Plogging.PloggingLoader.createAnnotationFromPloggingModels(model: Swift.Array&lt;Plogging.PloggingUI&gt;) -&gt; Swift.Array&lt;Plogging.PloggingAnnotation&gt;"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Plogging/PloggingLoader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "380">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "67370B96-65F1-4BBF-B781-41C88EF1EE15"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/Plogging/PloggingLoader.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "createAnnotationFromPloggingModels(model:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "67370B96-65F1-4BBF-B781-41C88EF1EE15 - b94192360bc5b2b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Plogging.PloggingLoader.createAnnotationFromPloggingModels(model: Swift.Array&lt;Plogging.Plogging&gt;) -&gt; Swift.Array&lt;Plogging.PloggingAnnotation&gt;"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Plogging/PloggingLoader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "216">
-               </Location>
-               <Location
-                  uuid = "67370B96-65F1-4BBF-B781-41C88EF1EE15 - 7e4454fd60085ae2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Plogging.PloggingLoader.createAnnotationFromPloggingModels(model: Swift.Array&lt;Plogging.PloggingUI&gt;) -&gt; Swift.Array&lt;Plogging.PloggingAnnotation&gt;"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Plogging/PloggingLoader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "216">
-               </Location>
-               <Location
-                  uuid = "67370B96-65F1-4BBF-B781-41C88EF1EE15 - 7e4454fd60085a83"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Plogging.PloggingLoader.createAnnotationFromPloggingModels(model: Swift.Array&lt;Plogging.PloggingUI&gt;) -&gt; Swift.Array&lt;Plogging.PloggingAnnotation&gt;"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Plogging/PloggingLoader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "216">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B23453C2-9BD6-4CEC-8273-2CBA82FDAB42"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/Model/PloggingUI.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "displayUIDateFromIntegerTimestamp(timestamp:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B23453C2-9BD6-4CEC-8273-2CBA82FDAB42 - 1a15de3ef0586e52"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Plogging.PloggingUI.displayUIDateFromTimestamp(timestamp: Swift.Int) -&gt; Swift.String"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Model/PloggingUI.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
-                  offsetFromSymbolStart = "208">
-               </Location>
-               <Location
-                  uuid = "B23453C2-9BD6-4CEC-8273-2CBA82FDAB42 - 4d32082930d3788b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Plogging.PloggingUI.displayUIDateFromIntegerTimestamp(timestamp: Swift.Int) -&gt; Swift.String"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Model/PloggingUI.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "208">
-               </Location>
-               <Location
-                  uuid = "B23453C2-9BD6-4CEC-8273-2CBA82FDAB42 - 4d32082930d3786a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Plogging.PloggingUI.displayUIDateFromIntegerTimestamp(timestamp: Swift.Int) -&gt; Swift.String"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/Model/PloggingUI.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "208">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "BC0C0C70-DB55-4C07-98B6-B92620E3F34F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -267,10 +78,42 @@
             filePath = "Plogging/PloggingDetails/PloggingDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BC0C0C70-DB55-4C07-98B6-B92620E3F34F - 676f50f7ad7b3a65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.PloggingDetailsViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/PloggingDetails/PloggingDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1116">
+               </Location>
+               <Location
+                  uuid = "BC0C0C70-DB55-4C07-98B6-B92620E3F34F - 676f50f7ad7b3a44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.PloggingDetailsViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/PloggingDetails/PloggingDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1116">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -283,9 +126,57 @@
             filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "updatePloggingData(array:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F43EA076-59B6-41F1-AC35-B29A6E70CC2F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "setPloggingElement()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B52975D0-A60E-4A60-9421-D9FB53402553"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "saveImageInDistantDataBase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DCCFF79-0E54-47DF-9280-C24BF951C862"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "saveImageInDistantDataBase()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

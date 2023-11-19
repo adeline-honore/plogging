@@ -7,10 +7,10 @@
 
 import Foundation
 import FirebaseDatabase
-//import FirebaseFirestore
+import FirebaseFirestore
 //import FirebaseCore
 import FirebaseAuth
-//import FirebaseStorage
+import FirebaseStorage
 
 protocol PloggingServiceProtocol {
     func createApiPlogging(ploggingArray: [Plogging], completionHandler: @escaping (Result<FirebaseResult, Error>) -> ())
@@ -108,19 +108,17 @@ class NetworkService: PloggingServiceProtocol {
 
     }
 
-    func uploadPhoto(ploggingUI: PloggingUI, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+    func uploadPhoto(mainImageBinary: Data, ploggingId: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
 
-//        let storageRef = Storage.storage().reference()
-//
-//        guard let imageData = ploggingUI.mainImage?.jpegData(compressionQuality: 0.8) else { return }
-//
-//        let fileRef = storageRef.child("images/\(ploggingUI.id).jpg")
-//
-//        let uploadTask = fileRef.putData(imageData) { metadata, error in
-//
-//            if error == nil && metadata != nil {
-//                
-//            }
-//        }
+        let storageRef = Storage.storage().reference()
+        let fileRef = storageRef.child("images/\(ploggingId).jpg")
+
+        let uploadTask = fileRef.putData(mainImageBinary, metadata: nil) { metadata, error in
+            if error == nil && metadata != nil {
+                completionHandler(.success(FirebaseResult.success))
+            } else {
+                completionHandler(.failure(ErrorType.network))
+            }
+        }
     }
 }

@@ -108,9 +108,6 @@ class CreatePloggingViewController: UIViewController {
         currentPloggingUI.distance = Double(distanceSelected) ?? 2
 
         guard let image = currentPloggingUI.mainImage else { return }
-        if currentPloggingUI.mainImage != nil {
-            currentPloggingUI.mainImageBinary = image.jpegData(compressionQuality: 1)
-        }
     }
 
     private func savePlogging() {
@@ -138,11 +135,11 @@ class CreatePloggingViewController: UIViewController {
                 // create UUID for plogging
 //                currentPlogging.id = UUID().uuidString
                 
-                let gggg = String(Int.random(in: 0..<1000))
-                currentPloggingUI.id = "EEZZ-000-24-JAAUG-WWWW" + gggg
+                let randomInteger = String(Int.random(in: 0..<1000))
+                currentPloggingUI.id = "EEZZ-000-24-JAAUG-WWWW" + randomInteger
                 
                 // get plogging list from APi and update it
-                distantDatabaseSaveRequest()
+                getPloggingListFromDistantDatabase()
             case .failure:
                 popUpModal.userAlert(element: AlertType.createError, viewController: self)
             }
@@ -151,7 +148,7 @@ class CreatePloggingViewController: UIViewController {
 
     // MARK: - Save Plogging in API
 
-    private func distantDatabaseSaveRequest() {
+    private func getPloggingListFromDistantDatabase() {
         networkService.getPloggingList { result in
                 switch result {
                 case .success(let array):
@@ -182,12 +179,38 @@ class CreatePloggingViewController: UIViewController {
     }
 
     private func updateApiList(updatedList: [Plogging]) {
-        networkService.createApiPlogging(ploggingArray: updatedList) { result in
-            switch result {
-            case .success:
-                self.internalDatabaseSaveRequest()
-            case .failure:
-                self.popUpModal.userAlert(element: .network, viewController: self)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            networkService.createApiPlogging(ploggingArray: updatedList) { result in
+                switch result {
+                case .success:
+                    self.saveImageInDistantDataBase()
+                case .failure:
+                    self.popUpModal.userAlert(element: .network, viewController: self)
+                }
+            }
+        }
+    }
+    
+    private func saveImageInDistantDataBase() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            guard currentPloggingUI.mainImage != nil else { return }
+            
+            let mainImageBinary = currentPloggingUI.mainImage?.jpegData(compressionQuality: 0.8)
+            
+            guard mainImageBinary != nil else { return }
+            
+            currentPloggingUI.mainImageBinary = mainImageBinary
+            
+            networkService.uploadPhoto(mainImageBinary: mainImageBinary!, ploggingId: currentPloggingUI.id) { result in
+                print(result)
+                switch result {
+                case .success:
+                    self.internalDatabaseSaveRequest()
+                case .failure:
+                    self.popUpModal.userAlert(element: .network, viewController: self)
+                }
             }
         }
     }
