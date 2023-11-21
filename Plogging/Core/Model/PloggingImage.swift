@@ -12,10 +12,15 @@ struct PloggingImage {
     var mainImage: UIImage?
 
     // init for create an instance of PloggingImage
-    init(id: String? = nil,
+    init(id: String,
          mainImage: UIImage? = nil) {
-        self.id = id ?? ""
+        self.id = id
         self.mainImage = mainImage ?? UIImage(imageLiteralResourceName: "icon")
     }
 
+    func createValidIdForPloggingImage(idToConvert: String) -> String {
+        var id = idToConvert.replacingOccurrences(of: "images/", with: "")
+        id = id.replacingOccurrences(of: ".jpg", with: "")
+        return id
+    }
 }

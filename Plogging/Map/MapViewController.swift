@@ -46,8 +46,7 @@ class MapViewController: UIViewController {
         if !isInternetAvailable() {
             popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
         } else {
-            // display PloggingAnnotation items
-            displayPloggingAnnotationItems()
+            getApiPloggingList()
         }
     }
 
@@ -63,13 +62,17 @@ class MapViewController: UIViewController {
         mapView.centerToLocation(userLocation)
     }
 
-    private func displayPloggingAnnotationItems() {
+    // MARK: - Get Plogging List From External Database, Filter And Convert That List
+
+    private func getApiPloggingList() {
         networkService.getPloggingList() { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
                 case .success(let ploggingsResult):
-                    self.createPloggingAnnotationItems(ploggingList: ploggingsResult)
+                    MapViewController.ploggings = ploggingsResult
+                    self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: filterPloggingList())
+                    self.getPloggingMainImage()
                 case .failure:
                     self.popUpModal.userAlert(element: .network, viewController: self)
                 }
@@ -77,21 +80,11 @@ class MapViewController: UIViewController {
         }
     }
 
-    private func createPloggingAnnotationItems(ploggingList: [Plogging]) {
-        self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: filterPloggingList(ploggingList: ploggingList))
-
-        let annotationList = ploggingAnnotationLoader.createAnnotationFromPloggingModels(model: ploggingsUI)
-
-        annotationList.forEach { ploggingAnnotation in
-            self.mapView.addAnnotation(ploggingAnnotation)
-        }
-    }
-
-    private func filterPloggingList(ploggingList: [Plogging]) -> [Plogging] {
+    private func filterPloggingList() -> [Plogging] {
         let timestamp = Int(NSDate().timeIntervalSince1970)
-        
+
         var upcommingPloggingList: [Plogging] = []
-        ploggingList.forEach { item in
+        MapViewController.ploggings.forEach { item in
             if item.beginning > timestamp {
                 upcommingPloggingList.append(item)
             }
@@ -105,6 +98,45 @@ class MapViewController: UIViewController {
 
         ploggingsUI = array
         return array
+    }
+
+    // MARK: - Associate Ploggings With Their Images
+
+    private func getPloggingMainImage() {
+        networkService.getImageList { result in
+            print(result)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch result {
+                case .success(let photosResult):
+                    self.filterApiPhotos(photoApiList: photosResult)
+                case .failure:
+                    self.popUpModal.userAlert(element: .network, viewController: self)
+                }
+            }
+        }
+    }
+    
+    private func filterApiPhotos(photoApiList: [PloggingImage]) {
+        ploggingsUI.forEach { filteredPloggingUI in
+
+            let ploggingImage = photoApiList.first { $0.createValidIdForPloggingImage(idToConvert: $0.id) == filteredPloggingUI.id }
+            if ploggingImage != nil {
+                guard let ploggingsIndex = ploggingsUI.firstIndex(where: { $0.id == filteredPloggingUI.id}) else { return }
+                ploggingsUI[ploggingsIndex].mainImage = ploggingImage?.mainImage
+            }
+        }
+        createPloggingAnnotationItems()
+    }
+
+    // MARK: - Create Plogging Annotations Items
+
+    private func createPloggingAnnotationItems() {
+        let annotationList = ploggingAnnotationLoader.createAnnotationFromPloggingModels(model: ploggingsUI)
+
+        annotationList.forEach { ploggingAnnotation in
+            self.mapView.addAnnotation(ploggingAnnotation)
+        }
     }
 
     // MARK: - Send datas thanks segue

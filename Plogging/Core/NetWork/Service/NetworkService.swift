@@ -8,7 +8,6 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseFirestore
-//import FirebaseCore
 import FirebaseAuth
 import FirebaseStorage
 
@@ -110,14 +109,54 @@ class NetworkService: PloggingServiceProtocol {
 
     func uploadPhoto(mainImageBinary: Data, ploggingId: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
 
+        let path = "images/\(ploggingId).jpg"
         let storageRef = Storage.storage().reference()
-        let fileRef = storageRef.child("images/\(ploggingId).jpg")
+        let fileRef = storageRef.child(path)
 
-        let uploadTask = fileRef.putData(mainImageBinary, metadata: nil) { metadata, error in
+        fileRef.putData(mainImageBinary, metadata: nil) { metadata, error in
+            let db = Firestore.firestore()
+            db.collection("images").document().setData(["url" : path])
+
             if error == nil && metadata != nil {
                 completionHandler(.success(FirebaseResult.success))
             } else {
                 completionHandler(.failure(ErrorType.network))
+            }
+        }
+    }
+
+    func getImageList(completionHandler: @escaping (Result<[PloggingImage], ErrorType>) -> Void) {
+
+        var ploggingImageList: [PloggingImage] = []
+        var photoList = [UIImage]()
+
+        let db = Firestore.firestore()
+        db.collection("images").getDocuments { snapshot, error in
+
+            if error == nil && snapshot != nil {
+                var pathList = [String]()
+
+                for doc in snapshot!.documents {
+                    pathList.append(doc["url"] as! String)
+                }
+
+                for onePath in pathList {
+                    let storageRef = Storage.storage().reference()
+                    let fileRef = storageRef.child(onePath)
+                    fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                        if error == nil && data != nil {
+                            if let imagge = UIImage(data: data!) {
+                                photoList.append(imagge)
+
+                                let ploggingImage = PloggingImage(id: onePath, mainImage: imagge)
+                                ploggingImageList.append(ploggingImage)
+                            }
+                            completionHandler(.success(ploggingImageList))
+                        } else {
+                            completionHandler(.failure(ErrorType.network))
+                        }
+                    }
+                }
             }
         }
     }
