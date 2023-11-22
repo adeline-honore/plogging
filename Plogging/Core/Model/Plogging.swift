@@ -32,6 +32,16 @@ struct Plogging: Codable {
         longitude = 0.0
         place = ""
         ploggers = [""]
-       
+    }
+
+    init(ploggingUI: PloggingUI) {
+        id = ploggingUI.id
+        admin = ploggingUI.admin
+        beginning = ploggingUI.beginningTimestamp
+        place = ploggingUI.place
+        latitude = ploggingUI.latitude
+        longitude = ploggingUI.longitude
+        ploggers = ploggingUI.ploggers
+        distance = Int(ploggingUI.distance)
     }
 }
