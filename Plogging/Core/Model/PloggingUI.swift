@@ -21,7 +21,7 @@ struct PloggingUI {
     var mainImageBinary: Data?
     var mainImage: UIImage?
 
-    init(plogging: Plogging, scheduleTimestamp: Int, scheduleString: String) {
+    init(plogging: Plogging, scheduleTimestamp: Int, scheduleString: String, isTakingPartUI: Bool) {
         id = plogging.id
         admin = plogging.admin
         beginningTimestamp = scheduleTimestamp
@@ -30,7 +30,7 @@ struct PloggingUI {
         latitude = plogging.latitude
         longitude = plogging.longitude
         ploggers = plogging.ploggers
-        isTakingPart = false
+        isTakingPart = isTakingPartUI
         distance = Double(plogging.distance)
     }
 
@@ -56,21 +56,6 @@ struct PloggingUI {
         self.distance = distance ?? 0
         self.ploggers = ploggers ?? [""]
     }
-    
-    // init from personnal Ploggin 
-    init(plogging: Plogging, beginningUI: String, image: UIImage) {
-        self.id = plogging.id
-        self.admin = plogging.admin
-        self.beginningTimestamp = plogging.beginning
-        self.beginningString = beginningUI
-        self.place = plogging.place
-        self.latitude = plogging.latitude
-        self.longitude = plogging.longitude
-        self.ploggers = plogging.ploggers
-        self.isTakingPart = true
-        self.distance = Double(plogging.distance)
-        self.mainImage = image
-    }
 
     // init from PlogginCD
     init(ploggingCD: PloggingCD, beginningString: String, image: UIImage) {
@@ -91,7 +76,7 @@ struct PloggingUI {
     func displayUIDateFromIntegerTimestamp(timestamp: Int) -> String {
         let date = NSDate(timeIntervalSince1970: TimeInterval(timestamp))
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY MM dd, hh:mm"
+        formatter.dateFormat = "YYYY MM dd, HH:mm"
         return formatter.string(from: date as Date)
     }
 
@@ -103,10 +88,14 @@ struct PloggingUI {
         let date = NSDate(timeIntervalSince1970: TimeInterval(Int(dateString) ?? 0))
         if Int(dateString) != nil && Int(dateString) != 0 {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY MMM d, hh:mm"
+            dateFormatter.dateFormat = "YYYY MMM d, HH:mm"
             let dateUI = dateFormatter.string(from: date as Date)
             return dateUI
         }
         return "unable to display correct date"
+    }
+    
+    func isUserTakingPart() -> Bool {
+        return ploggers.contains(UserDefaults.standard.string(forKey: "emailAddress") ?? "")
     }
 }
