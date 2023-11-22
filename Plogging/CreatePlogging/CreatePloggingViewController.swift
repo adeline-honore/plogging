@@ -105,6 +105,9 @@ class CreatePloggingViewController: UIViewController {
         currentPloggingUI.admin = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
         currentPloggingUI.isTakingPart = true
         currentPloggingUI.distance = Double(distanceSelected) ?? 2
+        currentPloggingUI.beginningTimestamp = startIntegerTimestamp
+        currentPloggingUI.beginningString = PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: startIntegerTimestamp)
+        currentPloggingUI.ploggers = [currentPloggingUI.admin]
     }
 
     private func savePlogging() {
@@ -135,8 +138,8 @@ class CreatePloggingViewController: UIViewController {
                 let randomInteger = String(Int.random(in: 0..<1000))
                 currentPloggingUI.id = "EEZZ-000-24-JAAUG-WWWW" + randomInteger
                 
-                // get plogging list from APi and update it
-                getPloggingListFromDistantDatabase()
+                // save plogging in APi
+                savePloggingInExternalDatabase()
             case .failure:
                 popUpModal.userAlert(element: AlertType.createError, viewController: self)
             }
@@ -144,51 +147,20 @@ class CreatePloggingViewController: UIViewController {
     }
 
     // MARK: - Save Plogging in API
+    
+    private func savePloggingInExternalDatabase() {
+        let ploggingToSave: Plogging = Plogging(ploggingUI: currentPloggingUI)
 
-    private func getPloggingListFromDistantDatabase() {
-        networkService.getPloggingList { result in
-                switch result {
-                case .success(let array):
-                    let ploggingListUpdated = self.updatePloggingData(array: array)
-                    self.updateApiList(updatedList: ploggingListUpdated)
-                case .failure:
-                    self.popUpModal.userAlert(element: .network, viewController: self)
+        networkService.createOrUpdateAPIPlogging(plogging: ploggingToSave) { result in
+            switch result {
+            case .success:
+                self.saveImageInDistantDataBase()
+            case .failure:
+                self.popUpModal.userAlert(element: .network, viewController: self)
             }
         }
     }
-    
-    private func updatePloggingData(array: [Plogging]) -> [Plogging] {
-        var ploggingList = array
 
-        var currentPlogging = Plogging()
-        currentPlogging.id = currentPloggingUI.id
-        currentPlogging.admin = currentPloggingUI.admin
-        currentPlogging.beginning = startIntegerTimestamp
-        currentPlogging.latitude = currentPloggingUI.latitude
-        currentPlogging.longitude = currentPloggingUI.longitude
-        currentPlogging.place = currentPloggingUI.place
-        currentPlogging.ploggers = [currentPloggingUI.admin]
-        currentPlogging.distance = Int(currentPloggingUI.distance)
-
-        ploggingList.append(currentPlogging)
-
-        return ploggingList
-    }
-
-    private func updateApiList(updatedList: [Plogging]) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            networkService.createApiPlogging(ploggingArray: updatedList) { result in
-                switch result {
-                case .success:
-                    self.saveImageInDistantDataBase()
-                case .failure:
-                    self.popUpModal.userAlert(element: .network, viewController: self)
-                }
-            }
-        }
-    }
-    
     private func saveImageInDistantDataBase() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -263,6 +235,7 @@ extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSo
 extension CreatePloggingViewController: LocalSearchCompletionViewControllerDelegate {
     func departurePlaceChoosen(result: MKLocalSearchCompletion) {
         createPloggingView.resultLocationLabel.text = result.title
+        print(createPloggingView.resultLocationLabel.text)
         selectedSearchCompletion = result
         currentPloggingUI.place = result.title
     }

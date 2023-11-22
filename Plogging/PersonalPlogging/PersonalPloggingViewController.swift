@@ -110,7 +110,7 @@ class PersonalPloggingViewController: UIViewController {
 
     private func getPersonalPloggings() {
 
-        networkService.getPloggingList() { result in
+        networkService.getAPIPloggingList() { result in
             switch result {
             case .success(let ploggingsResult):
                 self.getPersonnalPloggingList(ploggingList: ploggingsResult)
@@ -134,10 +134,8 @@ class PersonalPloggingViewController: UIViewController {
                     ploggings.append(item)
                 }
             }
-            
-            var imageList: [PloggingImage] = []
-            
-            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning))}
+
+            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: PloggingUI().isUserTakingPart())}
 
             displayPersonalPloggings()
             self.savePloggingListInCoreData(ploggingUIList: ploggingsUI)

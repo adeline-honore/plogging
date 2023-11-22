@@ -7,8 +7,10 @@
 
 import UIKit
 
-protocol PloggingDetailsViewControllerDelegate: AnyObject {
-    func didSetPloggingPhoto(photoUI: PhotoUI, removePhoto: Bool)
+enum UserAction {
+    case toggleTakePart
+    case wantToLogIn
+    case null
 }
 
 class PloggingDetailsViewController: UIViewController {
@@ -27,9 +29,9 @@ class PloggingDetailsViewController: UIViewController {
 
     var ploggingUI: PloggingUI?
 
-    weak var delegate: PloggingDetailsViewControllerDelegate?
-
     private var isConnectedUser: Bool = false
+
+    private var userAction: UserAction = .null
 
     // MARK: - Life cycle
 
@@ -67,6 +69,8 @@ class PloggingDetailsViewController: UIViewController {
     }
 
     private func toggleTakePart() {
+        popUpModal.delegate = self
+        userAction = .toggleTakePart
         if ploggingUI?.isTakingPart == true {
             // if user already takes part at this plogging race then remove participation
             PopUpModalViewController().userAlertWithChoice(element: .wantToNoParticipate, viewController: self)
@@ -91,7 +95,9 @@ class PloggingDetailsViewController: UIViewController {
 
         guard let ploggingUI else { return }
 
-        networkService.setDatabasePlogging(ploggingUI: ploggingUI) { result in
+        let ploggingToSet: Plogging = Plogging(ploggingUI: ploggingUI)
+
+        networkService.createOrUpdateAPIPlogging(plogging: ploggingToSet) { result in
             switch result {
             case .success:
                 self.saveIntoInternalDatabase(ploggingUI: ploggingUI)
@@ -122,6 +128,40 @@ class PloggingDetailsViewController: UIViewController {
             chooseImage(source: .photoLibrary)
         } else {
             PopUpModalViewController().userAlert(element: .unableToSaveChangeInternet, viewController: self)
+        }
+    }
+    
+    private func saveChangeImageInAPI() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            guard let mainImageBinary = ploggingUI?.mainImage?.jpegData(compressionQuality: 0.8), let id = ploggingUI?.id else {
+                self.popUpModal.userAlert(element: .unableToSaveChangeInternet, viewController: self)
+                return
+            }
+
+            networkService.uploadPhoto(mainImageBinary: mainImageBinary, ploggingId: id) { result in
+                switch result {
+                case .success:
+                    self.saveChangeImageInCoredata()
+                case .failure:
+                    self.popUpModal.userAlert(element: .unableToSaveChangeInternet, viewController: self)
+                }
+            }
+        }
+    }
+
+    private func saveChangeImageInCoredata() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            guard ploggingUI != nil else { return }
+            do {
+                try self.repository.setEntity(ploggingUI: ploggingUI!)
+                
+                popUpModal.userAlert(element: AlertType.ploggingSetWithSuccess, viewController: self)
+            } catch {
+                popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)
+            }
         }
     }
 
@@ -173,27 +213,16 @@ extension PloggingDetailsViewController: UIImagePickerControllerDelegate, UINavi
         ploggingUI?.mainImage = choosenImage
         ploggingUI?.mainImageBinary = choosenImage.jpegData(compressionQuality: 1.0)
 
-        guard let ploggingUI = ploggingUI else { return }
-
-        do {
-            try repository.setEntity(ploggingUI: ploggingUI)
-        } catch {
-            print(error)
-        }
+        saveChangeImageInAPI()
     }
 }
 
-// MARK: - Set Images
-
-//extension PloggingDetailsViewController: DetailsCollectionDelegate {
-//    func didSetPhoto(photo: PhotoUI, action: String) {
-//        setImage(photo: photo, action: action)
-//        // TODO: save into Cloudkit
-//    }
-//}
-
 extension PloggingDetailsViewController: PopUpModalDelegate {
     func didValidateAction() {
-        performSegue(withIdentifier: SegueIdentifier.fromDetailsToSignInOrUp.rawValue, sender: self)
+        if userAction == .toggleTakePart {
+            saveTakePartChoice()
+        } else {
+            performSegue(withIdentifier: SegueIdentifier.fromDetailsToSignInOrUp.rawValue, sender: self)
+        }
     }
 }

@@ -65,7 +65,7 @@ class MapViewController: UIViewController {
     // MARK: - Get Plogging List From External Database, Filter And Convert That List
 
     private func getApiPloggingList() {
-        networkService.getPloggingList() { result in
+        networkService.getAPIPloggingList() { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
@@ -94,7 +94,7 @@ class MapViewController: UIViewController {
     }
 
     private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
-        let array = ploggings.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning)) }
+        let array = ploggings.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: PloggingUI().isUserTakingPart()) }
 
         ploggingsUI = array
         return array
@@ -104,7 +104,6 @@ class MapViewController: UIViewController {
 
     private func getPloggingMainImage() {
         networkService.getImageList { result in
-            print(result)
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
