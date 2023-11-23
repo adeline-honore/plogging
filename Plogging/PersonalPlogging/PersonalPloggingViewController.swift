@@ -181,15 +181,15 @@ class PersonalPloggingViewController: UIViewController {
     // MARK: - Get Personal Races from CoreData
 
     private func getPloggingFromCoreData() -> [PloggingUI] {
-        var ploggingUIList: [PloggingUI] = []
         do {
             let ploggingsCD = try repository.getEntities()
-            ploggingUIList = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningString: PloggingUI().convertPloggingCDBeginningToBeginningString(dateString: $0.beginning ?? "0"), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
+            var ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningString: PloggingUI().convertPloggingCDBeginningToBeginningString(dateString: $0.beginning ?? "0"), isTakingPartUI: PloggingUI().isUserTakingPart(), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
             }
+            return ploggingUIList.filter({ $0.isTakingPart == true })
         } catch {
             print("fatalError")
+            return [PloggingUI]()
         }
-        return ploggingUIList
     }
 
     // MARK: - Display Personal Races from CoreData
