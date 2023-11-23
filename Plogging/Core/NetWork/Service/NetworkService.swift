@@ -27,39 +27,38 @@ class NetworkService: PloggingServiceProtocol {
     func getAPIPloggingList(completionHandler: @escaping (Result<[Plogging], Error>) -> ()) {
         var ploggingList: [Plogging] = []
 
-        let db = Firestore.firestore()
-        db.collection("ploggingList").getDocuments { snapshot, error in
+        let firestoreDataBase = Firestore.firestore()
+        firestoreDataBase.collection("ploggingList").getDocuments { snapshot, error in
 
             if error == nil && snapshot != nil {
-                for plog in snapshot!.documents {
-                    let one = plog.data()
-                    print(one)
+                for ploggingDocumentList in snapshot!.documents {
+                    let ploggingDocument = ploggingDocumentList.data()
                     var ploggg: Plogging = Plogging()
 
-                    for hggj in one {
-                        if hggj.key == "id" {
-                            ploggg.id = hggj.value as! String
+                    for pair in ploggingDocument {
+                        if pair.key == "id" {
+                            ploggg.id = pair.value as! String
                         }
-                        if hggj.key == "admin" {
-                            ploggg.admin = hggj.value as! String
+                        if pair.key == "admin" {
+                            ploggg.admin = pair.value as! String
                         }
-                        if hggj.key == "beginning" {
-                            ploggg.beginning = hggj.value as! Int
+                        if pair.key == "beginning" {
+                            ploggg.beginning = pair.value as! Int
                         }
-                        if hggj.key == "distance" {
-                            ploggg.distance = hggj.value as! Int
+                        if pair.key == "distance" {
+                            ploggg.distance = pair.value as! Int
                         }
-                        if hggj.key == "latitude" {
-                            ploggg.latitude = hggj.value as! Double
+                        if pair.key == "latitude" {
+                            ploggg.latitude = pair.value as! Double
                         }
-                        if hggj.key == "longitude" {
-                            ploggg.longitude = hggj.value as! Double
+                        if pair.key == "longitude" {
+                            ploggg.longitude = pair.value as! Double
                         }
-                        if hggj.key == "place" {
-                            ploggg.place = hggj.value as! String
+                        if pair.key == "place" {
+                            ploggg.place = pair.value as! String
                         }
-                        if hggj.key == "ploggers" {
-                            ploggg.ploggers = hggj.value as! [String]
+                        if pair.key == "ploggers" {
+                            ploggg.ploggers = pair.value as! [String]
                         }
                     }
                     ploggingList.append(ploggg)
@@ -84,8 +83,8 @@ class NetworkService: PloggingServiceProtocol {
             "ploggers": plogging.ploggers
         ]
 
-        let db = Firestore.firestore()
-        db.collection("ploggingList").document(plogging.id).setData(ploggingDoc) { error in
+        let firestoreDatabase = Firestore.firestore()
+        firestoreDatabase.collection("ploggingList").document(plogging.id).setData(ploggingDoc) { error in
             
             if error == nil {
                 completionHandler(.success(FirebaseResult.success))
@@ -102,8 +101,8 @@ class NetworkService: PloggingServiceProtocol {
         let fileRef = storageRef.child(path)
 
         fileRef.putData(mainImageBinary, metadata: nil) { metadata, error in
-            let db = Firestore.firestore()
-            db.collection("images").document().setData(["url" : path])
+            let firestoreDatabase = Firestore.firestore()
+            firestoreDatabase.collection("images").document().setData(["url" : path])
 
             if error == nil && metadata != nil {
                 completionHandler(.success(FirebaseResult.success))
@@ -112,39 +111,21 @@ class NetworkService: PloggingServiceProtocol {
             }
         }
     }
+    
+    func getPloggingImage(ploggingId: String, completionHandler: @escaping (Result<UIImage, Error>) -> Void) {
 
-    func getImageList(completionHandler: @escaping (Result<[PloggingImage], ErrorType>) -> Void) {
+        let path = "images/\(ploggingId).jpg"
+        let storageRef = Storage.storage().reference()
+        let fileRef = storageRef.child(path)
 
-        var ploggingImageList: [PloggingImage] = []
-        var photoList = [UIImage]()
-
-        let db = Firestore.firestore()
-        db.collection("images").getDocuments { snapshot, error in
-
-            if error == nil && snapshot != nil {
-                var pathList = [String]()
-
-                for doc in snapshot!.documents {
-                    pathList.append(doc["url"] as! String)
+        fileRef.getData(maxSize: 5 * 1024 * 1024) { result in
+            switch result {
+            case .success(let data):
+                if let image = UIImage(data: data) {
+                    completionHandler(.success(image))
                 }
-
-                for onePath in pathList {
-                    let storageRef = Storage.storage().reference()
-                    let fileRef = storageRef.child(onePath)
-                    fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
-                        if error == nil && data != nil {
-                            if let imagge = UIImage(data: data!) {
-                                photoList.append(imagge)
-
-                                let ploggingImage = PloggingImage(id: onePath, mainImage: imagge)
-                                ploggingImageList.append(ploggingImage)
-                            }
-                            completionHandler(.success(ploggingImageList))
-                        } else {
-                            completionHandler(.failure(ErrorType.network))
-                        }
-                    }
-                }
+            case .failure(let error):
+                completionHandler(.failure(error))
             }
         }
     }

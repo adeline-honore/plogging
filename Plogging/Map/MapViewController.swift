@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
     private var ploggingUI: PloggingUI?
 
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
+    private let icon = UIImage(imageLiteralResourceName: "icon")
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -103,29 +104,23 @@ class MapViewController: UIViewController {
     // MARK: - Associate Ploggings With Their Images
 
     private func getPloggingMainImage() {
-        networkService.getImageList { result in
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                switch result {
-                case .success(let photosResult):
-                    self.filterApiPhotos(photoApiList: photosResult)
-                case .failure:
-                    self.popUpModal.userAlert(element: .network, viewController: self)
+
+        for validPlogging in ploggingsUI {
+            guard let ploggingsIndex = self.ploggingsUI.firstIndex(where: { $0.id == validPlogging.id}) else { return }
+
+            networkService.getPloggingImage(ploggingId: validPlogging.id) { result in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let photoResult):
+                        ploggingsUI[ploggingsIndex].mainImage = photoResult
+                    case .failure:
+                        ploggingsUI[ploggingsIndex].mainImage = icon
+                    }
+                    createPloggingAnnotationItems()
                 }
             }
         }
-    }
-    
-    private func filterApiPhotos(photoApiList: [PloggingImage]) {
-        ploggingsUI.forEach { filteredPloggingUI in
-
-            let ploggingImage = photoApiList.first { $0.createValidIdForPloggingImage(idToConvert: $0.id) == filteredPloggingUI.id }
-            if ploggingImage != nil {
-                guard let ploggingsIndex = ploggingsUI.firstIndex(where: { $0.id == filteredPloggingUI.id}) else { return }
-                ploggingsUI[ploggingsIndex].mainImage = ploggingImage?.mainImage
-            }
-        }
-        createPloggingAnnotationItems()
     }
 
     // MARK: - Create Plogging Annotations Items
