@@ -43,8 +43,12 @@ class CreatePloggingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createPloggingView = view as? CreatePloggingView
-        displayView()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        displayView()
+        }
 
     private func displayView() {
         if isInternetAvailable() {
@@ -54,6 +58,8 @@ class CreatePloggingViewController: UIViewController {
             setupDatePicker()
             createPloggingView.noInternetLabel.isHidden = true
             createPloggingView.mainStack.isHidden = false
+            createPloggingView.resultLocationLabel.isHidden = false
+            createPloggingView.resultLocationLabel.text = "No place selected"
         } else {
             createPloggingView.noInternetLabel.isHidden = false
             createPloggingView.noInternetLabel.text = AlertType.internetNotAvailable.message
