@@ -58,7 +58,7 @@ struct PloggingUI {
     }
 
     // init from PlogginCD
-    init(ploggingCD: PloggingCD, beginningString: String, image: UIImage) {
+    init(ploggingCD: PloggingCD, beginningString: String, isTakingPartUI: Bool, image: UIImage) {
         self.id = ploggingCD.id ?? ""
         self.admin = ploggingCD.admin ?? ""
         self.beginningTimestamp = 0 //Int(ploggingCD.beginning)
@@ -67,7 +67,7 @@ struct PloggingUI {
         self.latitude = ploggingCD.latitude
         self.longitude = ploggingCD.longitude
         self.ploggers = ploggingCD.ploggers ?? [""]
-        self.isTakingPart = ploggingCD.isTakingPart
+        self.isTakingPart = isTakingPartUI
         self.distance = ploggingCD.distance
         self.mainImageBinary = ploggingCD.imageBinary
         self.mainImage = image

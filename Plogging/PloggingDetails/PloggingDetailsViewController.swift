@@ -73,21 +73,18 @@ class PloggingDetailsViewController: UIViewController {
         userAction = .toggleTakePart
         if ploggingUI?.isTakingPart == true {
             // if user already takes part at this plogging race then remove participation
-            PopUpModalViewController().userAlertWithChoice(element: .wantToNoParticipate, viewController: self)
+            popUpModal.userAlertWithChoice(element: .wantToNoParticipate, viewController: self)
         } else {
-            PopUpModalViewController().userAlertWithChoice(element: .wantToParticipate, viewController: self)
+            popUpModal.userAlertWithChoice(element: .wantToParticipate, viewController: self)
         }
     }
 
     private func saveTakePartChoice() {
-        guard let emailIndex = ploggingUI?.ploggers.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: "emailAddress")}) else {
-            return
-        }
-
         // if user already takes part at this plogging race then remove participation
         if ploggingUI?.isTakingPart == true {
+            let emailIndex = ploggingUI?.ploggers.firstIndex(where: {$0 == UserDefaults.standard.string(forKey: "emailAddress")})
             ploggingUI?.isTakingPart = false
-            ploggingUI?.ploggers.remove(at: emailIndex)
+            ploggingUI?.ploggers.remove(at: emailIndex ?? 0)
         } else {
             ploggingUI?.isTakingPart = true
             ploggingUI?.ploggers.append(UserDefaults.standard.string(forKey: "emailAddress") ?? "")
@@ -221,7 +218,7 @@ extension PloggingDetailsViewController: PopUpModalDelegate {
     func didValidateAction() {
         if userAction == .toggleTakePart {
             saveTakePartChoice()
-        } else {
+        } else if userAction == .wantToLogIn {
             performSegue(withIdentifier: SegueIdentifier.fromDetailsToSignInOrUp.rawValue, sender: self)
         }
     }

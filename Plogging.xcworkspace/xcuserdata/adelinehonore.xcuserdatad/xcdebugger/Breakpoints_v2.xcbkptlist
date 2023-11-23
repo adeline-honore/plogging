@@ -1799,49 +1799,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3E21640C-764C-471E-B972-5FDC377B3A78"
+            uuid = "A5F0673B-48C8-4A43-A0B0-520FA2B10379"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Plogging/PersonalPlogging/PersonalPloggingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "getPloggingFromCoreData()"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "displayPloggingFromCoreData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3E21640C-764C-471E-B972-5FDC377B3A78 - 1161e01d8c30c3dd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Plogging.PersonalPloggingViewController.getPloggingFromCoreData() -&gt; Swift.Array&lt;Plogging.PloggingUI&gt;"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/PersonalPlogging/PersonalPloggingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "190"
-                  endingLineNumber = "190"
-                  offsetFromSymbolStart = "368">
-               </Location>
-               <Location
-                  uuid = "3E21640C-764C-471E-B972-5FDC377B3A78 - b24a6f75e1da7860"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Plogging.PloggingUI) -&gt; () in Plogging.PersonalPloggingViewController.getPloggingFromCoreData() -&gt; Swift.Array&lt;Plogging.PloggingUI&gt;"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/PersonalPlogging/PersonalPloggingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "190"
-                  endingLineNumber = "190"
-                  offsetFromSymbolStart = "320">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
