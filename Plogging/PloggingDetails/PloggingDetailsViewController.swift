@@ -94,12 +94,15 @@ class PloggingDetailsViewController: UIViewController {
 
         let ploggingToSet: Plogging = Plogging(ploggingUI: ploggingUI)
 
-        networkService.createOrUpdateAPIPlogging(plogging: ploggingToSet) { result in
-            switch result {
-            case .success:
-                self.saveIntoInternalDatabase(ploggingUI: ploggingUI)
-            case .failure:
-                PopUpModalViewController().userAlert(element: .network, viewController: self)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            networkService.createOrUpdateAPIPlogging(plogging: ploggingToSet) { result in
+                switch result {
+                case .success:
+                    self.saveIntoInternalDatabase(ploggingUI: ploggingUI)
+                case .failure:
+                    PopUpModalViewController().userAlert(element: .network, viewController: self)
+                }
             }
         }
     }
