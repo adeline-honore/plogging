@@ -94,8 +94,4 @@ struct PloggingUI {
         }
         return "unable to display correct date"
     }
-    
-    func isUserTakingPart() -> Bool {
-        return ploggers.contains(UserDefaults.standard.string(forKey: "emailAddress") ?? "")
-    }
 }

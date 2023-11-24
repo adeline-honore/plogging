@@ -97,3 +97,14 @@ extension UIViewController {
         return Int(date.timeIntervalSince1970)
     }
 }
+
+// MARK: - Is Taking Part
+extension UIViewController {
+    func isUserTakingPart(ploggingPloggers: [String]) -> Bool {
+        guard let emailAddress = UserDefaults.standard.string(forKey: "emailAddress") else {
+            return false
+        }
+        let isParticipate = ploggingPloggers.contains(emailAddress)
+        return isParticipate
+    }
+}
