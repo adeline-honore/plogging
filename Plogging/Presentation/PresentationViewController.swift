@@ -44,10 +44,10 @@ extension PresentationViewController {
         dataSource = self
         delegate = self
 
-        let page1 = OnboardingViewController(imageName: "icon", textLabelText: Texts.onBoardingTitle.value)
-        let page2 = OnboardingViewController(imageName: "presentation2", textLabelText: Texts.onBoardingTabOne.value)
-        let page3 = OnboardingViewController(imageName: "presentation3", textLabelText: Texts.onBoardingTabTwo.value)
-        let page4 = OnboardingViewController(imageName: "presentation4", textLabelText: Texts.onBoardingTabThree.value)
+        let page1 = OnboardingViewController(imageName: "icon", textLabelText: Texts.onBoardingTitle.value, nextContinueButtonTitle: "Next", delegateVC: self)
+        let page2 = OnboardingViewController(imageName: "presentation2", textLabelText: Texts.onBoardingTabOne.value, nextContinueButtonTitle: "Next", delegateVC: self)
+        let page3 = OnboardingViewController(imageName: "presentation3", textLabelText: Texts.onBoardingTabTwo.value, nextContinueButtonTitle: "Next", delegateVC: self)
+        let page4 = OnboardingViewController(imageName: "presentation4", textLabelText: Texts.onBoardingTabThree.value, nextContinueButtonTitle: "Continue", delegateVC: self)
 
         pages.append(page1)
         pages.append(page2)
@@ -150,5 +150,24 @@ extension PresentationViewController {
     @objc func skipTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
         presentationViewControllerDelegate?.didPressDismissButton()
+    }
+}
+
+extension UIPageViewController {
+    func goToNextPage(animated: Bool, completion: ((Bool) -> Void)? = nil) {
+        guard let currentPage = viewControllers?[0] else { return }
+        guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else { return }
+        setViewControllers([nextPage], direction: .forward, animated: animated, completion: completion)
+    }
+}
+
+extension PresentationViewController: OnboardingViewControllerDelegate {
+    func didTapNextContinueButton() {
+        if pageControl.currentPage != pages.count - 1 {
+            pageControl.currentPage += 1
+            goToNextPage(animated: true)
+        } else {
+            skipTapped(UIButton())
+        }
     }
 }
