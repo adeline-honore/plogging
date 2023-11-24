@@ -95,7 +95,7 @@ class MapViewController: UIViewController {
     }
 
     private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
-        let array = ploggings.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: PloggingUI().isUserTakingPart()) }
+        let array = ploggings.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers)) }
 
         ploggingsUI = array
         return array
@@ -183,10 +183,11 @@ extension MapViewController: MKMapViewDelegate {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         }
 
+        guard let current = ploggingsUI.first(where: { $0.id == annotation.subtitle }) else { return MKAnnotationView() }
+
         annotationView.markerTintColor = .white
         annotationView.glyphImage = glyphImage
-        annotationView.glyphTintColor = Color().appColor
-        annotationView.subtitleVisibility = .hidden
+        annotationView.glyphTintColor = current.isTakingPart ? .orange : .black;        annotationView.subtitleVisibility = .hidden
 
         return annotationView
     }
