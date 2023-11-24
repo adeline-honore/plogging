@@ -123,19 +123,14 @@ class PersonalPloggingViewController: UIViewController {
     }
 
     private func getPersonnalPloggingList(ploggingList: [Plogging]) {
-        var ploggings: [Plogging] = []
-
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard let emailAddress = UserDefaults.standard.string(forKey: "emailAddress") else { return }
 
-            ploggingList.forEach { item in
-                if item.ploggers.contains(emailAddress) {
-                    ploggings.append(item)
-                }
-            }
-
-            ploggingsUI = ploggings.map{ PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: PloggingUI().isUserTakingPart())}
+            ploggingsUI = ploggingList.map{ PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: self.isUserTakingPart(ploggingPloggers: $0.ploggers))}
+            
+            ploggingsUI = ploggingsUI.filter({ $0.isTakingPart == true
+            })
 
             displayPersonalPloggings()
             self.savePloggingListInCoreData(ploggingUIList: ploggingsUI)
@@ -183,7 +178,7 @@ class PersonalPloggingViewController: UIViewController {
     private func getPloggingFromCoreData() -> [PloggingUI] {
         do {
             let ploggingsCD = try repository.getEntities()
-            var ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningString: PloggingUI().convertPloggingCDBeginningToBeginningString(dateString: $0.beginning ?? "0"), isTakingPartUI: PloggingUI().isUserTakingPart(), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
+            var ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningString: PloggingUI().convertPloggingCDBeginningToBeginningString(dateString: $0.beginning ?? "0"), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers ?? [""]), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
             }
             return ploggingUIList.filter({ $0.isTakingPart == true })
         } catch {
