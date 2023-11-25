@@ -204,6 +204,8 @@ extension MapViewController: MKMapViewDelegate {
         ploggingUI = selected
 
         performSegue(withIdentifier: SegueIdentifier.fromMapToPlogging.rawValue, sender: self)
+
+        view.isSelected = false
     }
     
     
