@@ -110,7 +110,7 @@ class CreatePloggingViewController: UIViewController {
         currentPloggingUI.id = "plogging"
         currentPloggingUI.admin = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
         currentPloggingUI.isTakingPart = true
-        currentPloggingUI.distance = Double(distanceSelected) ?? 2
+        currentPloggingUI.distance = Int(distanceSelected) ?? 2
         currentPloggingUI.beginningTimestamp = startIntegerTimestamp
         currentPloggingUI.beginningString = PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: startIntegerTimestamp)
         currentPloggingUI.ploggers = [currentPloggingUI.admin]

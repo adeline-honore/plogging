@@ -24,9 +24,9 @@ final class PloggingLoader {
         return ploggingAnnotations
     }
     
-    private func stringAnnotationDistance(distance: Double) -> String {
+    private func stringAnnotationDistance(distance: Int) -> String {
         var distanceString = String(distance)
-        distanceString = distanceString.replacingOccurrences(of: ".0", with: "")
+//        distanceString = distanceString.replacingOccurrences(of: ".0", with: "")
         distanceString = " " + distanceString + " km"
         return distanceString
     }

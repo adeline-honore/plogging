@@ -17,7 +17,7 @@ struct PloggingUI {
     var longitude: Double
     var ploggers: [String]
     var isTakingPart: Bool
-    var distance: Double
+    var distance: Int
     var mainImageBinary: Data?
     var mainImage: UIImage?
 
@@ -31,7 +31,7 @@ struct PloggingUI {
         longitude = plogging.longitude
         ploggers = plogging.ploggers
         isTakingPart = isTakingPartUI
-        distance = Double(plogging.distance)
+        distance = Int(plogging.distance)
     }
 
     // init for create an instance of PloggingUI
@@ -43,7 +43,7 @@ struct PloggingUI {
          latitude: Double? = nil,
          longitude: Double? = nil,
          isTakingPart: Bool = false,
-         distance: Double? = nil,
+         distance: Int? = nil,
          ploggers: [String]? = nil) {
         self.id = id ?? ""
         self.admin = admin ?? ""
@@ -68,7 +68,7 @@ struct PloggingUI {
         self.longitude = ploggingCD.longitude
         self.ploggers = ploggingCD.ploggers ?? [""]
         self.isTakingPart = isTakingPartUI
-        self.distance = ploggingCD.distance
+        self.distance = Int(ploggingCD.distance)
         self.mainImageBinary = ploggingCD.imageBinary
         self.mainImage = image
     }
