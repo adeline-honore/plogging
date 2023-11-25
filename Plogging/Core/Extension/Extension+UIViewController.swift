@@ -107,4 +107,25 @@ extension UIViewController {
         let isParticipate = ploggingPloggers.contains(emailAddress)
         return isParticipate
     }
+
+    func convertPloggingCDBeginningToBeginningString(dateString: String?) -> String {
+        guard let dateCD = dateString, let dateInteger = Int(dateCD) else {
+            return "unable to display correct date"
+        }
+
+        let date = NSDate(timeIntervalSince1970: TimeInterval(dateInteger))
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "YYYY MMM d, HH:mm"
+            let dateUI = dateFormatter.string(from: date as Date)
+            return dateUI
+    }
+
+    func convertPloggingCDBeginningToBeginningTimestamp(timestampString: String?) -> Int {
+        guard timestampString != nil else { return 0 }
+        if let timestamp = Int(timestampString!) {
+            return timestamp
+        }
+        return 0
+    }
 }

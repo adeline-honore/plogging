@@ -58,10 +58,10 @@ struct PloggingUI {
     }
 
     // init from PlogginCD
-    init(ploggingCD: PloggingCD, beginningString: String, isTakingPartUI: Bool, image: UIImage) {
+    init(ploggingCD: PloggingCD, beginningInt: Int, beginningString: String, isTakingPartUI: Bool, image: UIImage) {
         self.id = ploggingCD.id ?? ""
         self.admin = ploggingCD.admin ?? ""
-        self.beginningTimestamp = 0 //Int(ploggingCD.beginning)
+        self.beginningTimestamp = beginningInt
         self.beginningString = beginningString
         self.place = ploggingCD.place ?? ""
         self.latitude = ploggingCD.latitude
@@ -82,16 +82,5 @@ struct PloggingUI {
 
     var isValid: Bool {
         !place.isEmpty
-    }
-    
-    func convertPloggingCDBeginningToBeginningString(dateString: String) -> String {
-        let date = NSDate(timeIntervalSince1970: TimeInterval(Int(dateString) ?? 0))
-        if Int(dateString) != nil && Int(dateString) != 0 {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY MMM d, HH:mm"
-            let dateUI = dateFormatter.string(from: date as Date)
-            return dateUI
-        }
-        return "unable to display correct date"
     }
 }

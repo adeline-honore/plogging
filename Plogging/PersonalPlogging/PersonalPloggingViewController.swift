@@ -178,7 +178,7 @@ class PersonalPloggingViewController: UIViewController {
     private func getPloggingFromCoreData() -> [PloggingUI] {
         do {
             let ploggingsCD = try repository.getEntities()
-            var ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningString: PloggingUI().convertPloggingCDBeginningToBeginningString(dateString: $0.beginning ?? "0"), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers ?? [""]), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
+            let ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningInt: convertPloggingCDBeginningToBeginningTimestamp(timestampString: $0.beginning), beginningString: convertPloggingCDBeginningToBeginningString(dateString: $0.beginning), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers ?? [""]), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
             }
             return ploggingUIList.filter({ $0.isTakingPart == true })
         } catch {
