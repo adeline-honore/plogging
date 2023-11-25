@@ -20,17 +20,12 @@ extension PloggingCD {
     @NSManaged public var distance: Double
     @NSManaged public var id: String?
     @NSManaged public var imageBinary: Data?
-    @NSManaged public var imagesBinary: [Data]?
-    @NSManaged public var imagesString: [String]?
     @NSManaged public var imageString: String?
     @NSManaged public var isTakingPart: Bool
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
-    @NSManaged public var messages: [String]?
     @NSManaged public var place: String?
     @NSManaged public var ploggers: [String]?
-    @NSManaged public var schedule: Date?
-    @NSManaged public var time: Double
     @NSManaged public var photos: NSSet?
 
 }
