@@ -23,7 +23,7 @@ class OnboardingViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         imageView.image = UIImage(named: imageName)
         textLabel.text = textLabelText
-        nextContinueButton.titleLabel?.text = nextContinueButtonTitle
+        nextContinueButton.setTitle(nextContinueButtonTitle, for: .normal)
         delegate = delegateVC
     }
 
@@ -62,9 +62,7 @@ extension OnboardingViewController {
 
         view.backgroundColor = .white
 
-        nextContinueButton.titleLabel?.textColor = Color().appColor
-        nextContinueButton.titleLabel?.textAlignment = .center
-        nextContinueButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        nextContinueButton.setTitleColor(Color().appColor, for: .normal)
         nextContinueButton.layer.borderColor = Color().appColor.cgColor
         nextContinueButton.layer.borderWidth = 2
         nextContinueButton.layer.cornerRadius = 20
