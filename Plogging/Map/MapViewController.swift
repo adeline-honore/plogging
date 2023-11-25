@@ -14,8 +14,8 @@ class MapViewController: UIViewController {
 
     private var locationManager = LocationManager.shared
     private var userLocation: CLLocation = CLLocation()
-
-    private var ploggingAnnotationLoader = PloggingLoader(networkService: NetworkService(network: Network()))
+    
+    private var ploggingAnnotationLoader = PloggingLoader()
     private var networkService = NetworkService(network: Network())
 
     static var ploggings: [Plogging] = []
@@ -205,6 +205,17 @@ extension MapViewController: MKMapViewDelegate {
 
         performSegue(withIdentifier: SegueIdentifier.fromMapToPlogging.rawValue, sender: self)
     }
+    
+    
+    
+    
+//    func addUserAnnotation(coordinate: CLLocationCoordinate2D) {
+//        let annotation = TemporaryUserAnnotation(coordinate: coordinate)
+//        mapView.addAnnotation(annotation)
+//        DispatchQueue.main.asyncAfter(wallDeadline: .now() + .seconds(1)) {
+//            self.mapView.selectAnnotation(annotation, animated: true)
+//        }
+//    }
 }
 
 extension MapViewController: PresentationViewControllerDelegate {

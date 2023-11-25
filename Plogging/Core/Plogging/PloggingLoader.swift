@@ -8,19 +8,12 @@
 import CoreLocation
 
 final class PloggingLoader {
-
-    var networkService = NetworkService(network: Network())
-
-    init(networkService: NetworkService) {
-        self.networkService = networkService
-    }
-
     func createAnnotationFromPloggingModels(model: [PloggingUI]) -> [PloggingAnnotation] {
 
         var ploggingAnnotations: [PloggingAnnotation] = []
 
         model.forEach {model in
-            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: model.beginningString, subtitle: model.id)
+            let annotation = PloggingAnnotation(model.latitude, model.longitude, title: setAnnotationTitle(ploggingUI: model), subtitle: model.id)
 
             if CLLocationCoordinate2DIsValid(annotation.coordinate) {
                 ploggingAnnotations.append(annotation)
@@ -29,5 +22,16 @@ final class PloggingLoader {
             }
         }
         return ploggingAnnotations
+    }
+    
+    private func stringAnnotationDistance(distance: Double) -> String {
+        var distanceString = String(distance)
+        distanceString = distanceString.replacingOccurrences(of: ".0", with: "")
+        distanceString = " " + distanceString + " km"
+        return distanceString
+    }
+    
+    private func setAnnotationTitle(ploggingUI: PloggingUI) -> String {
+        return " " + ploggingUI.beginningString + "\n" + stringAnnotationDistance(distance: ploggingUI.distance)
     }
 }
