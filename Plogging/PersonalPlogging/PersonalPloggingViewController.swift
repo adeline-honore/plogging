@@ -21,7 +21,6 @@ class PersonalPloggingViewController: UIViewController {
 
     // MARK: - Properties
 
-//    private var ploggingService = PloggingService()
     private var networkService = NetworkService(network: Network())
 
     private let repository = PloggingCoreDataManager(
@@ -67,7 +66,7 @@ class PersonalPloggingViewController: UIViewController {
         } else if isInternetAvailable() && !isConnectedUser {
             screenWhenUserIsNotConnected()
         } else {
-            getPersonalPloggings()
+            getAPIPloggingList()
         }
     }
     
@@ -108,8 +107,7 @@ class PersonalPloggingViewController: UIViewController {
         activityIndicator.isHidden = true
     }
 
-    private func getPersonalPloggings() {
-
+    private func getAPIPloggingList() {
         networkService.getAPIPloggingList() { result in
             switch result {
             case .success(let ploggingsResult):
@@ -132,15 +130,28 @@ class PersonalPloggingViewController: UIViewController {
             ploggingsUI = ploggingsUI.filter({ $0.isTakingPart == true
             })
 
-            displayPersonalPloggings()
-            self.savePloggingListInCoreData(ploggingUIList: ploggingsUI)
+            getPersonnalPloggingMainImage()
         }
     }
-    
-    private func associateImageToPloggingUI(images: [PloggingImage], ploggindId: String) -> UIImage {
 
-        guard let image = images.first(where: { $0.id == ploggindId })?.mainImage else { return icon}
-        return image
+    private func getPersonnalPloggingMainImage() {
+        for personnalPlogging in ploggingsUI {
+            guard let ploggingsIndex = self.ploggingsUI.firstIndex(where: { $0.id == personnalPlogging.id}) else { return }
+
+            networkService.getPloggingImage(ploggingId: personnalPlogging.id) { result in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let photoResult):
+                        ploggingsUI[ploggingsIndex].mainImage = photoResult
+                    case .failure:
+                        ploggingsUI[ploggingsIndex].mainImage = icon
+                    }
+                    displayPersonalPloggings()
+                    savePloggingListInCoreData(ploggingUIList: ploggingsUI)
+                }
+            }
+        }
     }
 
     // MARK: - Save Personal Races in CoreData
