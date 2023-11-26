@@ -171,7 +171,7 @@ extension MapViewController: MKMapViewDelegate {
         var annotationView = MKMarkerAnnotationView()
 
         guard let annotation = annotation as? PloggingAnnotation,
-              let glyphImage = UIImage(systemName: "trash.circle.fill") else {return nil}
+              let glyphImage = UIImage(systemName: "arrow.3.trianglepath") else {return nil}
 
         let identifier = ""
 
@@ -185,9 +185,10 @@ extension MapViewController: MKMapViewDelegate {
 
         guard let current = ploggingsUI.first(where: { $0.id == annotation.subtitle }) else { return MKAnnotationView() }
 
-        annotationView.markerTintColor = .white
+        annotationView.markerTintColor = current.isTakingPart ? Color().blue : Color().grey;
         annotationView.glyphImage = glyphImage
-        annotationView.glyphTintColor = current.isTakingPart ? .orange : .black;        annotationView.subtitleVisibility = .hidden
+        annotationView.glyphTintColor = .white
+        annotationView.subtitleVisibility = .hidden
 
         return annotationView
     }
