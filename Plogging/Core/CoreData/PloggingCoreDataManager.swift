@@ -85,7 +85,6 @@ final class PloggingCoreDataManager {
                 results[0].setValue(ploggingUI.latitude, forKey: "latitude")
                 results[0].setValue(ploggingUI.longitude, forKey: "longitude")
                 results[0].setValue(ploggingUI.distance, forKey: "distance")
-                results[0].setValue(ploggingUI.isTakingPart, forKey: "isTakingPart")
                 results[0].setValue(ploggingUI.mainImageBinary, forKey: "imageBinary")
 
                 do {

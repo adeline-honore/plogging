@@ -14,7 +14,8 @@ class PloggingDetailsView: UIView {
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var editMainImageButton: UIButton!
     @IBOutlet weak var messageButton: UIButton!
-    @IBOutlet weak var isTakingPartButton: UIButton!
+    @IBOutlet weak var isTakingPartLabel: UILabel!
+    @IBOutlet weak var isTakingPartSwitch: UISwitch!
     @IBOutlet weak var dateAndHourLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var adminNameTextLabel: UILabel!
@@ -33,14 +34,16 @@ extension PloggingDetailsView {
         placeLabel.text = plogging.place
         adminNameLabel.text = plogging.admin
         messageButton.tintColor = Color().appColor
-        manageIsTakingPartButton(button: isTakingPartButton, isTakingPart: plogging.isTakingPart)
+        manageIsTakingPartSwitch(switchButton: isTakingPartSwitch, isTakingPart: plogging.isTakingPart)
         manageMessageButtonLabel(button: messageButton, isAdmin: isAdmin)
 
         // Manage display @IBOutlet
         adminNameTextLabel.isHidden = isAdmin
         adminNameLabel.isHidden = isAdmin
         editMainImageButton.isHidden = !isAdmin
-        isTakingPartButton.isHidden = isAdmin
+        isTakingPartSwitch.isHidden = isAdmin
+        isTakingPartLabel.isHidden = isAdmin
+        isTakingPartLabel.text = Texts.takePart.value
         ploggerList.isHidden = !isAdmin
         ploggerList.text = "Ploggers : \(plogging.ploggers.count )"
     }

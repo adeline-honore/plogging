@@ -28,6 +28,8 @@ enum Texts {
 
     case ploggingUpDateError
 
+    case takePart
+
     var value: String {
         switch self {
         case .onBoardingTitle:
@@ -60,6 +62,9 @@ enum Texts {
 
         case .ploggingUpDateError:
             return "Impossible to update your ploggings"
+
+        case .takePart:
+            return "Take part at this plogging"
         }
     }
 }

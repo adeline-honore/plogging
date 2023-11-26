@@ -251,5 +251,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F24FF3E-C127-4A8C-A46E-DD118AAE59E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/PloggingDetails/PloggingDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "didSetIsTakingPartValue()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB687E42-C431-4387-84A9-67BE5F82464B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/PloggingDetails/PloggingDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "saveTakePartChoice()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DB687E42-C431-4387-84A9-67BE5F82464B - f968213bdd7f83f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Plogging.PloggingDetailsViewController.saveTakePartChoice() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/PloggingDetails/PloggingDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "2004">
+               </Location>
+               <Location
+                  uuid = "DB687E42-C431-4387-84A9-67BE5F82464B - bfb0b159b3cf5393"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in Plogging.PloggingDetailsViewController.saveTakePartChoice() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/PloggingDetails/PloggingDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -56,7 +56,7 @@ class PloggingDetailsViewController: UIViewController {
 
     // MARK: - Toogle to take part at race For No Admin User
 
-    @IBAction func didTapIsTakingPartButton() {
+    @IBAction func didSetIsTakingPartValue() {
         // only if user is not admin of race
         if isInternetAvailable() && isConnectedUser {
             toggleTakePart()
@@ -110,13 +110,20 @@ class PloggingDetailsViewController: UIViewController {
     private func saveIntoInternalDatabase(ploggingUI: PloggingUI) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            do {
-                try self.repository.setEntity(ploggingUI: ploggingUI)
-            } catch {
-                PopUpModalViewController().userAlert(element: .internalDatabase, viewController: self)
-            }
 
-            self.ploggingDetailsView.manageIsTakingPartButton(button: self.ploggingDetailsView.isTakingPartButton, isTakingPart: ploggingUI.isTakingPart)
+            if ploggingUI.isTakingPart {
+                do {
+                    try self.repository.createEntity(ploggingUI: ploggingUI)
+                } catch {
+                    PopUpModalViewController().userAlert(element: .internalDatabase, viewController: self)
+                }
+            } else {
+                do {
+                    try self.repository.removeEntity(id: ploggingUI.id)
+                } catch {
+                    PopUpModalViewController().userAlert(element: .internalDatabase, viewController: self)
+                }
+            }
             ploggingUI.isTakingPart ? PopUpModalViewController().userAlert(element: .isTakingPart, viewController: self) : PopUpModalViewController().userAlert(element: .isNotTakingPart, viewController: self)
         }
     }

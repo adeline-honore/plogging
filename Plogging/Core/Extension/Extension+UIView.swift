@@ -9,17 +9,11 @@ import Foundation
 import UIKit
 
 extension UIView {
-
-    func manageIsTakingPartButton(button: UIButton, isTakingPart: Bool) {
-        if isTakingPart {
-            button.setImage(UIImage(systemName: "person.fill.checkmark"), for: .normal)
-            button.tintColor = Color().appColor
-        } else {
-            button.setImage(UIImage(systemName: "person.fill.xmark"), for: .normal)
-            button.tintColor = .gray
-        }
+        func manageIsTakingPartSwitch(switchButton: UISwitch, isTakingPart: Bool) {
+            switchButton.setOn(isTakingPart, animated: true)
+            switchButton.onTintColor = Color().appColor
     }
-    
+
     func manageMessageButtonLabel(button: UIButton, isAdmin: Bool) {
         isAdmin ? button.setTitle(" Send mail for all ploggers ?", for: .normal) : button.setTitle(" Send mail to race's admin ?", for: .normal)
     }
