@@ -129,8 +129,12 @@ class PersonalPloggingViewController: UIViewController {
             
             ploggingsUI = ploggingsUI.filter({ $0.isTakingPart == true
             })
-
-            getPersonnalPloggingMainImage()
+            
+            if ploggingsUI.isEmpty {
+                displayPersonalPloggings()
+            } else {
+                getPersonnalPloggingMainImage()
+            }
         }
     }
 
@@ -148,7 +152,7 @@ class PersonalPloggingViewController: UIViewController {
                         ploggingsUI[ploggingsIndex].mainImage = icon
                     }
                     displayPersonalPloggings()
-                    savePloggingListInCoreData(ploggingUIList: ploggingsUI)
+                    savePloggingListInCoreData()
                 }
             }
         }
@@ -156,31 +160,31 @@ class PersonalPloggingViewController: UIViewController {
 
     // MARK: - Save Personal Races in CoreData
 
-    private func savePloggingListInCoreData(ploggingUIList: [PloggingUI]) {
-
+    private func savePloggingListInCoreData() {
         let ploggingUIListFromCD: [PloggingUI] = getPloggingFromCoreData()
+        let ploggingListIdFromCD = ploggingUIListFromCD.map {$0.id}
+        let ploggingUIListId = ploggingsUI.map {$0.id}
 
-        let newPloggingsToSaveInCD = zip(ploggingUIList, ploggingUIListFromCD).enumerated().filter() {
-            $1.0.id == $1.1.id
-        }.map{$0.0}
+        ploggingUIListId.forEach { ploggingUIId in
+            guard let imageBinary = ploggingsUI.first(where: {$0.id == ploggingUIId})?.mainImage?.jpegData(compressionQuality: 0.8) else { return }
 
-        var indexOfPloggingList: Int = 0
-        ploggingUIList.forEach { ploggingUI in
-            
-            if newPloggingsToSaveInCD.contains(indexOfPloggingList) {
+            var ploggingUI = ploggingsUI.first(where: {$0.id == ploggingUIId})
+            ploggingUI?.mainImageBinary = imageBinary
+            guard let ploggingUIforCD = ploggingUI else { return }
+
+            if ploggingListIdFromCD.contains(ploggingUIId) {
                 do {
-                    try repository.createEntity(ploggingUI: ploggingUI)
+                    try repository.setEntity(ploggingUI: ploggingUIforCD)
                 } catch {
-                    print("fatalError")
+                    return
                 }
             } else {
                 do {
-                    try repository.setEntity(ploggingUI: ploggingUI)
+                    try repository.createEntity(ploggingUI: ploggingUIforCD)
                 } catch {
-                    print("fatalError")
+                    return
                 }
             }
-            indexOfPloggingList += 1
         }
     }
     
@@ -193,7 +197,6 @@ class PersonalPloggingViewController: UIViewController {
             }
             return ploggingUIList.filter({ $0.isTakingPart == true })
         } catch {
-            print("fatalError")
             return [PloggingUI]()
         }
     }
