@@ -18,8 +18,11 @@ class PloggingDetailsView: UIView {
     @IBOutlet weak var isTakingPartSwitch: UISwitch!
     @IBOutlet weak var dateAndHourLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var adminNameTextLabel: UILabel!
     @IBOutlet weak var adminNameLabel: UILabel!
+    
     @IBOutlet weak var ploggerList: UILabel!
 }
 
@@ -36,6 +39,10 @@ extension PloggingDetailsView {
         messageButton.tintColor = Color().appColor
         manageIsTakingPartSwitch(switchButton: isTakingPartSwitch, isTakingPart: plogging.isTakingPart)
         manageMessageButtonLabel(button: messageButton, isAdmin: isAdmin)
+        durationLabel.text = getPloggingDuration(distance: plogging.distance)
+        editMainImageButton.layer.cornerRadius = 25
+        isTakingPartLabel.text = Texts.takePart.value
+        distanceLabel.text = "Distance : \(plogging.distance)km"
 
         // Manage display @IBOutlet
         adminNameTextLabel.isHidden = isAdmin
@@ -43,8 +50,7 @@ extension PloggingDetailsView {
         editMainImageButton.isHidden = !isAdmin
         isTakingPartSwitch.isHidden = isAdmin
         isTakingPartLabel.isHidden = isAdmin
-        isTakingPartLabel.text = Texts.takePart.value
-        ploggerList.isHidden = !isAdmin
+        
         ploggerList.text = "Ploggers : \(plogging.ploggers.count )"
     }
 }

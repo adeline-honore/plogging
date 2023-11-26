@@ -29,6 +29,7 @@ enum Texts {
     case ploggingUpDateError
 
     case takePart
+    case duration
 
     var value: String {
         switch self {
@@ -65,6 +66,9 @@ enum Texts {
 
         case .takePart:
             return "Take part at this plogging"
+            
+        case .duration:
+            return "approximate duration of the race : "
         }
     }
 }
