@@ -179,7 +179,6 @@ class CreatePloggingViewController: UIViewController {
             currentPloggingUI.mainImageBinary = mainImageBinary
 
             networkService.uploadPhoto(mainImageBinary: mainImageBinary!, ploggingId: currentPloggingUI.id) { result in
-                print(result)
                 switch result {
                 case .success:
                     self.internalDatabaseSaveRequest()
@@ -241,7 +240,6 @@ extension CreatePloggingViewController: UIPickerViewDelegate, UIPickerViewDataSo
 extension CreatePloggingViewController: LocalSearchCompletionViewControllerDelegate {
     func departurePlaceChoosen(result: MKLocalSearchCompletion) {
         createPloggingView.resultLocationLabel.text = result.title
-        print(createPloggingView.resultLocationLabel.text)
         selectedSearchCompletion = result
         currentPloggingUI.place = result.title
     }

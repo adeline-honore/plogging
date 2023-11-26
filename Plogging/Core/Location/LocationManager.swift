@@ -74,7 +74,5 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
         locationManagerDelegate?.accessUserCoordinate(firstLocation)
     }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {}
 }

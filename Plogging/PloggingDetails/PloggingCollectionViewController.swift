@@ -7,6 +7,8 @@
 
 import UIKit
 
+// To Uncomment for version 2
+
 //protocol DetailsCollectionDelegate: AnyObject {
 //    func didSetPhoto(photo: PhotoUI, action: String)
 //}
@@ -95,14 +97,10 @@ import UIKit
 //        case PhotoAction.set.rawValue:
 //            if let index = photos.firstIndex(where: {$0.name == photo.name}) {
 //                photos[index] = photo
-//            } else {
-//                print("error")
 //            }
 //        case PhotoAction.delete.rawValue:
 //            if let index = photos.firstIndex(where: {$0.name == photo.name}) {
 //                photos.remove(at: index)
-//            } else {
-//                print("error")
 //            }
 //        default:
 //            return

@@ -69,7 +69,7 @@ final class PloggingCoreDataManager {
                 }
             }
         } else {
-            print("oups")
+            throw ErrorType.coredataError
         }
     }
 
@@ -95,7 +95,7 @@ final class PloggingCoreDataManager {
                 }
             }
         } else {
-            print("oups")
+            throw ErrorType.coredataError
         }
     }
 

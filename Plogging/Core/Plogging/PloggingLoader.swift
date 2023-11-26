@@ -17,8 +17,6 @@ final class PloggingLoader {
 
             if CLLocationCoordinate2DIsValid(annotation.coordinate) {
                 ploggingAnnotations.append(annotation)
-            } else {
-                print("*****  CLLocationCoordinate2D is not valid ")
             }
         }
         return ploggingAnnotations
