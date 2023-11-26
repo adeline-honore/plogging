@@ -10,7 +10,6 @@
 		0910E19F2B000E7200254FD2 /* PloggingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910E19E2B000E7200254FD2 /* PloggingImage.swift */; };
 		092181252B02C36E00951EED /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092181242B02C36E00951EED /* ForgotPasswordViewController.swift */; };
 		095339B62AF28B09005720A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 095339B52AF28B09005720A7 /* Assets.xcassets */; };
-		095BFA0F2B041CDF00BC6CA5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 095BFA0E2B041CDF00BC6CA5 /* Podfile */; };
 		096B64252AF28398001072CB /* SignInOrUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B64242AF28398001072CB /* SignInOrUpView.swift */; };
 		096B64272AF283C9001072CB /* SignInOrUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B64262AF283C9001072CB /* SignInOrUpViewController.swift */; };
 		096B64292AF283F4001072CB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B64282AF283F4001072CB /* SignInViewController.swift */; };
@@ -86,7 +85,6 @@
 		6EECBFBE28F2F3AE00FAE3FE /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBD28F2F3AE00FAE3FE /* AlertType.swift */; };
 		6EECBFC028F2F4C900FAE3FE /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */; };
 		6EF0AA1F2902BC4E0004F374 /* PloggingLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF0AA1E2902BC4E0004F374 /* PloggingLoader.swift */; };
-		74120FA902484F997DAFE1A3 /* Pods_Plogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A052352C96F6D7B02A597936 /* Pods_Plogging.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +102,6 @@
 		092181242B02C36E00951EED /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		094FBE522AF292CB0031D569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		095339B52AF28B09005720A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		095BFA0E2B041CDF00BC6CA5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		096B64242AF28398001072CB /* SignInOrUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInOrUpView.swift; sourceTree = "<group>"; };
 		096B64262AF283C9001072CB /* SignInOrUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInOrUpViewController.swift; sourceTree = "<group>"; };
 		096B64282AF283F4001072CB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +111,6 @@
 		09E408952B04A5A4003313A3 /* NetworkFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFake.swift; sourceTree = "<group>"; };
 		09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationTestCase.swift; sourceTree = "<group>"; };
 		09E408992B055C56003313A3 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		1671EBD5FFCB99C9DAFBA6EE /* Pods-Plogging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.debug.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.debug.xcconfig"; sourceTree = "<group>"; };
 		6E00AA1F2926434800798F03 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		6E088F932916830900F401A6 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		6E12D2122923C75200D2F45B /* PloggingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PloggingTableViewCell.xib; sourceTree = "<group>"; };
@@ -177,8 +173,6 @@
 		6EECBFBD28F2F3AE00FAE3FE /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		6EECBFBF28F2F4C900FAE3FE /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		6EF0AA1E2902BC4E0004F374 /* PloggingLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingLoader.swift; sourceTree = "<group>"; };
-		A052352C96F6D7B02A597936 /* Pods_Plogging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF18B2EC2EB555583E807559 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +185,6 @@
 				097D04AA2B0F2CAD00E50647 /* FirebaseMessaging in Frameworks */,
 				6E6B6D9A2AE507B500B5D00B /* FirebaseAuth in Frameworks */,
 				097D04A62B0AAC2900E50647 /* FirebaseFirestore in Frameworks */,
-				74120FA902484F997DAFE1A3 /* Pods_Plogging.framework in Frameworks */,
 				097D04A82B0AAC2900E50647 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,19 +231,9 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		4C64A8285C946CBC30E57F9C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1671EBD5FFCB99C9DAFBA6EE /* Pods-Plogging.debug.xcconfig */,
-				EF18B2EC2EB555583E807559 /* Pods-Plogging.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		530BE1EC91E07144F3366CDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A052352C96F6D7B02A597936 /* Pods_Plogging.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -347,11 +330,9 @@
 		6ED589A528E8D8B000450FE4 = {
 			isa = PBXGroup;
 			children = (
-				095BFA0E2B041CDF00BC6CA5 /* Podfile */,
 				6E9040DF2AE30F18009A6E80 /* PloggingTests */,
 				6ED589B028E8D8B000450FE4 /* Plogging */,
 				6ED589AF28E8D8B000450FE4 /* Products */,
-				4C64A8285C946CBC30E57F9C /* Pods */,
 				530BE1EC91E07144F3366CDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -498,11 +479,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6ED589DB28E8D8BE00450FE4 /* Build configuration list for PBXNativeTarget "Plogging" */;
 			buildPhases = (
-				AD56A10ADD47FD1522980E30 /* [CP] Check Pods Manifest.lock */,
 				6ED589AA28E8D8B000450FE4 /* Sources */,
 				6ED589AB28E8D8B000450FE4 /* Frameworks */,
 				6ED589AC28E8D8B000450FE4 /* Resources */,
-				6E3239242AEF05FE001B4D8B /* ShellScript */,
+				0924B5DD2B12DBFA00D6537E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -570,6 +550,7 @@
 			mainGroup = 6ED589A528E8D8B000450FE4;
 			packageReferences = (
 				6E6B6D962AE507B500B5D00B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0924B5DE2B12DE5F00D6537E /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 6ED589AF28E8D8B000450FE4 /* Products */;
 			projectDirPath = "";
@@ -588,7 +569,6 @@
 			files = (
 				6EC9F21929E9397E0048B6BC /* PhotoTableViewCell.xib in Resources */,
 				6EA0EB4A2AF059D000487F3F /* GoogleService-Info.plist in Resources */,
-				095BFA0F2B041CDF00BC6CA5 /* Podfile in Resources */,
 				6ED589C128E8D8BD00450FE4 /* LaunchScreen.storyboard in Resources */,
 				6E12D2132923C75200D2F45B /* PloggingTableViewCell.xib in Resources */,
 				095339B62AF28B09005720A7 /* Assets.xcassets in Resources */,
@@ -607,9 +587,8 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6E3239242AEF05FE001B4D8B /* ShellScript */ = {
+		0924B5DD2B12DBFA00D6537E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -623,29 +602,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		AD56A10ADD47FD1522980E30 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Plogging-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -879,7 +836,6 @@
 		};
 		6ED589DC28E8D8BE00450FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1671EBD5FFCB99C9DAFBA6EE /* Pods-Plogging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -896,6 +852,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -911,7 +868,6 @@
 		};
 		6ED589DD28E8D8BE00450FE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF18B2EC2EB555583E807559 /* Pods-Plogging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -928,6 +884,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1027,6 +984,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0924B5DE2B12DE5F00D6537E /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.54.0;
+			};
+		};
 		6E6B6D962AE507B500B5D00B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
