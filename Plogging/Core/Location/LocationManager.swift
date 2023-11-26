@@ -39,8 +39,7 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
                 break
                 
             case .restricted, .denied:  // Location services currently unavailable.
-                //            disableLocationFeatures()
-                print("restricted")
+                manager.requestWhenInUseAuthorization()
                 break
                 
             case .notDetermined:        // Authorization not determined yet.
