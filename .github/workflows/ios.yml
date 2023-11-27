@@ -6,5 +6,7 @@ jobs:
         name: Build and Test default scheme using any available iPhone simulator
         runs-on: macos-latest
     steps:
+        uses: actions/checkout@v4
+        uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
         name: Print a greeting
         run: echo 'Hello World'
