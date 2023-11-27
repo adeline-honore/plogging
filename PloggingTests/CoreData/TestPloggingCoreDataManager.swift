@@ -15,17 +15,19 @@ class TestPloggingCoreDataManager: XCTestCase {
     var coreDataStack: CoreDataStack!
 
     let ploggingUI: PloggingUI = {
-        var thisPloggingUI = PloggingUI(plogging: Plogging(), schedule: Date())
+        var thisPloggingUI = PloggingUI(plogging: Plogging(), scheduleTimestamp: Int(), scheduleString: String(), isTakingPartUI: true)
 
-        thisPloggingUI.id = "AB1"
+        thisPloggingUI.id = "thisPloggingId"
         thisPloggingUI.admin = "him-self"
-        thisPloggingUI.beginning = Date()
+        thisPloggingUI.beginningTimestamp = 1701123861
+        thisPloggingUI.beginningString = "27/11/2023 23:24"
         thisPloggingUI.place = "here"
         thisPloggingUI.latitude = 1.12345
         thisPloggingUI.longitude = 83.12345
         thisPloggingUI.ploggers = ["him-self", "an-other"]
         thisPloggingUI.isTakingPart = true
         thisPloggingUI.distance = 12
+        thisPloggingUI.mainImageBinary = Data()
 
         return thisPloggingUI
     }()
@@ -65,11 +67,12 @@ class TestPloggingCoreDataManager: XCTestCase {
         do {
 
             let settedPloggingUI: PloggingUI = {
-                var thisPloggingUI = PloggingUI(plogging: Plogging(), schedule: Date())
+                var thisPloggingUI = PloggingUI(plogging: Plogging(),  scheduleTimestamp: Int(), scheduleString: String(), isTakingPartUI: true)
 
-                thisPloggingUI.id = "AB1"
+                thisPloggingUI.id = "thisPloggingId"
                 thisPloggingUI.admin = "him-self"
-                thisPloggingUI.beginning = Date()
+                thisPloggingUI.beginningTimestamp = 1701123964
+                thisPloggingUI.beginningString = "27/11/2023 23:26"
                 thisPloggingUI.place = "here"
                 thisPloggingUI.latitude = 1.12345
                 thisPloggingUI.longitude = 83.12345
@@ -88,8 +91,36 @@ class TestPloggingCoreDataManager: XCTestCase {
 
             XCTAssertNotNil(getPloggings)
             XCTAssertTrue(getPloggings.count == 1)
+            XCTAssertTrue(settedPloggingUI.id == getPloggings.first?.id)
+            XCTAssertTrue(String(settedPloggingUI.beginningTimestamp) == getPloggings.first?.beginning)
+            XCTAssertTrue(settedPloggingUI.distance == Int(getPloggings.first?.distance ?? 0.0))
+        } catch {
+            print("error, tests fails !")
+        }
+    }
+    
+    func testRemovePlogging() {
+        do {
+
+            try coreDataManager.createEntity(ploggingUI: ploggingUI)
+
+            let getPloggings = try coreDataManager.getEntities()
+
+            XCTAssertNotNil(getPloggings)
+            XCTAssertTrue(getPloggings.count == 1)
             XCTAssertTrue(ploggingUI.id == getPloggings.first?.id)
-            XCTAssertTrue(settedPloggingUI.distance == getPloggings.first?.distance)
+        } catch {
+            print("error, tests fails !")
+        }
+        
+        do {
+
+            try coreDataManager.removeEntity(id: ploggingUI.id)
+
+            let getPloggings = try coreDataManager.getEntities()
+
+            XCTAssertNotNil(getPloggings)
+            XCTAssertTrue(getPloggings.count == 0)
         } catch {
             print("error, tests fails !")
         }
