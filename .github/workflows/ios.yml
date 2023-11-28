@@ -6,10 +6,10 @@ jobs:
         name: Build and Test default scheme using any available iPhone simulator
         runs-on: macos-latest
         steps:
-            - uses: actions/checkout@v1
+            - uses: actions/checkout@v4
               with:
                 swift-version: "5.7.2"
-            - uses: swift-actions/setup-swift@v4
+            - uses: swift-actions/setup-swift@v1
             - name: Print a greeting
               run: echo 'Hello World'
             - name: Swift version
