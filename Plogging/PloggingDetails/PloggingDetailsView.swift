@@ -22,7 +22,7 @@ class PloggingDetailsView: UIView {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var adminNameTextLabel: UILabel!
     @IBOutlet weak var adminNameLabel: UILabel!
-    
+
     @IBOutlet weak var ploggerList: UILabel!
 }
 
@@ -50,7 +50,7 @@ extension PloggingDetailsView {
         editMainImageButton.isHidden = !isAdmin
         isTakingPartSwitch.isHidden = isAdmin
         isTakingPartLabel.isHidden = isAdmin
-        
+
         ploggerList.text = "Ploggers : \(plogging.ploggers.count )"
     }
 }

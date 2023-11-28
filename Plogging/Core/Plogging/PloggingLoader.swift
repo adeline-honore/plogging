@@ -21,14 +21,13 @@ final class PloggingLoader {
         }
         return ploggingAnnotations
     }
-    
+
     private func stringAnnotationDistance(distance: Int) -> String {
         var distanceString = String(distance)
-//        distanceString = distanceString.replacingOccurrences(of: ".0", with: "")
         distanceString = " " + distanceString + " km"
         return distanceString
     }
-    
+
     private func setAnnotationTitle(ploggingUI: PloggingUI) -> String {
         return " " + ploggingUI.beginningString + "\n" + stringAnnotationDistance(distance: ploggingUI.distance)
     }

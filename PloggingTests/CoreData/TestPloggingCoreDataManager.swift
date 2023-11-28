@@ -67,7 +67,7 @@ class TestPloggingCoreDataManager: XCTestCase {
         do {
 
             let settedPloggingUI: PloggingUI = {
-                var thisPloggingUI = PloggingUI(plogging: Plogging(),  scheduleTimestamp: Int(), scheduleString: String(), isTakingPartUI: true)
+                var thisPloggingUI = PloggingUI(plogging: Plogging(), scheduleTimestamp: Int(), scheduleString: String(), isTakingPartUI: true)
 
                 thisPloggingUI.id = "thisPloggingId"
                 thisPloggingUI.admin = "him-self"
@@ -98,7 +98,7 @@ class TestPloggingCoreDataManager: XCTestCase {
             print("error, tests fails !")
         }
     }
-    
+
     func testRemovePlogging() {
         do {
 
@@ -112,7 +112,7 @@ class TestPloggingCoreDataManager: XCTestCase {
         } catch {
             print("error, tests fails !")
         }
-        
+
         do {
 
             try coreDataManager.removeEntity(id: ploggingUI.id)

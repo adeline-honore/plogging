@@ -15,31 +15,29 @@ protocol RouterProtocol {
 }
 
 protocol NetworkProtocol {
-    func callNetwork(router: RouterProtocol, completionHandler: @escaping (Result<Data,Error>) -> ())
+    func callNetwork(router: RouterProtocol, completionHandler: @escaping (Result<Data, Error>) -> Void)
 }
 
 class Network: NetworkProtocol {
-    func callNetwork(router: RouterProtocol, completionHandler: @escaping (Result<Data, Error>) -> ()) {
+    func callNetwork(router: RouterProtocol, completionHandler: @escaping (Result<Data, Error>) -> Void) {
         let urlRequest = router.baseURL
-        
     }
 }
 
 enum PloggingRouter: RouterProtocol {
-    
-    
+
     var baseURL: String {
         "https://plogging-412ed-default-rtdb.europe-west1.firebasedatabase.app/"
     }
-    
+
     var ref: DatabaseReference {
         Database.database(url: "https://plogging-412ed-default-rtdb.europe-west1.firebasedatabase.app/").reference(fromURL: "https://plogging-412ed-default-rtdb.europe-west1.firebasedatabase.app/")
     }
-    
+
     case createApiPlogging(Any)
     case getApiPloggingList
     case setApiPloggingList
-    
+
     func buildRequest() {
         switch self {
         case .createApiPlogging:
@@ -47,23 +45,21 @@ enum PloggingRouter: RouterProtocol {
         case .getApiPloggingList:
             print("getApiPloggingList")
         case .setApiPloggingList:
-             ref.updateChildValues([AnyHashable : Any]())
+             ref.updateChildValues([AnyHashable: Any]())
         }
     }
-    
-    
 }
 
 enum AuthRouter: RouterProtocol {
     var baseURL: String {
         ""
     }
-    
+
     case createApiUser
     case connectUser
     case forgotPasswordRequestApi
     case disconnectUser
-    
+
     func buildRequest() {
         switch self {
         case .createApiUser:
@@ -76,6 +72,5 @@ enum AuthRouter: RouterProtocol {
             print("disconnectUser")
         }
     }
-    
-    
+
 }

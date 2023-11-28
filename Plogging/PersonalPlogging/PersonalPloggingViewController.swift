@@ -56,7 +56,7 @@ class PersonalPloggingViewController: UIViewController {
         haveToLoginTextLabel.isHidden = true
         haveToLoginButton.isHidden = true
         networkErrorLabel.isHidden = true
-        
+
         if !isInternetAvailable() && !isConnectedUser {
             screenWhenInternetIsUnavailable()
             screenWhenUserIsNotConnected()
@@ -69,7 +69,7 @@ class PersonalPloggingViewController: UIViewController {
             getAPIPloggingList()
         }
     }
-    
+
     // MARK: - If Internet Unavailable
 
     private func screenWhenInternetIsUnavailable() {
@@ -77,7 +77,7 @@ class PersonalPloggingViewController: UIViewController {
         networkErrorLabel.isHidden = false
         networkErrorLabel.text = Texts.internetIsUnavailable.value
     }
-    
+
     // MARK: - If User Is Not Connected
 
     private func screenWhenUserIsNotConnected() {
@@ -108,7 +108,7 @@ class PersonalPloggingViewController: UIViewController {
     }
 
     private func getAPIPloggingList() {
-        networkService.getAPIPloggingList() { result in
+        networkService.getAPIPloggingList { result in
             switch result {
             case .success(let ploggingsResult):
                 self.getPersonnalPloggingList(ploggingList: ploggingsResult)
@@ -123,13 +123,12 @@ class PersonalPloggingViewController: UIViewController {
     private func getPersonnalPloggingList(ploggingList: [Plogging]) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            guard let emailAddress = UserDefaults.standard.string(forKey: "emailAddress") else { return }
 
-            ploggingsUI = ploggingList.map{ PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: self.isUserTakingPart(ploggingPloggers: $0.ploggers))}
-            
+            ploggingsUI = ploggingList.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: self.isUserTakingPart(ploggingPloggers: $0.ploggers))}
+
             ploggingsUI = ploggingsUI.filter({ $0.isTakingPart == true
             })
-            
+
             if ploggingsUI.isEmpty {
                 displayPersonalPloggings()
             } else {
@@ -187,7 +186,7 @@ class PersonalPloggingViewController: UIViewController {
             }
         }
     }
-    
+
     // MARK: - Get Personal Races from CoreData
 
     private func getPloggingFromCoreData() -> [PloggingUI] {

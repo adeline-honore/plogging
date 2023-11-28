@@ -13,7 +13,7 @@ class Authservice {
     // MARK: - Call To API To Create New User
     func createUserIdentifier(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            
+
             if error == nil {
                 completionHandler(.success(FirebaseResult.success))
             } else {

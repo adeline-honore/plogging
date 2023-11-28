@@ -45,10 +45,8 @@
 		6E3C60732919AF1E00DFDD58 /* PloggingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C60722919AF1E00DFDD58 /* PloggingDetailsView.swift */; };
 		6E48FC582901DE8300757AA9 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */; };
 		6E48FC5B2901E3F700757AA9 /* PloggingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48FC5A2901E3F700757AA9 /* PloggingDetailsViewController.swift */; };
-		6E4E866229E0142400940072 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E866129E0142400940072 /* ImageViewController.swift */; };
 		6E5E67EC295AFB1D00E638C4 /* SetConstraintForKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E67EB295AFB1D00E638C4 /* SetConstraintForKeyboardViewController.swift */; };
 		6E686E12290DAA150022CE50 /* LocalSearchCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E686E11290DAA150022CE50 /* LocalSearchCompletion.swift */; };
-		6E68BD7B29760294009F494E /* PloggingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68BD7A29760294009F494E /* PloggingCollectionViewController.swift */; };
 		6E69EFA52951AE1900EBE7B9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFA42951AE1900EBE7B9 /* ProfileViewController.swift */; };
 		6E69EFA72951AE4A00EBE7B9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFA62951AE4A00EBE7B9 /* ProfileView.swift */; };
 		6E69EFAD2951B53100EBE7B9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69EFAC2951B53100EBE7B9 /* ChangePasswordViewController.swift */; };
@@ -65,10 +63,7 @@
 		6EA14AB12AF0FC3900FB72EC /* PopUpModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA14AB02AF0FC3900FB72EC /* PopUpModalViewController.swift */; };
 		6EA14ABE2AF1C2EF00FB72EC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA14ABD2AF1C2EF00FB72EC /* AuthService.swift */; };
 		6EA14AC02AF1C50500FB72EC /* UserIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA14ABF2AF1C50500FB72EC /* UserIdentifier.swift */; };
-		6EB6A2BF29F9C3DF00960639 /* WhoIsTakingPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6A2BE29F9C3DF00960639 /* WhoIsTakingPartViewController.swift */; };
-		6EB6A2C129F9C40300960639 /* WhoIsTakingPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6A2C029F9C40300960639 /* WhoIsTakingPartView.swift */; };
 		6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* SomeDataz.json */; };
-		6EC9F21529E9338B0048B6BC /* PhotoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9F21429E9338B0048B6BC /* PhotoAction.swift */; };
 		6EC9F21829E9397E0048B6BC /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9F21629E9397E0048B6BC /* PhotoTableViewCell.swift */; };
 		6EC9F21929E9397E0048B6BC /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC9F21729E9397E0048B6BC /* PhotoTableViewCell.xib */; };
 		6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */; };
@@ -134,10 +129,8 @@
 		6E3C60722919AF1E00DFDD58 /* PloggingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailsView.swift; sourceTree = "<group>"; };
 		6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		6E48FC5A2901E3F700757AA9 /* PloggingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailsViewController.swift; sourceTree = "<group>"; };
-		6E4E866129E0142400940072 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		6E5E67EB295AFB1D00E638C4 /* SetConstraintForKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetConstraintForKeyboardViewController.swift; sourceTree = "<group>"; };
 		6E686E11290DAA150022CE50 /* LocalSearchCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchCompletion.swift; sourceTree = "<group>"; };
-		6E68BD7A29760294009F494E /* PloggingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingCollectionViewController.swift; sourceTree = "<group>"; };
 		6E69EFA42951AE1900EBE7B9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6E69EFA62951AE4A00EBE7B9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		6E69EFAC2951B53100EBE7B9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -151,10 +144,7 @@
 		6EA14AB02AF0FC3900FB72EC /* PopUpModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpModalViewController.swift; sourceTree = "<group>"; };
 		6EA14ABD2AF1C2EF00FB72EC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		6EA14ABF2AF1C50500FB72EC /* UserIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentifier.swift; sourceTree = "<group>"; };
-		6EB6A2BE29F9C3DF00960639 /* WhoIsTakingPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsTakingPartViewController.swift; sourceTree = "<group>"; };
-		6EB6A2C029F9C40300960639 /* WhoIsTakingPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsTakingPartView.swift; sourceTree = "<group>"; };
 		6EBFB9D72901251C00E1741A /* SomeDataz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SomeDataz.json; sourceTree = "<group>"; };
-		6EC9F21429E9338B0048B6BC /* PhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAction.swift; sourceTree = "<group>"; };
 		6EC9F21629E9397E0048B6BC /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		6EC9F21729E9397E0048B6BC /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,10 +281,6 @@
 			children = (
 				6E48FC5A2901E3F700757AA9 /* PloggingDetailsViewController.swift */,
 				6E3C60722919AF1E00DFDD58 /* PloggingDetailsView.swift */,
-				6E68BD7A29760294009F494E /* PloggingCollectionViewController.swift */,
-				6E4E866129E0142400940072 /* ImageViewController.swift */,
-				6EB6A2BE29F9C3DF00960639 /* WhoIsTakingPartViewController.swift */,
-				6EB6A2C029F9C40300960639 /* WhoIsTakingPartView.swift */,
 			);
 			path = PloggingDetails;
 			sourceTree = "<group>";
@@ -375,7 +361,6 @@
 				6EECBFB928F2EEBE00FAE3FE /* Location */,
 				6ED589E928E8DD1B00450FE4 /* Model */,
 				6E32391F2AED4379001B4D8B /* NetWork */,
-				6EC9F21429E9338B0048B6BC /* PhotoAction.swift */,
 				6EF0AA1B2902BBAB0004F374 /* Plogging */,
 				6E48FC572901DE8300757AA9 /* SegueIdentifier.swift */,
 				6E5E67EB295AFB1D00E638C4 /* SetConstraintForKeyboardViewController.swift */,
@@ -602,7 +587,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -618,16 +603,13 @@
 				6ED589F028E8ECB400450FE4 /* PresentationViewController.swift in Sources */,
 				09E4089A2B055C56003313A3 /* Network.swift in Sources */,
 				6EECBFBB28F2EEEA00FAE3FE /* LocationManager.swift in Sources */,
-				6E4E866229E0142400940072 /* ImageViewController.swift in Sources */,
 				6EE2560C29DE081E0058509C /* PloggingCD+CoreDataProperties.swift in Sources */,
 				0983A2782AF5994700BEDB80 /* SignInView.swift in Sources */,
-				6EB6A2C129F9C40300960639 /* WhoIsTakingPartView.swift in Sources */,
 				6E5E67EC295AFB1D00E638C4 /* SetConstraintForKeyboardViewController.swift in Sources */,
 				6E00AA202926434800798F03 /* Extension+UIView.swift in Sources */,
 				6E94F04428EC244400D94CA5 /* MapViewController.swift in Sources */,
 				6E3239232AED44C8001B4D8B /* DatabaseURL.swift in Sources */,
 				6E1E655B2949E567004E1C94 /* LocalSearchCompletionViewController.swift in Sources */,
-				6EB6A2BF29F9C3DF00960639 /* WhoIsTakingPartViewController.swift in Sources */,
 				6EE2560429DE04190058509C /* PhotoUI.swift in Sources */,
 				6E3821AE28FD54C100F39184 /* Extension+MKMapView.swift in Sources */,
 				6E69EFAF2951BE5400EBE7B9 /* Extension+View.swift in Sources */,
@@ -636,7 +618,6 @@
 				096B64252AF28398001072CB /* SignInOrUpView.swift in Sources */,
 				096B642B2AF28452001072CB /* AppDelegate.swift in Sources */,
 				6EA14AAF2AF07D8D00FB72EC /* CallBackResult.swift in Sources */,
-				6E68BD7B29760294009F494E /* PloggingCollectionViewController.swift in Sources */,
 				6E69EFAD2951B53100EBE7B9 /* ChangePasswordViewController.swift in Sources */,
 				0910E19F2B000E7200254FD2 /* PloggingImage.swift in Sources */,
 				6E69EFA52951AE1900EBE7B9 /* ProfileViewController.swift in Sources */,
@@ -655,7 +636,6 @@
 				6E088F942916830900F401A6 /* Texts.swift in Sources */,
 				6E12D2152923C8A500D2F45B /* PloggingTableViewCell.swift in Sources */,
 				096B64272AF283C9001072CB /* SignInOrUpViewController.swift in Sources */,
-				6EC9F21529E9338B0048B6BC /* PhotoAction.swift in Sources */,
 				6E69EFA72951AE4A00EBE7B9 /* ProfileView.swift in Sources */,
 				6E1412F42922750F009E1BDB /* CreatePloggingView.swift in Sources */,
 				6E3821B028FD566B00F39184 /* Plogging.swift in Sources */,
@@ -753,7 +733,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -815,7 +795,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

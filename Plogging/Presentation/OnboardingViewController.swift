@@ -90,7 +90,7 @@ extension OnboardingViewController {
             nextContinueButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
-    
+
     @objc func nextContinueTapped(_ sender: UIButton) {
         delegate?.didTapNextContinueButton()
     }

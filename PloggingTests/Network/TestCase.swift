@@ -10,7 +10,7 @@ import Foundation
 enum TestCase {
     case auth
     case ploggingList
-    
+
     var resource: String {
         switch self {
         case .auth:

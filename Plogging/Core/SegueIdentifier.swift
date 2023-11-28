@@ -9,59 +9,20 @@ import Foundation
 
 enum SegueIdentifier: String {
 
-    case appOverviewPage = "appOverviewPage"
+    case appOverviewPage
 
-    case fromMapToPlogging = "fromMapToPlogging"
-    case fromMapToCreatePlogging = "fromMapToCreatePlogging"
-    case fromMapToSignInOrUp = "fromMapToSignInOrUp"
+    case fromMapToPlogging
+    case fromMapToCreatePlogging
+    case fromMapToSignInOrUp
 
-    case fromPersonalToDetails = "fromPersonalToDetails"
-    case fromPersonalToSignInOrUp = "fromPersonalToSignInOrUp"
+    case fromPersonalToDetails
+    case fromPersonalToSignInOrUp
 
-    case fromCreateToLocalSearch = "fromCreateToLocalSearch"
+    case fromCreateToLocalSearch
 
-    case fromDetailsToSignInOrUp = "fromDetailsToSignInOrUp"
-//    case fromDetailsToCollectionView
-    case fromDetailsToEmail = "fromDetailsToEmail"
+    case fromDetailsToSignInOrUp
+    case fromDetailsToEmail
 
-//    case fromCollectionViewToImage
-    
-    case fromProfileToMap = "fromProfileToMap"
-    case fromProfileToSignInOrUp = "fromProfileToSignInOrUp"
-
-//    var identifier: String {
-//        switch self {
-//        case .appOverviewPage:
-//            return "appOverviewPage"
-//        case .fromMapToPlogging:
-//            return "fromMapToPlogging"
-//        case .fromMapToCreatePlogging:
-//            return "fromMapToCreatePlogging"
-//        case .fromMapToSignInOrUp:
-//            return "fromMapToSignInOrUp"
-//
-//        case .fromPersonalToDetails:
-//            return "fromPersonalToDetails"
-//        case .fromPersonalToSignInOrUp:
-//            return "fromPersonalToSignInOrUp"
-//
-//        case .fromCreateToLocalSearch:
-//            return "fromCreateToLocalSearch"
-//
-//        case .fromDetailsToSignInOrUp:
-//            return "fromDetailsToSignInOrUp"
-////        case .fromDetailsToCollectionView:
-////            return "fromDetailsToCollectionView"
-//        case .fromDetailsToEmail:
-//            return "fromDetailsToEmail"
-//
-////        case .fromCollectionViewToImage:
-////            return "fromCollectionViewToImage"
-//            
-//        case .fromProfileToMap:
-//            return "fromProfileToMap"
-//        case .fromProfileToSignInOrUp:
-//            return "fromProfileToSignInOrUp"
-//        }
-//    }
+    case fromProfileToMap
+    case fromProfileToSignInOrUp
 }

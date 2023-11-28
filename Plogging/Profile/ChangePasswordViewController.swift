@@ -11,12 +11,11 @@ class ChangePasswordViewController: SetConstraintForKeyboardViewController {
 
     // MARK: - IBOutlet
 
-    
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var noInternetLabel: UILabel!
     @IBOutlet weak var setPasswordButton: UIButton!
-    
+
     // MARK: - Properties
 
     private var userIdentifier = UserIdentifier()

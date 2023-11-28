@@ -8,7 +8,7 @@
 import Foundation
 
 class UserIdentifier {
-    
+
     private let authService = Authservice()
 
     // MARK: - Request To Create New User
@@ -49,8 +49,7 @@ class UserIdentifier {
 
     // MARK: - Request When Password Is Forgotten
     func forgotPasswordRequest(email: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-        authService.forgotPasswordAPI(email: email) {
-            result in
+        authService.forgotPasswordAPI(email: email) { result in
             switch result {
             case .success:
                 completionHandler(.success(FirebaseResult.success))
@@ -63,7 +62,7 @@ class UserIdentifier {
     // MARK: - Request To Sign Out
     func signOutRequest(completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
 
-        authService.disconnectUser() { result in
+        authService.disconnectUser { result in
             switch result {
             case .success:
                 completionHandler(.success(FirebaseResult.success))
