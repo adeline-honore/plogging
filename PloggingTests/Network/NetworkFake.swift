@@ -37,12 +37,18 @@ class NetworkFake: NetworkProtocol {
     private func prepareAuthData() -> Data {
         let bundle = Bundle(for: NetworkFake.self)
         let url = bundle.url(forResource: testCase.resource, withExtension: "json")!
-        return try! Data(contentsOf: url)
+        guard let  authData = try? Data(contentsOf: url) else {
+            return Data()
+        }
+        return authData
     }
 
     private func preparePloggingListData() -> Data {
         let bundle = Bundle(for: NetworkFake.self)
         let url = bundle.url(forResource: testCase.resource, withExtension: "json")!
-        return try! Data(contentsOf: url)
+        guard let  ploggingListData = try? Data(contentsOf: url) else {
+            return Data()
+        }
+        return ploggingListData
     }
 }
