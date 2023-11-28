@@ -11,10 +11,10 @@ import UIKit
 
 class NetworkFake: NetworkProtocol {
 
-    private let testCase: TestCase
+    private let testCase: TestCaseNetwork
     private var isFailed: Bool = false
 
-    init(testCase: TestCase, isFailed: Bool) {
+    init(testCase: TestCaseNetwork, isFailed: Bool) {
         self.testCase = testCase
         self.isFailed = isFailed
     }

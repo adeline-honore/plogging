@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TestCase {
+enum TestCaseNetwork {
     case auth
     case ploggingList
 

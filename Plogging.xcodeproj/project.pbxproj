@@ -18,7 +18,7 @@
 		097D04A82B0AAC2900E50647 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 097D04A72B0AAC2900E50647 /* FirebaseStorage */; };
 		097D04AA2B0F2CAD00E50647 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 097D04A92B0F2CAD00E50647 /* FirebaseMessaging */; };
 		0983A2782AF5994700BEDB80 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983A2772AF5994700BEDB80 /* SignInView.swift */; };
-		09E408942B04A506003313A3 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408932B04A506003313A3 /* TestCase.swift */; };
+		09E408942B04A506003313A3 /* TestCaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408932B04A506003313A3 /* TestCaseNetwork.swift */; };
 		09E408962B04A5A4003313A3 /* NetworkFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408952B04A5A4003313A3 /* NetworkFake.swift */; };
 		09E408982B04AA22003313A3 /* AuthentificationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */; };
 		09E4089A2B055C56003313A3 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408992B055C56003313A3 /* Network.swift */; };
@@ -102,7 +102,7 @@
 		096B64282AF283F4001072CB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		096B642A2AF28452001072CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0983A2772AF5994700BEDB80 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		09E408932B04A506003313A3 /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
+		09E408932B04A506003313A3 /* TestCaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseNetwork.swift; sourceTree = "<group>"; };
 		09E408952B04A5A4003313A3 /* NetworkFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFake.swift; sourceTree = "<group>"; };
 		09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationTestCase.swift; sourceTree = "<group>"; };
 		09E408992B055C56003313A3 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		09E408922B04A4EA003313A3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				09E408932B04A506003313A3 /* TestCase.swift */,
+				09E408932B04A506003313A3 /* TestCaseNetwork.swift */,
 				09E408952B04A5A4003313A3 /* NetworkFake.swift */,
 				09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */,
 			);
@@ -660,7 +660,7 @@
 				6E9040E22AE30F8B009A6E80 /* TestCoreDataStack.swift in Sources */,
 				09E408962B04A5A4003313A3 /* NetworkFake.swift in Sources */,
 				6E9040E42AE31064009A6E80 /* TestPloggingCoreDataManager.swift in Sources */,
-				09E408942B04A506003313A3 /* TestCase.swift in Sources */,
+				09E408942B04A506003313A3 /* TestCaseNetwork.swift in Sources */,
 				09E408982B04AA22003313A3 /* AuthentificationTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

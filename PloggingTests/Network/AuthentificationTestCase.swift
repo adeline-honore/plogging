@@ -14,7 +14,7 @@ final class AuthentificationTestCase: XCTestCase {
     private var authService: Authservice!
     private let email = "monemail@email.com"
 
-    private func initSut(isFailed: Bool = false, testCase: TestCase = .auth) {
+    private func initSut(isFailed: Bool = false, testCase: TestCaseNetwork = .auth) {
         authService = Authservice()
     }
 
