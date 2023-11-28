@@ -535,7 +535,6 @@
 			mainGroup = 6ED589A528E8D8B000450FE4;
 			packageReferences = (
 				6E6B6D962AE507B500B5D00B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				0924B5DE2B12DE5F00D6537E /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 6ED589AF28E8D8B000450FE4 /* Products */;
 			projectDirPath = "";
@@ -964,14 +963,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0924B5DE2B12DE5F00D6537E /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/SwiftLint.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.54.0;
-			};
-		};
 		6E6B6D962AE507B500B5D00B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
