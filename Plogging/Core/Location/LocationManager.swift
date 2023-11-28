@@ -37,15 +37,12 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
             case .authorizedWhenInUse:  // Location services are available.
                 self.locationManager.startUpdatingLocation()
                 break
-                
             case .restricted, .denied:  // Location services currently unavailable.
                 manager.requestWhenInUseAuthorization()
                 break
-                
             case .notDetermined:        // Authorization not determined yet.
                 manager.requestWhenInUseAuthorization()
                 break
-                
             default:
                 break
             }

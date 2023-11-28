@@ -34,9 +34,8 @@ class CreatePloggingViewController: UIViewController {
     private var selectedSearchCompletion: MKLocalSearchCompletion?
 
     private var localSearchCompletion = LocalSearchCompletion()
-    
-    private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
+    private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
     // MARK: - Life Cycle
 
@@ -133,17 +132,16 @@ class CreatePloggingViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case let .success(coordinates):
-                
                 guard let latitude = coordinates?.latitude, let longitude = coordinates?.longitude else { return }
-                
+
                 self.currentPloggingUI.latitude = latitude
                 self.currentPloggingUI.longitude = longitude
                 // create UUID for plogging
 //                currentPlogging.id = UUID().uuidString
-                
+
                 let randomInteger = String(Int.random(in: 0..<1000))
                 currentPloggingUI.id = "EEZZ-000-24-JAAUG-WWWW" + randomInteger
-                
+
                 // save plogging in APi
                 savePloggingInExternalDatabase()
             case .failure:
@@ -153,7 +151,7 @@ class CreatePloggingViewController: UIViewController {
     }
 
     // MARK: - Save Plogging in API
-    
+
     private func savePloggingInExternalDatabase() {
         let ploggingToSave: Plogging = Plogging(ploggingUI: currentPloggingUI)
 

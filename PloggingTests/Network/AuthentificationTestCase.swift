@@ -13,7 +13,7 @@ final class AuthentificationTestCase: XCTestCase {
     // Given
     private var authService: Authservice!
     private let email = "monemail@email.com"
-    
+
     private func initSut(isFailed: Bool = false, testCase: TestCase = .auth) {
         authService = Authservice()
     }
@@ -22,8 +22,8 @@ final class AuthentificationTestCase: XCTestCase {
         super.setUp()
         authService = nil
     }
-    
+
     func testSignInShouldPostSuccess() {
-        
+
     }
 }

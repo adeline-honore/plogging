@@ -137,7 +137,7 @@ class PloggingDetailsViewController: UIViewController {
             PopUpModalViewController().userAlert(element: .unableToSaveChangeInternet, viewController: self)
         }
     }
-    
+
     private func saveChangeImageInAPI() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -164,7 +164,7 @@ class PloggingDetailsViewController: UIViewController {
             guard ploggingUI != nil else { return }
             do {
                 try self.repository.setEntity(ploggingUI: ploggingUI!)
-                
+
                 popUpModal.userAlert(element: AlertType.ploggingSetWithSuccess, viewController: self)
             } catch {
                 popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)

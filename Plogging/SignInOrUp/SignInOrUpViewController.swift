@@ -36,7 +36,7 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
     private func signupButtonWasPressed() {
         let email = signInOrUpView.emailTextField.text
         let password = signInOrUpView.passwordTextField.text
-        
+
         if (email == nil) || (password == nil) {
             popUpModal.userAlert(element: .emptyIdentifier, viewController: self)
         } else if validateEmail(email: signInOrUpView.emailTextField.text ?? "") == false {
@@ -47,7 +47,7 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func createUser(email: String, password: String) {
-        userIdentifier.createUserRequest(email: email, password: password){ result in
+        userIdentifier.createUserRequest(email: email, password: password) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:

@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
 
     private var locationManager = LocationManager.shared
     private var userLocation: CLLocation = CLLocation()
-    
+
     private var ploggingAnnotationLoader = PloggingLoader()
     private var networkService = NetworkService(network: Network())
 
@@ -66,7 +66,7 @@ class MapViewController: UIViewController {
     // MARK: - Get Plogging List From External Database, Filter And Convert That List
 
     private func getApiPloggingList() {
-        networkService.getAPIPloggingList() { result in
+        networkService.getAPIPloggingList { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
@@ -185,7 +185,7 @@ extension MapViewController: MKMapViewDelegate {
 
         guard let current = ploggingsUI.first(where: { $0.id == annotation.subtitle }) else { return MKAnnotationView() }
 
-        annotationView.markerTintColor = current.isTakingPart ? Color().blue : Color().grey;
+        annotationView.markerTintColor = current.isTakingPart ? Color().blue : Color().grey
         annotationView.glyphImage = glyphImage
         annotationView.glyphTintColor = .white
         annotationView.subtitleVisibility = .hidden

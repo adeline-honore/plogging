@@ -72,7 +72,7 @@ struct PloggingUI {
         self.mainImageBinary = ploggingCD.imageBinary
         self.mainImage = image
     }
-    
+
     func displayUIDateFromIntegerTimestamp(timestamp: Int) -> String {
         let date = NSDate(timeIntervalSince1970: TimeInterval(timestamp))
         let formatter = DateFormatter()

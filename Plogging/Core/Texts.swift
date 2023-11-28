@@ -14,7 +14,7 @@ enum Texts {
     case onBoardingTabTwo
     case onBoardingTabThree
     case onBoardingButton
-    
+
     case internetIsUnavailable
 
     case noPlogging
@@ -43,7 +43,7 @@ enum Texts {
             return "Let's go \nand \nclean Earth !!"
         case .onBoardingButton:
             return "OK !"
-            
+
         case .internetIsUnavailable:
             return "No internet connection ."
 
@@ -66,7 +66,7 @@ enum Texts {
 
         case .takePart:
             return "Take part at this plogging"
-            
+
         case .duration:
             return "approximate duration of the race : "
         }

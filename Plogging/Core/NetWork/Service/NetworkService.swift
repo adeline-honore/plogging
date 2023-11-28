@@ -13,7 +13,7 @@ import FirebaseStorage
 
 protocol PloggingServiceProtocol {
     func createOrUpdateAPIPlogging(plogging: Plogging, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
-    func getAPIPloggingList(completionHandler: @escaping (Result<[Plogging], Error>) -> ())
+    func getAPIPloggingList(completionHandler: @escaping (Result<[Plogging], Error>) -> Void)
 }
 
 class NetworkService: PloggingServiceProtocol {
@@ -23,8 +23,8 @@ class NetworkService: PloggingServiceProtocol {
     init(network: NetworkProtocol) {
         self.network = network
     }
-    
-    func getAPIPloggingList(completionHandler: @escaping (Result<[Plogging], Error>) -> ()) {
+
+    func getAPIPloggingList(completionHandler: @escaping (Result<[Plogging], Error>) -> Void) {
         var ploggingList: [Plogging] = []
 
         let firestoreDataBase = Firestore.firestore()
@@ -37,28 +37,28 @@ class NetworkService: PloggingServiceProtocol {
 
                     for pair in ploggingDocument {
                         if pair.key == "id" {
-                            ploggg.id = pair.value as! String
+                            ploggg.id = pair.value as? String ?? ""
                         }
                         if pair.key == "admin" {
-                            ploggg.admin = pair.value as! String
+                            ploggg.admin = pair.value as? String ?? ""
                         }
                         if pair.key == "beginning" {
-                            ploggg.beginning = pair.value as! Int
+                            ploggg.beginning = pair.value as? Int ?? 1
                         }
                         if pair.key == "distance" {
-                            ploggg.distance = pair.value as! Int
+                            ploggg.distance = pair.value as? Int ?? 2
                         }
                         if pair.key == "latitude" {
-                            ploggg.latitude = pair.value as! Double
+                            ploggg.latitude = pair.value as? Double ?? 0
                         }
                         if pair.key == "longitude" {
-                            ploggg.longitude = pair.value as! Double
+                            ploggg.longitude = pair.value as? Double ?? 0
                         }
                         if pair.key == "place" {
-                            ploggg.place = pair.value as! String
+                            ploggg.place = pair.value as? String ?? ""
                         }
                         if pair.key == "ploggers" {
-                            ploggg.ploggers = pair.value as! [String]
+                            ploggg.ploggers = pair.value as? [String] ?? [""]
                         }
                     }
                     ploggingList.append(ploggg)
@@ -85,7 +85,6 @@ class NetworkService: PloggingServiceProtocol {
 
         let firestoreDatabase = Firestore.firestore()
         firestoreDatabase.collection("ploggingList").document(plogging.id).setData(ploggingDoc) { error in
-            
             if error == nil {
                 completionHandler(.success(FirebaseResult.success))
             } else {
@@ -102,7 +101,7 @@ class NetworkService: PloggingServiceProtocol {
 
         fileRef.putData(mainImageBinary, metadata: nil) { metadata, error in
             let firestoreDatabase = Firestore.firestore()
-            firestoreDatabase.collection("images").document().setData(["url" : path])
+            firestoreDatabase.collection("images").document().setData(["url": path])
 
             if error == nil && metadata != nil {
                 completionHandler(.success(FirebaseResult.success))
@@ -111,7 +110,7 @@ class NetworkService: PloggingServiceProtocol {
             }
         }
     }
-    
+
     func getPloggingImage(ploggingId: String, completionHandler: @escaping (Result<UIImage, Error>) -> Void) {
 
         let path = "images/\(ploggingId).jpg"

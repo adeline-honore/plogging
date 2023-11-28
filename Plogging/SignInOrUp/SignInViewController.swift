@@ -27,7 +27,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         signInView.emailTextField.delegate = self
         signInView.passwordTextField.delegate = self
     }
-    
+
     // MARK: - Sign In Request
 
     @IBAction func didTapSigInButton() {
@@ -40,8 +40,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
         if !isInternetAvailable() {
             popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
-        }
-        else if (email == nil) || (password == nil) {
+        } else if (email == nil) || (password == nil) {
             popUpModal.userAlert(element: .emptyIdentifier, viewController: self)
         } else if validateEmail(email: signInView.emailTextField.text ?? "") == false {
             popUpModal.userAlert(element: .invalidEmail, viewController: self)
@@ -51,7 +50,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func signIn(email: String, password: String) {
-        userIdentifier.signInRequest(email: email, password: password){ result in
+        userIdentifier.signInRequest(email: email, password: password) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:

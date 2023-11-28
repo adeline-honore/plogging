@@ -32,11 +32,11 @@ class ProfileViewController: UIViewController {
     }
 
     // MARK: - Log Out
-    
+
     @IBAction func didTapLogOutButton() {
         popUpModal.userAlertWithChoice(element: .logOut, viewController: self)
     }
-    
+
     private func wantToLogOut() {
         userIdentifier.signOutRequest { result in
             DispatchQueue.main.async { [weak self] in
@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    
+
     private func logOutSucces() {
         UserDefaults.standard.set(nil, forKey: "emailAddress")
         profileView.configure(isConnected: false, email: "")
