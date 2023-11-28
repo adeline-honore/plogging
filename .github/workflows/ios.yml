@@ -7,11 +7,13 @@ jobs:
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@v4
+            - uses: swift-actions/setup-swift@v1
               with:
                 swift-version: "5.7.2"
-            - uses: swift-actions/setup-swift@v1
             - name: Print a greeting
               run: echo 'Hello World'
+            - name: Swift Package
+              run: swift package init --type library
             - name: Swift version
               run: swift --version
             - name: Swift Build
