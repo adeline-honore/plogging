@@ -9,6 +9,7 @@ jobs:
             - uses: actions/checkout@v1
               with:
                 swift-version: "5.7.2"
+            - uses: swift-actions/setup-swift@v4
             - name: Print a greeting
               run: echo 'Hello World'
             - name: Swift version
