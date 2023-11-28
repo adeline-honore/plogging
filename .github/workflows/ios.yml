@@ -6,6 +6,6 @@ jobs:
         name: Build and Test default scheme using any available iPhone simulator
         runs-on: macos-latest
         steps:
-            - uses: actions/checkout@ci-branch
+            - uses: actions/checkout@v1
             - name: Print a greeting
               run: echo 'Hello World'
