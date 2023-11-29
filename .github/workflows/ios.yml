@@ -10,6 +10,7 @@ jobs:
             - uses: swift-actions/setup-swift@v1
               with:
                 swift-version: "5.7.2"
+            - uses: swift-actions/setup-swift@v1
               with:
                 xcode-version: "15.0.1"
             - name: Print a greeting
