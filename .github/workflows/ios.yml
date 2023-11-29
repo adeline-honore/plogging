@@ -20,3 +20,5 @@ jobs:
               run: swift build
             - name: Swift Tests
               run: swift test
+            - name: Swift Unit Tests
+              run: swift unittests

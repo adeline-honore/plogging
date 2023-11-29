@@ -26,8 +26,4 @@ final class AuthentificationTestCase: XCTestCase {
     func testSignInShouldPostSuccess() {
 
     }
-    
-    func testToKnow() {
-        
-    }
 }
