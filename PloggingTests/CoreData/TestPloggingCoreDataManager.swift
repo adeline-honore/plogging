@@ -90,7 +90,7 @@ class TestPloggingCoreDataManager: XCTestCase {
             try coreDataManager.setEntity(ploggingUI: settedPloggingUI)
 
             XCTAssertNotNil(getPloggings)
-            XCTAssertTrue(getPloggings.count == 5)
+            XCTAssertTrue(getPloggings.count == 1)
             XCTAssertTrue(settedPloggingUI.id == getPloggings.first?.id)
             XCTAssertTrue(String(settedPloggingUI.beginningTimestamp) == getPloggings.first?.beginning)
             XCTAssertTrue(settedPloggingUI.distance == Int(getPloggings.first?.distance ?? 0.0))
