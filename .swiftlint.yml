@@ -1,2 +1,8 @@
 disabled_rules: # rule identifiers turned on by default to exclude from running
   - line_length
+  - function_body_length
+  - type_name
+  - identifier_name
+  - unused_closure_parameter
+  - unused_optional_binding
+  - cyclomatic_complexity

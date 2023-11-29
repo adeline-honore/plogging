@@ -15,7 +15,7 @@ extension UIView {
     }
 
     func manageMessageButtonLabel(button: UIButton, isAdmin: Bool) {
-        isAdmin ? button.setTitle(" Send mail for all ploggers ?", for: .normal) : button.setTitle(" Send mail to race's admin ?", for: .normal)
+        button.setTitle(isAdmin ? " Send mail for all ploggers ?" : " Send mail to race's admin ?", for: .normal)
     }
 
     func getPloggingDuration(distance: Int) -> String {

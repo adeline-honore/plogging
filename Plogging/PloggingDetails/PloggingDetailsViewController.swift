@@ -124,7 +124,11 @@ class PloggingDetailsViewController: UIViewController {
                     PopUpModalViewController().userAlert(element: .internalDatabase, viewController: self)
                 }
             }
-            ploggingUI.isTakingPart ? PopUpModalViewController().userAlert(element: .isTakingPart, viewController: self) : PopUpModalViewController().userAlert(element: .isNotTakingPart, viewController: self)
+            if ploggingUI.isTakingPart {
+                PopUpModalViewController().userAlert(element: .isTakingPart, viewController: self)
+            } else {
+                PopUpModalViewController().userAlert(element: .isNotTakingPart, viewController: self)
+            }
         }
     }
 
