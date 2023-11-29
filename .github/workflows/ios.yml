@@ -24,4 +24,4 @@ jobs:
             - name: Swift Tests
               run: swift test
             - name: Swift Unit Tests
-              run: swift unittests
+              run: swift unit tests
