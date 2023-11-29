@@ -20,12 +20,6 @@ class ForgotPasswordViewController: UIViewController {
     private var popUpModal = PopUpModalViewController()
     private var userIdentifier = UserIdentifier()
 
-    // MARK: - Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     // MARK: - User Forgot Password
 
     @IBAction func didTapForgotButton() {

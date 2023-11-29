@@ -25,10 +25,6 @@ class PloggingTableViewCell: UITableViewCell {
         self.frame = bounds
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
     func configure(plogging: PloggingUI) {
         placeLabel.text = "Place : " + plogging.place
         dateLabel.text = "Departure : " + plogging.beginningString
