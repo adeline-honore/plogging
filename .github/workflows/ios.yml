@@ -10,10 +10,7 @@ jobs:
             - uses: swift-actions/setup-swift@v1
               with:
                 swift-version: "5.7.2"
-            - uses: swift-actions/setup-swift@v1
-              with:
-                xcode-version: "15.0.1"
-            - name: Print a greeting
+            - name: Print Hello World
               run: echo 'Hello World'
             - name: Swift Package
               run: swift package init --type library
@@ -23,5 +20,3 @@ jobs:
               run: swift build
             - name: Swift Tests
               run: swift test
-            - name: Swift Unit Tests
-              run: swift unit tests
