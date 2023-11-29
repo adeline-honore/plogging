@@ -39,10 +39,6 @@ class PersonalPloggingViewController: UIViewController {
 
     // MARK: - Life Cycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tableView.delegate = self

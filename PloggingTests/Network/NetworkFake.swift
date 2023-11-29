@@ -19,8 +19,8 @@ class NetworkFake: NetworkProtocol {
         self.isFailed = isFailed
     }
 
-    func callNetwork(router: RouterProtocol, completionHandler: @escaping (Result<Data,Error>) -> ()) {
-        
+    func callNetwork(router: RouterProtocol, completionHandler: @escaping (Result<Data, Error>) -> Void) {
+
         guard !isFailed else {
             completionHandler(.failure(ErrorType.network))
             return
@@ -37,7 +37,7 @@ class NetworkFake: NetworkProtocol {
     private func prepareAuthData() -> Data {
         let bundle = Bundle(for: NetworkFake.self)
         let url = bundle.url(forResource: testCase.resource, withExtension: "json")!
-        guard let authData = try Data(contentsOf: url) else {
+        guard let authData = try? Data(contentsOf: url) else {
             return Data()
         }
         return authData
@@ -46,7 +46,7 @@ class NetworkFake: NetworkProtocol {
     private func preparePloggingListData() -> Data {
         let bundle = Bundle(for: NetworkFake.self)
         let url = bundle.url(forResource: testCase.resource, withExtension: "json")!
-        guard let ploggingListData = try Data(contentsOf: url) else {
+        guard let ploggingListData = try? Data(contentsOf: url) else {
             return Data()
         }
         return ploggingListData

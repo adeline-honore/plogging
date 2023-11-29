@@ -31,7 +31,7 @@ class ForgotPasswordViewController: UIViewController {
 
         if !isInternetAvailable() {
             popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
-        } else if (email == nil) {
+        } else if email == nil {
             popUpModal.userAlert(element: .emptyIdentifier, viewController: self)
         } else if validateEmail(email: forgotPasswordTextField.text ?? "") == false {
             popUpModal.userAlert(element: .invalidEmail, viewController: self)
