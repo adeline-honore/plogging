@@ -12,7 +12,7 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
 
     private var signInOrUpView: SignInOrUpView!
-    private var userIdentifier = UserIdentifier()
+    private var authService = Authservice()
     private var popUpModal = PopUpModalViewController()
 
     // MARK: - Life cycle
@@ -47,7 +47,7 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func createUser(email: String, password: String) {
-        userIdentifier.createUserRequest(email: email, password: password) { result in
+        authService.createUserIdentifier(email: email, password: password) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:

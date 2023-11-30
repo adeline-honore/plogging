@@ -11,7 +11,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Properties
     private var signInView: SignInView!
-    private var userIdentifier = UserIdentifier()
+    private var authService = Authservice()
     private var popUpModal = PopUpModalViewController()
 
     // MARK: - Life cycle
@@ -50,7 +50,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func signIn(email: String, password: String) {
-        userIdentifier.signInRequest(email: email, password: password) { result in
+        authService.connectUser(email: email, password: password) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:

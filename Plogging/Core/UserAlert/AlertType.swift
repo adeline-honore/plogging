@@ -36,6 +36,7 @@ enum AlertType {
     case unableToConnectUser
     case unableToDisconnectUser
     case passwordSetted
+    case passwordNoSimilar
     case unableToSetPassword
     case forgotPassword
     case forgotPaswwordRequestSuccess
@@ -100,6 +101,8 @@ enum AlertType {
             return "Unable to disconnect ."
         case .passwordSetted:
             return "Password setted with success ."
+        case .passwordNoSimilar:
+            return "Passwords are not similar ."
         case .unableToSetPassword:
             return "Unable to set password ."
         case .forgotPassword:

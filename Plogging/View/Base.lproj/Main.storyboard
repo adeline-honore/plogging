@@ -342,17 +342,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your new password : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWa-CB-4Fn">
-                                <rect key="frame" x="20" y="192" width="374" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZd-zy-8jF">
-                                <rect key="frame" x="20" y="220.5" width="374" height="34"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="new-password"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ia6-z2-hlN">
+                                <rect key="frame" x="20" y="132" width="374" height="207.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yTH-AV-WVi">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="58.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your current password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-c3-OR8">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="umG-c7-6KB">
+                                                <rect key="frame" x="0.0" y="24.5" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GQF-q7-0U7">
+                                        <rect key="frame" x="0.0" y="74.5" width="374" height="58.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your new password : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWa-CB-4Fn">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZd-zy-8jF">
+                                                <rect key="frame" x="0.0" y="24.5" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" secureTextEntry="YES" textContentType="new-password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XIn-I6-LDC">
+                                        <rect key="frame" x="0.0" y="149" width="374" height="58.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm your new password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwL-rQ-gKU">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="96T-Xp-JVv">
+                                                <rect key="frame" x="0.0" y="24.5" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="go" secureTextEntry="YES" textContentType="new-password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Duc-UM-w00">
                                 <rect key="frame" x="20" y="757" width="374" height="40"/>
                                 <constraints>
@@ -374,22 +416,23 @@
                         <viewLayoutGuide key="safeArea" id="f97-eG-mWp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VWa-CB-4Fn" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="20" id="8AO-rz-MwI"/>
-                            <constraint firstItem="JZd-zy-8jF" firstAttribute="centerX" secondItem="H8F-iH-bzX" secondAttribute="centerX" id="EdU-Tv-Xbt"/>
                             <constraint firstItem="Duc-UM-w00" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="20" id="EiT-GU-iMp"/>
                             <constraint firstItem="f97-eG-mWp" firstAttribute="bottom" secondItem="Duc-UM-w00" secondAttribute="bottom" constant="16" id="GaZ-aE-WE4"/>
-                            <constraint firstItem="VWa-CB-4Fn" firstAttribute="centerX" secondItem="H8F-iH-bzX" secondAttribute="centerX" id="WEa-E0-dxM"/>
+                            <constraint firstItem="ia6-z2-hlN" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="20" id="LSY-hr-mco"/>
                             <constraint firstItem="79d-OL-NrK" firstAttribute="centerX" secondItem="H8F-iH-bzX" secondAttribute="centerX" id="Xlu-zX-ipq"/>
-                            <constraint firstItem="JZd-zy-8jF" firstAttribute="top" secondItem="VWa-CB-4Fn" secondAttribute="bottom" constant="8" id="d0K-6k-DaK"/>
-                            <constraint firstItem="JZd-zy-8jF" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="20" id="iR1-Ak-U8K"/>
-                            <constraint firstItem="79d-OL-NrK" firstAttribute="centerY" secondItem="H8F-iH-bzX" secondAttribute="centerY" id="jBE-dD-od5"/>
-                            <constraint firstItem="VWa-CB-4Fn" firstAttribute="top" secondItem="f97-eG-mWp" secondAttribute="top" constant="100" id="rVO-cf-uML"/>
+                            <constraint firstItem="79d-OL-NrK" firstAttribute="centerY" secondItem="H8F-iH-bzX" secondAttribute="centerY" id="hdw-UN-fMe"/>
+                            <constraint firstItem="ia6-z2-hlN" firstAttribute="top" secondItem="f97-eG-mWp" secondAttribute="top" constant="40" id="r5p-fO-3vo"/>
+                            <constraint firstItem="ia6-z2-hlN" firstAttribute="centerX" secondItem="H8F-iH-bzX" secondAttribute="centerX" id="sBf-ec-pgd"/>
                             <constraint firstItem="f97-eG-mWp" firstAttribute="trailing" secondItem="Duc-UM-w00" secondAttribute="trailing" constant="20" id="sZk-E6-R6j"/>
                             <constraint firstItem="79d-OL-NrK" firstAttribute="leading" secondItem="f97-eG-mWp" secondAttribute="leading" constant="40" id="uvU-GB-rHR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TRv-n3-4XS"/>
                     <connections>
+                        <outlet property="confirmPasswordLabel" destination="NwL-rQ-gKU" id="BvU-b2-22C"/>
+                        <outlet property="confirmPasswordTextField" destination="96T-Xp-JVv" id="2gg-6D-rte"/>
+                        <outlet property="currentPasswordLabel" destination="JG7-c3-OR8" id="4vh-RX-BW0"/>
+                        <outlet property="currentPasswordTextField" destination="umG-c7-6KB" id="aSI-PX-oOk"/>
                         <outlet property="noInternetLabel" destination="79d-OL-NrK" id="AT9-Gf-P7M"/>
                         <outlet property="passwordLabel" destination="VWa-CB-4Fn" id="FWY-aq-Y0C"/>
                         <outlet property="passwordTextField" destination="JZd-zy-8jF" id="F3b-CR-a1M"/>

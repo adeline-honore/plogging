@@ -34,10 +34,10 @@ class Authservice {
     }
 
     // MARK: - Call To API To Set Password
-    func changePassword(newPassword: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-        Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
-            _ = Auth.auth().currentUser?.uid
+    func changePassword(email: String, currentPassword: String, newPassword: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+        let credential = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
 
+        Auth.auth().currentUser?.reauthenticate(with: credential ) { error, _  in
             if error == nil {
                 completionHandler(.success(FirebaseResult.success))
             } else {

@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Properties
 
     private var profileView: ProfileView!
-    private var userIdentifier = UserIdentifier()
+    private var authService = Authservice()
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
     // MARK: - Init
@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     }
 
     private func wantToLogOut() {
-        userIdentifier.signOutRequest { result in
+        authService.disconnectUser { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
