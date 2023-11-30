@@ -33,35 +33,31 @@ class NetworkService: PloggingServiceProtocol {
             if error == nil && snapshot != nil {
                 for ploggingDocumentList in snapshot!.documents {
                     let ploggingDocument = ploggingDocumentList.data()
-                    var ploggg: Plogging = Plogging()
+                    var ploggingToDisplay: Plogging = Plogging()
 
                     for pair in ploggingDocument {
-                        if pair.key == "id" {
-                            ploggg.id = pair.value as? String ?? ""
-                        }
-                        if pair.key == "admin" {
-                            ploggg.admin = pair.value as? String ?? ""
-                        }
-                        if pair.key == "beginning" {
-                            ploggg.beginning = pair.value as? Int ?? 1
-                        }
-                        if pair.key == "distance" {
-                            ploggg.distance = pair.value as? Int ?? 2
-                        }
-                        if pair.key == "latitude" {
-                            ploggg.latitude = pair.value as? Double ?? 0
-                        }
-                        if pair.key == "longitude" {
-                            ploggg.longitude = pair.value as? Double ?? 0
-                        }
-                        if pair.key == "place" {
-                            ploggg.place = pair.value as? String ?? ""
-                        }
-                        if pair.key == "ploggers" {
-                            ploggg.ploggers = pair.value as? [String] ?? [""]
+                        switch pair.key {
+                        case "id":
+                            ploggingToDisplay.id = pair.value as? String ?? ""
+                        case "admin":
+                            ploggingToDisplay.admin = pair.value as? String ?? ""
+                        case "beginning":
+                            ploggingToDisplay.beginning = pair.value as? Int ?? 1
+                        case "distance":
+                            ploggingToDisplay.distance = pair.value as? Int ?? 2
+                        case "latitude":
+                            ploggingToDisplay.latitude = pair.value as? Double ?? 0
+                        case "longitude":
+                            ploggingToDisplay.longitude = pair.value as? Double ?? 0
+                        case "place":
+                            ploggingToDisplay.place = pair.value as? String ?? ""
+                        case "ploggers":
+                            ploggingToDisplay.ploggers = pair.value as? [String] ?? [""]
+                        default:
+                            break
                         }
                     }
-                    ploggingList.append(ploggg)
+                    ploggingList.append(ploggingToDisplay)
                 }
                     completionHandler(.success(ploggingList))
                 } else {
