@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "201F5103-2D3B-4803-81A9-01AAED6FDF9F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Plogging.xcodeproj",
+        "identifier" : "6ED589C628E8D8BE00450FE4",
+        "name" : "PloggingTests"
+      }
+    }
+  ],
+  "version" : 1
+}
