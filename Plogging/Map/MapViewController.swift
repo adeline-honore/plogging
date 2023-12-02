@@ -16,7 +16,8 @@ class MapViewController: UIViewController {
     private var userLocation: CLLocation = CLLocation()
 
     private var ploggingAnnotationLoader = PloggingLoader()
-    private var networkService = NetworkService(network: Network())
+    private var getPloggingService = GetPloggingService(network: PloggingNetwork())
+    private var getImageService = GetImageService(network: ImageNetwork())
 
     static var ploggings: [Plogging] = []
 
@@ -66,7 +67,7 @@ class MapViewController: UIViewController {
     // MARK: - Get Plogging List From External Database, Filter And Convert That List
 
     private func getApiPloggingList() {
-        networkService.getAPIPloggingList { result in
+        getPloggingService.getPloggingList { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
@@ -108,7 +109,7 @@ class MapViewController: UIViewController {
         for validPlogging in ploggingsUI {
             guard let ploggingsIndex = self.ploggingsUI.firstIndex(where: { $0.id == validPlogging.id}) else { return }
 
-            networkService.getPloggingImage(ploggingId: validPlogging.id) { result in
+            getImageService.getImage(ploggingId: validPlogging.id) { result in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     switch result {
