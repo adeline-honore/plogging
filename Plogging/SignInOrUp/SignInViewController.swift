@@ -11,7 +11,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Properties
     private var signInView: SignInView!
-    private var authService = Authservice()
+    private var authService = Authservice(network: AuthNetwork())
     private var popUpModal = PopUpModalViewController()
 
     // MARK: - Life cycle

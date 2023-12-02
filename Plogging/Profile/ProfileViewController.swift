@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Properties
 
     private var profileView: ProfileView!
-    private var authService = Authservice()
+    private var authService = Authservice(network: AuthNetwork())
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
     // MARK: - Init

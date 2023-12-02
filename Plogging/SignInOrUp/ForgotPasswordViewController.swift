@@ -18,7 +18,7 @@ class ForgotPasswordViewController: UIViewController {
     // MARK: - Properties
 
     private var popUpModal = PopUpModalViewController()
-    private var authService = Authservice()
+    private var authService = Authservice(network: AuthNetwork())
 
     // MARK: - User Forgot Password
 
@@ -41,7 +41,7 @@ class ForgotPasswordViewController: UIViewController {
     }
 
     private func forgotPassword(email: String) {
-        authService.forgotPasswordAPI(email: email) { result in
+        authService.forgotPasswordRequestApi(email: email) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:

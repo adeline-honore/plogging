@@ -9,78 +9,73 @@ import Foundation
 import FirebaseAuth
 
 protocol AuthServiceProtocol {
-    func createApiUser(plogging: Plogging, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
-    func connectUser(withEmail: String, password: String, completionHandler: @escaping (Result<[FirebaseResult], Error>) -> Void)
-    func forgotPasswordRequestApi(completionHandler: @escaping (Result<[FirebaseResult], Error>) -> Void)
-    func disconnectUser(completionHandler: @escaping (Result<[FirebaseResult], Error>) -> Void)
+    func createApiUser(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
+    func connectUser(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
+    func setPassword(email: String, currentPassword: String, newPassword: String, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
+    func forgotPasswordRequestApi(email: String, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
+    func disconnectUser(completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
 }
 
-//class Authservice: AuthServiceProtocol {
-    
+class Authservice: AuthServiceProtocol {
 
+    private var network: AuthNetworkProtocol
 
+    init(network: AuthNetworkProtocol) {
+        self.network = network
+    }
 
+    func createApiUser(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void) {
+        return network.createAPIUser(email: email, password: password, router: AuthRouter.createUser) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(ErrorType.network))
+            }
+        }
+    }
 
+    func connectUser(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void) {
+        return network.connectUser(email: email, password: password, router: AuthRouter.connectUser) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(ErrorType.network))
+            }
+        }
+    }
 
+    func setPassword(email: String, currentPassword: String, newPassword: String, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void) {
+        return network.setPassword(email: email, currentPassword: currentPassword, newPassword: newPassword, router: AuthRouter.setPassword) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(ErrorType.network))
+            }
+        }
+    }
 
+    func forgotPasswordRequestApi(email: String, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void) {
+        return network.forgotPasswordRequestApi(email: email, router: AuthRouter.forgotPassword) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(ErrorType.network))
+            }
+        }
+    }
 
-
-//    // MARK: - Call To API To Create New User
-//    func createUserIdentifier(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-//        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-//
-//            if error == nil {
-//                completionHandler(.success(FirebaseResult.success))
-//            } else {
-//                completionHandler(.failure(ErrorType.network))
-//            }
-//        }
-//    }
-//
-//    // MARK: - Call To API To Sign In
-//    func connectUser(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-//        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-//            if error == nil {
-//                completionHandler(.success(FirebaseResult.success))
-//            } else {
-//                completionHandler(.failure(ErrorType.network))
-//            }
-//        }
-//    }
-//
-//    // MARK: - Call To API To Set Password
-//    func changePassword(email: String, currentPassword: String, newPassword: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-//        let credential = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
-//
-//        Auth.auth().currentUser?.reauthenticate(with: credential ) { error, _  in
-//            if error == nil {
-//                completionHandler(.success(FirebaseResult.success))
-//            } else {
-//                completionHandler(.failure(ErrorType.network))
-//            }
-//        }
-//    }
-//
-//    // MARK: - Call To API When Password Is Forgotten
-//    func forgotPasswordAPI(email: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-//        Auth.auth().sendPasswordReset(withEmail: email) { error in
-//            _ = Auth.auth().currentUser?.uid
-//
-//            if error == nil {
-//                completionHandler(.success(FirebaseResult.success))
-//            } else {
-//                completionHandler(.failure(ErrorType.network))
-//            }
-//        }
-//    }
-//
-//    // MARK: - Call To API To Sign Out
-//    func disconnectUser(completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-//        do {
-//            try Auth.auth().signOut()
-//            completionHandler(.success(.success))
-//        } catch {
-//            completionHandler(.failure(ErrorType.network))
-//        }
-//    }
-//}
+    func disconnectUser(completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void) {
+        return network.disconnectUser(router: AuthRouter.disconnectUser) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(ErrorType.network))
+            }
+        }
+    }
+}

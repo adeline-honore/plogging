@@ -22,7 +22,7 @@ class ChangePasswordViewController: SetConstraintForKeyboardViewController {
 
     // MARK: - Properties
 
-    private var authService = Authservice()
+    private var authService = Authservice(network: AuthNetwork())
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
     // MARK: - Life Cycle
@@ -72,7 +72,7 @@ class ChangePasswordViewController: SetConstraintForKeyboardViewController {
             return
         }
 
-        authService.changePassword(email: email, currentPassword: currentPassword, newPassword: newPassword) { result in
+        authService.setPassword(email: email, currentPassword: currentPassword, newPassword: newPassword) { result in
             switch result {
             case .success:
                 self.popUpModal.userAlert(element: .passwordSetted, viewController: self)
