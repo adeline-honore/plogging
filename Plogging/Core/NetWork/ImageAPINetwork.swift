@@ -16,8 +16,9 @@ class ImageNetwork: ImageNetworkProtocol {
     func callNetworkGetImage(ploggingId: String, router: ImageRouterProtocol, completionHandler: @escaping (Result<Data, Error>) -> Void) {
         let storageReference = router.getStorageReference()
         let path = "images/\(ploggingId).jpg"
+        let fileReference = storageReference.child(path)
 
-        storageReference.getData(maxSize: 5 * 1024 * 1024) { result, error in
+        fileReference.getData(maxSize: 5 * 1024 * 1024) { result, error in
             guard let result = result, error == nil else {
                 completionHandler(.failure(error!))
                 return

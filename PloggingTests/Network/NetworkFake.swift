@@ -9,7 +9,7 @@ import Foundation
 @testable import Plogging
 import UIKit
 
-class NetworkFake: NetworkProtocol {
+class NetworkFake: PloggingAPINetworkProtocol {
 
     private let testCase: TestCase
     private var isFailed: Bool = false
@@ -19,7 +19,7 @@ class NetworkFake: NetworkProtocol {
         self.isFailed = isFailed
     }
 
-    func callNetwork(router: RouterProtocol, completionHandler: @escaping (Result<Data, Error>) -> Void) {
+    func callNetwork(router: PloggingAPIRouterProtocol, completionHandler: @escaping (Result<Data, Error>) -> Void) {
 
         guard !isFailed else {
             completionHandler(.failure(ErrorType.network))
