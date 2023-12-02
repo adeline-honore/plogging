@@ -16,8 +16,8 @@ class MapViewController: UIViewController {
     private var userLocation: CLLocation = CLLocation()
 
     private var ploggingAnnotationLoader = PloggingLoader()
-    private var getPloggingService = GetPloggingService(network: PloggingNetwork())
-    private var getImageService = GetImageService(network: ImageNetwork())
+    private var getPloggingService = PloggingService(network: PloggingNetwork())
+    private var getImageService = ImageService(network: ImageNetwork())
 
     static var ploggings: [Plogging] = []
 

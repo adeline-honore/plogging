@@ -34,7 +34,7 @@ class PloggingNetwork: PloggingNetworkProtocol {
         let ploggingDoc = convertPloggingToDocument(plogging: plogging)
 
         collectionReference.document(plogging.id).setData(ploggingDoc) { error in
-            if error == nil {
+            if error != nil {
                 completionHandler(.failure(error!))
                 return
             } else {

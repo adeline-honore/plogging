@@ -9,9 +9,10 @@ import UIKit
 
 protocol ImageServiceProtocol {
     func getImage(ploggingId: String, completionHandler: @escaping (Result<UIImage, Error>) -> Void)
+    func uploadPhoto(mainImageBinary: Data, ploggingId: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void)
 }
 
-class GetImageService: ImageServiceProtocol {
+class ImageService: ImageServiceProtocol {
     private var network: ImageNetworkProtocol
 
     init(network: ImageNetworkProtocol) {
@@ -19,7 +20,7 @@ class GetImageService: ImageServiceProtocol {
     }
 
     func getImage(ploggingId: String, completionHandler: @escaping (Result<UIImage, Error>) -> Void) {
-        return network.callNetworkGetImage(ploggingId: ploggingId, router: GetImageRouter.getImage) { result in
+        return network.callNetworkGetImage(ploggingId: ploggingId, router: ImageRouter.getImage) { result in
             switch result {
             case .success(let data):
                 if let image = UIImage(data: data) {
@@ -29,6 +30,17 @@ class GetImageService: ImageServiceProtocol {
                 }
             case .failure(let error):
                 completionHandler(.failure(error))
+            }
+        }
+    }
+
+    func uploadPhoto(mainImageBinary: Data, ploggingId: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
+        return network.callNetworkUploadPhoto(mainImageBinary: mainImageBinary, ploggingId: ploggingId, router: ImageRouter.uploadImage) { result in
+            switch result {
+            case .success:
+                completionHandler(.success(FirebaseResult.success))
+            case .failure:
+                completionHandler(.failure(ErrorType.network))
             }
         }
     }

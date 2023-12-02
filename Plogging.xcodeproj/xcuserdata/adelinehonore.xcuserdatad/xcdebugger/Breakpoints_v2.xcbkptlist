@@ -1222,6 +1222,21 @@
                   endingLineNumber = "79"
                   offsetFromSymbolStart = "408">
                </Location>
+               <Location
+                  uuid = "16D43A0A-474C-4338-8D38-5C4C1E2CDB6E - 4656fc73747d2d8b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Result&lt;Swift.Array&lt;Plogging.Plogging&gt;, Swift.Error&gt;) -&gt; () in Plogging.MapViewController.getApiPloggingList() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Map/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "408">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1283,6 +1298,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
                   endingLineNumber = "116"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "EA3D5B28-ECF2-481E-8C43-E7A9BA739E9D - 938563522664fe47"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #2 (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; () in Plogging.MapViewController.getPloggingMainImage() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Map/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
                   offsetFromSymbolStart = "200">
                </Location>
             </Locations>
@@ -1393,6 +1423,36 @@
                   endingLineNumber = "118"
                   offsetFromSymbolStart = "268">
                </Location>
+               <Location
+                  uuid = "EDEF4A31-1F5E-4CC8-9835-1270C7C29F4F - 938563522664fe05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #2 (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; () in Plogging.MapViewController.getPloggingMainImage() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Map/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "EDEF4A31-1F5E-4CC8-9835-1270C7C29F4F - 938563522664fe05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #2 (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; () in Plogging.MapViewController.getPloggingMainImage() -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Map/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "268">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1456,53 +1516,20 @@
                   endingLineNumber = "119"
                   offsetFromSymbolStart = "296">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BF1F2CB0-C6FA-42CD-915A-B03F282C1672"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/NetWork/Router/PloggingRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "collectionReference()"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "BF1F2CB0-C6FA-42CD-915A-B03F282C1672 - 9f27e0722747882c"
+                  uuid = "8E5E0926-3AD0-4A8A-A4A7-58DB5199F540 - 93856352266501e4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Plogging.GetPloggingRouter.collectionReference() -&gt; __C.FIRCollectionReference"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #2 (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; () in Plogging.MapViewController.getPloggingMainImage() -&gt; ()"
                   moduleName = "Plogging"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Router/PloggingRouter.swift"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Map/MapViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "BF1F2CB0-C6FA-42CD-915A-B03F282C1672 - 70ba62828941f9ee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Plogging.PloggingRouter.collectionReference() -&gt; __C.FIRCollectionReference"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Router/PloggingRouter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "120">
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "296">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1648,6 +1675,21 @@
                   endingLineNumber = "30"
                   offsetFromSymbolStart = "328">
                </Location>
+               <Location
+                  uuid = "0C1CFA7E-84CC-4DE6-B240-81DF291B8220 - 204d89a6c200152b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;__C.FIRQuerySnapshot, Swift.Error&gt;) -&gt; () in Plogging.PloggingService.getPloggingList(completionHandler: (Swift.Result&lt;Swift.Array&lt;Plogging.Plogging&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/PloggingService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "328">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1687,6 +1729,21 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Result&lt;__C.FIRQuerySnapshot, Swift.Error&gt;) -&gt; () in Plogging.GetPloggingService.getPloggingList(completionHandler: (Swift.Result&lt;Swift.Array&lt;Plogging.Plogging&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/PloggingService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "E12AC71D-869B-48B3-958C-66E9FB04C832 - 204d89a6c20015e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;__C.FIRQuerySnapshot, Swift.Error&gt;) -&gt; () in Plogging.PloggingService.getPloggingList(completionHandler: (Swift.Result&lt;Swift.Array&lt;Plogging.Plogging&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Plogging"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/PloggingService.swift"
@@ -1759,83 +1816,20 @@
                   endingLineNumber = "77"
                   offsetFromSymbolStart = "4848">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D50ADDB2-F95C-4FBE-9BBA-2CCD2CCE4DD9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Plogging/Core/NetWork/ImageAPINetwork.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "callNetworkGetImage(ploggingId:router:completionHandler:)"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "D50ADDB2-F95C-4FBE-9BBA-2CCD2CCE4DD9 - ff7bd5e5cb079ede"
+                  uuid = "F6424C0F-78F2-4EF5-9B21-9B5655AE7BA4 - 587716f50ca5f8ad"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Plogging.GetImageNetwork.callNetwork(ploggingId: Swift.String, router: Plogging.GetImageRouterProtocol, completionHandler: (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "Plogging.PloggingService.convertAPIDocumentToPlogging(snapshot: __C.FIRQuerySnapshot) -&gt; Swift.Array&lt;Plogging.Plogging&gt;"
                   moduleName = "Plogging"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/ImageAPINetwork.swift"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/PloggingService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  uuid = "D50ADDB2-F95C-4FBE-9BBA-2CCD2CCE4DD9 - ff7bd5e5cb079ebf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Plogging.GetImageNetwork.callNetwork(ploggingId: Swift.String, router: Plogging.GetImageRouterProtocol, completionHandler: (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/ImageAPINetwork.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  uuid = "D50ADDB2-F95C-4FBE-9BBA-2CCD2CCE4DD9 - ff7bd5e5cb0781b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Plogging.GetImageNetwork.callNetwork(ploggingId: Swift.String, router: Plogging.GetImageRouterProtocol, completionHandler: (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/ImageAPINetwork.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  uuid = "D50ADDB2-F95C-4FBE-9BBA-2CCD2CCE4DD9 - 81a9da1c3fcd836"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Plogging.ImageNetwork.callNetworkGetImage(ploggingId: Swift.String, router: Plogging.GetImageRouterProtocol, completionHandler: (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Plogging"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/ImageAPINetwork.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "316">
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "4848">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1850,8 +1844,8 @@
             filePath = "Plogging/Core/NetWork/ImageAPINetwork.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "callNetworkGetImage(ploggingId:router:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1915,6 +1909,36 @@
                   endingLineNumber = "23"
                   offsetFromSymbolStart = "440">
                </Location>
+               <Location
+                  uuid = "2BBE2F2E-5ED5-47F1-A324-1F5CDF779528 - 2de342b4eeb9645e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Plogging.ImageNetwork.callNetworkGetImage(ploggingId: Swift.String, router: Plogging.ImageRouterProtocol, completionHandler: (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/ImageAPINetwork.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "440">
+               </Location>
+               <Location
+                  uuid = "2BBE2F2E-5ED5-47F1-A324-1F5CDF779528 - 2de342b4eeb9649c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Plogging.ImageNetwork.callNetworkGetImage(ploggingId: Swift.String, router: Plogging.ImageRouterProtocol, completionHandler: (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/ImageAPINetwork.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "440">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1928,8 +1952,8 @@
             filePath = "Plogging/Core/NetWork/Service/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "getImage(ploggingId:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1963,6 +1987,36 @@
                   endingLineNumber = "27"
                   offsetFromSymbolStart = "420">
                </Location>
+               <Location
+                  uuid = "9E32C9B4-CE8B-4052-A260-1482B43C25F5 - bb894e7adc3c916e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in Plogging.GetImageService.getImage(ploggingId: Swift.String, completionHandler: (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/ImageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "9E32C9B4-CE8B-4052-A260-1482B43C25F5 - 3ab31e4fe39c4b06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in Plogging.ImageService.getImage(ploggingId: Swift.String, completionHandler: (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/ImageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "420">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1976,8 +2030,8 @@
             filePath = "Plogging/Core/NetWork/Service/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "getImage(ploggingId:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -2011,6 +2065,36 @@
                   endingLineNumber = "29"
                   offsetFromSymbolStart = "288">
                </Location>
+               <Location
+                  uuid = "389667B5-4607-43EA-B712-C13C9AC3E109 - bb894e7adc3c91a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in Plogging.GetImageService.getImage(ploggingId: Swift.String, completionHandler: (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/ImageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "389667B5-4607-43EA-B712-C13C9AC3E109 - 3ab31e4fe39c4b40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in Plogging.ImageService.getImage(ploggingId: Swift.String, completionHandler: (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/ImageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "288">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2024,8 +2108,8 @@
             filePath = "Plogging/Core/NetWork/Service/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "getImage(ploggingId:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -2059,6 +2143,36 @@
                   endingLineNumber = "32"
                   offsetFromSymbolStart = "548">
                </Location>
+               <Location
+                  uuid = "DB799CCE-06D7-4548-8EB1-660AF38A6ABD - bb894e7adc3c900b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in Plogging.GetImageService.getImage(ploggingId: Swift.String, completionHandler: (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/ImageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "548">
+               </Location>
+               <Location
+                  uuid = "DB799CCE-06D7-4548-8EB1-660AF38A6ABD - 3ab31e4fe39c4aad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in Plogging.ImageService.getImage(ploggingId: Swift.String, completionHandler: (Swift.Result&lt;__C.UIImage, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/ImageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "548">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2076,6 +2190,38 @@
             endingLineNumber = "39"
             landmarkName = "createOrUpdatePlogging(plogging:completionHandler:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "333D8B41-A955-4250-807C-4242524653F7 - 77bd2b61540e94f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Plogging.FirebaseResult, Swift.Error&gt;) -&gt; () in Plogging.GetPloggingService.createOrUpdatePlogging(plogging: Plogging.Plogging, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/PloggingService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "333D8B41-A955-4250-807C-4242524653F7 - c77fea350b1451a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Plogging.FirebaseResult, Swift.Error&gt;) -&gt; () in Plogging.PloggingService.createOrUpdatePlogging(plogging: Plogging.Plogging, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/PloggingService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2091,6 +2237,134 @@
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "createOrUpdatePlogging(plogging:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ED9EDE16-4C0D-422B-9D49-0067CA4D5771 - 77bd2b61540e889"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Plogging.FirebaseResult, Swift.Error&gt;) -&gt; () in Plogging.GetPloggingService.createOrUpdatePlogging(plogging: Plogging.Plogging, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/PloggingService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "ED9EDE16-4C0D-422B-9D49-0067CA4D5771 - c77fea350b14506f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Plogging.FirebaseResult, Swift.Error&gt;) -&gt; () in Plogging.PloggingService.createOrUpdatePlogging(plogging: Plogging.Plogging, completionHandler: (Swift.Result&lt;Plogging.FirebaseResult, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Plogging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adelinehonore/Desktop/git/plogging/Plogging/Core/NetWork/Service/PloggingService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "220">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8843F3F9-2FE6-4502-9BAA-13247200953E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/Core/NetWork/PloggingAPINetwork.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "callNetworkCreateOrUpdatePlogging(plogging:router:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0C27829-C293-402B-B9AA-E64C0730A29C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/Core/NetWork/PloggingAPINetwork.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "callNetworkCreateOrUpdatePlogging(plogging:router:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2995A3E-CB2E-455A-B621-5F4274B24384"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "saveImageInDistantDataBase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96F52148-42FE-424B-9878-DC1FA7454C92"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "saveImageInDistantDataBase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "990BDC6E-B631-4EAB-B1CC-D6252453D759"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "savePloggingInExternalDatabase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79DCF558-9FD8-4E00-A030-28CE1EB491E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Plogging/CreatePlogging/CreatePloggingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "savePloggingInExternalDatabase()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

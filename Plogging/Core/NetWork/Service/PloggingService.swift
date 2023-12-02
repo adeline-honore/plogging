@@ -13,7 +13,7 @@ protocol PloggingServiceProtocol {
     func createOrUpdatePlogging(plogging: Plogging, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
 }
 
-class GetPloggingService: PloggingServiceProtocol {
+class PloggingService: PloggingServiceProtocol {
     private var network: PloggingNetworkProtocol
 
     init(network: PloggingNetworkProtocol) {

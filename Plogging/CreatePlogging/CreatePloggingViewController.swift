@@ -20,7 +20,8 @@ class CreatePloggingViewController: UIViewController {
 
     private var createPloggingView: CreatePloggingView!
 
-    private var networkService = NetworkService(network: Network())
+    private var ploggingService = PloggingService(network: PloggingNetwork())
+    private var imageService = ImageService(network: ImageNetwork())
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
@@ -154,8 +155,7 @@ class CreatePloggingViewController: UIViewController {
 
     private func savePloggingInExternalDatabase() {
         let ploggingToSave: Plogging = Plogging(ploggingUI: currentPloggingUI)
-
-        networkService.createOrUpdateAPIPlogging(plogging: ploggingToSave) { result in
+        ploggingService.createOrUpdatePlogging(plogging: ploggingToSave) { result in
             switch result {
             case .success:
                 self.saveImageInDistantDataBase()
@@ -176,7 +176,7 @@ class CreatePloggingViewController: UIViewController {
 
             currentPloggingUI.mainImageBinary = mainImageBinary
 
-            networkService.uploadPhoto(mainImageBinary: mainImageBinary!, ploggingId: currentPloggingUI.id) { result in
+            imageService.uploadPhoto(mainImageBinary: mainImageBinary!, ploggingId: currentPloggingUI.id) { result in
                 switch result {
                 case .success:
                     self.internalDatabaseSaveRequest()

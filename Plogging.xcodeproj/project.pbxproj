@@ -23,6 +23,8 @@
 		09A0983C2B1B207D00A3383C /* ImageAPINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0983B2B1B207D00A3383C /* ImageAPINetwork.swift */; };
 		09A0983E2B1B20B600A3383C /* PloggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0983D2B1B20B600A3383C /* PloggingService.swift */; };
 		09A098402B1B211200A3383C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0983F2B1B211200A3383C /* ImageService.swift */; };
+		09A098422B1B6A4B00A3383C /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A098412B1B6A4B00A3383C /* AuthRouter.swift */; };
+		09A098442B1B6C3700A3383C /* AuthAPINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A098432B1B6C3700A3383C /* AuthAPINetwork.swift */; };
 		09E408942B04A506003313A3 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408932B04A506003313A3 /* TestCase.swift */; };
 		09E408962B04A5A4003313A3 /* NetworkFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408952B04A5A4003313A3 /* NetworkFake.swift */; };
 		09E408982B04AA22003313A3 /* AuthentificationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */; };
@@ -109,6 +111,8 @@
 		09A0983B2B1B207D00A3383C /* ImageAPINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPINetwork.swift; sourceTree = "<group>"; };
 		09A0983D2B1B20B600A3383C /* PloggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingService.swift; sourceTree = "<group>"; };
 		09A0983F2B1B211200A3383C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		09A098412B1B6A4B00A3383C /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		09A098432B1B6C3700A3383C /* AuthAPINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPINetwork.swift; sourceTree = "<group>"; };
 		09E408932B04A506003313A3 /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
 		09E408952B04A5A4003313A3 /* NetworkFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFake.swift; sourceTree = "<group>"; };
 		09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationTestCase.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				09A098362B1B1E8300A3383C /* PloggingRouter.swift */,
+				09A098412B1B6A4B00A3383C /* AuthRouter.swift */,
 				09A098382B1B1F0600A3383C /* ImageRouter.swift */,
 			);
 			path = Router;
@@ -286,6 +291,7 @@
 				6E32391E2AED4319001B4D8B /* Service */,
 				09E408992B055C56003313A3 /* PloggingAPINetwork.swift */,
 				09A0983B2B1B207D00A3383C /* ImageAPINetwork.swift */,
+				09A098432B1B6C3700A3383C /* AuthAPINetwork.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -654,6 +660,7 @@
 				6E1412F92922FD69009E1BDB /* PersonalPloggingViewController.swift in Sources */,
 				6E1412F2292274C2009E1BDB /* CreatePloggingViewController.swift in Sources */,
 				09A0983E2B1B20B600A3383C /* PloggingService.swift in Sources */,
+				09A098422B1B6A4B00A3383C /* AuthRouter.swift in Sources */,
 				6EE2560929DE081E0058509C /* PhotoCD+CoreDataClass.swift in Sources */,
 				6EF0AA1F2902BC4E0004F374 /* PloggingLoader.swift in Sources */,
 				6EE5E473297756C0005DE40F /* ChooseImageDelegate.swift in Sources */,
@@ -662,6 +669,7 @@
 				096B64272AF283C9001072CB /* SignInOrUpViewController.swift in Sources */,
 				6E69EFA72951AE4A00EBE7B9 /* ProfileView.swift in Sources */,
 				6E1412F42922750F009E1BDB /* CreatePloggingView.swift in Sources */,
+				09A098442B1B6C3700A3383C /* AuthAPINetwork.swift in Sources */,
 				6E3821B028FD566B00F39184 /* Plogging.swift in Sources */,
 				09A098402B1B211200A3383C /* ImageService.swift in Sources */,
 				6EE2560B29DE081E0058509C /* PloggingCD+CoreDataClass.swift in Sources */,
