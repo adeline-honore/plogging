@@ -22,7 +22,8 @@ class PloggingDetailsViewController: UIViewController {
 
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
 
-    private var networkService = NetworkService(network: Network())
+    private var ploggingService = PloggingService(network: PloggingNetwork())
+    private var imageService = ImageService(network: ImageNetwork())
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
         managedObjectContext: CoreDataStack().viewContext)
@@ -96,7 +97,7 @@ class PloggingDetailsViewController: UIViewController {
 
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            networkService.createOrUpdateAPIPlogging(plogging: ploggingToSet) { result in
+            ploggingService.createOrUpdatePlogging(plogging: ploggingToSet) { result in
                 switch result {
                 case .success:
                     self.saveIntoInternalDatabase(ploggingUI: ploggingUI)
@@ -151,7 +152,7 @@ class PloggingDetailsViewController: UIViewController {
                 return
             }
 
-            networkService.uploadPhoto(mainImageBinary: mainImageBinary, ploggingId: id) { result in
+            imageService.uploadPhoto(mainImageBinary: mainImageBinary, ploggingId: id) { result in
                 switch result {
                 case .success:
                     self.saveChangeImageInCoredata()

@@ -21,7 +21,8 @@ class PersonalPloggingViewController: UIViewController {
 
     // MARK: - Properties
 
-    private var networkService = NetworkService(network: Network())
+    private var ploggingService = PloggingService(network: PloggingNetwork())
+    private var imageService = ImageService(network: ImageNetwork())
 
     private let repository = PloggingCoreDataManager(
         coreDataStack: CoreDataStack(),
@@ -104,7 +105,7 @@ class PersonalPloggingViewController: UIViewController {
     }
 
     private func getAPIPloggingList() {
-        networkService.getAPIPloggingList { result in
+        ploggingService.getPloggingList { result in
             switch result {
             case .success(let ploggingsResult):
                 self.getPersonnalPloggingList(ploggingList: ploggingsResult)
@@ -137,7 +138,7 @@ class PersonalPloggingViewController: UIViewController {
         for personnalPlogging in ploggingsUI {
             guard let ploggingsIndex = self.ploggingsUI.firstIndex(where: { $0.id == personnalPlogging.id}) else { return }
 
-            networkService.getPloggingImage(ploggingId: personnalPlogging.id) { result in
+            imageService.getImage(ploggingId: personnalPlogging.id) { result in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     switch result {
