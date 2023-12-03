@@ -96,7 +96,7 @@ class MapViewController: UIViewController {
     }
 
     private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
-        let array = ploggings.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers)) }
+        let array = ploggings.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers, userEmail: UserDefaults.standard.string(forKey: "emailAddress") ?? "")) }
 
         ploggingsUI = array
         return array

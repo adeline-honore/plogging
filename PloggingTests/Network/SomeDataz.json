@@ -1,0 +1,22 @@
+{
+    "datas": [{
+        "id": "EEZZ-000-24-JAAUG-WWWW574",
+        "admin": "honore_adeline@yahoo.fr",
+        "beginning": 1715938200,
+        "place": "Porte de la Villette",
+        "latitude": 48.8975424,
+        "longitude": 2.3854289,
+        "ploggers": ["honore_adeline@yahoo.fr"],
+        "distance": 16
+    },
+    {
+        "id": "EEZZ-000-24-JAAUG-WWWW159",
+        "admin": "unautreemail@lemail.fr",
+        "beginning": 1706427560,
+        "place": "La Norville Saint-Germain lès Arpajon",
+        "latitude": 48.5911244,
+        "longitude": 2.2662103,
+        "ploggers": ["unautreemail@lemail.fr", "anais@mail.com"],
+        "distance": 20
+    }]
+}

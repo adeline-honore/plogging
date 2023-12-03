@@ -59,7 +59,7 @@ class TestPloggingCoreDataManager: XCTestCase {
             XCTAssertTrue(getPloggings.count == 1)
             XCTAssertTrue(ploggingUI.id == getPloggings.first?.id)
         } catch {
-            print("error, tests fails !")
+            XCTFail("error, tests fails !")
         }
     }
 
@@ -95,7 +95,7 @@ class TestPloggingCoreDataManager: XCTestCase {
             XCTAssertTrue(String(settedPloggingUI.beginningTimestamp) == getPloggings.first?.beginning)
             XCTAssertTrue(settedPloggingUI.distance == Int(getPloggings.first?.distance ?? 0.0))
         } catch {
-            print("error, tests fails !")
+            XCTFail("error, tests fails !")
         }
     }
 
@@ -110,7 +110,7 @@ class TestPloggingCoreDataManager: XCTestCase {
             XCTAssertTrue(getPloggings.count == 1)
             XCTAssertTrue(ploggingUI.id == getPloggings.first?.id)
         } catch {
-            print("error, tests fails !")
+            XCTFail("error, tests fails !")
         }
 
         do {
@@ -122,7 +122,7 @@ class TestPloggingCoreDataManager: XCTestCase {
             XCTAssertNotNil(getPloggings)
             XCTAssertTrue(getPloggings.count == 0)
         } catch {
-            print("error, tests fails !")
+            XCTFail("error, tests fails !")
         }
     }
 

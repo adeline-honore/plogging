@@ -121,7 +121,7 @@ class PersonalPloggingViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
 
-            ploggingsUI = ploggingList.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: self.isUserTakingPart(ploggingPloggers: $0.ploggers))}
+            ploggingsUI = ploggingList.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: self.isUserTakingPart(ploggingPloggers: $0.ploggers, userEmail: UserDefaults.standard.string(forKey: "emailAddress") ?? ""))}
 
             ploggingsUI = ploggingsUI.filter({ $0.isTakingPart == true
             })
@@ -189,7 +189,7 @@ class PersonalPloggingViewController: UIViewController {
     private func getPloggingFromCoreData() -> [PloggingUI] {
         do {
             let ploggingsCD = try repository.getEntities()
-            let ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningInt: convertPloggingCDBeginningToBeginningTimestamp(timestampString: $0.beginning), beginningString: convertPloggingCDBeginningToBeginningString(dateString: $0.beginning), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers ?? [""]), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
+            let ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningInt: convertPloggingCDBeginningToBeginningTimestamp(timestampString: $0.beginning), beginningString: convertPloggingCDBeginningToBeginningString(dateString: $0.beginning), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers ?? [""], userEmail: UserDefaults.standard.string(forKey: "emailAddress") ?? ""), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
             }
             return ploggingUIList.filter({ $0.isTakingPart == true })
         } catch {
