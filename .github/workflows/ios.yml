@@ -12,11 +12,8 @@ jobs:
                 swift-version: "5.7.2"
             - name: Print Hello World
               run: echo 'Hello World'
-            - name: Swift Package
-              run: swift package init --type library
-            - name: Swift version
-              run: swift --version
-            - name: Swift Build
-              run: swift build
-            - name: Swift Tests
-              run: swift test
+            - name: testing ... iPhone 11 Pro Max
+              run: >-
+                xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace
+                -scheme Plogging -destination 'platform=iOS Simulator,name=iPhone 11
+                Pro Max,OS=13.7'
