@@ -15,4 +15,4 @@ jobs:
             - name: testing ... iPhone 15
               run: >-
                 xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace
-                -scheme Plogging -destination 'platform=iOS Simulator,name=iPhone 15,OS=13.7'
+                -scheme Plogging -destination 'platform=iOS Simulator,name=iPhone 15,OS=15.0'
