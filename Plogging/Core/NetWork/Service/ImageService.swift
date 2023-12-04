@@ -21,15 +21,17 @@ class ImageService: ImageServiceProtocol {
 
     func getImage(ploggingId: String, completionHandler: @escaping (Result<UIImage, Error>) -> Void) {
         return network.callNetworkGetImage(ploggingId: ploggingId, router: ImageRouter.getImage) { result in
-            switch result {
-            case .success(let data):
-                if let image = UIImage(data: data) {
-                    completionHandler(.success(image))
-                } else {
-                    completionHandler(.failure(ErrorType.network))
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    if let image = UIImage(data: data) {
+                        completionHandler(.success(image))
+                    } else {
+                        completionHandler(.failure(ErrorType.network))
+                    }
+                case .failure(let error):
+                    completionHandler(.failure(error))
                 }
-            case .failure(let error):
-                completionHandler(.failure(error))
             }
         }
     }
