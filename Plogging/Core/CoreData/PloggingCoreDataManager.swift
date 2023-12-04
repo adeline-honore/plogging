@@ -45,7 +45,7 @@ final class PloggingCoreDataManager {
     func getEntities() throws -> [PloggingCD] {
         let request: NSFetchRequest<PloggingCD> = PloggingCD.fetchRequest()
         // get only races where isTakingPart = true
-        request.predicate = NSPredicate(format: "isTakingPart = %@", NSNumber(booleanLiteral: true))
+        request.predicate = NSPredicate(format: "isTakingPart = %@", true)
         do {
             return try coreDataStack.viewContext.fetch(request)
         } catch {

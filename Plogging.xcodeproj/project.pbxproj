@@ -23,6 +23,7 @@
 		097D04A82B0AAC2900E50647 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 097D04A72B0AAC2900E50647 /* FirebaseStorage */; };
 		097D04AA2B0F2CAD00E50647 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 097D04A92B0F2CAD00E50647 /* FirebaseMessaging */; };
 		0983A2782AF5994700BEDB80 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983A2772AF5994700BEDB80 /* SignInView.swift */; };
+		0984C2AA2B1D5D99001A4CC8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0984C2A92B1D5D99001A4CC8 /* FirebaseAnalytics */; };
 		09A098372B1B1E8300A3383C /* PloggingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A098362B1B1E8300A3383C /* PloggingRouter.swift */; };
 		09A098392B1B1F0600A3383C /* ImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A098382B1B1F0600A3383C /* ImageRouter.swift */; };
 		09A0983C2B1B207D00A3383C /* ImageAPINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A0983B2B1B207D00A3383C /* ImageAPINetwork.swift */; };
@@ -182,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0984C2AA2B1D5D99001A4CC8 /* FirebaseAnalytics in Frameworks */,
 				6E6B6D9C2AE507B500B5D00B /* FirebaseDatabase in Frameworks */,
 				6E6B6D982AE507B500B5D00B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				097D04AA2B0F2CAD00E50647 /* FirebaseMessaging in Frameworks */,
@@ -531,6 +533,7 @@
 				097D04A52B0AAC2900E50647 /* FirebaseFirestore */,
 				097D04A72B0AAC2900E50647 /* FirebaseStorage */,
 				097D04A92B0F2CAD00E50647 /* FirebaseMessaging */,
+				0984C2A92B1D5D99001A4CC8 /* FirebaseAnalytics */,
 			);
 			productName = Plogging;
 			productReference = 6ED589AE28E8D8B000450FE4 /* Plogging.app */;
@@ -1054,6 +1057,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6E6B6D962AE507B500B5D00B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		0984C2A92B1D5D99001A4CC8 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E6B6D962AE507B500B5D00B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 		6E6B6D972AE507B500B5D00B /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
