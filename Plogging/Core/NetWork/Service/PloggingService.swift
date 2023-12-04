@@ -23,8 +23,7 @@ class PloggingService: PloggingServiceProtocol {
     func getPloggingList(completionHandler: @escaping (Result<[Plogging], Error>) -> Void) {
         return network.callNetworkGetPloggingList(router: PloggingRouter.getPloggings) { result in
             switch result {
-            case .success(let data):
-                let ploggingList = self.convertAPIDocumentToPlogging(snapshot: data)
+            case .success(let ploggingList):
                 completionHandler(.success(ploggingList))
             case .failure(let error):
                 completionHandler(.failure(error))

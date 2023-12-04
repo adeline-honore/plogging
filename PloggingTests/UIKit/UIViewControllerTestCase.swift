@@ -23,7 +23,7 @@ final class UIViewControllerTestCase: XCTestCase {
         viewController = nil
     }
 
-    func testValidateEmailSucces() {
+    func testValidateEmailSuccess() {
         // Given
         initSUT()
         // When
@@ -57,7 +57,7 @@ final class UIViewControllerTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
-    func testConvertDateToIntegerTimestampReturnSucces() {
+    func testConvertDateToIntegerTimestampReturnSuccess() {
         // Given
         initSUT()
         let date = Date(timeIntervalSince1970: 1697819040)
@@ -75,7 +75,7 @@ final class UIViewControllerTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
-    func testIsUserTakingPartReturnSucces() {
+    func testIsUserTakingPartReturnSuccess() {
         // Given
         initSUT()
         let ploggers = ["adminemail", "otherplogger"]
@@ -113,7 +113,7 @@ final class UIViewControllerTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
-    func testConvertPloggingCDBeginningToBeginningStringReturnSucces() {
+    func testConvertPloggingCDBeginningToBeginningStringReturnSuccess() {
         // Given
         initSUT()
         let timestampString = "1697819040"
@@ -131,7 +131,7 @@ final class UIViewControllerTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
-    func testConvertPloggingCDBeginningToBeginningTimestampReturnSucces() {
+    func testConvertPloggingCDBeginningToBeginningTimestampReturnSuccess() {
         // Given
         initSUT()
         let timestampString = "1234567"
@@ -145,6 +145,52 @@ final class UIViewControllerTestCase: XCTestCase {
                 expectation.fulfill()
             default:
                 XCTFail("It's not ok, test should returns success")
+            }
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testDisplayUIDateFromIntegerTimestampReturnSuccess() {
+        // Given
+        initSUT()
+        let timestampString = 1697819040
+        func ploggingUIToGet() -> PloggingUI {
+            var ploggingUI: PloggingUI = PloggingUI()
+            ploggingUI.beginningTimestamp = 171593820
+            return ploggingUI
+        }
+        // When
+        let expectation = XCTestExpectation(description: "Should return failure")
+        // Then
+        let result = ploggingUIToGet().displayUIDateFromIntegerTimestamp(timestamp: timestampString)
+            switch result {
+            case "2023 10 20, 18:24":
+                // Then
+                expectation.fulfill()
+            default:
+                XCTFail("It's not ok, test should returns success")
+            }
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testDisplayUIDateFromIntegerTimestampReturnFailure() {
+        // Given
+        initSUT()
+        let timestampString = 1697819040
+        func ploggingUIToGet() -> PloggingUI {
+            var ploggingUI: PloggingUI = PloggingUI()
+            ploggingUI.beginningTimestamp = 171593820
+            return ploggingUI
+        }
+        // When
+        let expectation = XCTestExpectation(description: "Should return failure")
+        // Then
+        let result = ploggingUIToGet().displayUIDateFromIntegerTimestamp(timestamp: timestampString)
+            switch result {
+            case "2023 10 20, 18:25":
+                // Then
+                XCTFail("It's not ok, test should returns failure")
+            default:
+                expectation.fulfill()
             }
         wait(for: [expectation], timeout: 0.01)
     }

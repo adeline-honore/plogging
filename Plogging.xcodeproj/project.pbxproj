@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0910E19F2B000E7200254FD2 /* PloggingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910E19E2B000E7200254FD2 /* PloggingImage.swift */; };
 		092181252B02C36E00951EED /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092181242B02C36E00951EED /* ForgotPasswordViewController.swift */; };
 		092A6D532B1CC82A006F2156 /* PloggingTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6D522B1CC82A006F2156 /* PloggingTestCase.swift */; };
 		092A6D552B1CD7B5006F2156 /* AuthNetworkFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6D542B1CD7B5006F2156 /* AuthNetworkFake.swift */; };
@@ -72,7 +71,7 @@
 		6EA14AAF2AF07D8D00FB72EC /* CallBackResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA14AAE2AF07D8D00FB72EC /* CallBackResult.swift */; };
 		6EA14AB12AF0FC3900FB72EC /* PopUpModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA14AB02AF0FC3900FB72EC /* PopUpModalViewController.swift */; };
 		6EA14ABE2AF1C2EF00FB72EC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA14ABD2AF1C2EF00FB72EC /* AuthService.swift */; };
-		6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* SomeDataz.json */; };
+		6EBFB9D82901251C00E1741A /* plogging.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFB9D72901251C00E1741A /* plogging.json */; };
 		6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */; };
 		6ED589B928E8D8B000450FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED589B728E8D8B000450FE4 /* Main.storyboard */; };
 		6ED589C128E8D8BD00450FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED589BF28E8D8BD00450FE4 /* LaunchScreen.storyboard */; };
@@ -100,7 +99,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0910E19E2B000E7200254FD2 /* PloggingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingImage.swift; sourceTree = "<group>"; };
 		092181242B02C36E00951EED /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		092A6D522B1CC82A006F2156 /* PloggingTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingTestCase.swift; sourceTree = "<group>"; };
 		092A6D542B1CD7B5006F2156 /* AuthNetworkFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkFake.swift; sourceTree = "<group>"; };
@@ -160,7 +158,7 @@
 		6EA14AAE2AF07D8D00FB72EC /* CallBackResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBackResult.swift; sourceTree = "<group>"; };
 		6EA14AB02AF0FC3900FB72EC /* PopUpModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpModalViewController.swift; sourceTree = "<group>"; };
 		6EA14ABD2AF1C2EF00FB72EC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		6EBFB9D72901251C00E1741A /* SomeDataz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SomeDataz.json; sourceTree = "<group>"; };
+		6EBFB9D72901251C00E1741A /* plogging.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = plogging.json; sourceTree = "<group>"; };
 		6ED589AE28E8D8B000450FE4 /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED589B328E8D8B000450FE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6ED589B828E8D8B000450FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,13 +201,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		092A6D582B1CDA99006F2156 /* Plooging */ = {
+		092A6D582B1CDA99006F2156 /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
 				09E408952B04A5A4003313A3 /* PloggingNetworkFake.swift */,
 				092A6D522B1CC82A006F2156 /* PloggingTestCase.swift */,
 			);
-			path = Plooging;
+			path = Plogging;
 			sourceTree = "<group>";
 		};
 		092A6D592B1CDAC5006F2156 /* Image */ = {
@@ -276,8 +274,8 @@
 			children = (
 				092A6D5A2B1CDAD4006F2156 /* Authentification */,
 				092A6D592B1CDAC5006F2156 /* Image */,
-				092A6D582B1CDA99006F2156 /* Plooging */,
-				6EBFB9D72901251C00E1741A /* SomeDataz.json */,
+				092A6D582B1CDA99006F2156 /* Plogging */,
+				6EBFB9D72901251C00E1741A /* plogging.json */,
 				09E408932B04A506003313A3 /* TestCase.swift */,
 			);
 			path = Network;
@@ -468,7 +466,6 @@
 				6E3821B128FD57C800F39184 /* PloggingAnnotation.swift */,
 				6E3C607029199DAE00DFDD58 /* PloggingUI.swift */,
 				6EE2560329DE04190058509C /* PhotoUI.swift */,
-				0910E19E2B000E7200254FD2 /* PloggingImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -609,7 +606,7 @@
 				6ED589C128E8D8BD00450FE4 /* LaunchScreen.storyboard in Resources */,
 				6E12D2132923C75200D2F45B /* PloggingTableViewCell.xib in Resources */,
 				095339B62AF28B09005720A7 /* Assets.xcassets in Resources */,
-				6EBFB9D82901251C00E1741A /* SomeDataz.json in Resources */,
+				6EBFB9D82901251C00E1741A /* plogging.json in Resources */,
 				6ED589B928E8D8B000450FE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,7 +669,6 @@
 				096B642B2AF28452001072CB /* AppDelegate.swift in Sources */,
 				6EA14AAF2AF07D8D00FB72EC /* CallBackResult.swift in Sources */,
 				6E69EFAD2951B53100EBE7B9 /* ChangePasswordViewController.swift in Sources */,
-				0910E19F2B000E7200254FD2 /* PloggingImage.swift in Sources */,
 				6E69EFA52951AE1900EBE7B9 /* ProfileViewController.swift in Sources */,
 				09A098392B1B1F0600A3383C /* ImageRouter.swift in Sources */,
 				6ED589B428E8D8B000450FE4 /* SceneDelegate.swift in Sources */,

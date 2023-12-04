@@ -7,7 +7,6 @@
 
 @testable import Plogging
 import UIKit
-import FirebaseFirestore
 
 class PloggingNetworkFake: PloggingNetworkProtocol {
 
@@ -21,20 +20,17 @@ class PloggingNetworkFake: PloggingNetworkProtocol {
         self.isFailed = isFailed
     }
 
-    func callNetworkGetPloggingList(router: PloggingRouterProtocol, completionHandler: @escaping (Result<QuerySnapshot, Error>) -> Void) {
+    func callNetworkGetPloggingList(router: PloggingRouterProtocol, completionHandler: @escaping (Result<[Plogging], Error>) -> Void) {
         guard !isFailed else {
             completionHandler(.failure(ErrorType.network))
             return
         }
 
-        let bundle = Bundle(for: PloggingNetworkFake.self)
-        guard let url = bundle.url(forResource: testCase.resource, withExtension: jsonExtensionType) else {
-            completionHandler(.failure(ErrorType.network))
-            return
-        }
-//        let snapshot: QuerySnapshot = QuerySnapshot!
+        let data = prepareData()
 
-//        completionHandler(.success(snapshot))
+        let list = try? transformPloggings(data: data)
+
+        completionHandler(.success(list ?? [Plogging()]))
     }
 
     func callNetworkCreateOrUpdatePlogging(plogging: Plogging, router: PloggingRouterProtocol, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void) {
@@ -43,5 +39,16 @@ class PloggingNetworkFake: PloggingNetworkProtocol {
             return
         }
         return completionHandler(.success(FirebaseResult.success))
+    }
+
+    private func prepareData() -> Data {
+        let bundle = Bundle(for: PloggingNetworkFake.self)
+        let url = bundle.url(forResource: testCase.resource, withExtension: jsonExtensionType)!
+        guard let data = try? Data(contentsOf: url) else { return Data() }
+        return data
+    }
+
+    private func transformPloggings(data: Data) throws -> [Plogging] {
+        return try JSONDecoder().decode([Plogging].self, from: data)
     }
 }

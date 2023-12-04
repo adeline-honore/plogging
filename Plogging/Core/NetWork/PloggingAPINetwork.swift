@@ -12,12 +12,12 @@ import FirebaseFirestore
 import FirebaseStorage
 
 protocol PloggingNetworkProtocol {
-    func callNetworkGetPloggingList(router: PloggingRouterProtocol, completionHandler: @escaping (Result<QuerySnapshot, Error>) -> Void)
+    func callNetworkGetPloggingList(router: PloggingRouterProtocol, completionHandler: @escaping (Result<[Plogging], Error>) -> Void)
     func callNetworkCreateOrUpdatePlogging(plogging: Plogging, router: PloggingRouterProtocol, completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
 }
 
 class PloggingNetwork: PloggingNetworkProtocol {
-    func callNetworkGetPloggingList(router: PloggingRouterProtocol, completionHandler: @escaping (Result<QuerySnapshot, Error>) -> Void) {
+    func callNetworkGetPloggingList(router: PloggingRouterProtocol, completionHandler: @escaping (Result<[Plogging], Error>) -> Void) {
         let collectionReference = router.collectionReference()
 
         collectionReference.getDocuments { snapshot, error in
@@ -25,7 +25,8 @@ class PloggingNetwork: PloggingNetworkProtocol {
                 completionHandler(.failure(error!))
                 return
             }
-            completionHandler(.success(snapshot))
+            let ploggingList = self.convertAPIDocumentToPlogging(snapshot: snapshot)
+            completionHandler(.success(ploggingList))
         }
     }
 
@@ -55,5 +56,39 @@ class PloggingNetwork: PloggingNetworkProtocol {
             "ploggers": plogging.ploggers
         ]
         return ploggingDoc
+    }
+
+    private func convertAPIDocumentToPlogging(snapshot: (QuerySnapshot)) -> [Plogging] {
+        var ploggingList: [Plogging] = []
+
+        for ploggingDocumentList in snapshot.documents {
+            let ploggingDocument = ploggingDocumentList.data()
+            var ploggingToDisplay: Plogging = Plogging()
+
+            for pair in ploggingDocument {
+                switch pair.key {
+                case "id":
+                    ploggingToDisplay.id = pair.value as? String ?? ""
+                case "admin":
+                    ploggingToDisplay.admin = pair.value as? String ?? ""
+                case "beginning":
+                    ploggingToDisplay.beginning = pair.value as? Int ?? 1
+                case "distance":
+                    ploggingToDisplay.distance = pair.value as? Int ?? 2
+                case "latitude":
+                    ploggingToDisplay.latitude = pair.value as? Double ?? 0
+                case "longitude":
+                    ploggingToDisplay.longitude = pair.value as? Double ?? 0
+                case "place":
+                    ploggingToDisplay.place = pair.value as? String ?? ""
+                case "ploggers":
+                    ploggingToDisplay.ploggers = pair.value as? [String] ?? [""]
+                default:
+                    break
+                }
+            }
+            ploggingList.append(ploggingToDisplay)
+        }
+        return ploggingList
     }
 }
