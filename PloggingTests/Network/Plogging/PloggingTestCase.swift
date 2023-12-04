@@ -109,7 +109,7 @@ final class PloggingTestCase: XCTestCase {
         ploggingService.getPloggingList { result in
             switch result {
             case .success:
-                XCTAssertEqual(try? result.get().endIndex, 1)
+                XCTAssertEqual(try? result.get().endIndex, 2)
                 expectation.fulfill()
             case .failure:
                 XCTFail("Should return failure")

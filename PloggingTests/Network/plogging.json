@@ -1,5 +1,5 @@
-{
-    [{
+[
+    {
         "id": "EEZZ-000-24-JAAUG-WWWW574",
         "admin": "honore_adeline@yahoo.fr",
         "beginning": 1715938200,
@@ -18,5 +18,5 @@
         "longitude": 2.2662103,
         "ploggers": ["unautreemail@lemail.fr", "anais@mail.com"],
         "distance": 20
-    }]
-}
+    }
+]

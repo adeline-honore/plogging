@@ -6,7 +6,7 @@
 //
 
 @testable import Plogging
-import UIKit
+import Foundation
 
 class PloggingNetworkFake: PloggingNetworkProtocol {
 
@@ -42,7 +42,7 @@ class PloggingNetworkFake: PloggingNetworkProtocol {
     }
 
     private func prepareData() -> Data {
-        let bundle = Bundle(for: PloggingNetworkFake.self)
+        let bundle = Bundle.main
         let url = bundle.url(forResource: testCase.resource, withExtension: jsonExtensionType)!
         guard let data = try? Data(contentsOf: url) else { return Data() }
         return data
