@@ -10,7 +10,7 @@ jobs:
             - uses: swift-actions/setup-swift@v1
               with:
                 swift-version: "5.7.2"
-            - name: testing ... iPhone 4 Pro
+            - name: testing ... iPhone 14 Pro
               run: >-
                 xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace
                 -scheme Plogging -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2'
