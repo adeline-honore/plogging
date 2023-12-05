@@ -25,7 +25,21 @@ final class AuthentificationTestCase: XCTestCase {
     }
 
     func testCreateAPIUserShouldPostSuccess() {
-
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Should return failure")
+        // Then
+        authService.createApiUser(email: email, password: password) { result in
+            switch result {
+            case .success:
+                // Then
+                expectation.fulfill()
+            case .failure:
+                XCTFail("It's not ok, test should returns success")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
     }
 
     func testCreateAPIUserShouldReturnFailure() {
@@ -47,7 +61,21 @@ final class AuthentificationTestCase: XCTestCase {
     }
 
     func testSignInShouldPostSuccess() {
-
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Should return failure")
+        // Then
+        authService.connectUser(email: email, password: password) { result in
+            switch result {
+            case .success:
+                // Then
+                expectation.fulfill()
+            case .failure:
+                XCTFail("It's not ok, test should returns success")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
     }
 
     func testSignInShouldReturnFailure() {
@@ -69,7 +97,21 @@ final class AuthentificationTestCase: XCTestCase {
     }
 
     func testSetPasswordShouldPostSuccess() {
-
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Should return failure")
+        // Then
+        authService.setPassword(email: email, currentPassword: password, newPassword: "Qsdf123") { result in
+            switch result {
+            case .success:
+                // Then
+                expectation.fulfill()
+            case .failure:
+                XCTFail("It's not ok, test should returns success")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
     }
 
     func testSetPasswordShouldReturnFailure() {
@@ -91,7 +133,21 @@ final class AuthentificationTestCase: XCTestCase {
     }
 
     func testForgotPasswordShouldPostSuccess() {
-
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Should return failure")
+        // Then
+        authService.forgotPasswordRequestApi(email: email) { result in
+            switch result {
+            case .success:
+                // Then
+                expectation.fulfill()
+            case .failure:
+                XCTFail("It's not ok, test should returns success")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
     }
 
     func testForgotPasswordShouldReturnFailure() {
@@ -113,7 +169,21 @@ final class AuthentificationTestCase: XCTestCase {
     }
 
     func testLogOutShouldPostSuccess() {
-
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Should return failure")
+        // Then
+        authService.disconnectUser { result in
+            switch result {
+            case .success:
+                // Then
+                expectation.fulfill()
+            case .failure:
+                XCTFail("It's not ok, test should returns success")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
     }
 
     func testLogOutShouldReturnFailure() {
