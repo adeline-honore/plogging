@@ -5,12 +5,11 @@ jobs:
     build:
         name: Build and Test default scheme using any available iPhone simulator
         runs-on: macos-latest
-        steps:
-        - name: Delete content & directory protoc-gen-swift/Docs.docc
-          uses: JesseTG/rm@v1.0.3
-          with:
-            path: await io.rmRF('/Users/runner/Library/Developer/Xcode/DerivedData/Plogging-bbwhutoudommbyghnzsadcfeeznx/SourcePackages/checkouts/swift-protobuf/Sources/protoc-gen-swift/Docs.docc')
+        steps:          
         - uses: actions/checkout@v4
+        - uses: JesseTG/rm@v1.0.3
+          with:
+              path: await io.rmRF('/Users/runner/Library/Developer/Xcode/DerivedData/Plogging-bbwhutoudommbyghnzsadcfeeznx/SourcePackages/checkouts/swift-protobuf/Sources/protoc-gen-swift/Docs.docc')
         - name: testing ... iPhone 14 Pro
           run: >-
             xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace
