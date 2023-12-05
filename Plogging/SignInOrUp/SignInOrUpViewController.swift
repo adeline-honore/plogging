@@ -47,7 +47,11 @@ class SignInOrUpViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func createUser(email: String, password: String) {
+<<<<<<< HEAD
         authService.createApiUser(email: email, password: password) { result in
+=======
+        userIdentifier.createUserRequest(email: email, password: password) { result in
+>>>>>>> ci-branch
             DispatchQueue.main.async {
                 switch result {
                 case .success:

@@ -7,12 +7,16 @@
 
 import Foundation
 
-enum TestCase {
+enum TestCaseNetwork {
     case auth
+<<<<<<< HEAD:PloggingTests/Network/TestCase.swift
     case plogging
     case image
     case uiViewController
     case uiView
+=======
+    case ploggingList
+>>>>>>> ci-branch:PloggingTests/Network/TestCaseNetwork.swift
 
     var resource: String {
         switch self {

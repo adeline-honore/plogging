@@ -122,7 +122,6 @@ class PersonalPloggingViewController: UIViewController {
             guard let self = self else { return }
 
             ploggingsUI = ploggingList.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: self.isUserTakingPart(ploggingPloggers: $0.ploggers, userEmail: UserDefaults.standard.string(forKey: "emailAddress") ?? ""))}
-
             ploggingsUI = ploggingsUI.filter({ $0.isTakingPart == true
             })
 
