@@ -9,7 +9,7 @@ jobs:
         - name: Delete content & directory protoc-gen-swift/Docs.docc
           uses: JesseTG/rm@v1.0.3
           with:
-            path: await io.rmRF('Users/runner/Library/Developer/Xcode/DerivedData/Plogging-bbwhutoudommbyghnzsadcfeeznx/SourcePackages/checkouts/swift-protobuf/Sources/protoc-gen-swift/Docs.docc')
+            path: await io.rmRF('/Users/runner/Library/Developer/Xcode/DerivedData/Plogging-bbwhutoudommbyghnzsadcfeeznx/SourcePackages/checkouts/swift-protobuf/Sources/protoc-gen-swift/Docs.docc')
         - uses: actions/checkout@v4
         - name: testing ... iPhone 14 Pro
           run: >-
