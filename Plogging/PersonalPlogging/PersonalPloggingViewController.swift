@@ -121,14 +121,14 @@ class PersonalPloggingViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
 
-            ploggingsUI = ploggingList.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: self.isUserTakingPart(ploggingPloggers: $0.ploggers, userEmail: UserDefaults.standard.string(forKey: "emailAddress") ?? ""))}
-            ploggingsUI = ploggingsUI.filter({ $0.isTakingPart == true
+            self.ploggingsUI = ploggingList.map { PloggingUI(plogging: $0, scheduleTimestamp: $0.beginning, scheduleString: PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: $0.beginning), isTakingPartUI: self.isUserTakingPart(ploggingPloggers: $0.ploggers, userEmail: UserDefaults.standard.string(forKey: "emailAddress") ?? ""))}
+            self.ploggingsUI = self.ploggingsUI.filter({ $0.isTakingPart == true
             })
 
-            if ploggingsUI.isEmpty {
-                displayPersonalPloggings()
+            if self.ploggingsUI.isEmpty {
+                self.displayPersonalPloggings()
             } else {
-                getPersonnalPloggingMainImage()
+                self.getPersonnalPloggingMainImage()
             }
         }
     }
@@ -142,12 +142,12 @@ class PersonalPloggingViewController: UIViewController {
                     guard let self = self else { return }
                     switch result {
                     case .success(let photoResult):
-                        ploggingsUI[ploggingsIndex].mainImage = photoResult
+                        self.ploggingsUI[ploggingsIndex].mainImage = photoResult
                     case .failure:
-                        ploggingsUI[ploggingsIndex].mainImage = icon
+                        self.ploggingsUI[ploggingsIndex].mainImage = icon
                     }
-                    displayPersonalPloggings()
-                    savePloggingListInCoreData()
+                    self.displayPersonalPloggings()
+                    self.savePloggingListInCoreData()
                 }
             }
         }

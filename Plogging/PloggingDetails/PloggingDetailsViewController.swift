@@ -116,19 +116,19 @@ class PloggingDetailsViewController: UIViewController {
                 do {
                     try self.repository.createEntity(ploggingUI: ploggingUI)
                 } catch {
-                    PopUpModalViewController().userAlert(element: .internalDatabase, viewController: self)
+                    self.popUpModal.userAlert(element: .internalDatabase, viewController: self)
                 }
             } else {
                 do {
                     try self.repository.removeEntity(id: ploggingUI.id)
                 } catch {
-                    PopUpModalViewController().userAlert(element: .internalDatabase, viewController: self)
+                    self.popUpModal.userAlert(element: .internalDatabase, viewController: self)
                 }
             }
             if ploggingUI.isTakingPart {
-                PopUpModalViewController().userAlert(element: .isTakingPart, viewController: self)
+                self.popUpModal.userAlert(element: .isTakingPart, viewController: self)
             } else {
-                PopUpModalViewController().userAlert(element: .isNotTakingPart, viewController: self)
+                self.popUpModal.userAlert(element: .isNotTakingPart, viewController: self)
             }
         }
     }
@@ -152,7 +152,7 @@ class PloggingDetailsViewController: UIViewController {
                 return
             }
 
-            imageService.uploadPhoto(mainImageBinary: mainImageBinary, ploggingId: id) { result in
+            self.imageService.uploadPhoto(mainImageBinary: mainImageBinary, ploggingId: id) { result in
                 switch result {
                 case .success:
                     self.saveChangeImageInCoredata()
@@ -170,9 +170,9 @@ class PloggingDetailsViewController: UIViewController {
             do {
                 try self.repository.setEntity(ploggingUI: ploggingUI!)
 
-                popUpModal.userAlert(element: AlertType.ploggingSetWithSuccess, viewController: self)
+                self.popUpModal.userAlert(element: AlertType.ploggingSetWithSuccess, viewController: self)
             } catch {
-                popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)
+                self.popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)
             }
         }
     }

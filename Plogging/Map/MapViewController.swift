@@ -114,11 +114,11 @@ class MapViewController: UIViewController {
                     guard let self = self else { return }
                     switch result {
                     case .success(let photoResult):
-                        ploggingsUI[ploggingsIndex].mainImage = photoResult
+                        self.ploggingsUI[ploggingsIndex].mainImage = photoResult
                     case .failure:
-                        ploggingsUI[ploggingsIndex].mainImage = icon
+                        self.ploggingsUI[ploggingsIndex].mainImage = icon
                     }
-                    createPloggingAnnotationItems()
+                    self.createPloggingAnnotationItems()
                 }
             }
         }

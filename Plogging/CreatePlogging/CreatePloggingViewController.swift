@@ -168,13 +168,13 @@ class CreatePloggingViewController: UIViewController {
     private func saveImageInDistantDataBase() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            guard currentPloggingUI.mainImage != nil else { return }
+            guard self.currentPloggingUI.mainImage != nil else { return }
 
-            let mainImageBinary = currentPloggingUI.mainImage?.jpegData(compressionQuality: 0.8)
+            let mainImageBinary = self.currentPloggingUI.mainImage?.jpegData(compressionQuality: 0.8)
 
             guard mainImageBinary != nil else { return }
 
-            currentPloggingUI.mainImageBinary = mainImageBinary
+            self.currentPloggingUI.mainImageBinary = mainImageBinary
 
             imageService.uploadPhoto(mainImageBinary: mainImageBinary!, ploggingId: currentPloggingUI.id) { result in
                 switch result {
@@ -197,7 +197,7 @@ class CreatePloggingViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
                 self.delegate?.ploggingIsCreated(ploggingUICreated: self.currentPloggingUI)
             } catch {
-                popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)
+                self.popUpModal.userAlert(element: AlertType.ploggingNotSaved, viewController: self)
             }
         }
     }
