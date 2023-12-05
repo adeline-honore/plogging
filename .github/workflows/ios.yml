@@ -7,6 +7,10 @@ jobs:
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@v4
+            - name: Delete content & directory protoc-gen-swift/Docs.docc
+              ansible.builtin.file:
+              state: absent
+              path: Users/runner/Library/Developer/Xcode/DerivedData/Plogging-bbwhutoudommbyghnzsadcfeeznx/SourcePackages/checkouts/swift-protobuf/Sources/protoc-gen-swift/Docs.docc
             - name: testing ... iPhone 14 Pro
               run: >-
                 xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace
