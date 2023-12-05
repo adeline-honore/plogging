@@ -33,7 +33,6 @@
 		09A098422B1B6A4B00A3383C /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A098412B1B6A4B00A3383C /* AuthRouter.swift */; };
 		09A098442B1B6C3700A3383C /* AuthAPINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A098432B1B6C3700A3383C /* AuthAPINetwork.swift */; };
 		09E408962B04A5A4003313A3 /* PloggingNetworkFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408952B04A5A4003313A3 /* PloggingNetworkFake.swift */; };
-		09E408982B04AA22003313A3 /* AuthentificationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */; };
 		09E4089A2B055C56003313A3 /* PloggingAPINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408992B055C56003313A3 /* PloggingAPINetwork.swift */; };
 		6E00AA202926434800798F03 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E00AA1F2926434800798F03 /* Extension+UIView.swift */; };
 		6E088F942916830900F401A6 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E088F932916830900F401A6 /* Texts.swift */; };
@@ -123,7 +122,6 @@
 		09A098412B1B6A4B00A3383C /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		09A098432B1B6C3700A3383C /* AuthAPINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPINetwork.swift; sourceTree = "<group>"; };
 		09E408952B04A5A4003313A3 /* PloggingNetworkFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingNetworkFake.swift; sourceTree = "<group>"; };
-		09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationTestCase.swift; sourceTree = "<group>"; };
 		09E408992B055C56003313A3 /* PloggingAPINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingAPINetwork.swift; sourceTree = "<group>"; };
 		6E00AA1F2926434800798F03 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		6E088F932916830900F401A6 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 		092A6D5A2B1CDAD4006F2156 /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
-				09E408972B04AA22003313A3 /* AuthentificationTestCase.swift */,
 				092A6D542B1CD7B5006F2156 /* AuthNetworkFake.swift */,
 			);
 			path = Authentification;
@@ -720,7 +717,6 @@
 				092A6D552B1CD7B5006F2156 /* AuthNetworkFake.swift in Sources */,
 				092A6D612B1CF538006F2156 /* UIViewTestCase.swift in Sources */,
 				092A6D572B1CD959006F2156 /* ImageNetworkFake.swift in Sources */,
-				09E408982B04AA22003313A3 /* AuthentificationTestCase.swift in Sources */,
 				092A6D5C2B1CDB1F006F2156 /* ImageTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
