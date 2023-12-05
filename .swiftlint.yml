@@ -6,3 +6,4 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - unused_closure_parameter
   - unused_optional_binding
   - cyclomatic_complexity
+  - compiler_protocol_init
