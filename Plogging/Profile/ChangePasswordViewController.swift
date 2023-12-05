@@ -11,11 +11,8 @@ class ChangePasswordViewController: SetConstraintForKeyboardViewController {
 
     // MARK: - IBOutlet
 
-<<<<<<< HEAD
     @IBOutlet weak var currentPasswordLabel: UILabel!
     @IBOutlet weak var currentPasswordTextField: UITextField!
-=======
->>>>>>> ci-branch
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordLabel: UILabel!

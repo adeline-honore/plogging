@@ -10,20 +10,10 @@ import UIKit
 class ProfileView: UIView {
 
     @IBOutlet weak var initialImageView: UIImageView!
-<<<<<<< HEAD
-
-    @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-
-    @IBOutlet weak var logOutButton: UIButton!
-    @IBOutlet weak var setPasswordButton: UIButton!
-
-=======
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var setPasswordButton: UIButton!
->>>>>>> ci-branch
     @IBOutlet weak var haveToLoginLabel: UILabel!
     @IBOutlet weak var haveToLoginButton: UIButton!
 }
@@ -36,10 +26,7 @@ extension ProfileView {
         welcomeLabel.isHidden = !isConnected
         emailLabel.text = email
         logOutButton.isHidden = !isConnected
-<<<<<<< HEAD
 
-=======
->>>>>>> ci-branch
         emailLabel.isHidden = !isConnected
         setPasswordButton.isHidden = !isConnected
         haveToLoginLabel.isHidden = isConnected

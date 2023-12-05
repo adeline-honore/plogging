@@ -50,11 +50,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func signIn(email: String, password: String) {
-<<<<<<< HEAD
         authService.connectUser(email: email, password: password) { result in
-=======
-        userIdentifier.signInRequest(email: email, password: password) { result in
->>>>>>> ci-branch
             DispatchQueue.main.async {
                 switch result {
                 case .success:

@@ -16,7 +16,6 @@ protocol AuthServiceProtocol {
     func disconnectUser(completionHandler: @escaping (Result<FirebaseResult, Error>) -> Void)
 }
 
-<<<<<<< HEAD
 class Authservice: AuthServiceProtocol {
 
     private var network: AuthNetworkProtocol
@@ -29,13 +28,6 @@ class Authservice: AuthServiceProtocol {
         return network.createAPIUser(email: email, password: password, router: AuthRouter.createUser) { result in
             switch result {
             case .success:
-=======
-    // MARK: - Call To API To Create New User
-    func createUserIdentifier(email: String, password: String, completionHandler: @escaping (Result<FirebaseResult, ErrorType>) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-
-            if error == nil {
->>>>>>> ci-branch
                 completionHandler(.success(FirebaseResult.success))
             case .failure:
                 completionHandler(.failure(ErrorType.network))

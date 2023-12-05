@@ -36,20 +36,10 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
             switch manager.authorizationStatus {
             case .authorizedWhenInUse:  // Location services are available.
                 self.locationManager.startUpdatingLocation()
-<<<<<<< HEAD
             case .restricted, .denied:  // Location services currently unavailable.
                 manager.requestWhenInUseAuthorization()
             case .notDetermined:        // Authorization not determined yet.
                 manager.requestWhenInUseAuthorization()
-=======
-                break
-            case .restricted, .denied:  // Location services currently unavailable.
-                manager.requestWhenInUseAuthorization()
-                break
-            case .notDetermined:        // Authorization not determined yet.
-                manager.requestWhenInUseAuthorization()
-                break
->>>>>>> ci-branch
             default:
                 break
             }
