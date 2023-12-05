@@ -6,12 +6,12 @@ jobs:
         name: Build and Test default scheme using any available iPhone simulator
         runs-on: macos-latest
         steps:
-            - uses: actions/checkout@v4
-            - name: Delete content & directory protoc-gen-swift/Docs.docc
-              ansible.builtin.file:
-              state: absent
-              path: Users/runner/Library/Developer/Xcode/DerivedData/Plogging-bbwhutoudommbyghnzsadcfeeznx/SourcePackages/checkouts/swift-protobuf/Sources/protoc-gen-swift/Docs.docc
-            - name: testing ... iPhone 14 Pro
-              run: >-
-                xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace
-                -scheme Plogging -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2'
+        - name: Delete content & directory protoc-gen-swift/Docs.docc
+          uses: JesseTG/rm@v1.0.3
+          with:
+            path: Users/runner/Library/Developer/Xcode/DerivedData/Plogging-bbwhutoudommbyghnzsadcfeeznx/SourcePackages/checkouts/swift-protobuf/Sources/protoc-gen-swift/Docs.docc
+        - uses: actions/checkout@v4
+        - name: testing ... iPhone 14 Pro
+          run: >-
+            xcodebuild test -workspace Plogging.xcodeproj/project.xcworkspace
+            -scheme Plogging -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2'
