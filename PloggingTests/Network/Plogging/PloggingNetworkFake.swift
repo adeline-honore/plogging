@@ -43,7 +43,7 @@ class PloggingNetworkFake: PloggingNetworkProtocol {
 
     private func prepareData() -> Data {
         let bundle = Bundle.main
-        let url = bundle.url(forResource: testCase.resource, withExtension: jsonExtensionType) ?? URL(fileURLWithPath: "")
+        let url = bundle.url(forResource: testCase.rawValue, withExtension: jsonExtensionType) ?? URL(fileURLWithPath: "")
         guard let data = try? Data(contentsOf: url) else { return Data() }
         return data
     }

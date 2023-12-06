@@ -28,7 +28,7 @@ class CreatePloggingViewController: UIViewController {
 
     private var currentPloggingUI: PloggingUI = PloggingUI()
     private var startDate: Date = Date()
-    private var startIntegerTimestamp: Int = 0
+    var startIntegerTimestamp: Int = 0
 
     private var distanceArray: [String] = []
     private var distanceSelected: String = ""
@@ -86,16 +86,6 @@ class CreatePloggingViewController: UIViewController {
     func setupDatePicker() {
         createPloggingView.whenDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)
         startIntegerTimestamp = Int(createPloggingView.whenDatePicker.date.timeIntervalSince1970)
-    }
-
-    // MARK: - Distance Picker View
-
-    private func returnDistance() -> [String] {
-
-        for distanceRange in stride(from: 2, through: 20, by: 2) {
-            distanceArray.append(String(distanceRange))
-        }
-        return distanceArray
     }
 
     // MARK: - User Tap On Create Plogging
@@ -266,4 +256,16 @@ extension CreatePloggingViewController: UIImagePickerControllerDelegate, UINavig
 
         picker.dismiss(animated: true, completion: nil)
     }
+}
+
+extension CreatePloggingViewController {
+    // MARK: - Distance Picker View
+    func returnDistance() -> [String] {
+        var distanceArray: [String] = [""]
+        for distanceRange in stride(from: 2, through: 20, by: 2) {
+            distanceArray.append(String(distanceRange))
+        }
+        return distanceArray
+    }
+
 }

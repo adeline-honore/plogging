@@ -14,6 +14,8 @@ class ProfileViewController: UIViewController {
     private var profileView: ProfileView!
     private var authService = Authservice(network: AuthNetwork())
     private let popUpModal: PopUpModalViewController = PopUpModalViewController()
+    var isConnectedUser: Bool = false
+    var email: String = String()
 
     // MARK: - Init
 
@@ -25,9 +27,8 @@ class ProfileViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let isConnectedUser = UserDefaults.standard.string(forKey: "emailAddress") != nil
-
-        let email = UserDefaults.standard.string(forKey: "emailAddress") ?? ""
+        isConnectedUser = isUserIsConnected()
+        email = getUserEmail()
         profileView.configure(isConnected: isConnectedUser, email: email)
     }
 

@@ -43,16 +43,9 @@ class PloggingDetailsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-
-        guard let ploggingUI = ploggingUI else {
-            return
-        }
-
-        isAdmin = ploggingUI.admin == UserDefaults.standard.string(forKey: "emailAddress") ? true : false
-
-        ploggingDetailsView.configure(plogging: ploggingUI, isAdmin: isAdmin)
-
-        isConnectedUser = UserDefaults.standard.string(forKey: "emailAddress") != nil
+        isAdmin = isUserIsAdmin(ploggingUI: ploggingUI ?? PloggingUI())
+        isConnectedUser = isUserIsConnected()
+        ploggingDetailsView.configure(plogging: ploggingUI ?? PloggingUI(), isAdmin: isAdmin)
     }
 
     // MARK: - Toogle to take part at race For No Admin User

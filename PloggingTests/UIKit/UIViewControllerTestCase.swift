@@ -194,4 +194,32 @@ final class UIViewControllerTestCase: XCTestCase {
             }
         wait(for: [expectation], timeout: 0.01)
     }
+
+    func testAppColorRGB() {
+        XCTAssertEqual(Color().appColor.cgColor.alpha, 1.0)
+    }
+
+    func testIfUserIsConnected() {
+        // Given
+        initSUT()
+        // When
+        let userDefaultAppEmail = UserDefaults.standard.string(forKey: "emailAddress")
+        UserDefaults.standard.set("userTest", forKey: "emailAddress")
+        let result = viewController.isUserIsConnected()
+        // Then
+        XCTAssertTrue(result)
+        UserDefaults.standard.set(userDefaultAppEmail, forKey: "emailAddress")
+    }
+
+    func testGetUserEmailReturnEmptyString() {
+        // Given
+        initSUT()
+        // When
+        let userDefaultAppEmail = UserDefaults.standard.string(forKey: "emailAddress")
+        UserDefaults.standard.set("", forKey: "emailAddress")
+        let result = viewController.getUserEmail()
+        // Then
+        XCTAssertEqual(result, "")
+        UserDefaults.standard.set(userDefaultAppEmail, forKey: "emailAddress")
+    }
 }

@@ -23,14 +23,14 @@ final class PloggingTestCase: XCTestCase {
 
     private func ploggingToGet() -> Plogging {
         var plogging: Plogging = Plogging()
-        plogging.admin = "honore_adeline@yahoo.fr"
+        plogging.admin = "adeline@email.fr"
         plogging.id = "EEZZ-000-24-JAAUG-WWWW574"
         plogging.beginning = 1715938200
         plogging.distance = 16
         plogging.latitude = 48.8975424
         plogging.longitude = 2.3854289
         plogging.place = "Porte de la Villette"
-        plogging.ploggers = ["honore_adeline@yahoo.fr"]
+        plogging.ploggers = ["adeline@email.fr"]
 
         return plogging
     }
@@ -44,21 +44,21 @@ final class PloggingTestCase: XCTestCase {
         plogging.latitude = 48.8638284
         plogging.longitude = 2.3342584
         plogging.place = "1er Arr."
-        plogging.ploggers = ["unadmin@plogging.fr", "honore_adeline@yahoo.fr", "unautre@autre.fr"]
+        plogging.ploggers = ["unadmin@plogging.fr", "adeline@email.fr", "unautre@autre.fr"]
 
         return plogging
     }
 
     private func ploggingToSet() -> Plogging {
         var plogging: Plogging = Plogging()
-        plogging.admin = "honore_adeline@yahoo.fr"
+        plogging.admin = "adeline@email.fr"
         plogging.id = "EEZZ-000-24-JAAUG-WWWW574"
         plogging.beginning = 1715938200
         plogging.distance = 16
         plogging.latitude = 48.8975424
         plogging.longitude = 2.3854289
         plogging.place = "Porte de la Villette"
-        plogging.ploggers = ["honore_adeline@yahoo.fr", "unautre@autre.fr"]
+        plogging.ploggers = ["adeline@email.fr", "unautre@autre.fr"]
 
         return plogging
     }

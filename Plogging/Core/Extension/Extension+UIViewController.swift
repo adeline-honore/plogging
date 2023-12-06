@@ -57,8 +57,10 @@ extension UIViewController {
             }
         }
 
+        guard let defaultRouteReachability = defaultRouteReachability else {return false}
+
         var flags = SCNetworkReachabilityFlags()
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
             return false
         }
         let isReachable = flags.contains(.reachable)
@@ -99,5 +101,20 @@ extension UIViewController {
             return timestamp
         }
         return 0
+    }
+
+    func isUserIsAdmin(ploggingUI: PloggingUI) -> Bool {
+        let isAdmin = ploggingUI.admin == UserDefaults.standard.string(forKey: "emailAddress")
+        return isAdmin
+    }
+
+    func isUserIsConnected() -> Bool {
+        let isConnectedUser = UserDefaults.standard.string(forKey: "emailAddress") != nil
+        return isConnectedUser
+    }
+
+    func getUserEmail() -> String {
+        guard let email = UserDefaults.standard.string(forKey: "emailAddress") else { return "" }
+        return email
     }
 }

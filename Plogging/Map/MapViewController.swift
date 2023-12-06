@@ -37,6 +37,10 @@ class MapViewController: UIViewController {
         locationManager.locationManagerDelegate = self
 
         // on boarding page
+         displayOrNotOnBoardingPage()
+    }
+
+    func displayOrNotOnBoardingPage() {
         if !UserDefaults.standard.bool(forKey: UserDefaultsName.executeOnce.rawValue) {
             displayAppOverviewPage()
             UserDefaults.standard.set(true, forKey: UserDefaultsName.executeOnce.rawValue)
@@ -73,26 +77,13 @@ class MapViewController: UIViewController {
                 switch result {
                 case .success(let ploggingsResult):
                     MapViewController.ploggings = ploggingsResult
-                    self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: filterPloggingList())
+                    self.ploggingsUI = transformPloggingsToPloggingsUI(ploggings: filterPloggingList(ploggings: ploggingsResult))
                     self.getPloggingMainImage()
                 case .failure:
                     self.popUpModal.userAlert(element: .network, viewController: self)
                 }
             }
         }
-    }
-
-    private func filterPloggingList() -> [Plogging] {
-        let timestamp = Int(NSDate().timeIntervalSince1970)
-
-        var upcommingPloggingList: [Plogging] = []
-        MapViewController.ploggings.forEach { item in
-            if item.beginning > timestamp {
-                upcommingPloggingList.append(item)
-            }
-        }
-        MapViewController.ploggings = upcommingPloggingList
-        return upcommingPloggingList
     }
 
     private func transformPloggingsToPloggingsUI(ploggings: [Plogging]) -> [PloggingUI] {
@@ -104,7 +95,7 @@ class MapViewController: UIViewController {
 
     // MARK: - Associate Ploggings With Their Images
 
-    private func getPloggingMainImage() {
+    func getPloggingMainImage() {
 
         for validPlogging in ploggingsUI {
             guard let ploggingsIndex = self.ploggingsUI.firstIndex(where: { $0.id == validPlogging.id}) else { return }
@@ -126,7 +117,7 @@ class MapViewController: UIViewController {
 
     // MARK: - Create Plogging Annotations Items
 
-    private func createPloggingAnnotationItems() {
+    func createPloggingAnnotationItems() {
         let annotationList = ploggingAnnotationLoader.createAnnotationFromPloggingModels(model: ploggingsUI)
 
         annotationList.forEach { ploggingAnnotation in
@@ -242,5 +233,19 @@ extension MapViewController: LocationManagerDelegate {
 extension MapViewController: PopUpModalDelegate {
     func didValidateAction() {
         performSegue(withIdentifier: SegueIdentifier.fromMapToSignInOrUp.rawValue, sender: self)
+    }
+}
+
+extension MapViewController {
+    func filterPloggingList(ploggings: [Plogging]) -> [Plogging] {
+        let timestamp = Int(NSDate().timeIntervalSince1970)
+
+        var upcommingPloggingList: [Plogging] = []
+        ploggings.forEach { item in
+            if item.beginning > timestamp {
+                upcommingPloggingList.append(item)
+            }
+        }
+        return upcommingPloggingList
     }
 }
