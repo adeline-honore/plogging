@@ -15,8 +15,8 @@ class CoreDataStack {
     public static let persistentContainerName = "Plogging"
 
     public static let model: NSManagedObjectModel = {
-      let modelURL = Bundle.main.url(forResource: persistentContainerName, withExtension: "momd")!
-      return NSManagedObjectModel(contentsOf: modelURL)!
+        guard let modelURL = Bundle.main.url(forResource: persistentContainerName, withExtension: "momd") else { return NSManagedObjectModel() }
+        return NSManagedObjectModel(contentsOf: modelURL) ?? NSManagedObjectModel()
     }()
 
     // MARK: - Public

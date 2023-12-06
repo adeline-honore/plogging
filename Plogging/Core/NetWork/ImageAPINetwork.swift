@@ -20,7 +20,7 @@ class ImageNetwork: ImageNetworkProtocol {
 
         fileReference.getData(maxSize: 5 * 1024 * 1024) { result, error in
             guard let result = result, error == nil else {
-                completionHandler(.failure(error!))
+                completionHandler(.failure(error ?? ErrorType.network))
                 return
             }
             completionHandler(.success(result))

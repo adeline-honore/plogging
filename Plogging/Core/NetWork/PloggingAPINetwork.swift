@@ -22,7 +22,7 @@ class PloggingNetwork: PloggingNetworkProtocol {
 
         collectionReference.getDocuments { snapshot, error in
             guard let snapshot = snapshot, error == nil else {
-                completionHandler(.failure(error!))
+                completionHandler(.failure(error ?? ErrorType.network))
                 return
             }
             let ploggingList = self.convertAPIDocumentToPlogging(snapshot: snapshot)
@@ -36,7 +36,7 @@ class PloggingNetwork: PloggingNetworkProtocol {
 
         collectionReference.document(plogging.id).setData(ploggingDoc) { error in
             if error != nil {
-                completionHandler(.failure(error!))
+                completionHandler(.failure(error ?? ErrorType.network))
                 return
             } else {
                 completionHandler(.success(FirebaseResult.success))

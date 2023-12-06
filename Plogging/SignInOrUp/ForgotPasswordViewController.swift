@@ -27,16 +27,16 @@ class ForgotPasswordViewController: UIViewController {
     }
 
     private func checkEmailAddress() {
-        let email = forgotPasswordTextField.text
+        guard let email = forgotPasswordTextField.text else { return }
 
         if !isInternetAvailable() {
             popUpModal.userAlert(element: .internetNotAvailable, viewController: self)
-        } else if email == nil {
+        } else if email.isEmpty {
             popUpModal.userAlert(element: .emptyIdentifier, viewController: self)
         } else if validateEmail(email: forgotPasswordTextField.text ?? "") == false {
             popUpModal.userAlert(element: .invalidEmail, viewController: self)
         } else {
-            forgotPassword(email: email!)
+            forgotPassword(email: email)
         }
     }
 

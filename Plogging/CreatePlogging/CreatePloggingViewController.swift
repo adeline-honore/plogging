@@ -84,7 +84,7 @@ class CreatePloggingViewController: UIViewController {
     }
 
     func setupDatePicker() {
-        createPloggingView.whenDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
+        createPloggingView.whenDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)
         startIntegerTimestamp = Int(createPloggingView.whenDatePicker.date.timeIntervalSince1970)
     }
 
@@ -170,13 +170,11 @@ class CreatePloggingViewController: UIViewController {
             guard let self = self else { return }
             guard self.currentPloggingUI.mainImage != nil else { return }
 
-            let mainImageBinary = self.currentPloggingUI.mainImage?.jpegData(compressionQuality: 0.8)
-
-            guard mainImageBinary != nil else { return }
+            guard let mainImageBinary = self.currentPloggingUI.mainImage?.jpegData(compressionQuality: 0.8) else { return }
 
             self.currentPloggingUI.mainImageBinary = mainImageBinary
 
-            imageService.uploadPhoto(mainImageBinary: mainImageBinary!, ploggingId: currentPloggingUI.id) { result in
+            imageService.uploadPhoto(mainImageBinary: mainImageBinary, ploggingId: currentPloggingUI.id) { result in
                 switch result {
                 case .success:
                     self.internalDatabaseSaveRequest()

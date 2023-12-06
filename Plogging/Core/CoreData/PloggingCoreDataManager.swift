@@ -23,8 +23,8 @@ final class PloggingCoreDataManager {
 
     func createEntity(ploggingUI: PloggingUI) throws {
 
-        let entity = NSEntityDescription.entity(forEntityName: "PloggingCD",
-                                                in: coreDataStack.viewContext)!
+        guard let entity = NSEntityDescription.entity(forEntityName: "PloggingCD",
+                                                      in: coreDataStack.viewContext) else { return }
 
         let ploggingCD = NSManagedObject(entity: entity, insertInto: coreDataStack.viewContext)
 
@@ -101,8 +101,8 @@ final class PloggingCoreDataManager {
     // MARK: - PhotoCD
 
     func createPhotoEntity(photoUI: PhotoUI) throws {
-        let entity = NSEntityDescription.entity(forEntityName: "PhotoCD",
-                                                in: coreDataStack.viewContext)!
+        guard let entity = NSEntityDescription.entity(forEntityName: "PhotoCD",
+                                                      in: coreDataStack.viewContext) else { return }
 
         let photoCD = NSManagedObject(entity: entity, insertInto: coreDataStack.viewContext)
         photoCD.setValue(photoUI.name, forKey: "name")
@@ -114,7 +114,7 @@ final class PloggingCoreDataManager {
 
     func setPhotoEntity(photo: PhotoUI) throws {
         let request: NSFetchRequest<PhotoCD> = PhotoCD.fetchRequest()
-        request.predicate = NSPredicate(format: "name = %@", photo.name!)
+        request.predicate = NSPredicate(format: "name = %@", photo.name ?? "")
 
         let results = try coreDataStack.viewContext.fetch(request)
         results.first?.setValue(photo.imageBinary, forKey: "imageBinary")
@@ -124,7 +124,7 @@ final class PloggingCoreDataManager {
 
     func removePhotoEntity(photo: PhotoUI) throws {
         let request: NSFetchRequest<PhotoCD> = PhotoCD.fetchRequest()
-        request.predicate = NSPredicate(format: "name = %@", photo.name!)
+        request.predicate = NSPredicate(format: "name = %@", photo.name ?? "")
 
         let results = try coreDataStack.viewContext.fetch(request)
         coreDataStack.viewContext.delete(results.first ?? PhotoCD())

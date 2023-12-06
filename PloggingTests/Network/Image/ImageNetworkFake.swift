@@ -11,6 +11,7 @@ import UIKit
 class ImageNetworkFake: ImageNetworkProtocol {
     private let testCase: TestCase
     private var isFailed: Bool = false
+    private let icon = UIImage(imageLiteralResourceName: "icon")
 
     init(testCase: TestCase, isFailed: Bool) {
         self.testCase = testCase
@@ -32,8 +33,7 @@ class ImageNetworkFake: ImageNetworkProtocol {
     }
 
     private func prepareImageData() -> Data {
-        let image = UIImage(named: "icon")
-        let data = image!.jpegData(compressionQuality: 1)
-        return data!
+        guard let data = icon.jpegData(compressionQuality: 1) else { return Data() }
+        return data
     }
 }

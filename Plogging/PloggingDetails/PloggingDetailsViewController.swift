@@ -165,10 +165,9 @@ class PloggingDetailsViewController: UIViewController {
 
     private func saveChangeImageInCoredata() {
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            guard ploggingUI != nil else { return }
+            guard let self = self, let thisPloggingUI = ploggingUI else { return }
             do {
-                try self.repository.setEntity(ploggingUI: ploggingUI!)
+                try self.repository.setEntity(ploggingUI: thisPloggingUI)
 
                 self.popUpModal.userAlert(element: AlertType.ploggingSetWithSuccess, viewController: self)
             } catch {

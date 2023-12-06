@@ -95,8 +95,7 @@ extension UIViewController {
     }
 
     func convertPloggingCDBeginningToBeginningTimestamp(timestampString: String?) -> Int {
-        guard timestampString != nil else { return 0 }
-        if let timestamp = Int(timestampString!) {
+        if let timestamp = Int(timestampString ?? "0") {
             return timestamp
         }
         return 0
