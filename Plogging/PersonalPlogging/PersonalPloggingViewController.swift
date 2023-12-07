@@ -128,6 +128,7 @@ class PersonalPloggingViewController: UIViewController {
             if self.ploggingsUI.isEmpty {
                 self.displayPersonalPloggings()
             } else {
+                self.ploggingsUI = sortPloggingUIListByDate(ploggingUIList: ploggingsUI)
                 self.getPersonnalPloggingMainImage()
             }
         }
@@ -188,8 +189,9 @@ class PersonalPloggingViewController: UIViewController {
     private func getPloggingFromCoreData() -> [PloggingUI] {
         do {
             let ploggingsCD = try repository.getEntities()
-            let ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningInt: convertPloggingCDBeginningToBeginningTimestamp(timestampString: $0.beginning), beginningString: convertPloggingCDBeginningToBeginningString(dateString: $0.beginning), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers ?? [""], userEmail: UserDefaults.standard.string(forKey: "emailAddress") ?? ""), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
+            var ploggingUIList: [PloggingUI] = ploggingsCD.map {PloggingUI(ploggingCD: $0, beginningInt: convertPloggingCDBeginningToBeginningTimestamp(timestampString: $0.beginning), beginningString: convertPloggingCDBeginningToBeginningString(dateString: $0.beginning), isTakingPartUI: isUserTakingPart(ploggingPloggers: $0.ploggers ?? [""], userEmail: UserDefaults.standard.string(forKey: "emailAddress") ?? ""), image: UIImage(data: $0.imageBinary ?? Data()) ?? icon)
             }
+            ploggingUIList = sortPloggingUIListByDate(ploggingUIList: ploggingUIList)
             return ploggingUIList.filter({ $0.isTakingPart == true })
         } catch {
             return [PloggingUI]()
@@ -306,5 +308,11 @@ extension PersonalPloggingViewController: UITableViewDelegate, UITableViewDataSo
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return (section == 0) ? "upcoming ploggings" : "past ploggings"
+    }
+}
+
+extension PersonalPloggingViewController {
+    func sortPloggingUIListByDate(ploggingUIList: [PloggingUI]) -> [PloggingUI] {
+        ploggingUIList.sorted(by: { $0.beginningTimestamp < $1.beginningTimestamp })
     }
 }
