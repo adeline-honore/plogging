@@ -97,43 +97,4 @@ final class PloggingCoreDataManager {
             throw ErrorType.coredataError
         }
     }
-
-    // MARK: - PhotoCD
-
-    func createPhotoEntity(photoUI: PhotoUI) throws {
-        guard let entity = NSEntityDescription.entity(forEntityName: "PhotoCD",
-                                                      in: coreDataStack.viewContext) else { return }
-
-        let photoCD = NSManagedObject(entity: entity, insertInto: coreDataStack.viewContext)
-        photoCD.setValue(photoUI.name, forKey: "name")
-        photoCD.setValue(photoUI.imageBinary, forKey: "imageBinary")
-        photoCD.setValue(photoUI.owner, forKey: "owner")
-
-        try coreDataStack.viewContext.save()
-    }
-
-    func setPhotoEntity(photo: PhotoUI) throws {
-        let request: NSFetchRequest<PhotoCD> = PhotoCD.fetchRequest()
-        request.predicate = NSPredicate(format: "name = %@", photo.name ?? "")
-
-        let results = try coreDataStack.viewContext.fetch(request)
-        results.first?.setValue(photo.imageBinary, forKey: "imageBinary")
-
-        try coreDataStack.viewContext.save()
-    }
-
-    func removePhotoEntity(photo: PhotoUI) throws {
-        let request: NSFetchRequest<PhotoCD> = PhotoCD.fetchRequest()
-        request.predicate = NSPredicate(format: "name = %@", photo.name ?? "")
-
-        let results = try coreDataStack.viewContext.fetch(request)
-        coreDataStack.viewContext.delete(results.first ?? PhotoCD())
-        try coreDataStack.viewContext.save()
-    }
-
-    func getPloggingPhoto(owner: PloggingCD) throws -> [PhotoCD]? {
-        let request: NSFetchRequest<PhotoCD> = PhotoCD.fetchRequest()
-        request.predicate = NSPredicate(format: "owner = %@", owner)
-        return try coreDataStack.viewContext.fetch(request)
-    }
 }

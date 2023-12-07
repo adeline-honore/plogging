@@ -89,4 +89,17 @@ final class PloggingUITestCase: XCTestCase {
         let dateStringResult = PloggingUI().displayUIDateFromIntegerTimestamp(timestamp: 1697819040)
         XCTAssertEqual(dateStringResult, "2023 10 20, 18:24")
     }
+
+    func testPloggingInitFromPloggingUI() {
+        let ploggingUI: PloggingUI = PloggingUI(id: "EEZZ-000-24-JAAUG-WWWW574", admin: "userTest", beginningTimestamp: 1715938200, beginningString: "1715938200", place: "Porte de la Villette", latitude: 48.8975424, longitude: 2.3854289, isTakingPart: true, distance: 16, ploggers: ["adeline@email.fr"])
+
+        let plogging = Plogging(ploggingUI: ploggingUI)
+        XCTAssertEqual(plogging.id, "EEZZ-000-24-JAAUG-WWWW574")
+        XCTAssertEqual(plogging.admin, "userTest")
+        XCTAssertEqual(plogging.distance, 16)
+        XCTAssertEqual(plogging.latitude, 48.8975424)
+        XCTAssertEqual(plogging.longitude, 2.3854289)
+        XCTAssertEqual(plogging.place, "Porte de la Villette")
+        XCTAssertEqual(plogging.ploggers, ["adeline@email.fr"])
+    }
 }
