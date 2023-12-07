@@ -223,3 +223,68 @@ final class UIViewControllerTestCase: XCTestCase {
         UserDefaults.standard.set(userDefaultAppEmail, forKey: "emailAddress")
     }
 }
+
+final class PloggingDetailsViewTestCase: XCTestCase {
+
+    // Given
+    private var view: PloggingDetailsView!
+
+    private func initSUT(testCase: TestCase = .uiView) {
+        view = PloggingDetailsView()
+    }
+
+    override func tearDown() {
+        super.setUp()
+        view = nil
+    }
+
+    func testPloggingDetailsViewIsNotNil() {
+        // Given
+        initSUT()
+        // Then
+        XCTAssertNotNil(view)
+    }
+}
+
+final class CreatePloggingViewTestCase: XCTestCase {
+
+    // Given
+    private var view: CreatePloggingView!
+
+    private func initSUT(testCase: TestCase = .uiView) {
+        view = CreatePloggingView()
+    }
+
+    override func tearDown() {
+        super.setUp()
+        view = nil
+    }
+
+    func testCreatePloggingViewIsNotNil() {
+        // Given
+        initSUT()
+        // Then
+        XCTAssertNotNil(view)
+    }
+}
+final class ProfileViewTestCase: XCTestCase {
+
+    // Given
+    private var view: ProfileView!
+
+    private func initSUT(testCase: TestCase = .uiView) {
+        view = ProfileView()
+    }
+
+    override func tearDown() {
+        super.setUp()
+        view = nil
+    }
+
+    func testProfileViewIsNotNil() {
+        // Given
+        initSUT()
+        // Then
+        XCTAssertNotNil(view)
+    }
+}

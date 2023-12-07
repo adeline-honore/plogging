@@ -14,6 +14,7 @@ final class ImageTestCase: XCTestCase {
     private let newPloggingId = "newPloggingId"
     private var imageService: ImageService!
     private let mainImageBinary = Data()
+    private let icon = UIImage(imageLiteralResourceName: "icon")
 
     override func tearDown() {
         super.setUp()
@@ -54,6 +55,25 @@ final class ImageTestCase: XCTestCase {
             case .success:
                 // Then
                 expectation.fulfill()
+            case .failure:
+                XCTFail("It's not ok, test should returns success")
+            }
+        }
+        wait(for: [expectation], timeout: 0.1)
+    }
+
+    func testGetImageDataSuccessIcon() {
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        // Then
+        imageService.getImage(ploggingId: getImageId) { result in
+            switch result {
+            case .success(let image):
+                // Then
+                expectation.fulfill()
+                XCTAssertEqual(image.size, self.icon.size)
             case .failure:
                 XCTFail("It's not ok, test should returns success")
             }

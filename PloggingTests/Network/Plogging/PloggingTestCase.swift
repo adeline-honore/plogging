@@ -63,6 +63,20 @@ final class PloggingTestCase: XCTestCase {
         return plogging
     }
 
+    private func lastPlogging() -> Plogging {
+        var plogging: Plogging = Plogging()
+        plogging.admin = "unautreemail@lemail.fr"
+        plogging.id = "EEZZ-000-24-JAAUG-WWWW159"
+        plogging.beginning = 1706427560
+        plogging.distance = 20
+        plogging.latitude = 48.5911244
+        plogging.longitude = 2.2662103
+        plogging.place = "La Norville Saint-Germain lès Arpajon"
+        plogging.ploggers = ["unautreemail@lemail.fr", "anais@mail.com"]
+
+        return plogging
+    }
+
     // MARK: - Get Plogging List
 
     func testGetPloggingListShouldPostSuccess() throws {
@@ -182,6 +196,114 @@ final class PloggingTestCase: XCTestCase {
             switch result {
             case .success:
                 XCTAssertEqual(try? result.get().first?.place, self.ploggingToGet().place)
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should return failure")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testGetPloggingListPostSuccessOnLastPloggingPlace() {
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        // Then
+        ploggingService.getPloggingList { result in
+            switch result {
+            case .success:
+                XCTAssertEqual(try? result.get().last?.place, self.lastPlogging().place)
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should return failure")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testGetPloggingListPostSuccessOnLastPloggingAdmin() {
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        // Then
+        ploggingService.getPloggingList { result in
+            switch result {
+            case .success:
+                XCTAssertEqual(try? result.get().last?.admin, self.lastPlogging().admin)
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should return failure")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testGetPloggingListPostSuccessOnLastPloggingBeginning() {
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        // Then
+        ploggingService.getPloggingList { result in
+            switch result {
+            case .success:
+                XCTAssertEqual(try? result.get().last?.beginning, self.lastPlogging().beginning)
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should return failure")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testGetPloggingListPostSuccessOnLastPloggingId() {
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        // Then
+        ploggingService.getPloggingList { result in
+            switch result {
+            case .success:
+                XCTAssertEqual(try? result.get().last?.id, self.lastPlogging().id)
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should return failure")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testGetPloggingListPostSuccessOnLastPloggingPloggers() {
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        // Then
+        ploggingService.getPloggingList { result in
+            switch result {
+            case .success:
+                XCTAssertEqual(try? result.get().last?.ploggers, self.lastPlogging().ploggers)
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should return failure")
+            }
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testGetPloggingListPostSuccessOnLastPloggingDistance() {
+        // Given
+        initSUT()
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        // Then
+        ploggingService.getPloggingList { result in
+            switch result {
+            case .success:
+                XCTAssertEqual(try? result.get().last?.distance, self.lastPlogging().distance)
                 expectation.fulfill()
             case .failure:
                 XCTFail("Should return failure")

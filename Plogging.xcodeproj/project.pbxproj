@@ -37,6 +37,7 @@
 		09B5CC6A2B20584900D3BE15 /* PloggingDetailsViewControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B5CC692B20584900D3BE15 /* PloggingDetailsViewControllerTestCase.swift */; };
 		09B5CC6C2B210AB700D3BE15 /* PloggingUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B5CC6B2B210AB700D3BE15 /* PloggingUITestCase.swift */; };
 		09B5CC6E2B21193500D3BE15 /* CreatePloggingViewControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B5CC6D2B21193500D3BE15 /* CreatePloggingViewControllerTestCase.swift */; };
+		09B5CC722B21A27000D3BE15 /* OnboardingViewControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B5CC712B21A27000D3BE15 /* OnboardingViewControllerTestCase.swift */; };
 		09E408962B04A5A4003313A3 /* PloggingNetworkFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408952B04A5A4003313A3 /* PloggingNetworkFake.swift */; };
 		09E4089A2B055C56003313A3 /* PloggingAPINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E408992B055C56003313A3 /* PloggingAPINetwork.swift */; };
 		6E00AA202926434800798F03 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E00AA1F2926434800798F03 /* Extension+UIView.swift */; };
@@ -131,6 +132,7 @@
 		09B5CC692B20584900D3BE15 /* PloggingDetailsViewControllerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailsViewControllerTestCase.swift; sourceTree = "<group>"; };
 		09B5CC6B2B210AB700D3BE15 /* PloggingUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUITestCase.swift; sourceTree = "<group>"; };
 		09B5CC6D2B21193500D3BE15 /* CreatePloggingViewControllerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePloggingViewControllerTestCase.swift; sourceTree = "<group>"; };
+		09B5CC712B21A27000D3BE15 /* OnboardingViewControllerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerTestCase.swift; sourceTree = "<group>"; };
 		09E408952B04A5A4003313A3 /* PloggingNetworkFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingNetworkFake.swift; sourceTree = "<group>"; };
 		09E408992B055C56003313A3 /* PloggingAPINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingAPINetwork.swift; sourceTree = "<group>"; };
 		6E00AA1F2926434800798F03 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -233,8 +235,8 @@
 		092A6D5A2B1CDAD4006F2156 /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
-				09B5CC632B1FB6F700D3BE15 /* AuthentificationTestCase.swift */,
 				092A6D542B1CD7B5006F2156 /* AuthNetworkFake.swift */,
+				09B5CC632B1FB6F700D3BE15 /* AuthentificationTestCase.swift */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -248,6 +250,7 @@
 				09B5CC692B20584900D3BE15 /* PloggingDetailsViewControllerTestCase.swift */,
 				09B5CC6B2B210AB700D3BE15 /* PloggingUITestCase.swift */,
 				09B5CC6D2B21193500D3BE15 /* CreatePloggingViewControllerTestCase.swift */,
+				09B5CC712B21A27000D3BE15 /* OnboardingViewControllerTestCase.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				6E9040E42AE31064009A6E80 /* TestPloggingCoreDataManager.swift in Sources */,
 				09B5CC6A2B20584900D3BE15 /* PloggingDetailsViewControllerTestCase.swift in Sources */,
 				09B5CC682B20579900D3BE15 /* MapViewControllerTestCase.swift in Sources */,
+				09B5CC722B21A27000D3BE15 /* OnboardingViewControllerTestCase.swift in Sources */,
 				09B5CC6C2B210AB700D3BE15 /* PloggingUITestCase.swift in Sources */,
 				092A6D552B1CD7B5006F2156 /* AuthNetworkFake.swift in Sources */,
 				092A6D612B1CF538006F2156 /* UIViewTestCase.swift in Sources */,

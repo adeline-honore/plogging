@@ -32,6 +32,8 @@ class TestPloggingCoreDataManager: XCTestCase {
         return thisPloggingUI
     }()
 
+    private let icon = UIImage(imageLiteralResourceName: "icon")
+
     override func setUpWithError() throws {
         coreDataStack = TestCoreDataStack()
         coreDataManager = PloggingCoreDataManager(
@@ -126,4 +128,74 @@ class TestPloggingCoreDataManager: XCTestCase {
         }
     }
 
+    func testPloggingUIInitFromPloggingCDOnLongitudeValue() {
+        do {
+            try coreDataManager.createEntity(ploggingUI: ploggingUI)
+
+            let getPloggings = try coreDataManager.getEntities()
+            guard let firstPloggingCD = getPloggings.first else { return XCTFail("error, tests fails !")}
+            let ploggingUI: PloggingUI = PloggingUI(ploggingCD: firstPloggingCD, beginningInt: 1701123861, beginningString: "1701123861", isTakingPartUI: true, image: icon)
+
+        XCTAssertEqual(ploggingUI.longitude, 83.12345)
+        } catch {
+            XCTFail("error, tests fails !")
+        }
+    }
+
+    func testPloggingUIInitFromPloggingCDOnLatitudeValue() {
+        do {
+            try coreDataManager.createEntity(ploggingUI: ploggingUI)
+
+            let getPloggings = try coreDataManager.getEntities()
+            guard let firstPloggingCD = getPloggings.first else { return XCTFail("error, tests fails !")}
+            let ploggingUI: PloggingUI = PloggingUI(ploggingCD: firstPloggingCD, beginningInt: 1701123861, beginningString: "1701123861", isTakingPartUI: true, image: icon)
+
+        XCTAssertEqual(ploggingUI.latitude, 1.12345)
+        } catch {
+            XCTFail("error, tests fails !")
+        }
+    }
+
+    func testPloggingUIInitFromPloggingCDOnIdValue() {
+        do {
+            try coreDataManager.createEntity(ploggingUI: ploggingUI)
+
+            let getPloggings = try coreDataManager.getEntities()
+            guard let firstPloggingCD = getPloggings.first else { return XCTFail("error, tests fails !")}
+            let ploggingUI: PloggingUI = PloggingUI(ploggingCD: firstPloggingCD, beginningInt: 1701123861, beginningString: "1701123861", isTakingPartUI: true, image: icon)
+
+        XCTAssertEqual(ploggingUI.id, "thisPloggingId"
+)
+        } catch {
+            XCTFail("error, tests fails !")
+        }
+    }
+
+    func testPloggingUIInitFromPloggingCDOnAdminValue() {
+        do {
+            try coreDataManager.createEntity(ploggingUI: ploggingUI)
+
+            let getPloggings = try coreDataManager.getEntities()
+            guard let firstPloggingCD = getPloggings.first else { return XCTFail("error, tests fails !")}
+            let ploggingUI: PloggingUI = PloggingUI(ploggingCD: firstPloggingCD, beginningInt: 1701123861, beginningString: "1701123861", isTakingPartUI: true, image: icon)
+
+        XCTAssertEqual(ploggingUI.admin, "him-self")
+        } catch {
+            XCTFail("error, tests fails !")
+        }
+    }
+
+    func testPloggingUIInitFromPloggingCDOnDistanceValue() {
+        do {
+            try coreDataManager.createEntity(ploggingUI: ploggingUI)
+
+            let getPloggings = try coreDataManager.getEntities()
+            guard let firstPloggingCD = getPloggings.first else { return XCTFail("error, tests fails !")}
+            let ploggingUI: PloggingUI = PloggingUI(ploggingCD: firstPloggingCD, beginningInt: 1701123861, beginningString: "1701123861", isTakingPartUI: true, image: icon)
+
+        XCTAssertEqual(ploggingUI.distance, 12)
+        } catch {
+            XCTFail("error, tests fails !")
+        }
+    }
 }
